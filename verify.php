@@ -25,52 +25,63 @@ if (isset($_POST['email_code'])) {
     } else {
         // Handle incorrect OTP entry
         echo "Incorrect verification code. Please try again.";
+        ?>
+        <?php
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
- 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Verification</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
     <style>
         body {
+            font-family: Arial, sans-serif;
             background-color: #f8f9fa;
         }
 
         .container {
-            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         .card {
+            width: 400px;
             border: none;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 40px;
         }
 
         .card-title {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
             color: #333;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        .form-control {
-            border-radius: 5px;
+        .lead {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
         }
 
         .btn-primary {
             background-color: #007bff;
             border: none;
             border-radius: 5px;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
         }
 
         .btn-primary:hover {
@@ -81,67 +92,77 @@ if (isset($_POST['email_code'])) {
             background-color: #dc3545;
             border: none;
             border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
         }
 
         .btn-danger:hover {
             background-color: #c82333;
         }
+
+        .resend-link {
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .resend-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+        }
     </style>
 </head>
-
 <body>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title text-center mb-4">Email Verification</h2>
-
-                        <?php if (isset($_SESSION['name'])) : ?>
-                            <div class="alert alert-info" role="alert">
-                                Welcome <strong><?php echo $_SESSION['name']; ?></strong>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Email Verification</h2>
+                <div class="text-center mb-4">
+                    <?php if (isset($_SESSION['name'])) : ?>
+                        <div class="alert alert-info" role="alert">
+                            Welcome <strong><?php echo $_SESSION['name']; ?></strong>
+                        </div>
+                    <?php endif ?>
+                    <p class="lead">Your Name: <?php echo $user['name'] ?></p>
+                    <p class="lead">Your Phone Number: <?php echo $user['phoneNumber'] ?></p>
+                    <?php if ($user['emailVerify'] == 1) : ?>
+                        <div class="alert alert-success" role="alert">
+                            Your email is already verified.
+                        </div>
+                    <?php endif ?>
+                    <?php if (isset($_SESSION['success'])) : ?>
+                        <div class="alert alert-success" role="alert">
+                            <strong><?php echo $_SESSION['success']; ?></strong>
+                        </div>
+                    <?php endif ?>
+                    <?php if ($user['emailVerify'] != 1) : ?>
+                        <form method="post">
+                            <div class="mb-3">
+                                <label for="verificationCode" class="form-label">Enter verification code</label>
+                                <input type="text" id="verificationCode" name="code" class="form-control" placeholder="Verification code">
                             </div>
-                        <?php endif ?>
-
-                        <p class="lead">Your Name: <?php echo $user['name'] ?> </p>
-                        <p class="lead">Your Phone Number: <?php echo $user['phoneNumber'] ?> </p>
-
-                        <?php if ($user['emailVerify'] == 1) : ?>
-                            <div class="alert alert-success" role="alert">
-                                Your email is already verified.
-                            </div>
-                        <?php endif ?>
-
-                        <?php if (isset($_SESSION['success'])) : ?>
-                            <div class="alert alert-success" role="alert">
-                                <strong><?php echo $_SESSION['success']; ?></strong>
-                            </div>
-                        <?php endif ?>
-
-                        <?php if ($user['emailVerify'] != 1) : ?>
-                            <form method="post">
-                                <div class="mb-3">
-                                    <label for="verificationCode" class="form-label">Enter verification code</label>
-                                    <input type="text" id="verificationCode" name="code" class="form-control" placeholder="Verification code">
-                                </div>
-                                <button type="submit" name="email_code" class="btn btn-primary btn-block">Verify Email</button>
-                            </form>
-                        <?php endif ?>
-
-                        <hr>
-
-                        <p><a href="email.php">Resend OTP</a></p>
-
-                        <a href="welcome.php?logout='1'" class="btn btn-danger btn-block">Logout</a>
-                    </div>
+                            <button type="submit" name="email_code" class="btn btn-primary">Verify Email</button>
+                        </form>
+                        <p class="mt-3">Didn't receive the code? <a href="email.php" class="resend-link">Resend OTP</a></p>
+                    <?php endif ?>
                 </div>
+                <hr>
+                <a href="welcome.php?logout='1'" class="btn btn-danger">Logout</a>
             </div>
         </div>
     </div>
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
