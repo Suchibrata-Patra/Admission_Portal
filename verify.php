@@ -24,9 +24,9 @@ if (isset($_POST['email_code'])) {
         }
     } else {
         // Handle incorrect OTP entry
-        echo "Incorrect verification code. Please try again.";
-        ?>
-        <?php
+        // No need to echo "Incorrect verification code. Please try again.";
+        // Just display the red text beside the verification code input box
+        $wrongOTPMessage = "Wrong OTP";
     }
 }
 ?>
@@ -113,14 +113,10 @@ if (isset($_POST['email_code'])) {
             text-decoration: underline;
         }
 
-        .alert-danger {
-            color: #721c24;
-            background-color: #f8d7da;
-            border-color: #f5c6cb;
-            padding: 0.75rem 1.25rem;
-            margin-bottom: 1rem;
-            border: 1px solid transparent;
-            border-radius: 0.25rem;
+        .wrong-otp {
+            color: #dc3545; /* Red color for wrong OTP message */
+            font-size: 14px;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -152,6 +148,9 @@ if (isset($_POST['email_code'])) {
                             <div class="mb-3">
                                 <label for="verificationCode" class="form-label">Enter verification code</label>
                                 <input type="text" id="verificationCode" name="code" class="form-control" placeholder="Verification code">
+                                <?php if (isset($wrongOTPMessage)) : ?>
+                                    <span class="wrong-otp"><?php echo $wrongOTPMessage; ?></span>
+                                <?php endif ?>
                             </div>
                             <button type="submit" name="email_code" class="btn btn-primary">Verify Email</button>
                         </form>
@@ -166,3 +165,4 @@ if (isset($_POST['email_code'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
