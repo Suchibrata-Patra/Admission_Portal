@@ -1,14 +1,16 @@
 <?php 
 
-require 'session.php';
+require 'Project/session.php';
 
 // echo $user['fname'];
 
     if ($user['numberVerify'] == 0) {
-      header('location: verify.php');
+      header('location: Project/verify.php');
     } 
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,24 +26,24 @@ require 'session.php';
   }
 
   .header {
-    background-color: #333333;
-    color: #ffffff;
-    text-align: center;
-    padding: 20px 0;
+    background-color: WHITE;
+    color: BLACK;
+    text-align: right;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .container {
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 20px;
   }
 
   .tabs {
     display: flex;
-    justify-content: space-around;
+    overflow-x: auto;
     border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 10px;
   }
 
   .tab {
@@ -61,6 +63,9 @@ require 'session.php';
 
   .content {
     padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   }
 
   .info {
@@ -74,13 +79,16 @@ require 'session.php';
   }
 
   .logout {
-    color: red;
+    color: White;
+    background-color:RED;
+    padding:7px;
+    border-radius:5px;
     text-decoration: none;
-    transition: color 0.3s ease;
   }
 
   .logout:hover {
-    color: darkred;
+    background-color:Yellow;
+    color: Black;
   }
 
   .tab-content {
@@ -90,27 +98,34 @@ require 'session.php';
   .tab-content.active {
     display: block;
   }
+
+  @media screen and (max-width: 600px) {
+    .tabs {
+      flex-wrap: nowrap;
+    }
+  }
 </style>
 </head>
 <body>
 <div class="header">
-  <h2>Welcome <?php echo $user['fname']; ?></h2>
-  <a href="welcome.php?logout='1'" class="logout">Logout</a>
+  <h2 style="margin: 0;">Welcome <?php echo $user['fname']; ?></h2>
+  <a href="Project/welcome.php?logout='1'" class="logout">Logout</a>
 </div>
 <div class="container">
   <div class="tabs">
-    <div class="tab" onclick="openTab('address-details')">Address Details</div>
-    <div class="tab" onclick="openTab('mars-details')">Mars Details</div>
+    <div class="tab" onclick="openTab('student-details')">Student Details</div>
+    <div class="tab" onclick="openTab('marks-details')">Marks Details</div>
     <div class="tab" onclick="openTab('file-upload')">File Upload</div>
   </div>
-  <div id="address-details" class="tab-content active">
+  <div id="-details" class="tab-content active">
     <div class="content">
       <p class="info"><?php if ($user['emailVerify'] == 1) : ?><span class="success">This email is verified!</span><?php endif ?></p>
       <!-- Add address details content here -->
     </div>
   </div>
-  <div id="mars-details" class="tab-content">
+  <div id="marks-details" class="tab-content">
     <div class="content">
+      <div>fhkdhdfj</div>
       <!-- Add mars details content here -->
     </div>
   </div>

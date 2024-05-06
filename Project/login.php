@@ -16,7 +16,7 @@ if (isset($_POST['login_user'])) {
   }
 
   if (count($errors) == 0) {
-    $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    $query = "SELECT * FROM student_details WHERE email='$email' AND password='$password'";
     $results = mysqli_query($db, $query);
     
     if (mysqli_num_rows($results) == 1) {
@@ -62,6 +62,7 @@ if (isset($_POST['login_user'])) {
               <input type="password" name="password" class="form-control" id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-primary" name="login_user">Submit</button>
+            <a href="signup.php">New Here ? Signup</a>
           </form>
         </div>
       </div>

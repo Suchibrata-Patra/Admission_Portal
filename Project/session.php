@@ -1,7 +1,7 @@
 <?php
   session_start(); 
 
-  require_once "database.php";
+  require_once "Project/database.php";
 
   if (!isset($_SESSION['email'])) {
   echo  $_SESSION['msg'] = "You must log in first";
@@ -14,7 +14,7 @@
   }
 
   $email = $_SESSION['email'];
-    $query = "SELECT * FROM users WHERE email='$email'";
+    $query = "SELECT * FROM student_details WHERE email='$email'";
     $results = mysqli_query($db, $query);
     $user = mysqli_fetch_assoc($results);
 ?>

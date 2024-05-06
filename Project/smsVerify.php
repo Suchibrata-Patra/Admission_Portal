@@ -16,7 +16,7 @@ $message = $client->message()->send([
   $_SESSION['success'] = "Code has been sent to your Number";
 
   $user_id = $user['id'];
-  $query = "UPDATE users SET numberVerify = $rand WHERE id = '$user_id'";
+  $query = "UPDATE student_details SET numberVerify = $rand WHERE id = '$user_id'";
   $results = mysqli_query($db, $query);
   header('location: verify.php');
 ?>

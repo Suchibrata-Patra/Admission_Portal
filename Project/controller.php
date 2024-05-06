@@ -1,5 +1,5 @@
 <?php
- include_once 'database.php';
+ include_once 'Project/database.php';
 
 session_start();
 
@@ -62,7 +62,7 @@ if (isset($_POST['reg_user'])) {
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM users WHERE email='$email' LIMIT 1";
+  $user_check_query = "SELECT * FROM student_details WHERE email='$email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
@@ -81,7 +81,7 @@ if (isset($_POST['reg_user'])) {
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
     // $passwordHash = md5($password);//encrypt the password before saving in the database
-    $query = "INSERT INTO users (fname, lname, email, phoneNumber, dob, terms, password) 
+    $query = "INSERT INTO student_details (fname, lname, email, phoneNumber, dob, terms, password) 
     VALUES ('$fname','$lname','$email','$phoneNumber','$dob','$terms','$password')";
     mysqli_query($db, $query);
 

@@ -1,11 +1,11 @@
 <?php 
-require 'session.php';
-require 'database.php';
+require 'Project/session.php';
+require 'Project/database.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once "vendor/autoload.php";
+require_once "Project/vendor/autoload.php";
 $rand = rand(999999, 100000);
 $mail = new PHPMailer(true);
 
@@ -28,7 +28,7 @@ $mail->Port = 465;
 $mail->From = "otpverifier.2023@gmail.com";
 $mail->FromName = "No Reply";
 
-$mail->addAddress($user['email'], $user['fname']);
+$mail->addAddress($student_details['email'], $student_details['fname']);
 
 $mail->Subject = "Verification Code";
 
@@ -129,10 +129,10 @@ try {
     $_SESSION['codeSend'] = 1;
     $_SESSION['success'] = "Code has been sent to your email";
 
-    $user_id = $user['id'];
-    $query = "UPDATE users SET emailVerify= $rand WHERE id ='$user_id'";
+    $user_id = $student_details['id'];
+    $query = "UPDATE student_details SET emailVerify= $rand WHERE id ='$user_id'";
     $results = mysqli_query($db, $query);
-    header('location: verify.php');
+    header('location: Project/verify.php');
 } catch (Exception $e) {
      "Mailer Error: " . $mail->ErrorInfo;
      echo "Mail is not reachable!";

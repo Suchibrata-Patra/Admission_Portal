@@ -11,12 +11,12 @@ if (isset($_POST['email_code'])) {
     if ($entered_code == $email_verify) {
         // Update the Numberverify column to 1
         $user_id = $user['id'];
-        $query = "UPDATE users SET Numberverify = 1 WHERE id = '$user_id'";
+        $query = "UPDATE student_details SET Numberverify = 1 WHERE id = '$user_id'";
         $results = mysqli_query($db, $query);
 
         if ($results) {
             // Redirect to a success page or do something else
-            header('location: welcome.php');
+            header('location: Project/welcome.php');
             exit();
         } else {
             // Handle database error
@@ -154,11 +154,11 @@ if (isset($_POST['email_code'])) {
                             </div>
                             <button type="submit" name="email_code" class="btn btn-primary">Verify Email</button>
                         </form>
-                        <p class="mt-3">Didn't receive the code? <a href="email.php" class="resend-link">Resend OTP</a></p>
+                        <p class="mt-3">Didn't receive the code? <a href="Project/email.php" class="resend-link">Resend OTP</a></p>
                     <?php endif ?>
                 </div>
                 <hr>
-                <a href="welcome.php?logout='1'" class="btn btn-danger">Logout</a>
+                <a href="Project/welcome.php?logout='1'" class="btn btn-danger">Logout</a>
             </div>
         </div>
     </div>
