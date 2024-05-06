@@ -1,5 +1,5 @@
 <?php
- include_once 'Project/database.php';
+ include_once 'database.php';
 
 session_start();
 
@@ -94,4 +94,3 @@ if (isset($_POST['reg_user'])) {
 // ... 
 
 ?>
-

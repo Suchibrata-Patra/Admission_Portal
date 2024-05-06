@@ -1,168 +1,88 @@
 <?php
 require 'session.php';
-if ($user['numberVerify'] == 1) {
-  header('location: welcome.php');
-} 
 
-if (isset($_POST['email_code'])) {
-    $entered_code = $_POST['code'];
-    $email_verify = $user['emailVerify']; // Assuming you have stored the email verification status in the $user array
-
-    if ($entered_code == $email_verify) {
-        // Update the Numberverify column to 1
+// Handle form submission for email verification
+if(isset($_POST['email_code'])) {
+    if($user['emailVerify'] == $_POST['code']) {
         $user_id = $user['id'];
-        $query = "UPDATE student_details SET Numberverify = 1 WHERE id = '$user_id'";
+        $query = "UPDATE student_details SET numberVerify = 1, emailVerify = 1 WHERE id = '$user_id'";
         $results = mysqli_query($db, $query);
-
-        if ($results) {
-            // Redirect to a success page or do something else
-            header('location: Project/welcome.php');
-            exit();
-        } else {
-            // Handle database error
-            echo "Error updating Numberverify column.";
-        }
-    } else {
-        // Handle incorrect OTP entry
-        // No need to echo "Incorrect verification code. Please try again.";
-        // Just display the red text beside the verification code input box
-        $wrongOTPMessage = "Wrong OTP";
+        unset($_SESSION['codeSend']);
+        header('location: welcome.php');
     }
 }
+
+// Handle edit option
+if(isset($_POST['edit'])) {
+    // Delete user information from the database
+    $user_id = $user['id'];
+    $query = "DELETE FROM student_details WHERE id = '$user_id'";
+    mysqli_query($db, $query);
+
+    // Redirect to signup page for entering new details
+    header('location: signup.php');
+    exit(); // Ensure script stops here
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Verification</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Verification</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            padding-top: 3rem;
             background-color: #f8f9fa;
         }
-
         .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            max-width: 600px;
+            margin: 0 auto;
         }
-
-        .card {
-            width: 400px;
-            border: none;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-body {
-            padding: 40px;
-        }
-
-        .card-title {
-            font-size: 28px;
-            font-weight: bold;
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .lead {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 10px;
-        }
-
-        .btn-primary {
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            width: 100%;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
-
-        .btn-danger {
-            background-color: #dc3545;
-            border: none;
-            border-radius: 5px;
-            width: 100%;
-            margin-top: 10px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-danger:hover {
-            background-color: #c82333;
-        }
-
-        .resend-link {
-            font-size: 16px;
-            color: #007bff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .resend-link:hover {
-            color: #0056b3;
-            text-decoration: underline;
-        }
-
-        .wrong-otp {
-            color: #dc3545; /* Red color for wrong OTP message */
-            font-size: 14px;
-            margin-top: 5px;
+        .error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <h2 class="card-title">Email Verification</h2>
-                <div class="text-center mb-4">
-                    <?php if (isset($_SESSION['name'])) : ?>
-                        <div class="alert alert-info" role="alert">
-                            Welcome <strong><?php echo $_SESSION['name']; ?></strong>
-                        </div>
-                    <?php endif ?>
-                    <p class="lead">Your Name: <?php echo $user['name'] ?></p>
-                    <p class="lead">Your Phone Number: <?php echo $user['phoneNumber'] ?></p>
-                    <?php if ($user['emailVerify'] == 1) : ?>
-                        <div class="alert alert-success" role="alert">
-                            Your email is already verified.
-                        </div>
-                    <?php endif ?>
-                    <?php if (isset($_SESSION['success'])) : ?>
-                        <div class="alert alert-success" role="alert">
-                            <strong><?php echo $_SESSION['success']; ?></strong>
-                        </div>
-                    <?php endif ?>
-                    <?php if ($user['emailVerify'] != 1) : ?>
-                        <form method="post">
-                            <div class="mb-3">
-                                <label for="verificationCode" class="form-label">Enter verification code</label>
-                                <input type="text" id="verificationCode" name="code" class="form-control" placeholder="Verification code">
-                                <?php if (isset($wrongOTPMessage)) : ?>
-                                    <span class="wrong-otp"><?php echo $wrongOTPMessage; ?></span>
-                                <?php endif ?>
-                            </div>
-                            <button type="submit" name="email_code" class="btn btn-primary">Verify Email</button>
-                        </form>
-                        <p class="mt-3">Didn't receive the code? <a href="Project/email.php" class="resend-link">Resend OTP</a></p>
-                    <?php endif ?>
-                </div>
-                <hr>
-                <a href="Project/welcome.php?logout='1'" class="btn btn-danger">Logout</a>
-            </div>
+<div class="container">
+    <?php if (isset($_SESSION['email'])) : ?>
+        <p>Welcome, <strong><?php echo $_SESSION['email']; ?></strong></p>
+    <?php endif ?>
+    <a href="welcome.php?logout='1'" style="color: red;">Logout</a>
+    <p>Your Email: <?php echo $user['email'] ?></p>
+    <p>Your Phone Number: <?php echo $user['phoneNumber'] ?></p>
+
+    <?php if ($user['numberVerify'] == 1 && $user['emailVerify'] == 1) {
+        header('location: welcome.php');
+    } ?>
+
+
+    <a href="email.php" class="btn btn-success">Send Verification Email</a>
+
+    <?php if (isset($_SESSION['codeSend'])) : ?>
+        <div>
+            <form class="form-group" method="post">
+                <input type="text" name="code" class="form-control" placeholder="Enter your verification code">
+                <button type="submit" name="email_code" class="btn btn-success mt-2">Submit</button>
+            </form>
         </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <?php endif ?>
+
+    <!-- Edit button to delete user information -->
+    <form method="post" class="mt-3">
+        <button type="submit" name="edit" class="btn btn-danger">Edit Details</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

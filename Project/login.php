@@ -1,6 +1,8 @@
 <?php
-session_start();
+session_start(); // Move session_start() to the top
 include 'database.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 $errors = array();
 // LOGIN USER
@@ -22,8 +24,10 @@ if (isset($_POST['login_user'])) {
     if (mysqli_num_rows($results) == 1) {
        $_SESSION['email'] = $email;
        $_SESSION['success'] = "You are now logged in";
-      header('location: welcome.php');
-    }else {
+       // Redirect only if there are no errors
+       header('location: welcome.php');
+       exit(); // Ensure that no further code is executed after the redirect
+    } else {
       array_push($errors, "Wrong username/password combination");
     }
   }

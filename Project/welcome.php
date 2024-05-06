@@ -1,11 +1,10 @@
 <?php 
-
-require 'Project/session.php';
+require 'session.php';
 
 // echo $user['fname'];
 
     if ($user['numberVerify'] == 0) {
-      header('location: Project/verify.php');
+      header('location: verify.php');
     } 
 
 ?>
@@ -109,7 +108,7 @@ require 'Project/session.php';
 <body>
 <div class="header">
   <h2 style="margin: 0;">Welcome <?php echo $user['fname']; ?></h2>
-  <a href="Project/welcome.php?logout='1'" class="logout">Logout</a>
+  <a href="welcome.php?logout='1'" class="logout">Logout</a>
 </div>
 <div class="container">
   <div class="tabs">
