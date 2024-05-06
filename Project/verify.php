@@ -120,14 +120,27 @@ if (isset($_POST['edit'])) {
                 </div>
             </form>
 
-            <button type="button" onclick="window.location.href='email.php';" class="btn btn-primary">Resend Code</button>
+            <!-- Modified button with onclick event to trigger email resend -->
+            <button type="button" onclick="resendEmail();" class="btn btn-primary">Resend Code</button>
+
+            <!-- Your existing button for editing contact information -->
             <button type="submit" name="edit" class="btn btn-primary">Edit Contact Information</button>
-            <form method="post">
-            </form>
+
+            <!-- Empty form for proper HTML structure -->
+            <form method="post"></form>
         </div>
         <p class="footer">Need help? Contact support</p>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Function to trigger email resend
+        function resendEmail() {
+            // Use AJAX to send a request to a PHP script that handles email resend
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'resend_email.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.send();
+        }
+    </script>
 </body>
 </html>
