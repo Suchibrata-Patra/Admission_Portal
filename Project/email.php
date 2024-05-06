@@ -68,7 +68,7 @@ $mail->Body = "
             margin-bottom: 20px;
         }
         strong {
-            color: #007bff;
+            color: #FF5A5F;
         }
         .footer {
             margin-top: 30px;

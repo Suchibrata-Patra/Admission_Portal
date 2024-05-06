@@ -54,7 +54,7 @@ if (isset($_POST['edit'])) {
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         h2 {
-            color: #FF5A5F; /* Airbnb's coral red */
+            color: Black; /* Airbnb's coral red */
             font-weight: 600;
             text-align: center;
         }
@@ -93,6 +93,10 @@ if (isset($_POST['edit'])) {
             font-size: 0.8em;
             color: #95a5a6;
         }
+        .btn:hover {
+    background-color:#ed4c51;
+}
+
     </style>
 </head>
 <body>
@@ -111,7 +115,7 @@ if (isset($_POST['edit'])) {
 
             <form method="post">
                 <div class="input-group mb-3">
-                    <input type="text" name="code" class="form-control" placeholder="Enter your verification code" required>
+                    <input type="text" name="code" class="form-control" placeholder="Enter a code sent to your email" required>
                     <button type="submit" name="email_code" class="btn btn-primary" style="margin-top:0px;padding-left:20px;padding-right:20px;">Verify</button>
                 </div>
             </form>
