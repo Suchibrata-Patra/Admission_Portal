@@ -1,12 +1,6 @@
 <?php
 require 'session.php';
 
-// Check if the user has already completed the verification process
-if ($user['emailVerify'] == 1) {
-    header('location: welcome.php'); // Redirect to welcome page if already verified
-    exit();
-}
-
 // Handle form submission for email verification
 if (isset($_POST['email_code'])) {
     if ($user['emailVerify'] == $_POST['code']) {
@@ -14,8 +8,7 @@ if (isset($_POST['email_code'])) {
         $query = "UPDATE student_details SET numberVerify = 1, emailVerify = 1 WHERE id = '$user_id'";
         $results = mysqli_query($db, $query);
         unset($_SESSION['codeSend']);
-        header('location: welcome.php'); // Redirect to welcome page after successful verification
-        exit();
+        header('location: welcome.php');
     } else {
         $error_message = "Incorrect verification code. Please try again.";
     }
@@ -32,12 +25,10 @@ if (isset($_POST['edit'])) {
     $user_id = $user['id'];
     $query = "DELETE FROM student_details WHERE id = '$user_id'";
     mysqli_query($db, $query);
-
     header('location: signup.php');
     exit(); // Ensure script stops here
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
