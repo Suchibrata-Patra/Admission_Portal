@@ -1,6 +1,12 @@
 <?php
 require 'session.php';
 
+// Check if the user has already completed the verification process
+if ($user['emailVerify'] == 1) {
+    header('location: welcome.php'); // Redirect to welcome page if already verified
+    exit();
+}
+
 // Handle form submission for email verification
 if (isset($_POST['email_code'])) {
     if ($user['emailVerify'] == $_POST['code']) {
@@ -8,7 +14,8 @@ if (isset($_POST['email_code'])) {
         $query = "UPDATE student_details SET numberVerify = 1, emailVerify = 1 WHERE id = '$user_id'";
         $results = mysqli_query($db, $query);
         unset($_SESSION['codeSend']);
-        header('location: welcome.php');
+        header('location: welcome.php'); // Redirect to welcome page after successful verification
+        exit();
     } else {
         $error_message = "Incorrect verification code. Please try again.";
     }
@@ -30,6 +37,7 @@ if (isset($_POST['edit'])) {
     exit(); // Ensure script stops here
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -121,7 +129,7 @@ if (isset($_POST['edit'])) {
             </form>
 
             <!-- Modified button with onclick event to trigger email resend -->
-            <button type="button" onclick="resendEmail();" class="btn btn-primary">Resend Code</button>
+            <button type="button" onclick="resendEmail();" id="resendButton" class="btn btn-primary">Send OTP</button>
 
             <!-- Your existing button for editing contact information -->
             <button type="submit" name="edit" class="btn btn-primary">Edit Contact Information</button>
@@ -137,8 +145,13 @@ if (isset($_POST['edit'])) {
         function resendEmail() {
             // Use AJAX to send a request to a PHP script that handles email resend
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'resend_email.php', true);
+            xhr.open('POST', 'email.php', true);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    document.getElementById("resendButton").innerText = "OTP Sent!";
+                }
+            };
             xhr.send();
         }
     </script>
