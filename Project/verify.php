@@ -11,6 +11,11 @@ if(isset($_POST['email_code'])) {
         header('location: welcome.php');
     }
 }
+$user_id = $user['id'];
+$name_query = "SELECT fname FROM student_details WHERE id = '$user_id'";
+$results = mysqli_query($db, $name_query);
+$row = mysqli_fetch_assoc($results);
+$student_name = $row['fname'];
 
 // Handle edit option
 if(isset($_POST['edit'])) {
@@ -23,9 +28,7 @@ if(isset($_POST['edit'])) {
     header('location: signup.php');
     exit(); // Ensure script stops here
 }
-?>
-
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -36,6 +39,7 @@ if(isset($_POST['edit'])) {
         body {
             padding-top: 3rem;
             background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
         }
         .container {
             max-width: 600px;
@@ -50,39 +54,66 @@ if(isset($_POST['edit'])) {
             border: 1px solid transparent;
             border-radius: 0.25rem;
         }
+        .message {
+            margin-top: 1rem;
+            color: #6c757d;
+        }
+        .btn {
+            min-width: 150px;
+        }
     </style>
 </head>
 <body>
 <div class="container">
-    <?php if (isset($_SESSION['email'])) : ?>
-        <p>Welcome, <strong><?php echo $_SESSION['email']; ?></strong></p>
-    <?php endif ?>
+<?php if (isset($_SESSION['email'])) : ?>
+    <p>Welcome, <strong><?php echo $student_name; ?></strong></p>
+<?php endif ?>
     <a href="welcome.php?logout='1'" style="color: red;">Logout</a>
-    <p>Your Email: <?php echo $user['email'] ?></p>
-    <p>Your Phone Number: <?php echo $user['phoneNumber'] ?></p>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="mb-3">Your Email: <?php echo $user['email'] ?></p>
+            <p class="mb-3">Your Phone Number: <?php echo $user['phoneNumber'] ?></p>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end align-items-center">
+            <!-- Edit button to delete user information -->
+            <form method="post">
+                <button type="submit" name="edit" class="btn btn-warning light">Edit Details</button>
+            </form>
+        </div>
+    </div>
 
     <?php if ($user['numberVerify'] == 1 && $user['emailVerify'] == 1) {
         header('location: welcome.php');
     } ?>
 
+    <div class="container">
+    <!-- Your existing content -->
 
-    <a href="email.php" class="btn btn-success">Send Verification Email</a>
-
-    <?php if (isset($_SESSION['codeSend'])) : ?>
-        <div>
+    <!-- Styled div -->
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Verification Code</h5>
             <form class="form-group" method="post">
-                <input type="text" name="code" class="form-control" placeholder="Enter your verification code">
-                <button type="submit" name="email_code" class="btn btn-success mt-2">Submit</button>
+                <input type="text" name="code" class="form-control mb-2" placeholder="Enter your verification code">
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" name="email_code" class="btn btn-dark btn-block">Submit</button>
+                    </div>
+                    <div class="col">
+                        <a href="email.php" class="btn btn-info btn-block">Send Verification Email</a>        
+                    </div>
+                </div>
             </form>
         </div>
-    <?php endif ?>
+    </div>
+</div>
 
-    <!-- Edit button to delete user information -->
-    <form method="post" class="mt-3">
-        <button type="submit" name="edit" class="btn btn-danger">Edit Details</button>
-    </form>
+
+    <!-- Message indicating details cannot be changed after verification -->
+    <p class="message">Once verification is completed, login details cannot be changed.</p>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
