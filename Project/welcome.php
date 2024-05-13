@@ -6,144 +6,162 @@ require 'session.php';
     if ($user['numberVerify'] == 0) {
       header('location: verify.php');
     } 
+ $query = "SELECT * FROM student_details WHERE email='$email'";
+ $results = mysqli_query($db, $query);
+ $user = mysqli_fetch_assoc($results);
 
-?>
+ //  echo $user['lname']; 
+ ?>
+ 
 
 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Welcome</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
 
-  .header {
-    background-color: WHITE;
-    color: BLACK;
-    text-align: right;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+        .header {
+            background-color: white;
+            color: black;
+            text-align: right;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-  .container {
-    margin: 20px;
-  }
+        .container {
+            margin: 20px;
+        }
 
-  .tabs {
-    display: flex;
-    overflow-x: auto;
-    border-bottom: 2px solid #e0e0e0;
-    margin-bottom: 10px;
-  }
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-  .tab {
-    padding: 15px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+        .row {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
 
-  .tab:hover {
-    background-color: #f5f5f5;
-  }
+        .col-xs-6 {
+            width: 50%;
+            float: left;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
 
-  .active {
-    background-color: #e0e0e0;
-    font-weight: bold;
-  }
+        .tab-content {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
 
-  .content {
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  }
+        .logout {
+            color: white;
+            background-color: red;
+            padding: 7px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
 
-  .info {
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: #333333;
-  }
-
-  .success {
-    color: green;
-  }
-
-  .logout {
-    color: White;
-    background-color:RED;
-    padding:7px;
-    border-radius:5px;
-    text-decoration: none;
-  }
-
-  .logout:hover {
-    background-color:Yellow;
-    color: Black;
-  }
-
-  .tab-content {
-    display: none;
-  }
-
-  .tab-content.active {
-    display: block;
-  }
-
-  @media screen and (max-width: 600px) {
-    .tabs {
-      flex-wrap: nowrap;
-    }
-  }
-</style>
+        .logout:hover {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
 </head>
 <body>
-<div class="header">
-  <h2 style="margin: 0;">Welcome <?php echo $user['fname']; ?></h2>
-  <a href="welcome.php?logout='1'" class="logout">Logout</a>
-</div>
-<div class="container">
-  <div class="tabs">
-    <div class="tab" onclick="openTab('student-details')">Student Details</div>
-    <div class="tab" onclick="openTab('marks-details')">Marks Details</div>
-    <div class="tab" onclick="openTab('file-upload')">File Upload</div>
-  </div>
-  <div id="-details" class="tab-content active">
-    <div class="content">
-      <p class="info"><?php if ($user['emailVerify'] == 1) : ?><span class="success">This email is verified!</span><?php endif ?></p>
-      <!-- Add address details content here -->
+    <div class="header">
+        <h2 style="margin: 0">
+            Welcome <?php echo $user['fname']; ?>
+        </h2>
+        <a href="welcome.php?logout='1'" class="logout">Logout</a>
     </div>
-  </div>
-  <div id="marks-details" class="tab-content">
-    <div class="content">
-      <div>fhkdhdfj</div>
-      <!-- Add mars details content here -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <ul class="nav nav-pills card-header-pills">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Student Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Marks Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">File Upload</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Final Submission</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xs-6 form-group">
+                                <label>Name</label>
+                                <input class="form-control" type="text" value="<?php echo $user['fname'] . ' ' . $user['lname']; ?>" disabled/>
+                            </div>
+                            <div class="col-xs-6 form-group">
+                                <label>Email ID</label>
+                                <input class="form-control" type="text" value="<?php echo $user['email']; ?>" disabled/>
+                            </div>
+                            <div class="col-xs-6 form-group">
+                                <label>Mobile No</label>
+                                <input class="form-control" type="text" value="<?php echo $user['phoneNumber']; ?>" disabled/>
+                            </div>
+                            <div class="col-xs-6 form-group">
+                                <label>Date of Birth</label>
+                                <input class="form-control" type="text" value="<?php echo $formatted_dob; ?>" disabled/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 form-group">
+                                <label>Label4</label>
+                                <input class="form-control" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div id="file-upload" class="tab-content">
-    <div class="content">
-      <!-- Add file upload content here -->
-    </div>
-  </div>
-</div>
 
-<script>
-  function openTab(tabName) {
-    var i, tabContent;
-    tabContent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabContent.length; i++) {
-      tabContent[i].classList.remove("active");
-    }
-    document.getElementById(tabName).classList.add("active");
-  }
-</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

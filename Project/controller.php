@@ -20,6 +20,7 @@ if (isset($_POST['reg_user'])) {
   $phoneNumber = mysqli_real_escape_string($db, $_POST['phoneNumber']);
   $dob = mysqli_real_escape_string($db, $_POST['dob']);
   $terms = mysqli_real_escape_string($db, $_POST['terms']);
+  $reg_no = mysqli_real_escape_string($db, $_POST['reg_no']);
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
@@ -72,6 +73,19 @@ if (isset($_POST['reg_user'])) {
       header("location: signup.php?error=Email already exists");
     }
   }
+  
+  if ($user) { // if user exists
+    if ($user['reg_np'] === $reg_no) {
+      array_push($errors, "Registration No is already Registered.");
+      header("location: signup.php?error=Registration No is already Registered.");
+    }
+  }
+  if ($user) { // if user exists
+    if ($user['phoneNumber'] === $phoneNumber) {
+      array_push($errors, "Mobile No is already registered.");
+      header("location: signup.php?error=Mobile  No is already Registered.");
+    }
+  }
 
  if (time() < strtotime('+18 years', strtotime($dob))) {
     array_push($errors, "Age is under 18"); 
@@ -81,8 +95,8 @@ if (isset($_POST['reg_user'])) {
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
     // $passwordHash = md5($password);//encrypt the password before saving in the database
-    $query = "INSERT INTO student_details (fname, lname, email, phoneNumber, dob, terms, password) 
-    VALUES ('$fname','$lname','$email','$phoneNumber','$dob','$terms','$password')";
+    $query = "INSERT INTO student_details (reg_no,fname, lname, email, phoneNumber, dob, terms, password) 
+    VALUES ('$reg_no','$fname','$lname','$email','$phoneNumber','$dob','$terms','$password')";
     mysqli_query($db, $query);
 
     $_SESSION['email'] = $email;

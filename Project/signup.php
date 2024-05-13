@@ -114,6 +114,11 @@
                     <input type="date" name="dob" class="form-control" id="dob" required>
                 </div>
                 <div class="mb-3">
+    <label for="reg_no" class="form-label">Registration Number</label>
+    <input type="text" name="reg_no" class="form-control" id="reg_no" required>
+</div>
+
+                <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" name="password" id="password" required>
                 </div>

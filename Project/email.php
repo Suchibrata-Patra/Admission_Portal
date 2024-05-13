@@ -101,8 +101,8 @@ try {
     $_SESSION['codeSend'] = 1;
     $_SESSION['success'] = "Code has been sent to your email";
 
-    $user_id = $user['id'];
-    $query = "UPDATE student_details SET emailVerify= $rand WHERE id ='$user_id'";
+    $user_id = $user['reg_no'];
+    $query = "UPDATE student_details SET emailVerify= $rand WHERE reg_no ='$user_id'";
     $results = mysqli_query($db, $query);
     header('location: verify.php');
 } catch (Exception $e) {
