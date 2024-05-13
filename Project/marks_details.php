@@ -114,7 +114,7 @@ require 'session.php';
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="#">File Upload</a>
+                  <a class="nav-link disabled" href="#">Personal Details</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link disabled" href="#">Final Submission</a>
@@ -125,7 +125,7 @@ require 'session.php';
             <!--- This is the beginning of the Card Body portion-->
 
             <div class="card-body">
-              <form method="post" action="marks_details.php">
+              <form method="post" action="marks_details_controller.php">
                 <!-- Start of the Marks Entering Details -->
                 <div class="form-row">
                   <div class="form-group col-md-6">
@@ -135,7 +135,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputCity"
+                      id="inputSubject"
                       value="Bengali"
                       disabled
                     />
@@ -172,7 +172,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputCity"
+                      id="inputSubject"
                       value="English"
                       disabled
                     />
@@ -205,7 +205,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputCity"
+                      id="inputSubject"
                       value="Mathematics"
                       disabled
                     />
@@ -238,7 +238,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputCity"
+                      id="inputSubject"
                       value="Physical Science"
                       disabled
                     />
@@ -248,7 +248,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputCity"
+                      id="inputSubject"
                       placeholder=" Enter Your Marks "
                     />
                   </div>
@@ -271,7 +271,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputCity"
+                      id="inputSubject"
                       value="Life Science"
                       disabled
                     />
@@ -304,7 +304,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputCity"
+                      id="inputSubject"
                       value="History"
                       disabled
                     />
@@ -337,7 +337,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputCity"
+                      id="inputSubject"
                       value="Geography"
                       disabled
                     />
@@ -417,7 +417,7 @@ require 'session.php';
                   Back
                 </button>
               </a>
-              <a href="welcome.php" style="color: black; text-decoration: none">
+              <a href="personal_details.php" style="color: black; text-decoration: none">
                 <button
                   type="button"
                   class="btn btn-primary"
