@@ -4,8 +4,8 @@ require 'session.php';
 // Handle form submission for email verification
 if (isset($_POST['email_code'])) {
     if ($user['emailVerify'] == $_POST['code']) {
-        $user_id = $user['id'];
-        $query = "UPDATE student_details SET numberVerify = 1, emailVerify = 1 WHERE id = '$user_id'";
+        $user_id = $user['reg_no'];
+        $query = "UPDATE student_details SET numberVerify = 1, emailVerify = 1 WHERE reg_no = '$user_id'";
         $results = mysqli_query($db, $query);
         unset($_SESSION['codeSend']);
         header('location: welcome.php');
@@ -14,16 +14,16 @@ if (isset($_POST['email_code'])) {
     }
 }
 
-$user_id = $user['id'];
-$query = "SELECT fname FROM student_details WHERE id = '$user_id'";
+$user_id = $user['reg_no'];
+$query = "SELECT fname FROM student_details WHERE reg_no = '$user_id'";
 $result = mysqli_query($db, $query);
 $row = mysqli_fetch_assoc($result);
 $first_name = $row['fname'];
 
 // Handle edit option
 if (isset($_POST['edit'])) {
-    $user_id = $user['id'];
-    $query = "DELETE FROM student_details WHERE id = '$user_id'";
+    $user_id = $user['reg_no'];
+    $query = "DELETE FROM student_details WHERE reg_no = '$user_id'";
     mysqli_query($db, $query);
     header('location: signup.php');
     exit(); // Ensure script stops here
