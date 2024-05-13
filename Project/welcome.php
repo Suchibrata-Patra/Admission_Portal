@@ -93,7 +93,7 @@ require 'session.php';
       </h2>
       <a href="welcome.php?logout='1'" class="logout">Logout</a>
     </div>
-    <div class="container" style="width: 90%;">
+    <div class="container">
       <div class="row">
         <div class="col-xs-12">
           <div class="card text-center">
@@ -103,7 +103,9 @@ require 'session.php';
                   <a class="nav-link active" href="#">Student Details</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Marks Details</a>
+                  <a class="nav-link disabled" href="marks_details.php"
+                    >Marks Details</a
+                  >
                 </li>
                 <li class="nav-item">
                   <a class="nav-link disabled" href="#">File Upload</a>
@@ -114,6 +116,17 @@ require 'session.php';
               </ul>
             </div>
             <div class="card-body">
+              <div class="row">
+                <div class="col-xs-6 form-group">
+                  <label><strong>Registration</strong> No</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    value="<?php echo $user['reg_no'];?>"
+                    disabled
+                  />
+                </div>
+              </div>
               <div class="row">
                 <div class="col-xs-6 form-group">
                   <label>Name</label>
@@ -152,12 +165,9 @@ require 'session.php';
                   />
                 </div>
               </div>
-              <div class="row">
-                <div class="col-xs-6 form-group">
-                  <label>Label4</label>
-                  <input class="form-control" type="text" />
-                </div>
-              </div>
+            </div>
+            <div style="margin-left: 90%; padding-bottom: 2%;">
+            <button type="button" class="btn btn-primary" style="margin-right: 2%; background-color: white;"> <a href="marks_details.php" style="color: black;text-decoration: none;">Next</a></button>
             </div>
           </div>
         </div>
