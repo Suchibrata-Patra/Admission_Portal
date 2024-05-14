@@ -26,8 +26,8 @@ if (isset($_POST['submit_marks'])) {
   $mathematics_marks = mysqli_real_escape_string($db, $_POST['mathematics_marks']);
   $mathematics_full_marks = mysqli_real_escape_string($db, $_POST['mathematics_full_marks']);
   $physical_science_marks = mysqli_real_escape_string($db, $_POST['physical_science_marks']);
-  $physical_science_full_marks = mysqli_real_escape_string($db, $_POST['life_science_marks']);
-  $life_science_marks = mysqli_real_escape_string($db, $_POST['physical_science_full_marks']);
+  $physical_science_full_marks = mysqli_real_escape_string($db, $_POST['physical_science_full_marks']);
+  $life_science_marks = mysqli_real_escape_string($db, $_POST['life_science_marks']);
   $life_science_full_marks = mysqli_real_escape_string($db, $_POST['life_science_full_marks']);
   $history_marks = mysqli_real_escape_string($db, $_POST['History_marks']);
   $history_full_marks = mysqli_real_escape_string($db, $_POST['History_full_marks']);
@@ -53,49 +53,49 @@ if (isset($_POST['submit_marks'])) {
     header("location: marks_details.php?error=English Full Marks is required");
 }
   if (empty($mathematics_marks)) { 
-    array_push($errors, "Phone number is required"); 
-    header("location: marks_details.php?error=Phone Number is required");
+    array_push($errors, "Mathematics Marks is required"); 
+    header("location: marks_details.php?error=Mathematics Marks is required");
 }
   if (empty($mathematics_full_marks)) { 
-    array_push($errors, "Date of birth is required"); 
-    header("location: marks_details.php?error=Date of birth is required");
+    array_push($errors, "Mathematics Full Marks is required"); 
+    header("location: marks_details.php?error=Mathematics Full Marks is required");
 }
   if (empty($physical_science_marks)) { 
-    array_push($errors, "Email is required"); 
-    header("location: marks_details.php?error=Email is required");
+    array_push($errors, "Physical Science Marks is required"); 
+    header("location: marks_details.php?error=Physical Science Marks is required");
 }
   if (empty($physical_science_full_marks)) { 
-    array_push($errors, "Password is required"); 
-    header("location: marks_details.php?error=Password is required");
+    array_push($errors, "Physical Science Full Marks is required"); 
+    header("location: marks_details.php?error=Physical Science Full Marks is required");
 } 
  if (empty($life_science_marks)) { 
     array_push($errors, "Life Science Marks is required"); 
-    header("location: marks_details.php?error=Life Sciencemarks is required");
+    header("location: marks_details.php?error=Life Science Marks is required");
 }
  if (empty($life_science_full_marks)) { 
-    array_push($errors, "terms is required"); 
+    array_push($errors, "Life Science Full Marks is required"); 
     header("location: marks_details.php?error=Life Science Full Marks is required");
 }
  if (empty($history_marks)) { 
-    array_push($errors, "terms is required"); 
-    header("location: marks_details.php?error=History marks is required");
+    array_push($errors, "History Marks is required"); 
+    header("location: marks_details.php?error=History Marks is required");
 }
  if (empty($history_full_marks)) { 
-    array_push($errors, "terms is required"); 
-    header("location: marks_details.php?error=History Full marks is required");
+    array_push($errors, "History Full Marks is required"); 
+    header("location: marks_details.php?error=History Full Marks is required");
 }
  if (empty($geography_marks)) { 
-    array_push($errors, "terms is required"); 
+    array_push($errors, "Geography Marks is required"); 
     header("location: marks_details.php?error=Geography Marks is required");
 }
  if (empty($geography_full_marks)) { 
-    array_push($errors, "terms is required"); 
+    array_push($errors, "Geography Full Marks is required"); 
     header("location: marks_details.php?error=Geography Full Marks is required");
 }
 
 
 // first check the database to make sure 
-// a user does not already exist with the same username and/or email
+// a user does not already exist with the same email
 $email = $_SESSION['email'];
 $user_check_query = "SELECT * FROM student_details WHERE email='$email' LIMIT 1";
 $result = mysqli_query($db, $user_check_query);
