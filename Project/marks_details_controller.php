@@ -128,7 +128,7 @@ if (empty($geography_full_marks)) {
         header('Location: personal_details.php');
         exit(); // Stop further execution
     }else{
-        header('Location:error.php');
+        header('Location:marks_details.php');
     }
 }
 ?>

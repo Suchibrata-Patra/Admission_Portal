@@ -1,55 +1,59 @@
-<?php 
-require 'session.php';
-$reg_no = $_SESSION['reg_no'];
 
-$email = $_SESSION['email'];
-$query = "SELECT * FROM student_details WHERE email='$email'";
-$results = mysqli_query($db, $query);
-$user = mysqli_fetch_assoc($results);
-// REGISTER USER
-if (isset($_POST['submit_marks'])) {
-  // receive all input values from the form
-  $bengali_marks = $_POST['bengali_marks'];
-  $bengali_full_marks = $_POST['bengali_full_marks'];
-  $english_marks = mysqli_real_escape_string($db, $_POST['english_marks']);
-  $english_full_marks = mysqli_real_escape_string($db, $_POST['english_full_marks']);
-  $mathematics_marks = mysqli_real_escape_string($db, $_POST['mathematics_marks']);
-  $mathematics_full_marks = mysqli_real_escape_string($db, $_POST['mathematics_full_marks']);
-  $physical_science_marks = mysqli_real_escape_string($db, $_POST['physical_science_marks']);
-  $physical_science_full_marks = mysqli_real_escape_string($db, $_POST['physical_science_full_marks']);
-  $life_science_marks = mysqli_real_escape_string($db, $_POST['life_science_marks']);
-  $life_science_full_marks = mysqli_real_escape_string($db, $_POST['life_science_full_marks']);
-  $history_marks = mysqli_real_escape_string($db, $_POST['History_marks']);
-  $history_full_marks = mysqli_real_escape_string($db, $_POST['History_full_marks']);
-  $geography_marks = mysqli_real_escape_string($db, $_POST['geography_marks']);
-  $geography_full_marks = mysqli_real_escape_string($db, $_POST['geography_full_marks']);
-
-
-// Finally, register user if there are no errors in the form
-if (count($errors) == 0) {
-    $query = "UPDATE marks_details 
-    SET bengali_marks = '$bengali_marks', 
-        bengali_full_marks = '$bengali_full_marks', 
-        english_marks = '$english_marks', 
-        english_full_marks = '$english_full_marks', 
-        mathematics_marks = '$mathematics_marks', 
-        mathematics_full_marks = '$mathematics_full_marks', 
-        physical_science_marks = '$physical_science_marks', 
-        physical_science_full_marks = '$physical_science_full_marks', 
-        life_science_marks = '$life_science_marks', 
-        life_science_full_marks = '$life_science_full_marks', 
-        history_marks = '$history_marks', 
-        history_full_marks = '$history_full_marks', 
-        geography_marks = '$geography_marks', 
-        geography_full_marks = '$geography_full_marks' 
-    WHERE reg_no = '$reg_no'";
-mysqli_query($db, $query);
-
-  $_SESSION['email'] = $email;
-  $_SESSION['success'] = "You are now logged in";
-  header('location:personal_details.php');
+# Check if Data is empty or not
+# Check if Data is empty or not
+if (empty($previous_school_name)) { 
+    array_push($errors, "previous_school_name is required");
+    header("location: personal_details.php?error=previous_school_name are required"); 
 }
-
-// ... 
-
-?>
+if (empty($fathers_name)) { 
+    array_push($errors, "Father's name is required");
+    header("location: personal_details.php?error=Father's name isrequired"); 
+}
+if (empty($mothers_name)) { 
+    array_push($errors, "English marks are required");
+    header("location: personal_details.php?error=English marks are required"); 
+}
+if (empty($current_whatsapp_no)) { 
+    array_push($errors, "Current Whatsapp No is required");
+    header("location: personal_details.php?error=English full marks are required"); 
+}
+if (empty($aadhar_card_no)) { 
+    array_push($errors, "Aadhar Card No is required");
+    header("location: personal_details.php?error=Mathematics marks are required"); 
+}
+if (empty($student_religion)) { 
+    array_push($errors, "Student Religion is required");
+    header("location: personal_details.php?error=Mathematics full marks are required"); 
+}
+if (empty($student_caste)) { 
+    array_push($errors, "Student Caste is required");
+    header("location: personal_details.php?error=Physical Science marks are required"); 
+}
+if (empty($is_student_EWS)) { 
+    array_push($errors, "Whether student is PWD or not required");
+    header("location: personal_details.php?error=Whether student is PWD or not required"); 
+}
+if (empty($student_village_town)) { 
+    array_push($errors, "Life Science marks are required");
+    header("location: personal_details.php?error=Life Science marks are required"); 
+}
+if (empty($student_city)) { 
+    array_push($errors, "City is required");
+    header("location: personal_details.php?error=History marks are required"); 
+}
+if (empty($student_pin_code)) { 
+    array_push($errors, "PIN Code is required");
+    header("location: personal_details.php?error=History full marks are required"); 
+}
+if (empty($student_police_station)) { 
+    array_push($errors, "Police Station is required");
+    header("location: personal_details.php?error=Police Station is required"); 
+}
+if (empty($student_district)) { 
+    array_push($errors, "District is required");
+    header("location: personal_details.php?error=District is required"); 
+}
+if (empty($student_state)) { 
+    array_push($errors, "State is Required ");
+    header("location: personal_details.php?error=State is required"); 
+}
