@@ -177,38 +177,44 @@ require 'session.php';
                         <div class="container mt-5">
                             <h2>Select Your Stream, Subjects, and Languages</h2>
                             <form>
-                                <div class="mb-3">
-                                    <label for="language1Select" class="form-label">Select Language 1:</label>
-                                    <select id="language1Select" class="form-select" onchange="validateLanguages()">
-                                        <option value="">Select Language 1</option>
-                                        <option value="ENGA">English-A (ENGA)</option>
-                                        <option value="BNGA">Bengali-A (BNGA)</option>
-                                        <option value="HINA">Hindi-A (HINA)</option>
-                                        <option value="NEPA">Nepali-A (NEPA)</option>
-                                        <option value="URDU">Urdu (URDU)</option>
-                                        <option value="SANT">Santhali (SANT)</option>
-                                        <option value="ODIA">Odia (ODIA)</option>
-                                        <option value="TELG">Telegu (TELG)</option>
-                                    </select>
+                                <div class="container mt-5">
+                                    <h2>Select Your Languages</h2>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="language1Select" class="form-label">Select Language 1:</label>
+                                            <select id="language1Select" class="form-select" onchange="validateLanguages()">
+                                                <option value="">Select Language 1</option>
+                                                <option value="ENGA">English-A (ENGA)</option>
+                                                <option value="BNGA">Bengali-A (BNGA)</option>
+                                                <option value="HINA">Hindi-A (HINA)</option>
+                                                <option value="NEPA">Nepali-A (NEPA)</option>
+                                                <option value="URDU">Urdu (URDU)</option>
+                                                <option value="SANT">Santhali (SANT)</option>
+                                                <option value="ODIA">Odia (ODIA)</option>
+                                                <option value="TELG">Telegu (TELG)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="language2Select" class="form-label">Select Language 2:</label>
+                                            <select id="language2Select" class="form-select" onchange="validateLanguages()">
+                                                <option value="">Select Language 2</option>
+                                                <option value="ENGA">English-A (ENGA)</option>
+                                                <option value="BNGA">Bengali-A (BNGA)</option>
+                                                <option value="HINA">Hindi-A (HINA)</option>
+                                                <option value="NEPA">Nepali-A (NEPA)</option>
+                                                <option value="URDU">Urdu (URDU)</option>
+                                                <option value="SANT">Santhali (SANT)</option>
+                                                <option value="ODIA">Odia (ODIA)</option>
+                                                <option value="TELG">Telegu (TELG)</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
+                                
                                 <div class="mb-3">
-                                    <label for="language2Select" class="form-label">Select Language 2:</label>
-                                    <select id="language2Select" class="form-select" onchange="validateLanguages()">
-                                        <option value="">Select Language 2</option>
-                                        <option value="ENGA">English-A (ENGA)</option>
-                                        <option value="BNGA">Bengali-A (BNGA)</option>
-                                        <option value="HINA">Hindi-A (HINA)</option>
-                                        <option value="NEPA">Nepali-A (NEPA)</option>
-                                        <option value="URDU">Urdu (URDU)</option>
-                                        <option value="SANT">Santhali (SANT)</option>
-                                        <option value="ODIA">Odia (ODIA)</option>
-                                        <option value="TELG">Telegu (TELG)</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="streamSelect" class="form-label">Select Stream:</label>
+                                    <!-- <label for="streamSelect" class="form-label">Select Stream:</label> -->
                                     <select id="streamSelect" class="form-select" onchange="updateSubjects()">
-                                        <option value="">--Select a Stream--</option>
+                                        <option value="">Select a Stream</option>
                                         <option value="Arts">Arts</option>
                                         <option value="Science">Science</option>
                                         <option value="Commerce">Commerce</option>
