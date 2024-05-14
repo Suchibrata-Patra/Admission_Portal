@@ -9,6 +9,7 @@ require 'session.php';
  $query = "SELECT * FROM student_details WHERE email='$email'";
  $results = mysqli_query($db, $query);
  $user = mysqli_fetch_assoc($results);
+ echo '  Session Registration ID - '.$user['reg_no'];
 
  //  echo $user['lname']; 
  ?>
@@ -32,70 +33,70 @@ require 'session.php';
       crossorigin="anonymous"
     />
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        margin: 0;
-        padding: 0;
-      }
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+          margin: 0;
+          padding: 0;
+        }
 
-      .header {
-        background-color: white;
-        color: black;
-        text-align: right;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+        .header {
+          background-color: white;
+          color: black;
+          text-align: right;
+          padding: 10px 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
 
-      .container {
-        margin: 20px;
-      }
+        .container {
+          margin: 20px;
+        }
 
-      .form-group {
-        margin-bottom: 20px;
-      }
+        .form-group {
+          margin-bottom: 20px;
+        }
 
-      .row {
-        margin-left: -15px;
-        margin-right: -15px;
-      }
+        .row {
+          margin-left: -15px;
+          margin-right: -15px;
+        }
 
-      .col-xs-6 {
-        width: 50%;
-        float: left;
-        padding-left: 15px;
-        padding-right: 15px;
-      }
+        .col-xs-6 {
+          width: 50%;
+          float: left;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
 
-      .tab-content {
-        padding: 20px;
-        background-color: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        margin-top: 20px;
-      }
+        .tab-content {
+          padding: 20px;
+          background-color: #ffffff;
+          border-radius: 10px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+          margin-top: 20px;
+        }
 
-      .logout {
-        color: white;
-        background-color: red;
-        padding: 7px;
-        border-radius: 5px;
-        text-decoration: none;
-      }
+        .logout {
+          color: white;
+          background-color: red;
+          padding: 7px;
+          border-radius: 5px;
+          text-decoration: none;
+        }
 
-      .logout:hover {
-        background-color: yellow;
-        color: black;
+        .logout:hover {
+          background-color: yellow;
+          color: black;
+        }
+        @media (max-width: 1250px) {
+      .row{
+        width: 98% !important;
       }
-      @media (max-width: 1250px) {
-    .row{
-      width: 98% !important;
-    }
-    .col-xs-12{
-      padding-left: 0px;
-    }
+      .col-xs-12{
+        padding-left: 0px;
+      }
     </style>
   </head>
   <body>
@@ -111,6 +112,7 @@ require 'session.php';
         <div class="col-xs-12">
           <div class="card text-center">
             <div class="card-header">
+            
               <ul class="nav nav-pills card-header-pills">
                 <li class="nav-item">
                   <a class="nav-link disabled" href="#">Student Details</a>
@@ -133,24 +135,22 @@ require 'session.php';
                   <a class="nav-link disabled" href="#">Preview</a>
                 </li>
                 <li class="nav-item">
-                 <a class="nav-link disabled" href="#">Final Submission</a>
-               </li>
-               <li class="nav-item">
-                 <a class="nav-link disabled" href="#">Payment</a>
-               </li>
+                  <a class="nav-link disabled" href="#">Final Submission</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Payment</a>
+                </li>
               </ul>
             </div>
 
             <!--- This is the beginning of the Card Body portion-->
 
             <div class="card-body">
-
               <form method="post" action="marks_details_controller.php">
                 <!-- Start of the Marks Entering Details -->
                 <div class="form-row">
-                  <div class="form-group col-md-6">
-                  
-                   
+                <div class="form-group col-md-6">
+                <label for="inputCity" style="display: flex"><strong>Subjects</strong></label>
                     <input
                       type="text"
                       class="form-control"
@@ -160,20 +160,25 @@ require 'session.php';
                     />
                   </div>
                   <div class="form-group col-md-4">
-                    
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="bengali_marks"
-                      placeholder=" Enter Your Marks "
+
+                  <label for="inputState" style="display: flex"><strong>Obtained Marks</strong></label>
+                    <input type="text" class="form-control" id="bengali_marks"
+                    name ="bengali_marks"
+                    <?php if ($user['bengali_marks'] == null): ?>
+                    placeholder="Enter your Marks"
+                    <?php else: ?>
+                    value="<?php echo $user['bengali_marks']; ?>"
+                    <?php endif; ?>
                     />
                   </div>
                   <div class="form-group col-md-2">
-                    
+                  <label for="inputState" style="display: flex"><strong>Full Marks</strong></label>
+
                     <input
                       type="text"
                       class="form-control"
                       id="bengali_full_marks"
+                      name="bengali_full_marks"
                       value="100"
                     />
                   </div>
@@ -183,7 +188,7 @@ require 'session.php';
                 <!-- Start of the 2nd Marks Entering Details -->
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <!-- <label for="inputCity" style="display: flex">Subjects</label> -->
+                  
                     <input
                       type="text"
                       class="form-control"
@@ -193,12 +198,13 @@ require 'session.php';
                     />
                   </div>
                   <div class="form-group col-md-4">
-                    <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="english_marks"
-                      placeholder=" Enter Your Marks "
+                    <input type="text" class="form-control" id="english_marks"
+                    name="english_marks"
+                    <?php if ($user['english_marks'] == null): ?>
+                    placeholder="Enter your Marks"
+                    <?php else: ?>
+                    value="<?php echo $user['english_marks']; ?>"
+                    <?php endif; ?>
                     />
                   </div>
                   <div class="form-group col-md-2">
@@ -207,6 +213,7 @@ require 'session.php';
                       type="text"
                       class="form-control"
                       id="english_full_marks"
+                      name="english_full_marks"
                       value="100"
                     />
                   </div>
@@ -227,11 +234,13 @@ require 'session.php';
                   </div>
                   <div class="form-group col-md-4">
                     <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inputCity"
-                      placeholder=" Enter Your Marks "
+                    <input type="text" class="form-control"
+                    id="mathematics_marks" name="mathematics_marks"
+                    <?php if ($user['mathematics_marks'] == null): ?>
+                    placeholder="Enter your Marks"
+                    <?php else: ?>
+                    value="<?php echo $user['mathematics_marks']; ?>"
+                    <?php endif; ?>
                     />
                   </div>
                   <div class="form-group col-md-2">
@@ -240,6 +249,7 @@ require 'session.php';
                       type="text"
                       class="form-control"
                       id="mathematics_full_marks"
+                      name="mathematics_full_marks"
                       value="100"
                     />
                   </div>
@@ -260,11 +270,13 @@ require 'session.php';
                   </div>
                   <div class="form-group col-md-4">
                     <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="physical_science_marks"
-                      placeholder=" Enter Your Marks "
+                    <input type="text" class="form-control"
+                    id="physical_science_marks" name="physical_science_marks"
+                    <?php if ($user['physical_science_marks'] == null): ?>
+                    placeholder="Enter your Marks"
+                    <?php else: ?>
+                    value="<?php echo $user['physical_science_marks']; ?>"
+                    <?php endif; ?>
                     />
                   </div>
                   <div class="form-group col-md-2">
@@ -273,6 +285,7 @@ require 'session.php';
                       type="text"
                       class="form-control"
                       id="physical_science_full_marks"
+                      name="physical_science_full_marks"
                       value="100"
                     />
                   </div>
@@ -293,11 +306,13 @@ require 'session.php';
                   </div>
                   <div class="form-group col-md-4">
                     <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="life_science_marks"
-                      placeholder=" Enter Your Marks "
+                    <input type="text" class="form-control"
+                    id="life_science_marks" name="life_science_marks"
+                    <?php if ($user['life_science_marks'] == null): ?>
+                    placeholder="Enter your Marks"
+                    <?php else: ?>
+                    value="<?php echo $user['life_science_marks']; ?>"
+                    <?php endif; ?>
                     />
                   </div>
                   <div class="form-group col-md-2">
@@ -306,6 +321,7 @@ require 'session.php';
                       type="text"
                       class="form-control"
                       id="life_science_full_marks"
+                      name="life_science_full_marks"
                       value="100"
                     />
                   </div>
@@ -326,11 +342,14 @@ require 'session.php';
                   </div>
                   <div class="form-group col-md-4">
                     <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="History_marks"
-                      placeholder=" Enter Your Marks "
+                    <input type="text" class="form-control" id="History_marks"
+                    name="History_marks"
+                    <?php if ($user['history_marks'] == null): ?>
+                    placeholder="Enter your Marks"
+                    <?php else: ?>
+                    value="<?php echo $user['history_marks']; ?>"
+                    <?php endif; ?>
+
                     />
                   </div>
                   <div class="form-group col-md-2">
@@ -339,6 +358,7 @@ require 'session.php';
                       type="text"
                       class="form-control"
                       id="History_full_marks"
+                      name="History_full_marks"
                       value="100"
                     />
                   </div>
@@ -359,11 +379,13 @@ require 'session.php';
                   </div>
                   <div class="form-group col-md-4">
                     <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="geography_marks"
-                      placeholder=" Enter Your Marks "
+                    <input type="text" class="form-control" id="geography_marks"
+                    name="geography_marks"
+                    <?php if ($user['geography_marks'] == null): ?>
+                    placeholder="Enter your Marks"
+                    <?php else: ?>
+                    value="<?php echo $user['geography_marks']; ?>"
+                    <?php endif; ?>
                     />
                   </div>
                   <div class="form-group col-md-2">
@@ -372,6 +394,7 @@ require 'session.php';
                       type="text"
                       class="form-control"
                       id="geography_full_marks"
+                      name="geography_full_marks"
                       value="100"
                     />
                   </div>
@@ -380,17 +403,9 @@ require 'session.php';
 
                 <hr />
                 <!-- Start of the 6th Marks Entering Details -->
-                
-                <!-- End of the 6th Marks Entering Page -->
-                <button type="submit" name="submit_marks" class="btn btn-primary">
-                  Save
-                </button>
-              </form>
-            </div>
 
-            <!-- This is the End of Card Body Portion-->
-            <div style="margin-left: 30%; padding-bottom: 2%">
-              <a href="welcome.php" style="color: black; text-decoration: none">
+                <!-- End of the 6th Marks Entering Page -->
+               
                 <button
                   type="button"
                   class="btn btn-primary"
@@ -403,19 +418,30 @@ require 'session.php';
                   Back
                 </button>
               </a>
-              <a href="personal_details.php" style="color: black; text-decoration: none">
-                <button
-                  type="button"
+              <a
+                href="personal_details.php"
+                style="color: black; text-decoration: none"
+              >
+              <button
+                  type="submit"
+                  name="submit_marks"
                   class="btn btn-primary"
-                  style="
+                  tyle="
                     margin-right: 2%;
                     background-color: rgb(255, 255, 255);
                     color: black;
                   "
                 >
-                 Save & Next
+                  Save & Next
                 </button></a
               >
+              </form>
+            </div>
+
+            <!-- This is the End of Card Body Portion-->
+            <div style="margin-left: 30%; padding-bottom: 2%">
+              <a href="welcome.php" style="color: black; text-decoration: none">
+                
             </div>
           </div>
         </div>
