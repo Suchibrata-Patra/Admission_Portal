@@ -151,7 +151,12 @@ require 'session.php';
                       >Enter Details</label
                     > -->
                   <input type="text" class="form-control" id="inputCity" name="previous_school_name"
-                    placeholder="Schhol Name" />
+                  <?php if ($user['previous_school_name'] == null): ?>
+                    placeholder="Enter your Marks"
+                    <?php else: ?>
+                    value="<?php echo $user['previous_school_name']; ?>"
+                    <?php endif; ?>  
+                  />
                 </div>
                 <div class="form-group col-md-2"></div>
               </div>
@@ -166,7 +171,12 @@ require 'session.php';
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <input type="text" class="form-control" id="inputCity" name="fathers_name"
-                    placeholder="Enter Father's Name" />
+                  <?php if ($user['fathers_name'] == null): ?>
+                    placeholder="Enter your Father's Name"
+                    <?php else: ?>
+                    value="<?php echo $user['fathers_name']; ?>"
+                    <?php endif; ?>   
+                    />
                 </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -183,7 +193,12 @@ require 'session.php';
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <input type="text" class="form-control" id="inputCity" name="mothers_name"
-                    placeholder="Enter Mother's Name " />
+                  <?php if ($user['mothers_name'] == null): ?>
+                    placeholder="Enter your Mother's Name"
+                    <?php else: ?>
+                    value="<?php echo $user['mothers_name']; ?>"
+                    <?php endif; ?>   
+                    />
                 </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -200,8 +215,12 @@ require 'session.php';
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <input type="text" class="form-control" id="inputSubject" name="current_whatsapp_no"
-                    placeholder="Provide Current Whatsapp No" />
-                </div>
+                  <?php if ($user['current_whatsapp_no'] == null): ?>
+                    placeholder="Enter your Mother's Name"
+                    <?php else: ?>
+                    value="<?php echo $user['current_whatsapp_no']; ?>"
+                    <?php endif; ?>   
+                    />                </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
                 </div>
@@ -217,7 +236,12 @@ require 'session.php';
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <input type="text" class="form-control" id="inputCity" name="aadhar_card_no"
-                    placeholder=" XXXX - XXXX - XXXX" />
+                  <?php if ($user['aadhar_card_no'] == null): ?>
+                    placeholder="XXXX - XXXX - XXXX"
+                    <?php else: ?>
+                    value="<?php echo $user['aadhar_card_no']; ?>"
+                    <?php endif; ?>   
+                    />    
                 </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -234,15 +258,16 @@ require 'session.php';
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <select id="inputState" name="student_religion" class="form-control">
-                    <!-- <option  selected value="Choose">Choose...</option> -->
-                    <option selected value="Hindu">Hindu</option>
-                    <option value="Muslim">Muslim</option>
-                    <option value="Christ">Christ</option>
-                    <option value="Jain">Jain</option>
-                    <option value="Buddhist">Buddhist</option>
-                    <option value="Buddhist">Other</option>
-                    <option value="Buddhist">Don't Want to specify</option>
-                  </select>
+    <!-- <option  selected value="Choose">Choose...</option> -->
+    <option <?php if ($user['student_religion'] == null || $user['student_religion'] == 'Hindu'): ?> selected <?php endif; ?>>Hindu</option>
+    <option <?php if ($user['student_religion'] == 'Muslim'): ?> selected <?php endif; ?>>Muslim</option>
+    <option <?php if ($user['student_religion'] == 'Christ'): ?> selected <?php endif; ?>>Christ</option>
+    <option <?php if ($user['student_religion'] == 'Jain'): ?> selected <?php endif; ?>>Jain</option>
+    <option <?php if ($user['student_religion'] == 'Buddhist'): ?> selected <?php endif; ?>>Buddhist</option>
+    <option <?php if ($user['student_religion'] == 'Other'): ?> selected <?php endif; ?>>Other</option>
+    <option <?php if ($user['student_religion'] == "Don't Want to specify"): ?> selected <?php endif; ?>>Don't Want to specify</option>
+</select>
+
                 </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -260,10 +285,11 @@ require 'session.php';
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <select id="inputState" class="form-control" name="student_caste">
-                    <option value="General">General</option>
-                    <option value="SC/ST">SC/ST</option>
-                    <option value="OBC">OBC</option>
-                  </select>
+    <option <?php if ($user['student_caste'] == 'General'): ?> selected <?php endif; ?> value="General">General</option>
+    <option <?php if ($user['student_caste'] == 'SC/ST'): ?> selected <?php endif; ?> value="SC/ST">SC/ST</option>
+    <option <?php if ($user['student_caste'] == 'OBC'): ?> selected <?php endif; ?> value="OBC">OBC</option>
+</select>
+
                 </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -281,9 +307,10 @@ require 'session.php';
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <select id="inputState" class="form-control" name="is_student_PWD">
-                    <option value="No" Selected>No</option>
-                    <option value="Yes">Yes</option>
-                  </select>
+    <option <?php if ($user['is_student_PWD'] == 'No'): ?> selected <?php endif; ?> value="No">No</option>
+    <option <?php if ($user['is_student_PWD'] == 'Yes'): ?> selected <?php endif; ?> value="Yes">Yes</option>
+</select>
+
                 </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -326,7 +353,12 @@ require 'session.php';
         >Enter Details</label
       > -->
                   <input type="text" class="form-control" id="inputCity" name="student_village_town"
-                    placeholder="Provide complete Address Details." />
+                  <?php if ($user['student_village_town'] == null): ?>
+                    placeholder="Enter your Village/Town"
+                    <?php else: ?>
+                    value="<?php echo $user['student_village_town']; ?>"
+                    <?php endif; ?>  
+                  />
                 </div>
                 <div class="form-group col-md-2"></div>
               </div>
@@ -341,7 +373,12 @@ require 'session.php';
                 </div>
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                  <input type="text" class="form-control" id="inputCity" name="student_city" placeholder="Enter Your City " />
+                  <input type="text" class="form-control" id="inputCity" name="student_city" <?php if ($user['student_city'] == null): ?>
+                    placeholder="Enter your Village/Town"
+                    <?php else: ?>
+                    value="<?php echo $user['student_city']; ?>"
+                    <?php endif; ?>  
+                  />
 
                 </div>
                 <div class="form-group col-md-2">
@@ -359,7 +396,12 @@ require 'session.php';
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <input type="text" class="form-control" id="inputCity" name="student_pin_code"
-                    placeholder="Enter PIN" />
+                  <?php if ($user['student_pin_code'] == null): ?>
+                    placeholder="Enter your Village/Town"
+                    <?php else: ?>
+                    value="<?php echo $user['student_pin_code']; ?>"
+                    <?php endif; ?>  
+                  />
                 </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -376,8 +418,12 @@ require 'session.php';
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <input type="text" class="form-control" id="inputCity" name="student_police_station"
-                    placeholder="Enter Police Station" />
-                </div>
+                  <?php if ($user['student_police_station'] == null): ?>
+                    placeholder="Enter your Village/Town"
+                    <?php else: ?>
+                    value="<?php echo $user['student_police_station']; ?>"
+                    <?php endif; ?>  
+                  />                </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
                 </div>
@@ -393,7 +439,12 @@ require 'session.php';
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <input type="text" class="form-control" id="inputCity" name="student_district"
-                    value="Enter District" />
+                  <?php if ($user['student_district'] == null): ?>
+                    placeholder="Enter your Village/Town"
+                    <?php else: ?>
+                    value="<?php echo $user['student_district']; ?>"
+                    <?php endif; ?>  
+                  />   
                 </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -415,41 +466,40 @@ require 'session.php';
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <select id="inputState" class="form-control" name="student_state">
-                    <option selected>Choose...</option>
-                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                    <option value="Arunachal Pradesh">
-                      Arunachal Pradesh
-                    </option>
-                    <option value="Assam">Assam</option>
-                    <option value="Bihar">Bihar</option>
-                    <option value="Chhattisgarh">Chhattisgarh</option>
-                    <option value="Goa">Goa</option>
-                    <option value="Gujarat">Gujarat</option>
-                    <option value="Haryana">Haryana</option>
-                    <option value="Himachal Pradesh">Himachal Pradesh</option>
-                    <option value="Jharkhand">Jharkhand</option>
-                    <option value="Karnataka">Karnataka</option>
-                    <option value="Kerala">Kerala</option>
-                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                    <option value="Maharashtra">Maharashtra</option>
-                    <option value="Manipur">Manipur</option>
-                    <option value="Meghalaya">Meghalaya</option>
-                    <option value="Mizoram">Mizoram</option>
-                    <option value="Nagaland">Nagaland</option>
-                    <option value="Odisha">Odisha</option>
-                    <option value="Punjab">Punjab</option>
-                    <option value="Rajasthan">Rajasthan</option>
-                    <option value="Sikkim">Sikkim</option>
-                    <option value="Tamil Nadu">Tamil Nadu</option>
-                    <option value="Telangana">Telangana</option>
-                    <option value="Tripura">Tripura</option>
-                    <option value="Uttarakhand">Uttarakhand</option>
-                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                    <option value="West Bengal">West Bengal</option>
-                  </select>
+    <option <?php if ($user['student_state'] == null): ?> selected <?php endif; ?>>Choose...</option>
+    <option <?php if ($user['student_state'] == 'Andhra Pradesh'): ?> selected <?php endif; ?> value="Andhra Pradesh">Andhra Pradesh</option>
+    <option <?php if ($user['student_state'] == 'Arunachal Pradesh'): ?> selected <?php endif; ?> value="Arunachal Pradesh">Arunachal Pradesh</option>
+    <option <?php if ($user['student_state'] == 'Assam'): ?> selected <?php endif; ?> value="Assam">Assam</option>
+    <option <?php if ($user['student_state'] == 'Bihar'): ?> selected <?php endif; ?> value="Bihar">Bihar</option>
+    <option <?php if ($user['student_state'] == 'Chhattisgarh'): ?> selected <?php endif; ?> value="Chhattisgarh">Chhattisgarh</option>
+    <option <?php if ($user['student_state'] == 'Goa'): ?> selected <?php endif; ?> value="Goa">Goa</option>
+    <option <?php if ($user['student_state'] == 'Gujarat'): ?> selected <?php endif; ?> value="Gujarat">Gujarat</option>
+    <option <?php if ($user['student_state'] == 'Haryana'): ?> selected <?php endif; ?> value="Haryana">Haryana</option>
+    <option <?php if ($user['student_state'] == 'Himachal Pradesh'): ?> selected <?php endif; ?> value="Himachal Pradesh">Himachal Pradesh</option>
+    <option <?php if ($user['student_state'] == 'Jharkhand'): ?> selected <?php endif; ?> value="Jharkhand">Jharkhand</option>
+    <option <?php if ($user['student_state'] == 'Karnataka'): ?> selected <?php endif; ?> value="Karnataka">Karnataka</option>
+    <option <?php if ($user['student_state'] == 'Kerala'): ?> selected <?php endif; ?> value="Kerala">Kerala</option>
+    <option <?php if ($user['student_state'] == 'Madhya Pradesh'): ?> selected <?php endif; ?> value="Madhya Pradesh">Madhya Pradesh</option>
+    <option <?php if ($user['student_state'] == 'Maharashtra'): ?> selected <?php endif; ?> value="Maharashtra">Maharashtra</option>
+    <option <?php if ($user['student_state'] == 'Manipur'): ?> selected <?php endif; ?> value="Manipur">Manipur</option>
+    <option <?php if ($user['student_state'] == 'Meghalaya'): ?> selected <?php endif; ?> value="Meghalaya">Meghalaya</option>
+    <option <?php if ($user['student_state'] == 'Mizoram'): ?> selected <?php endif; ?> value="Mizoram">Mizoram</option>
+    <option <?php if ($user['student_state'] == 'Nagaland'): ?> selected <?php endif; ?> value="Nagaland">Nagaland</option>
+    <option <?php if ($user['student_state'] == 'Odisha'): ?> selected <?php endif; ?> value="Odisha">Odisha</option>
+    <option <?php if ($user['student_state'] == 'Punjab'): ?> selected <?php endif; ?> value="Punjab">Punjab</option>
+    <option <?php if ($user['student_state'] == 'Rajasthan'): ?> selected <?php endif; ?> value="Rajasthan">Rajasthan</option>
+    <option <?php if ($user['student_state'] == 'Sikkim'): ?> selected <?php endif; ?> value="Sikkim">Sikkim</option>
+    <option <?php if ($user['student_state'] == 'Tamil Nadu'): ?> selected <?php endif; ?> value="Tamil Nadu">Tamil Nadu</option>
+    <option <?php if ($user['student_state'] == 'Telangana'): ?> selected <?php endif; ?> value="Telangana">Telangana</option>
+    <option <?php if ($user['student_state'] == 'Tripura'): ?> selected <?php endif; ?> value="Tripura">Tripura</option>
+    <option <?php if ($user['student_state'] == 'Uttarakhand'): ?> selected <?php endif; ?> value="Uttarakhand">Uttarakhand</option>
+    <option <?php if ($user['student_state'] == 'Uttar Pradesh'): ?> selected <?php endif; ?> value="Uttar Pradesh">Uttar Pradesh</option>
+    <option <?php if ($user['student_state'] == 'West Bengal'): ?> selected <?php endif; ?> value="West Bengal">West Bengal</option>
+</select>
+
                 </div>
               </div>
-              <a href="personal_details.php"
+              <a href="marks_details.php"
                 style="color: black; text-decoration: none"
               >
               <button
@@ -457,8 +507,9 @@ require 'session.php';
                   class="btn btn-primary"
                   style="
                     margin-right: 2%;
-                    background-color: rgb(255, 255, 255);
-                    color: black;
+                    background-color: #000000;
+                    color: rgb(255, 255, 255);
+                    border: none;
                   "
                 >
                   Back
@@ -466,7 +517,7 @@ require 'session.php';
               </a>
               <a
                 href="personal_details.php"
-                style="color: black; text-decoration: none"
+                style="color: rgb(255, 255, 255); text-decoration: none"
               >
               <button
                   type="submit"
@@ -474,8 +525,9 @@ require 'session.php';
                   class="btn btn-primary"
                   style="
                     margin-right: 2%;
-                    background-color: rgb(255, 255, 255);
-                    color: black;
+                    background-color: rgb(0, 0, 0);
+                    color: rgb(255, 255, 255);
+                    border: none;
                   "
                 >
                   Save & Next
