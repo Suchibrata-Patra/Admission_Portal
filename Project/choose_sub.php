@@ -170,172 +170,181 @@ require 'session.php';
                             </li>
                         </ul>
                     </div>
+<!-- This is the beginning of the Card Body portion-->
+<div class="card-body">
+    <div class="container mt-5">
+        <h4>Choose Stream, Subjects, and Languages</h4>
+        <form>
+            <!-- Select Languages Section -->
+            <div class="container mt-5">
+                <!-- <h2>Select Your Languages</h2> -->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <!-- <label for="language1Select" class="form-label">Select Language 1:</label> -->
+                        <select id="language1Select" class="form-select" onchange="validateLanguages()">
+                            <option value="">Select Language 1</option>
+                            <option value="Bengali">Bengali</option>
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Nepali">Nepali</option>
+                            <option value="Telegu">Telegu</option>
 
-                    <!--- This is the beginning of the Card Body portion-->
 
-                    <div class="card-body">
-                        <div class="container mt-5">
-                            <h2>Select Your Stream, Subjects, and Languages</h2>
-                            <form>
-                                <div class="container mt-5">
-                                    <h2>Select Your Languages</h2>
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="language1Select" class="form-label">Select Language 1:</label>
-                                            <select id="language1Select" class="form-select" onchange="validateLanguages()">
-                                                <option value="">Select Language 1</option>
-                                                <option value="ENGA">English-A (ENGA)</option>
-                                                <option value="BNGA">Bengali-A (BNGA)</option>
-                                                <option value="HINA">Hindi-A (HINA)</option>
-                                                <option value="NEPA">Nepali-A (NEPA)</option>
-                                                <option value="URDU">Urdu (URDU)</option>
-                                                <option value="SANT">Santhali (SANT)</option>
-                                                <option value="ODIA">Odia (ODIA)</option>
-                                                <option value="TELG">Telegu (TELG)</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="language2Select" class="form-label">Select Language 2:</label>
-                                            <select id="language2Select" class="form-select" onchange="validateLanguages()">
-                                                <option value="">Select Language 2</option>
-                                                <option value="ENGA">English-A (ENGA)</option>
-                                                <option value="BNGA">Bengali-A (BNGA)</option>
-                                                <option value="HINA">Hindi-A (HINA)</option>
-                                                <option value="NEPA">Nepali-A (NEPA)</option>
-                                                <option value="URDU">Urdu (URDU)</option>
-                                                <option value="SANT">Santhali (SANT)</option>
-                                                <option value="ODIA">Odia (ODIA)</option>
-                                                <option value="TELG">Telegu (TELG)</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="mb-3">
-                                    <!-- <label for="streamSelect" class="form-label">Select Stream:</label> -->
-                                    <select id="streamSelect" class="form-select" onchange="updateSubjects()">
-                                        <option value="">Select a Stream</option>
-                                        <option value="Arts">Arts</option>
-                                        <option value="Science">Science</option>
-                                        <option value="Commerce">Commerce</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="subjectSelect" class="form-label">Select Subject Combinations:</label>
-                                    <select id="subjectSelect" class="form-select" disabled>
-                                        <option value="">--Select a Subject--</option>
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
+                            <!-- Add language options here -->
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <!-- <label for="language2Select" class="form-label">Select Language 2:</label> -->
+                        <select id="language2Select" class="form-select" onchange="validateLanguages()">
+                            <option value="">Select Language 2</option>
+                            <option value="Bengali">Bengali</option>
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Nepali">Nepali</option>
+                            <option value="Telegu">Telegu</option>
+                            <!-- Add language options here -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- Select Stream and Subjects Section -->
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <!-- <label for="streamSelect" class="form-label">Select a Stream:</label> -->
+                        <select id="streamSelect" class="form-select" onchange="updateSubjects()">
+                            <option value="">Select a Stream</option>
+                            <option value="Arts">Arts</option>
+                            <option value="Science">Science</option>
+                            <option value="Commerce">Commerce</option>
+                            <!-- Add stream options here -->
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <!-- <label for="subjectSelect" class="form-label">Select Subject Combinations:</label> -->
+                        <select id="subjectSelect" class="form-select" disabled>
+                            <option value="">Select a Subject</option>
+                            <!-- Add subject options here -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+<!-- This is the End of Card Body -->
+
+                        <div style="margin-left: 30%; padding-bottom: 2%">
+                            <a href="marks_details.php" style="color: black; text-decoration: none">
+                                <button type="button" class="btn btn-primary" style="
+        margin-right: 2%;
+        background-color: rgb(255, 255, 255);
+        color: black;
+      ">
+                                    Back
+                                </button>
+                            </a>
+                            <a href="final_preview.php" style="color: black; text-decoration: none">
+                                <button type="button" class="btn btn-primary" style="
+        margin-right: 2%;
+        background-color: rgb(255, 255, 255);
+        color: black;
+      ">
+                                    Save & Next
+                                </button></a>
+                        </div>
+                        <!-- Link to file optimization website -->
+                        <div class="mt-4">
+                            <p>If you're facing any Issue with uploading the documents, then Before uploading, you can
+                                optimize your files using <a href="https://www.example.com" target="_blank">this
+                                    website</a>.</p>
+                        </div>
+                        <div class="mt-4" style="display:block; text-align: left;">
+                            <h3>T&C for this Page</h3>
+                            <ol>
+                                <li>By using our platform, you agree to comply with all applicable laws and regulations.
+                                </li>
+                                <li>You are solely responsible for ensuring the accuracy and legality of any information
+                                    or
+                                    documents you submit here.</li>
+                                <li>The subject combinations offered by our institution are subject to our discretion.
+                                    We do
+                                    not provide recommendations or endorsements for any specific subject combinations.
+                                </li>
+                                <li>Your use of this platform must not involve any fraudulent activity or misuse. Any
+                                    such
+                                    actions will result in immediate termination of your access.</li>
+                                <li>We reserve the right to verify the authenticity of any documents uploaded to ensure
+                                    compliance with our policies and legal requirements.</li>
+                                <li>The information you provide may be used for verification purposes and essential
+                                    communications related to our services.</li>
+                                <li>We disclaim all liability for any loss or damage that may arise from your use of
+                                    this
+                                    platform.</li>
+                                <li>We may update or modify these terms and conditions at any time without prior notice,
+                                    and
+                                    such changes will be effective immediately upon posting on the platform.</li>
+                            </ol>
+
                         </div>
 
 
-                    </div> <!-- This is the End of Card Body -->
-                    <div style="margin-left: 30%; padding-bottom: 2%">
-                        <a href="marks_details.php" style="color: black; text-decoration: none">
-                            <button type="button" class="btn btn-primary" style="
-        margin-right: 2%;
-        background-color: rgb(255, 255, 255);
-        color: black;
-      ">
-                                Back
-                            </button>
-                        </a>
-                        <a href="choose_sub.php" style="color: black; text-decoration: none">
-                            <button type="button" class="btn btn-primary" style="
-        margin-right: 2%;
-        background-color: rgb(255, 255, 255);
-        color: black;
-      ">
-                                Save & Next
-                            </button></a>
-                    </div>
-                    <!-- Link to file optimization website -->
-                    <div class="mt-4">
-                        <p>If you're facing any Issue with uploading the documents, then Before uploading, you can
-                            optimize your files using <a href="https://www.example.com" target="_blank">this
-                                website</a>.</p>
-                    </div>
-                    <div class="mt-4" style="display:block; text-align: left;">
-                        <h3>T&C for this Page</h3>
-                        <ol>
-                            <li>By using our platform, you agree to comply with all applicable laws and regulations.
-                            </li>
-                            <li>You are solely responsible for ensuring the accuracy and legality of any information or
-                                documents you submit here.</li>
-                            <li>The subject combinations offered by our institution are subject to our discretion. We do
-                                not provide recommendations or endorsements for any specific subject combinations.</li>
-                            <li>Your use of this platform must not involve any fraudulent activity or misuse. Any such
-                                actions will result in immediate termination of your access.</li>
-                            <li>We reserve the right to verify the authenticity of any documents uploaded to ensure
-                                compliance with our policies and legal requirements.</li>
-                            <li>The information you provide may be used for verification purposes and essential
-                                communications related to our services.</li>
-                            <li>We disclaim all liability for any loss or damage that may arise from your use of this
-                                platform.</li>
-                            <li>We may update or modify these terms and conditions at any time without prior notice, and
-                                such changes will be effective immediately upon posting on the platform.</li>
-                        </ol>
+                        <script>
+                            function updateSubjects() {
+                                const streamSelect = document.getElementById('streamSelect');
+                                const subjectSelect = document.getElementById('subjectSelect');
+                                const stream = streamSelect.value;
+                                subjectSelect.innerHTML = '';
+                                subjectSelect.disabled = false;
+                                let subjects = [];
 
-                    </div>
+                                if (stream === "Arts") {
+                                    subjects = ["History + Geography+Sanskrit", "Geography + Pol Sc + Hist", "Sanskrit + Pol + Hist", "Sociology"];
+                                } else if (stream === "Science") {
+                                    subjects = ["Physics+Chem+Maths", "Chemistry+Stat + CS", "Maths", "Biology"];
+                                } else if (stream === "Commerce") {
+                                    subjects = ["Accountancy", "Business Studies", "Economics", "Mathematics"];
+                                } else {
+                                    subjectSelect.disabled = true;
+                                }
 
-
-                    <script>
-                        function updateSubjects() {
-                            const streamSelect = document.getElementById('streamSelect');
-                            const subjectSelect = document.getElementById('subjectSelect');
-                            const stream = streamSelect.value;
-                            subjectSelect.innerHTML = '';
-                            subjectSelect.disabled = false;
-                            let subjects = [];
-
-                            if (stream === "Arts") {
-                                subjects = ["History", "Geography", "Sanskrit", "Sociology"];
-                            } else if (stream === "Science") {
-                                subjects = ["Physics", "Chemistry", "Maths", "Biology"];
-                            } else if (stream === "Commerce") {
-                                subjects = ["Accountancy", "Business Studies", "Economics", "Mathematics"];
-                            } else {
-                                subjectSelect.disabled = true;
+                                if (subjects.length > 0) {
+                                    subjectSelect.add(new Option("--Select a Subject--", ""));
+                                    subjects.forEach(function (subject) {
+                                        subjectSelect.add(new Option(subject, subject));
+                                    });
+                                }
                             }
 
-                            if (subjects.length > 0) {
-                                subjectSelect.add(new Option("--Select a Subject--", ""));
-                                subjects.forEach(function (subject) {
-                                    subjectSelect.add(new Option(subject, subject));
-                                });
+                            function validateLanguages() {
+                                const lang1 = document.getElementById('language1Select').value;
+                                const lang2 = document.getElementById('language2Select').value;
+
+                                if (lang1 && lang2 && lang1 === lang2) {
+                                    alert("Please select different languages for Language 1 and Language 2.");
+                                    document.getElementById('language2Select').value = "";
+                                }
                             }
-                        }
+                            function previewFile(inputId, previewId) {
+                                const preview = document.getElementById(previewId);
+                                const file = document.getElementById(inputId).files[0];
+                                const reader = new FileReader();
 
-                        function validateLanguages() {
-                            const lang1 = document.getElementById('language1Select').value;
-                            const lang2 = document.getElementById('language2Select').value;
+                                reader.addEventListener("load", function () {
+                                    // Convert image file to base64 string
+                                    preview.style.backgroundImage = 'url(' + reader.result + ')';
+                                    preview.textContent = '';
+                                }, false);
 
-                            if (lang1 && lang2 && lang1 === lang2) {
-                                alert("Please select different languages for Language 1 and Language 2.");
-                                document.getElementById('language2Select').value = "";
+                                if (file) {
+                                    reader.readAsDataURL(file);
+                                } else {
+                                    preview.style.backgroundImage = 'none';
+                                    preview.textContent = 'No image chosen';
+                                }
                             }
-                        }
-                        function previewFile(inputId, previewId) {
-                            const preview = document.getElementById(previewId);
-                            const file = document.getElementById(inputId).files[0];
-                            const reader = new FileReader();
-
-                            reader.addEventListener("load", function () {
-                                // Convert image file to base64 string
-                                preview.style.backgroundImage = 'url(' + reader.result + ')';
-                                preview.textContent = '';
-                            }, false);
-
-                            if (file) {
-                                reader.readAsDataURL(file);
-                            } else {
-                                preview.style.backgroundImage = 'none';
-                                preview.textContent = 'No image chosen';
-                            }
-                        }
-                    </script>
+                        </script>
 </body>
 
 </html>

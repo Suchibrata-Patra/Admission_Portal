@@ -94,7 +94,7 @@ require 'session.php';
       <a href="welcome.php?logout='1'" class="logout">Logout</a>
     </div>
     <div class="container">
-      <div class="row">
+      <div class="row" >
         <div class="col-xs-12">
           <div class="card text-center">
             <div class="card-header">

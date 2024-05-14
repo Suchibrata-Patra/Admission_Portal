@@ -30,8 +30,10 @@ if ($stmt = $db->prepare($query)) {
     $user = $result->fetch_assoc();
 
     if ($user) {
-        // User details fetched successfully
-        // You can now use $user['fieldname'] to access user details
+        $reg_no = $user['reg_no'];
+        
+        // Store reg_no in session
+        $_SESSION['reg_no'] = $reg_no;
     } else {
         // Handle case where no user data is found
         echo "No user found.";

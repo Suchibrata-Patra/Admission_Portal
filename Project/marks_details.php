@@ -144,13 +144,13 @@ require 'session.php';
             <!--- This is the beginning of the Card Body portion-->
 
             <div class="card-body">
+
               <form method="post" action="marks_details_controller.php">
                 <!-- Start of the Marks Entering Details -->
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputCity" style="display: flex"
-                      >Subjects</label
-                    >
+                  
+                   
                     <input
                       type="text"
                       class="form-control"
@@ -160,24 +160,20 @@ require 'session.php';
                     />
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="inputState" style="display: flex"
-                      >Obtained Marks</label
-                    >
+                    
                     <input
                       type="text"
                       class="form-control"
-                      id="inputCity"
+                      id="bengali_marks"
                       placeholder=" Enter Your Marks "
                     />
                   </div>
                   <div class="form-group col-md-2">
-                    <label for="inputZip" style="display: flex"
-                      >Full Marks</label
-                    >
+                    
                     <input
                       type="text"
                       class="form-control"
-                      id="inputZip"
+                      id="bengali_full_marks"
                       value="100"
                     />
                   </div>
@@ -201,7 +197,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputCity"
+                      id="english_marks"
                       placeholder=" Enter Your Marks "
                     />
                   </div>
@@ -210,7 +206,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputZip"
+                      id="english_full_marks"
                       value="100"
                     />
                   </div>
@@ -224,7 +220,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputSubject"
+                      id="mathematics_marks"
                       value="Mathematics"
                       disabled
                     />
@@ -243,7 +239,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputZip"
+                      id="mathematics_full_marks"
                       value="100"
                     />
                   </div>
@@ -267,7 +263,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputSubject"
+                      id="physical_science_marks"
                       placeholder=" Enter Your Marks "
                     />
                   </div>
@@ -276,7 +272,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputZip"
+                      id="physical_science_full_marks"
                       value="100"
                     />
                   </div>
@@ -300,7 +296,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputCity"
+                      id="life_science_marks"
                       placeholder=" Enter Your Marks "
                     />
                   </div>
@@ -309,7 +305,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputZip"
+                      id="life_science_full_marks"
                       value="100"
                     />
                   </div>
@@ -333,7 +329,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputCity"
+                      id="History_marks"
                       placeholder=" Enter Your Marks "
                     />
                   </div>
@@ -342,7 +338,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputZip"
+                      id="History_full_marks"
                       value="100"
                     />
                   </div>
@@ -366,7 +362,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputCity"
+                      id="geography_marks"
                       placeholder=" Enter Your Marks "
                     />
                   </div>
@@ -375,7 +371,7 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputZip"
+                      id="geography_full_marks"
                       value="100"
                     />
                   </div>
@@ -384,38 +380,9 @@ require 'session.php';
 
                 <hr />
                 <!-- Start of the 6th Marks Entering Details -->
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <!-- <label for="inputCity" style="display: flex">Subjects</label> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inputCity"
-                      value="Total Marks and "
-                      disabled
-                    />
-                  </div>
-                  <div class="form-group col-md-4">
-                    <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inputCity"
-                      placeholder=" Enter Your Marks "
-                    />
-                  </div>
-                  <div class="form-group col-md-2">
-                    <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inputZip"
-                      value="100"
-                    />
-                  </div>
-                </div>
+                
                 <!-- End of the 6th Marks Entering Page -->
-                <button type="submit" name="reg_user" class="btn btn-primary">
+                <button type="submit" name="submit_marks" class="btn btn-primary">
                   Save
                 </button>
               </form>
