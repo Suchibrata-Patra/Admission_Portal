@@ -117,7 +117,13 @@ require 'session.php';
                   <a class="nav-link disabled" href="#">File Upload</a>
                 </li>
                 <li class="nav-item">
+                   <a class="nav-link disabled" href="#">Preview</a>
+                 </li>
+                 <li class="nav-item">
                   <a class="nav-link disabled" href="#">Final Submission</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Payment</a>
                 </li>
               </ul>
             </div>

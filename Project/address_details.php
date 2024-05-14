@@ -123,8 +123,15 @@ require 'session.php';
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">File Upload</a>
                   </li>
-                <li class="nav-item">
+                  
+                  <li class="nav-item">
+                   <a class="nav-link disabled" href="#">Preview</a>
+                 </li>
+                 <li class="nav-item">
                   <a class="nav-link disabled" href="#">Final Submission</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Payment</a>
                 </li>
               </ul>
             </div>
@@ -341,7 +348,7 @@ require 'session.php';
             <!-- This is the End of Card Body Portion-->
             <div style="margin-left: 60%; padding-bottom: 2%">
               <a
-                href="marks_details.php"
+                href="personal_details.php"
                 style="color: black; text-decoration: none"
               >
                 <button

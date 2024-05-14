@@ -89,6 +89,13 @@ require 'session.php';
         background-color: yellow;
         color: black;
       }
+      @media (max-width: 1250px) {
+    .row{
+      width: 98% !important;
+    }
+    .col-xs-12{
+      padding-left: 0px;
+    }
     </style>
   </head>
   <body>
@@ -123,8 +130,14 @@ require 'session.php';
                   <a class="nav-link disabled" href="#">File Upload</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Final Submission</a>
+                  <a class="nav-link disabled" href="#">Preview</a>
                 </li>
+                <li class="nav-item">
+                 <a class="nav-link disabled" href="#">Final Submission</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link disabled" href="#">Payment</a>
+               </li>
               </ul>
             </div>
 

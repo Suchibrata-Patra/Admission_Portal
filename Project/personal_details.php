@@ -124,22 +124,31 @@ require 'session.php';
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">File Upload</a>
                   </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Final Submission</a>
-                </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Preview</a>
+                  </li>
+                  <li class="nav-item">
+                   <a class="nav-link disabled" href="#">Final Submission</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link disabled" href="#">Payment</a>
+                 </li>
               </ul>
             </div>
 
             <!--- This is the beginning of the Card Body portion-->
 
             <div class="card-body">
+                <label for="inputCity" style="display: flex; color:rgb(189, 94, 94);"
+                      >* Please Provide Personal Details Accurately</label
+                    >
               <form method="post" action="marks_details_controller.php">
                 <!-- Start of the Marks Entering Details -->
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputCity" style="display: flex"
-                      >Personal Documents Name</label
-                    >
+                    <!-- <label for="inputCity" style="display: flex; color:rgb(189, 94, 94);"
+                      >* Please Provide Personal Details Accurately</label
+                    > -->
                     <input
                       type="text"
                       class="form-control"
@@ -149,14 +158,14 @@ require 'session.php';
                     />
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="inputState" style="display: flex"
+                    <!-- <label for="inputState" style="display: flex"
                       >Enter Details</label
-                    >
+                    > -->
                     <input
                       type="text"
                       class="form-control"
                       id="inputCity"
-                      placeholder=" Schhol Name"
+                      placeholder="Schhol Name"
                     />
                   </div>
                   <div class="form-group col-md-2"></div>
@@ -208,7 +217,7 @@ require 'session.php';
                       type="text"
                       class="form-control"
                       id="inputCity"
-                      placeholder=" Enter Your Marks "
+                      placeholder="Enter Mother's Name "
                     />
                   </div>
                   <div class="form-group col-md-2">
@@ -235,7 +244,7 @@ require 'session.php';
                       type="text"
                       class="form-control"
                       id="inputSubject"
-                      placeholder=" Enter Your Marks "
+                      placeholder="Provide Current Whatsapp No"
                     />
                   </div>
                   <div class="form-group col-md-2">
@@ -376,8 +385,205 @@ require 'session.php';
                   </div>
                 </div>
                 <!-- End of the 6th Marks Entering Page -->
+<hr style="height: 4px;background-color: rgb(193, 147, 78);">
 
-               
+
+<!-- This is the Address Collection Page -->
+ <!-- Start of the Marks Entering Details -->
+<label for="inputState" style="display: flex; color: rgb(245, 117, 162);">Address Details</label> <div class="form-row">
+    <div class="form-group col-md-6">
+      <!-- <label for="inputCity" style="display: flex"
+        >Your Address Details</label
+      > -->
+      <input
+        type="text"
+        class="form-control"
+        id="inputSubject"
+        value="Village/Town"
+        disabled
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <!-- <label for="inputState" style="display: flex"
+        >Enter Details</label
+      > -->
+      <input
+        type="text"
+        class="form-control"
+        id="inputCity"
+        placeholder="Provide complete Address Details."
+      />
+    </div>
+    <div class="form-group col-md-2"></div>
+  </div>
+  <!-- End of the Marks Entering Page -->
+
+
+  <!-- Start of the 6th Marks Entering Details -->
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <!-- <label for="inputCity" style="display: flex">Subjects</label> -->
+      <input
+        type="text"
+        class="form-control"
+        id="inputSubject"
+        value="City"
+        disabled
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
+      <input
+        type="text"
+        class="form-control"
+        id="inputCity"
+        placeholder="Enter Your Marks "
+      />
+    </div>
+    <div class="form-group col-md-2">
+      <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
+    </div>
+  </div>
+  <!-- End of the 6th Marks Entering Page -->
+
+  <!-- Start of the 2nd Marks Entering Details -->
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <!-- <label for="inputCity" style="display: flex">Subjects</label> -->
+      <input
+        type="text"
+        class="form-control"
+        id="inputSubject"
+        value="PIN"
+        disabled
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
+      <input
+        type="text"
+        class="form-control"
+        id="inputCity"
+        placeholder="Enter PIN"
+      />
+    </div>
+    <div class="form-group col-md-2">
+      <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
+    </div>
+  </div>
+  <!-- End of the 2nd Marks Entering Page -->
+
+  <!-- Start of the 3rd Marks Entering Details -->
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <!-- <label for="inputCity" style="display: flex">Subjects</label> -->
+      <input
+        type="text"
+        class="form-control"
+        id="inputSubject"
+        value="Police Station"
+        disabled
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
+      <input
+        type="text"
+        class="form-control"
+        id="inputCity"
+        placeholder="Enter Police Station"
+      />
+    </div>
+    <div class="form-group col-md-2">
+      <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
+    </div>
+  </div>
+  <!-- End of the 3rd Marks Entering Page -->
+
+ 
+
+  <!-- Start of the 4th Marks Entering Details -->
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <!-- <label for="inputCity" style="display: flex">Subjects</label> -->
+      <input
+        type="text"
+        class="form-control"
+        id="inputSubject"
+        value="District"
+        disabled
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
+      <input
+        type="text"
+        class="form-control"
+        id="inputCity"
+        value = "Enter District"
+      />
+    </div>
+    <div class="form-group col-md-2">
+      <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
+    </div>
+  </div>
+  <!-- End of the 4th Marks Entering Page -->
+
+
+
+
+
+
+   <!-- Start of the 4th Marks Entering Details -->
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <!-- <label for="inputCity" style="display: flex">Subjects</label> -->
+      <input
+        type="text"
+        class="form-control"
+        id="inputSubject"
+        value="State"
+        disabled
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
+      <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Arunachal Pradesh">
+          Arunachal Pradesh
+        </option>
+        <option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Himachal Pradesh">Himachal Pradesh</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option>
+        <option value="Meghalaya">Meghalaya</option>
+        <option value="Mizoram">Mizoram</option>
+        <option value="Nagaland">Nagaland</option>
+        <option value="Odisha">Odisha</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Tripura">Tripura</option>
+        <option value="Uttarakhand">Uttarakhand</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="West Bengal">West Bengal</option>
+      </select>
+    </div>
+</div>
+
 
                 <button type="submit" name="reg_user" class="btn btn-primary">
                   Save
@@ -404,7 +610,7 @@ require 'session.php';
                 </button>
               </a>
               <a
-                href="address_details.php"
+                href="student_file_upload.php"
                 style="color: black; text-decoration: none"
               >
                 <button

@@ -118,7 +118,15 @@ require 'session.php';
     .custom-upload-btn input[type="file"] {
         display: none;
     }
-    
+    @media (max-width: 1250px) {
+    .row{
+      width: 98% !important;
+    }
+    .col-xs-12{
+      padding-left: 0px;
+    }
+}
+
      </style>
    </head>
    <body>
@@ -129,8 +137,8 @@ require 'session.php';
        </h2>
        <a href="welcome.php?logout='1'" class="logout">Logout</a>
      </div>
-     <div class="container">
-       <div class="row">
+     <div class="container" >
+       <div class="row" style="width: 120%;">
          <div class="col-xs-12">
            <div class="card text-center">
              <div class="card-header">
@@ -144,7 +152,7 @@ require 'session.php';
                    >
                  </li>
                  <li class="nav-item">
-                   <a class="nav-link active" href="personal_details.php"
+                   <a class="nav-link disabled" href="personal_details.php"
                      >Personal Details</a
                    >
                  </li>
@@ -152,17 +160,26 @@ require 'session.php';
                    <a class="nav-link disabled" href="#">Address Details</a>
                  </li>
                  <li class="nav-item">
-                     <a class="nav-link disabled" href="#">File Upload</a>
-                   </li>
-                 <li class="nav-item">
-                   <a class="nav-link disabled" href="#">Final Submission</a>
+                   <a class="nav-link active" href="#">File Upload</a>
+                  </li>
+                  <li class="nav-item">
+                   <a class="nav-link disabled" href="#">Choose Sub.</a>
                  </li>
+                 <li class="nav-item">
+                   <a class="nav-link disabled" href="#">Preview</a>
+                 </li>
+                 <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Final Submission</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Payment</a>
+                </li>
                </ul>
              </div>
  
              <!--- This is the beginning of the Card Body portion-->
  
-             <div class="card-body">
+             <div class="card-body" >
 <div class="container mt-5">
     <h2 class="mb-4">Upload Documents</h2>
     <form>
@@ -278,7 +295,7 @@ require 'session.php';
     </button>
   </a>
   <a
-    href="address_details.php"
+    href="choose_sub.php"
     style="color: black; text-decoration: none"
   >
     <button
