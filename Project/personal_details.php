@@ -131,6 +131,12 @@ require 'session.php';
           <div class="card-body">
             <label for="inputCity" style="display: flex; color:rgb(189, 94, 94);">* Please Provide Personal Details
               Accurately</label>
+              <?php if(isset($_GET['error'])) { ?>
+          <div class="alert alert-danger">
+            <?php echo $error = $_GET['error']; ?>
+          </div>
+          <?php } ?>
+
             <form method="post" action="personal_details_controller.php">
               <!-- Start of the Marks Entering Details -->
               <div class="form-row">
