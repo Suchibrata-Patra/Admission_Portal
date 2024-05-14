@@ -10,14 +10,12 @@ require 'session.php';
  $results = mysqli_query($db, $query);
  $user = mysqli_fetch_assoc($results);
  echo '  Session Registration ID - '.$user['reg_no'];
+ echo $user['lname']; 
 
- //  echo $user['lname']; 
  ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />

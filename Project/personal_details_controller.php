@@ -1,7 +1,5 @@
 <?php 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
+ini_set('display_errors', 1); error_reporting(E_ALL);
 require 'session.php';
 
 // initializing variables
@@ -15,7 +13,6 @@ if (!isset($_SESSION['reg_no']) || !isset($_SESSION['email'])) {
     header('Location: login.php');
     exit(); // Stop further execution
 }
-
 // Initialize session variables
 $reg_no = $_SESSION['reg_no'];
 $email = $_SESSION['email'];
@@ -64,13 +61,20 @@ if (isset($_POST['submit_personal_details'])) {
                      student_state = '$student_state' 
                      WHERE reg_no = '$registration_no'";
     $update_result = mysqli_query($db, $update_query);
-
+    // var_dump($update_query);
+    // var_dump($update_result);
+    if ($update_result) {
+        echo "Update successful";
+    } else {
+        echo "Update failed: " . mysqli_error($db);
+    }
+    
     if ($update_result) {
         $_SESSION['success'] = "Marks updated successfully";
         header('Location: student_file_upload.php');
         exit(); // Stop further execution
     } else {
-        header('Location: personal_details_controller.php');
+        header('Location: error.php');
         exit(); // Stop further execution
     }
 }
