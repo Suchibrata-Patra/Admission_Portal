@@ -9,7 +9,6 @@ require 'session.php';
  $query = "SELECT * FROM student_details WHERE email='$email'";
  $results = mysqli_query($db, $query);
  $user = mysqli_fetch_assoc($results);
-
  //  echo $user['lname']; 
  ?>
 
@@ -114,12 +113,12 @@ require 'session.php';
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="personal_details.php"
+                  <a class="nav-link disabled" href="personal_details.php"
                     >Personal Details</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Address Details</a>
+                  <a class="nav-link active" href="#">Address Details</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">File Upload</a>
@@ -137,33 +136,34 @@ require 'session.php';
                 <!-- Start of the Marks Entering Details -->
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputCity" style="display: flex"
-                      >Personal Documents Name</label
-                    >
+                    <!-- <label for="inputCity" style="display: flex"
+                      >Your Address Details</label
+                    > -->
                     <input
                       type="text"
                       class="form-control"
                       id="inputSubject"
-                      value="Previous School Name"
+                      value="Village/Town"
                       disabled
                     />
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="inputState" style="display: flex"
+                    <!-- <label for="inputState" style="display: flex"
                       >Enter Details</label
-                    >
+                    > -->
                     <input
                       type="text"
                       class="form-control"
                       id="inputCity"
-                      placeholder=" Schhol Name"
+                      placeholder="Provide complete Address Details."
                     />
                   </div>
                   <div class="form-group col-md-2"></div>
                 </div>
                 <!-- End of the Marks Entering Page -->
 
-                <!-- Start of the 2nd Marks Entering Details -->
+
+                <!-- Start of the 6th Marks Entering Details -->
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <!-- <label for="inputCity" style="display: flex">Subjects</label> -->
@@ -171,7 +171,7 @@ require 'session.php';
                       type="text"
                       class="form-control"
                       id="inputSubject"
-                      value="Father's Name"
+                      value="City"
                       disabled
                     />
                   </div>
@@ -181,7 +181,34 @@ require 'session.php';
                       type="text"
                       class="form-control"
                       id="inputCity"
-                      placeholder="Enter Father's Name"
+                      placeholder="Enter Your Marks "
+                    />
+                  </div>
+                  <div class="form-group col-md-2">
+                    <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
+                  </div>
+                </div>
+                <!-- End of the 6th Marks Entering Page -->
+
+                <!-- Start of the 2nd Marks Entering Details -->
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <!-- <label for="inputCity" style="display: flex">Subjects</label> -->
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputSubject"
+                      value="PIN"
+                      disabled
+                    />
+                  </div>
+                  <div class="form-group col-md-4">
+                    <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputCity"
+                      placeholder="Enter PIN"
                     />
                   </div>
                   <div class="form-group col-md-2">
@@ -198,7 +225,7 @@ require 'session.php';
                       type="text"
                       class="form-control"
                       id="inputSubject"
-                      value="Mother's Name"
+                      value="Police Station"
                       disabled
                     />
                   </div>
@@ -208,7 +235,7 @@ require 'session.php';
                       type="text"
                       class="form-control"
                       id="inputCity"
-                      placeholder=" Enter Your Marks "
+                      placeholder="Enter Police Station"
                     />
                   </div>
                   <div class="form-group col-md-2">
@@ -216,6 +243,8 @@ require 'session.php';
                   </div>
                 </div>
                 <!-- End of the 3rd Marks Entering Page -->
+
+               
 
                 <!-- Start of the 4th Marks Entering Details -->
                 <div class="form-row">
@@ -225,7 +254,7 @@ require 'session.php';
                       type="text"
                       class="form-control"
                       id="inputSubject"
-                      value="Whatsapp No"
+                      value="District"
                       disabled
                     />
                   </div>
@@ -234,8 +263,8 @@ require 'session.php';
                     <input
                       type="text"
                       class="form-control"
-                      id="inputSubject"
-                      placeholder=" Enter Your Marks "
+                      id="inputCity"
+                      value = "Enter District"
                     />
                   </div>
                   <div class="form-group col-md-2">
@@ -244,141 +273,65 @@ require 'session.php';
                 </div>
                 <!-- End of the 4th Marks Entering Page -->
 
-                <!-- Start of the 5th Marks Entering Details -->
-                <div class="form-row">
+
+
+
+
+
+                 <!-- Start of the 4th Marks Entering Details -->
+                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <!-- <label for="inputCity" style="display: flex">Subjects</label> -->
                     <input
                       type="text"
                       class="form-control"
                       id="inputSubject"
-                      value="Aadhar Card No"
-                      disabled
-                    />
-                  </div>
-                  <div class="form-group col-md-4">
-                    <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inputCity"
-                      placeholder=" XXXX - XXXX - XXXX"
-                    />
-                  </div>
-                  <div class="form-group col-md-2">
-                    <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
-                  </div>
-                </div>
-                <!-- End of the 5th Marks Entering Page -->
-
-                <!-- Start of the 6th Marks Entering Details -->
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <!-- <label for="inputCity" style="display: flex">Subjects</label> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inputSubject"
-                      value="Religion"
+                      value="State"
                       disabled
                     />
                   </div>
                   <div class="form-group col-md-4">
                     <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                     <select id="inputState" class="form-control">
-                      <!-- <option  selected value="Choose">Choose...</option> -->
-                      <option selected value="Hindu">Hindu</option>
-                      <option value="Muslim">Muslim</option>
-                      <option value="Christ">Christ</option>
-                      <option value="Jain">Jain</option>
-                      <option value="Buddhist">Buddhist</option>
-                      <option value="Buddhist">Other</option>
-                      <option value="Buddhist">Don't Want to specify</option>
+                      <option selected>Choose...</option>
+                      <option value="Andhra Pradesh">Andhra Pradesh</option>
+                      <option value="Arunachal Pradesh">
+                        Arunachal Pradesh
+                      </option>
+                      <option value="Assam">Assam</option>
+                      <option value="Bihar">Bihar</option>
+                      <option value="Chhattisgarh">Chhattisgarh</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Gujarat">Gujarat</option>
+                      <option value="Haryana">Haryana</option>
+                      <option value="Himachal Pradesh">Himachal Pradesh</option>
+                      <option value="Jharkhand">Jharkhand</option>
+                      <option value="Karnataka">Karnataka</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Madhya Pradesh">Madhya Pradesh</option>
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="Manipur">Manipur</option>
+                      <option value="Meghalaya">Meghalaya</option>
+                      <option value="Mizoram">Mizoram</option>
+                      <option value="Nagaland">Nagaland</option>
+                      <option value="Odisha">Odisha</option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Rajasthan">Rajasthan</option>
+                      <option value="Sikkim">Sikkim</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Telangana">Telangana</option>
+                      <option value="Tripura">Tripura</option>
+                      <option value="Uttarakhand">Uttarakhand</option>
+                      <option value="Uttar Pradesh">Uttar Pradesh</option>
+                      <option value="West Bengal">West Bengal</option>
                     </select>
                   </div>
                   <div class="form-group col-md-2">
                     <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
                   </div>
                 </div>
-                <!-- End of the 6th Marks Entering Page -->
-
-                <!-- Start of the 6th Marks Entering Details -->
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <!-- <label for="inputCity" style="display: flex">Subjects</label> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inputSubject"
-                      value="Caste"
-                      disabled
-                    />
-                  </div>
-                  <div class="form-group col-md-4">
-                    <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                    <select id="inputState" class="form-control">
-                      <option value="Hindu">General</option>
-                      <option value="Muslim">SC/ST</option>
-                      <option value="Christ">OBC</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-md-2">
-                    <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
-                  </div>
-                </div>
-                <!-- End of the 6th Marks Entering Page -->
-
-                <!-- Start of the 6th Marks Entering Details -->
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <!-- <label for="inputCity" style="display: flex">Subjects</label> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inputSubject"
-                      value="PWD (Person With Diabilities)"
-                      disabled
-                    />
-                  </div>
-                  <div class="form-group col-md-4">
-                    <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                    <select id="inputState" class="form-control">
-                      <option Selected>No</option>
-                      <option value="Andhra Pradesh">Yes</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-md-2">
-                    <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
-                  </div>
-                </div>
-                <!-- End of the 6th Marks Entering Page -->
-                <!-- Start of the 6th Marks Entering Details -->
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <!-- <label for="inputCity" style="display: flex">Subjects</label> -->
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inputCity"
-                      value="EWS (Economically Weaker Section)"
-                      disabled
-                    />
-                  </div>
-                  <div class="form-group col-md-4">
-                    <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                    <select id="inputState" class="form-control">
-                      <option Selected>No</option>
-                      <option value="Andhra Pradesh">Yes</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-md-2">
-                    <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
-                  </div>
-                </div>
-                <!-- End of the 6th Marks Entering Page -->
-
-               
-
+                <!-- End of the 4th Marks Entering Page -->
+              
                 <button type="submit" name="reg_user" class="btn btn-primary">
                   Save
                 </button>
@@ -386,7 +339,7 @@ require 'session.php';
             </div>
 
             <!-- This is the End of Card Body Portion-->
-            <div style="margin-left: 30%; padding-bottom: 2%">
+            <div style="margin-left: 60%; padding-bottom: 2%">
               <a
                 href="marks_details.php"
                 style="color: black; text-decoration: none"
@@ -404,7 +357,7 @@ require 'session.php';
                 </button>
               </a>
               <a
-                href="address_details.php"
+                href="student_file_upload.php"
                 style="color: black; text-decoration: none"
               >
                 <button

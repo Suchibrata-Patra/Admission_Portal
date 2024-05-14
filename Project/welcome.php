@@ -108,6 +108,12 @@ require 'session.php';
                   >
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Personal Details</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Address Details</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link disabled" href="#">File Upload</a>
                 </li>
                 <li class="nav-item">
@@ -167,7 +173,7 @@ require 'session.php';
               </div>
             </div>
             <div style="margin-left: 90%; padding-bottom: 2%;">
-            <button type="button" class="btn btn-primary" style="margin-right: 2%; background-color: white;"> <a href="marks_details.php" style="color: black;text-decoration: none;">Next</a></button>
+            <a href="marks_details.php" style="color: black;text-decoration: none;"> <button type="button" class="btn btn-primary" style="margin-right: 2%; background-color: white;color:black;"> Next</button></a>
             </div>
           </div>
         </div>

@@ -55,3 +55,9 @@ body {
     background-color: yellow;
     color: black;
   }
+
+  .upload_buton_size_limit_text{
+    color: RED;
+    font-size: small;
+    font-weight:bold;
+  }

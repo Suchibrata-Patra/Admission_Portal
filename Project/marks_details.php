@@ -117,6 +117,12 @@ require 'session.php';
                   <a class="nav-link disabled" href="#">Personal Details</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Address Details</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">File Upload</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link disabled" href="#">Final Submission</a>
                 </li>
               </ul>
@@ -403,7 +409,7 @@ require 'session.php';
             </div>
 
             <!-- This is the End of Card Body Portion-->
-            <div style="margin-left: 60%; padding-bottom: 2%">
+            <div style="margin-left: 30%; padding-bottom: 2%">
               <a href="welcome.php" style="color: black; text-decoration: none">
                 <button
                   type="button"
@@ -427,7 +433,7 @@ require 'session.php';
                     color: black;
                   "
                 >
-                  Next
+                 Save & Next
                 </button></a
               >
             </div>
