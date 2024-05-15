@@ -55,12 +55,12 @@
                     <input type="text" id="lname" class="form-control disabled-input" disabled />
                 </div>
             </div>
-            <div class="personal_details" style="border:2px dashed rgb(235, 193, 193); padding:10px;">
-                <button style="margin-left: 95%;background-color:white;border: none;" > 
+            <div class="personal_details" style="background-color: #f9f5f5; border:2px dashed rgb(254, 211, 211); border-radius: 10px; padding:10px;">
+                <div style="margin-bottom: -2%;">Personal Details</div>
+                <button style="margin-left: 95%;background-color:#f9f5f5;border: none;" > 
                     <a href="personal_details.php" style="text-decoration: none;">
-                    <span class="material-symbols-outlined">
-                    edit_document
-                    </span> Edit </a></button>
+                    <span class="material-symbols-outlined" style="color: black;">
+                    edit_document</span>Edit</a></button>
                 <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="fname">Father's Name</label>
