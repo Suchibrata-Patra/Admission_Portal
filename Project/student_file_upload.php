@@ -25,9 +25,12 @@ $documents = array(
 
 
 // Check for each file upload individually
+// Check for each file upload individually
 for ($i = 1; $i <= 5; $i++) {
+    // Check if the form is submitted and the upload button for this file is clicked
+    $fileKey = "newImage$i";
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["upload$i"])) {
-        $fileKey = "newImage$i";
+        // Check if the file is uploaded successfully
         if (isset($_FILES[$fileKey]) && $_FILES[$fileKey]["error"] == 0) {
             $originalName = $_FILES[$fileKey]["name"];
             $fileType = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
@@ -37,16 +40,16 @@ for ($i = 1; $i <= 5; $i++) {
             if (in_array($fileType, $allowedFormats)) {
                 // Create a unique file name with registration number and document name
                 $documentName = str_replace(' ', '', strtolower($documents[$i - 1])); // Remove spaces and convert to lowercase
-                $newFileName = $registration_no . '_' . $documentName . '.' . $fileType;
-                $targetFile = $uploadDir . $newFileName;
+                $newFileName = $registration_no . '_' . $documentName; // Remove the file extension from the new filename
+                $targetFile = $uploadDir . $newFileName . '.' . $fileType;
 
-                // Check if the file already exists, if so, delete it
-                $existingFiles = glob($uploadDir . $registration_no . '_file_' . $i . '.*');
+                // Check if any file with the same name (without extension) already exists
+                $existingFiles = glob($uploadDir . $registration_no . '_' . $documentName . '.*');
                 foreach ($existingFiles as $existingFile) {
-                    unlink($existingFile);
+                    unlink($existingFile); // Delete existing files with the same name (irrespective of extension)
                 }
 
-                // Move the uploaded file to the upload directory
+                // Move the uploaded file to the upload directory with the new filename
                 if (move_uploaded_file($_FILES[$fileKey]["tmp_name"], $targetFile)) {
                     $uploadMessages[$i] = "File $i uploaded successfully!";
                 } else {
@@ -60,6 +63,7 @@ for ($i = 1; $i <= 5; $i++) {
         }
     }
 }
+
 ?>
 
 <!DOCTYPE html>

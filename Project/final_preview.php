@@ -28,9 +28,18 @@
     <div class="container mt-5">
         <h2>Student Profile</h2>
         <form>
-            <div class="form-group">
-                <label for="reg_no">Registration Number</label>
-                <input type="text" id="reg_no" class="form-control disabled-input" disabled>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="fname">Registration No</label>
+                    <input type="text" id="fname" class="form-control disabled-input" disabled>
+                </div>
+                <div class="form-group col-md-6" style="width:100px;height:auto;">
+                <div class="form-group col-md-6 d-flex justify-content-center">
+    <?php echo '<img src="uploads/1233122_passportsizephoto.jpeg" class="img-fluid" alt="Passport Size Photo" style="width: 100px; height:auto;">' ?>
+</div>
+
+               
+                </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -150,7 +159,54 @@
                 <label for="address">Subject Combinations</label>
                 <input type="text" id="address" class="form-control disabled-input" disabled>
             </div>
-           
+           <div class="container">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Full Marks</th>
+                    <th scope="col">Obtained Marks</th>
+                    <th scope="col">% of Marks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Bengali</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <td>English</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <td>Mathematics</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td>Physical Sc.</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td>Life Sc.</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td>History</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <td>Geography</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+           </div>
 
             <!-- Add more fields if necessary -->
         </form>
