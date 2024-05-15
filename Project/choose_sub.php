@@ -128,6 +128,8 @@ require 'session.php';
 </head>
 
 <body>
+    <form action="choose_sub_controller.php" method="POST">
+
     <div class="header">
         <h2 style="margin: 0">
             Welcome
@@ -172,16 +174,15 @@ require 'session.php';
                     </div>
 <!-- This is the beginning of the Card Body portion-->
 <div class="card-body">
-    <div class="container mt-5">
+<div class="container mt-5">
         <h4>Choose Stream, Subjects, and Languages</h4>
-        <form>
             <!-- Select Languages Section -->
             <div class="container mt-5">
                 <!-- <h2>Select Your Languages</h2> -->
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <!-- <label for="language1Select" class="form-label">Select Language 1:</label> -->
-                        <select id="language1Select" class="form-select" onchange="validateLanguages()">
+                        <select id="language1Select" class="form-select" name="language_1" onchange="validateLanguages()">
                             <option value="">Select Language 1</option>
                             <option value="Bengali">Bengali</option>
                             <option value="English">English</option>
@@ -195,7 +196,7 @@ require 'session.php';
                     </div>
                     <div class="col-md-6 mb-3">
                         <!-- <label for="language2Select" class="form-label">Select Language 2:</label> -->
-                        <select id="language2Select" class="form-select" onchange="validateLanguages()">
+                        <select id="language2Select" class="form-select" name="language_2" onchange="validateLanguages()">
                             <option value="">Select Language 2</option>
                             <option value="Bengali">Bengali</option>
                             <option value="English">English</option>
@@ -212,8 +213,8 @@ require 'session.php';
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <!-- <label for="streamSelect" class="form-label">Select a Stream:</label> -->
-                        <select id="streamSelect" class="form-select" onchange="updateSubjects()">
-                            <option value="">Select a Stream</option>
+                        <select id="streamSelect" class="form-select"  name="select_stream"  onchange="updateSubjects()">
+                            <option value="">Select a Stream</option> 
                             <option value="Arts">Arts</option>
                             <option value="Science">Science</option>
                             <option value="Commerce">Commerce</option>
@@ -222,16 +223,15 @@ require 'session.php';
                     </div>
                     <div class="col-md-6 mb-3">
                         <!-- <label for="subjectSelect" class="form-label">Select Subject Combinations:</label> -->
-                        <select id="subjectSelect" class="form-select" disabled>
+                        <select id="subjectSelect" name="sub_comb" class="form-select" disabled>
                             <option value="">Select a Subject</option>
                             <!-- Add subject options here -->
                         </select>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 <!-- This is the End of Card Body -->
 
@@ -245,15 +245,26 @@ require 'session.php';
                                     Back
                                 </button>
                             </a>
-                            <a href="final_preview.php" style="color: black; text-decoration: none">
-                                <button type="button" class="btn btn-primary" style="
-        margin-right: 2%;
-        background-color: rgb(255, 255, 255);
-        color: black;
-      ">
-                                    Save & Next
-                                </button></a>
+                            <a
+                href="final_preview.php"
+                style="color: rgb(255, 255, 255); text-decoration: none"
+              >
+              <button
+                  type="submit"
+                  name="submit_documents"
+                  class="btn btn-primary"
+                  style="
+                    margin-right: 2%;
+                    background-color: rgb(0, 0, 0);
+                    color: rgb(255, 255, 255);
+                    border: none;
+                  "
+                >
+                  Save & Next
+                </button></a
+              >
                         </div>
+    </form>
                         <!-- Link to file optimization website -->
                         <div class="mt-4">
                             <p>If you're facing any Issue with uploading the documents, then Before uploading, you can
