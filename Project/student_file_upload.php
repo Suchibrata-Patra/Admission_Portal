@@ -187,7 +187,8 @@ require 'session.php';
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                    <th style="width: 35%;">Document</th>                        <th>Preview</th>
+                    <th style="width: 35%;">Document</th>                       
+                        <th>Preview</th>
                         <th>Choose </th>
                     </tr>
                 </thead>
