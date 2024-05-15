@@ -1,356 +1,342 @@
-<?php 
+<?php
+session_start();
 require 'session.php';
 
-// echo $user['fname'];
+$query = "SELECT * FROM student_details WHERE email='$email'";
+$results = mysqli_query($db, $query);
+$user = mysqli_fetch_assoc($results);
+$registration_no = $user['reg_no'];
 
-    if ($user['numberVerify'] == 0) {
-      header('location: verify.php');
-    } 
- $query = "SELECT * FROM student_details WHERE email='$email'";
- $results = mysqli_query($db, $query);
- $user = mysqli_fetch_assoc($results);
-
- //  echo $user['lname']; 
- ?>
-
-
- <!DOCTYPE html>
- <html lang="en">
-   <head>
-     <meta charset="UTF-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <title>Welcome</title>
-     <link
-       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-       rel="stylesheet"
-       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-       crossorigin="anonymous"
-     />
-     <link
-       rel="stylesheet"
-       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-       crossorigin="anonymous"
-     />
-     <link rel="stylesheet" href="partials/style.css">
-     <style>
-       body {
-         font-family: Arial, sans-serif;
-         background-color: #f5f5f5;
-         margin: 0;
-         padding: 0;
-       }
- 
-       .header {
-         background-color: white;
-         color: black;
-         text-align: right;
-         padding: 10px 20px;
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-       }
- 
-       .container {
-         margin: 20px;
-       }
- 
-       .form-group {
-         margin-bottom: 20px;
-       }
- 
-       .row {
-         margin-left: -15px;
-         margin-right: -15px;
-       }
- 
-       .col-xs-6 {
-         width: 50%;
-         float: left;
-         padding-left: 15px;
-         padding-right: 15px;
-       }
- 
-       .tab-content {
-         padding: 20px;
-         background-color: #ffffff;
-         border-radius: 10px;
-         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-         margin-top: 20px;
-       }
- 
-       .logout {
-         color: white;
-         background-color: red;
-         padding: 7px;
-         border-radius: 5px;
-         text-decoration: none;
-       }
- 
-       .logout:hover {
-         background-color: yellow;
-         color: black;
-       }
-       .document-preview {
-        width: 100%;
-        height: 100px;
-        border: 2px dashed #ddd;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        /* font-weight: bold; */
-        color: #888888;
-        margin-top: 20px;
-        background-size: contain; /* Adjusted to 'contain' */
-        background-repeat: no-repeat; /* Prevent background repetition */
-        background-position: center center;
-    }
-    .custom-upload-btn {
-      background-color:rgb(255, 253, 208);
-        color: rgb(0, 0, 0);
-        padding: 4px 7px;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-    }
-
-    /* Hide default file input button */
-    .custom-upload-btn input[type="file"] {
-        display: none;
-    }
-    @media (max-width: 1250px) {
-    .row{
-      width: 98% !important;
-    }
-    .col-xs-12{
-      padding-left: 0px;
-    }
+// Set a directory for uploads
+$uploadDir = 'uploads/';
+// Check if the directory exists, if not create it
+if (!is_dir($uploadDir)) {
+    mkdir($uploadDir, 0777, true);
 }
 
-     </style>
-   </head>
-   <body>
-     <div class="header">
-       <h2 style="margin: 0">
-         Welcome
-         <?php echo $user['fname']; ?>
-       </h2>
-       <a href="welcome.php?logout='1'" class="logout">Logout</a>
-     </div>
-     <div class="container" >
-       <div class="row" style="width: 120%;">
-         <div class="col-xs-12">
-           <div class="card text-center">
-             <div class="card-header">
-               <ul class="nav nav-pills card-header-pills">
-                 <li class="nav-item">
-                   <a class="nav-link disabled" href="#">Student Details</a>
-                 </li>
-                 <li class="nav-item">
-                   <a class="nav-link disabled" href="marks_details.php"
-                     >Marks Details</a
-                   >
-                 </li>
-                 <li class="nav-item">
-                   <a class="nav-link disabled" href="personal_details.php"
-                     >Personal Details</a
-                   >
-                 </li>
-                 <li class="nav-item">
-                   <a class="nav-link disabled" href="#">Address Details</a>
-                 </li>
-                 <li class="nav-item">
-                   <a class="nav-link active" href="#">File Upload</a>
-                  </li>
-                  <li class="nav-item">
-                   <a class="nav-link disabled" href="#">Choose Sub.</a>
-                 </li>
-                 <li class="nav-item">
-                   <a class="nav-link disabled" href="#">Preview</a>
-                 </li>
-                 <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Final Submission</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Payment</a>
-                </li>
-               </ul>
-             </div>
- 
-             <!--- This is the beginning of the Card Body portion-->
- 
-             <div class="card-body" >
-<div class="container mt-5">
-    <h2 class="mb-4">Upload Documents</h2>
-    <form action="student_file_upload_controller.php" method="post" enctype="multipart/form-data">
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                    <th style="width: 35%;">Document</th>                       
-                        <th>Preview</th>
-                        <th>Choose </th>
-                    </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Passport Size Photo (20 Kb)</td>
-                    <td class="document-preview" id="passportPreview">No image chosen</td>
-                    <td>
-                        <label class="custom-upload-btn">
-                            Upload
-                            <input type="file" class="form-control-file" id="passportPhoto" accept="image/*" onchange="previewFile('passportPhoto', 'passportPreview')">
-                        </label>
-                        <br> 
-                        <div class="upload_buton_size_limit_text">
-                          (Max 20 Kb) 
-                        </div>
-                    </td>
-                  </tr>
-                  
-
-                  <tr>
-                    <td>Aadhar Card(20 Kb)</td>
-                    <td class="document-preview" id="aadharPreview">No image chosen</td>
-                    <td>
-                        <label class="custom-upload-btn">
-                            Upload
-                            <input type="file" class="form-control-file" id="aadharCard" accept="image/*" onchange="previewFile('aadharCard', 'aadharPreview')">
-                        </label>
-                        <br> 
-                        <div class="upload_buton_size_limit_text">
-                            (Max 20 Kb) 
-                        </div>
-                    </td>
-                </tr>
-                
+$uploadMessages = [];
+$documents = array(
+  "Passport Size Photo",
+  "Aadhar Card",
+  "Madhyamik Marksheet",
+  "Madhyamik Certificate",
+  "Madhyamik Admit"
+);
 
 
-                <tr>
-                  <td>Madhymik Admit (20 Kb)</td>
-                  <td class="document-preview" id="MPAdmittPreview">No image chosen</td>
-                  <td>
-                      <label class="custom-upload-btn">
-                          Upload
-                          <input type="file" class="form-control-file" id="mpAdmit" accept="image/*" onchange="previewFile('mpAdmit', 'MPAdmittPreview')">
-                      </label>
-                      <br> 
-                      <div class="upload_buton_size_limit_text">
-                        (Max 20 Kb) 
-                      </div>
-                  </td>
-              </tr>
-              
-              <tr>
-                  <td>Madhyamik Marksheet (20 Kb)</td>
-                  <td class="document-preview" id="MPMarksheetPreview">No image chosen</td>
-                  <td>
-                      <label class="custom-upload-btn">
-                          Upload
-                          <input type="file" class="form-control-file" id="MP_Marksheet" accept="image/*" onchange="previewFile('MP_Marksheet', 'MPMarksheetPreview')">
-                      </label>
-                      <br> 
-                      <div class="upload_buton_size_limit_text">
-                        (Max 20 Kb) 
-                      </div>
-                  </td>
-              </tr>
-              
-              <tr>
-                  <td>Madhyamik Certificate (20 Kb)</td>
-                  <td class="document-preview" id="MPCertificatePreview">No image chosen</td>
-                  <td>
-                      <label class="custom-upload-btn">
-                          Upload 
-                          <input type="file" class="form-control-file" id="MP_Certificate" accept="image/*" onchange="previewFile('MP_Certificate', 'MPCertificatePreview')">
-                      </label> 
-                      <br> 
-                      <div class="upload_buton_size_limit_text">
-                        (Max 20 Kb) 
-                      </div>
-                  </td>
-              </tr>
-              
-                  <!-- Add similar rows for other document types -->
-                </tbody>
-            </table>
-        </div>
-       
-    </form>
-</div>
-<div style="margin-left: 30%; padding-bottom: 2%">
-  <a
-    href="marks_details.php"
-    style="color: black; text-decoration: none"
-  >
-    <button
-      type="button"
-      class="btn btn-primary"
-      style="
-        margin-right: 2%;
-        background-color: rgb(255, 255, 255);
-        color: black;
-      "
-    >
-      Back
-    </button>
-  </a>
-  <a
-    href="choose_sub.php"
-    style="color: black; text-decoration: none"
-  >
-    <button
-      type="button"
-      class="btn btn-primary"
-      name="file Upload"
-      style="
-        margin-right: 2%;
-        background-color: rgb(255, 255, 255);
-        color: black;
-      "
-    >
-      Save & Next
-    </button></a
-  >
-</div>
- <!-- Link to file optimization website -->
- <div class="mt-4">
-  <p>If you're facing any Issue with uploading the documents, then Before uploading, you can optimize your files using <a href="https://www.example.com" target="_blank">this website</a>.</p>
-</div>
-<div class="mt-4" style="display:block; text-align: left;">
-  <h3>T&C for this Page</h3>
-  <ul>
-    <li>By uploading documents, you agree to comply with all applicable laws and regulations.</li>
-    <li>The documents you upload must be genuine and accurate.</li>
-    <li>You are solely responsible for the content of the documents you upload.</li>
-    <li>Any fraudulent activity or misuse of this platform will result in immediate termination of your account.</li>
-    <li>We reserve the right to verify the authenticity of the documents uploaded.</li>
-    <li>We may use the information provided for verification and communication purposes.</li>
-    <li>We are not responsible for any loss or damage resulting from the use of this platform.</li>
-    <li>We reserve the right to modify these terms and conditions at any time without prior notice.</li>
-  </ul>
-</div>
+// Check for each file upload individually
+for ($i = 1; $i <= 5; $i++) {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["upload$i"])) {
+        $fileKey = "newImage$i";
+        if (isset($_FILES[$fileKey]) && $_FILES[$fileKey]["error"] == 0) {
+            $originalName = $_FILES[$fileKey]["name"];
+            $fileType = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
 
+            // Allow only certain file formats
+            $allowedFormats = ["jpg", "jpeg", "png", "gif"];
+            if (in_array($fileType, $allowedFormats)) {
+                // Create a unique file name with registration number and document name
+                $documentName = str_replace(' ', '', strtolower($documents[$i - 1])); // Remove spaces and convert to lowercase
+                $newFileName = $registration_no . '_' . $documentName . '.' . $fileType;
+                $targetFile = $uploadDir . $newFileName;
 
-<script>
-    function previewFile(inputId, previewId) {
-        const preview = document.getElementById(previewId);
-        const file = document.getElementById(inputId).files[0];
-        const reader = new FileReader();
+                // Check if the file already exists, if so, delete it
+                $existingFiles = glob($uploadDir . $registration_no . '_file_' . $i . '.*');
+                foreach ($existingFiles as $existingFile) {
+                    unlink($existingFile);
+                }
 
-        reader.addEventListener("load", function () {
-            // Convert image file to base64 string
-            preview.style.backgroundImage = 'url(' + reader.result + ')';
-            preview.textContent = '';
-        }, false);
-
-        if (file) {
-            reader.readAsDataURL(file);
+                // Move the uploaded file to the upload directory
+                if (move_uploaded_file($_FILES[$fileKey]["tmp_name"], $targetFile)) {
+                    $uploadMessages[$i] = "File $i uploaded successfully!";
+                } else {
+                    $uploadMessages[$i] = "File $i could not be uploaded.";
+                }
+            } else {
+                $uploadMessages[$i] = "File $i: Sorry, only JPG, JPEG, PNG, and GIF files are allowed.";
+            }
         } else {
-            preview.style.backgroundImage = 'none';
-            preview.textContent = 'No image chosen';
+            $uploadMessages[$i] = "File $i not uploaded or an error occurred.";
         }
     }
-</script>
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="partials/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: white;
+            color: black;
+            text-align: right;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            margin: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .row {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+
+        .col-xs-6 {
+            width: 50%;
+            float: left;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .tab-content {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .logout {
+            color: white;
+            background-color: red;
+            padding: 7px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .logout:hover {
+            background-color: yellow;
+            color: black;
+        }
+
+        .document-preview {
+            width: 100px;
+            height: auto;
+            border: 2px dashed #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* font-weight: bold; */
+            color: #888888;
+            margin-top: 20px;
+            background-size: contain;
+            /* Adjusted to 'contain' */
+            background-repeat: no-repeat;
+            /* Prevent background repetition */
+            background-position: center center;
+        }
+
+        .custom-upload-btn {
+            background-color: rgb(255, 253, 208);
+            color: rgb(0, 0, 0);
+            padding: 4px 7px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .preview-img {
+            max-height: 150px;
+            width: 150px;
+            border: 1px solid #ddd;
+            display: block;
+            margin: auto;
+        }
+
+        .custom-file-input {
+            color: #ffffff;
+            width: 120px;
+            border: none;
+        }
+
+        .custom-file-input::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+
+        .custom-file-input::before {
+            content: 'Choose File';
+            display: inline-block;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .custom-file-input:hover::before {
+            background-color: #333;
+        }
+
+        .custom-file-input:active::before {
+            background-color: #666;
+        }
+
+        .td {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h2>Welcome
+            <?php echo $user['fname']; ?>
+        </h2>
+        <a href="welcome.php?logout='1'" class="logout">Logout</a>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-pills card-header-pills">
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Student Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="marks_details.php">Marks Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="personal_details.php">Personal Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Address Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">File Upload</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Choose Sub.</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Preview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Final Submission</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Payment</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title mb-4">Upload Necessary Documents</h5>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="align-middle text-center">File</th>
+                                    <th scope="col" class="align-middle text-center">Image Preview</th>
+                                    <th scope="col" class="align-middle text-center">Upload</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php for ($i = 1; $i <= 5; $i++): ?>
+                                <tr>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <?php echo $documents[$i-1]; ?>
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <!-- This is File <?php echo $i; ?> -->
+                                        <?php
+                                $uploadedFilePaths = glob($uploadDir . $registration_no . '_' . str_replace(' ', '', strtolower($documents[$i - 1])) . '.*');
+                                if (!empty($uploadedFilePaths)) {
+                                  $uploadedFilePath = $uploadedFilePaths[0];
+                                  echo '<img src="' . $uploadedFilePath . '?t=' . time() . '" alt="Uploaded Image" class="preview-img">';
+                  # This is the logic for Cahe Bursting to show fresh copy of images...
+                                } else {
+                                  echo '<p style="text-align: center;">No file uploaded</p>';
+                                }
+                                ?>
+                                    </td>
+
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex flex-column align-items-center">
+                                            <form action="" method="post" enctype="multipart/form-data">
+                                                <div class="mb-3">
+                                                    <input type="file" class="form-control custom-file-input"
+                                                        id="newImage<?php echo $i; ?>" name="newImage<?php echo $i; ?>"
+                                                        accept="image/*" onchange="updateFileName(this)">
+                                                </div>
+                                                <button type="submit" name="upload<?php echo $i; ?>"
+                                                    class="btn btn-primary mt-2">Upload</button>
+                                            </form>
+                                        </div>
+                                    </td>
+
+                                    <?php if (isset($uploadMessages[$i])): ?>
+                                    <!-- <td>
+                                        <p class="upload-message">
+                                            <?php echo $uploadMessages[$i]; ?>
+                                        </p>
+                                    </td> -->
+                                    <?php endif; ?>
+                                </tr>
+                                <?php endfor; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-left: 50%; padding-bottom: 2%">
+                        <a href="marks_details.php" style="color: black; text-decoration: none">
+                            <button type="button" class="btn btn-primary" style="
+        margin-right: 2%;
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        border: 0px;
+      ">
+                                Back
+                            </button>
+                        </a>
+                        <a href="choose_sub.php" style="color: black; text-decoration: none">
+                            <button type="button" class="btn btn-primary" name="file Upload" style="
+        margin-right: 2%;
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        border: 0px;
+      ">
+                                Save & Next
+                            </button></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function updateFileName(input) {
+            var fileName = input.files[0].name;
+            var label = document.getElementById('fileName' + input.id.slice(-1));
+            label.textContent = fileName;
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
