@@ -3,9 +3,10 @@ require 'session.php';
 
 // echo $user['fname'];
 
-    if ($user['numberVerify'] == 0) {
-      header('location: verify.php');
-    } 
+if ($user['issubmitted'] == 1) {
+    header('location: payment_details.php');
+    exit(); // Add exit to stop further execution
+} 
  $query = "SELECT * FROM student_details WHERE email='$email'";
  $results = mysqli_query($db, $query);
  $user = mysqli_fetch_assoc($results);

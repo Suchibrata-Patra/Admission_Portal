@@ -7,6 +7,11 @@ $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
 $registration_no = $user['reg_no'];
 
+
+if ($user['issubmitted'] == 1) {
+    header('location: payment_details.php');
+    exit(); // Add exit to stop further execution
+} 
 // Set a directory for uploads
 $uploadDir = 'uploads/';
 // Check if the directory exists, if not create it

@@ -3,9 +3,14 @@ require 'session.php';
 
 // echo $user['fname'];
 
-    if ($user['numberVerify'] == 0) {
-      header('location: verify.php');
-    } 
+    // if ($user['numberVerify'] == 0) {
+    //   header('location: verify.php');
+    // } 
+
+if ($user['issubmitted'] == 1) {
+  header('location: payment_details.php');
+  exit(); // Add exit to stop further execution
+} 
  $query = "SELECT * FROM student_details WHERE email='$email'";
  $results = mysqli_query($db, $query);
  $user = mysqli_fetch_assoc($results);
@@ -518,7 +523,7 @@ require 'session.php';
           <label for="bank_ifsc_code" style="margin-bottom: 0%;display: flex;">Bank IFSC Code</label>
           <input type="text" class="form-control" id="bank_ifsc_code" name="bank_ifsc_code" <?php if ($user['bank_ifsc_code'] == null): ?> placeholder="Enter Bank IFSC Code" <?php else: ?> value="<?php echo $user['bank_ifsc_code']; ?>" <?php endif; ?> />
         </div>
-        <p style="margin-bottom: 0; color: rgb(146, 96, 36);"><strong style="margin: 0 5px; padding: 3px; background-color: #FFFF00; border-radius: 3px;">Note:</strong> If you don't have <u><i>Bank Account</i></u>, you may provide that of <u><i>your Gurdian.</i></u></p>
+        <p style="margin-bottom: 0; color: rgb(146, 96, 36);"><strong style="margin: 0 5px; padding: 3px; background-color: #FFFF00; border-radius: 3px;">Note:</strong> If you don't have <u><i>Bank Account</i></>, you may provide that of <u><i>your Gurdian.</i></u></p>
         
       </div>
 <!-- End of Bank Details -->
