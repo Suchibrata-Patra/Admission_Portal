@@ -41,25 +41,32 @@ if (isset($_POST['submit_personal_details'])) {
     $student_police_station = mysqli_real_escape_string($db, $_POST['student_police_station']);
     $student_district = mysqli_real_escape_string($db, $_POST['student_district']);
     $student_state = mysqli_real_escape_string($db, $_POST['student_state']);
+    $bank_name = mysqli_real_escape_string($db, $_POST['bank_name']);
+    $bank_account_no = mysqli_real_escape_string($db, $_POST['bank_account_no']);
+    $bank_ifsc_code = mysqli_real_escape_string($db, $_POST['bank_ifsc_code']);
 
     // Update marks details in the database
     $update_query = "UPDATE student_details 
-                     SET previous_school_name = '$previous_school_name', 
-                     fathers_name = '$fathers_name', 
-                     mothers_name = '$mothers_name', 
-                     current_whatsapp_no = '$current_whatsapp_no', 
-                     aadhar_card_no = '$aadhar_card_no', 
-                     student_religion = '$student_religion', 
-                     student_caste = '$student_caste', 
-                     is_student_PWD = '$is_student_PWD', 
-                     is_student_EWS = '$is_student_EWS', 
-                     student_village_town = '$student_village_town', 
-                     student_city = '$student_city', 
-                     student_pin_code = '$student_pin_code', 
-                     student_police_station = '$student_police_station', 
-                     student_district = '$student_district', 
-                     student_state = '$student_state' 
-                     WHERE reg_no = '$registration_no'";
+                 SET previous_school_name = '$previous_school_name', 
+                 fathers_name = '$fathers_name', 
+                 mothers_name = '$mothers_name', 
+                 current_whatsapp_no = '$current_whatsapp_no', 
+                 aadhar_card_no = '$aadhar_card_no', 
+                 student_religion = '$student_religion', 
+                 student_caste = '$student_caste', 
+                 is_student_PWD = '$is_student_PWD', 
+                 is_student_EWS = '$is_student_EWS', 
+                 student_village_town = '$student_village_town', 
+                 student_city = '$student_city', 
+                 student_pin_code = '$student_pin_code', 
+                 student_police_station = '$student_police_station', 
+                 student_district = '$student_district', 
+                 student_state = '$student_state', 
+                 bank_name = '$bank_name',
+                 bank_account_no = '$bank_account_no',
+                 bank_ifsc_code = '$bank_ifsc_code'
+                 WHERE reg_no = '$registration_no'";
+
     $update_result = mysqli_query($db, $update_query);
     // var_dump($update_query);
     // var_dump($update_result);
