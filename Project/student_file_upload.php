@@ -182,7 +182,7 @@ require 'session.php';
              <div class="card-body" >
 <div class="container mt-5">
     <h2 class="mb-4">Upload Documents</h2>
-    <form action="student_file_upload_controller.php">
+    <form action="student_file_upload_controller.php" method="post" enctype="multipart/form-data">
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
