@@ -516,7 +516,7 @@ require 'session.php';
                 </button>
               </a>
               <a
-                href="personal_details.php"
+                href="student_file_upload.php"
                 style="color: rgb(255, 255, 255); text-decoration: none"
               >
               <button

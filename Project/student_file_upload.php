@@ -182,7 +182,7 @@ require 'session.php';
              <div class="card-body" >
 <div class="container mt-5">
     <h2 class="mb-4">Upload Documents</h2>
-    <form action="student_upload_controller.php">
+    <form action="student_file_upload_controller.php">
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
@@ -301,6 +301,7 @@ require 'session.php';
     <button
       type="button"
       class="btn btn-primary"
+      name="file Upload"
       style="
         margin-right: 2%;
         background-color: rgb(255, 255, 255);
