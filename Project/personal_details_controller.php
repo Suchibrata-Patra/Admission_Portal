@@ -84,5 +84,7 @@ if (isset($_POST['submit_personal_details'])) {
         header('Location: error.php');
         exit(); // Stop further execution
     }
+    
+    ob_end_flush(); // Flush the output buffer
 }
 ?>

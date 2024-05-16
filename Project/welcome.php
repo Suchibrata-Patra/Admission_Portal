@@ -1,19 +1,19 @@
-<?php 
+<?php
 require 'session.php';
 
 $query = "SELECT * FROM student_details WHERE email='$email'";
- $results = mysqli_query($db, $query);
- $user = mysqli_fetch_assoc($results);
+$results = mysqli_query($db, $query);
+$user = mysqli_fetch_assoc($results);
 
- echo $user['issubmitted'] ;
 if ($user['numberVerify'] == 0) {
-  header('Location: verify.php');
-  exit;
+    header('Location: verify.php');
+    exit;
 } 
 if ($user['issubmitted'] == 1) {
-  header('Location: payment_details.php');
-  exit;
+    header('Location: payment_details.php');
+    exit;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

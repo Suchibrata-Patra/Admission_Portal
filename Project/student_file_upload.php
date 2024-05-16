@@ -15,11 +15,6 @@ if ($user['issubmitted'] == 1) {
 // Set a directory for uploads
 $uploadDir = 'uploads/';
 
-$allFilesUploaded = false;
-// Check if all files are uploaded successfully
-if(isset($uploadMessages) && count($uploadMessages) == 5 && !in_array("File $i: Either not uploaded or exceeds size limit of 80 KB.", $uploadMessages)) {
-    $allFilesUploaded = true;
-}
 // Check if the directory exists, if not create it
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0777, true);
@@ -62,18 +57,11 @@ for ($i = 1; $i <= 5; $i++) {
                 }
 
                 // Move the uploaded file to the upload directory with the new filename
-               // Move the uploaded file to the upload directory with the new filename
-if (move_uploaded_file($_FILES[$fileKey]["tmp_name"], $targetFile)) {
-    $uploadMessages[$i] = "File $i uploaded successfully!";
-    
-    // Update the respective column in the database to '1' indicating that the file is uploaded
-    $columnName = strtolower(str_replace(' ', '_', $documents[$i - 1])) . '_uploaded';
-    $query = "UPDATE student_details SET $columnName = 1 WHERE reg_no = '$registration_no'";
-    mysqli_query($db, $query);
-} else {
-    $uploadMessages[$i] = "File $i could not be uploaded.";
-}
-
+                if (move_uploaded_file($_FILES[$fileKey]["tmp_name"], $targetFile)) {
+                    $uploadMessages[$i] = "File $i uploaded successfully!";
+                } else {
+                    $uploadMessages[$i] = "File $i could not be uploaded.";
+                }
             } else {
                 $uploadMessages[$i] = "File $i: Sorry, only JPG, JPEG, PNG, and GIF files are allowed.";
             }
@@ -90,7 +78,6 @@ if (move_uploaded_file($_FILES[$fileKey]["tmp_name"], $targetFile)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="public, max-age=3600">
     <title>Welcome</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -199,7 +186,7 @@ if (move_uploaded_file($_FILES[$fileKey]["tmp_name"], $targetFile)) {
         }
 
         .custom-file-input::before {
-            content: 'Choose';
+            content: 'Choose File';
             display: inline-block;
             background-color: rgb(0, 0, 0);
             color: white;
@@ -278,9 +265,9 @@ if (move_uploaded_file($_FILES[$fileKey]["tmp_name"], $targetFile)) {
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="align-middle text-center" style="background-color: #e1e1e1;">File</th>
-                                    <th scope="col" class="align-middle text-center" style="background-color: #e1e1e1;">Image Preview</th>
-                                    <th scope="col" class="align-middle text-center" style="background-color: #e1e1e1;">Upload</th>
+                                    <th scope="col" class="align-middle text-center">File</th>
+                                    <th scope="col" class="align-middle text-center">Image Preview</th>
+                                    <th scope="col" class="align-middle text-center">Upload</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -288,7 +275,6 @@ if (move_uploaded_file($_FILES[$fileKey]["tmp_name"], $targetFile)) {
                                 <tr>
                                     <td style="text-align: center; vertical-align: middle;">
                                         <?php echo $documents[$i-1]; ?>
-                                        <span style="font-weight: bold;color: rgb(239, 159, 84);"><br>(Max 80 kb)</span>
                                     </td>
                                     <td style="text-align: center; vertical-align: middle;">
                                         <!-- This is File <?php echo $i; ?> -->
@@ -310,13 +296,13 @@ if (move_uploaded_file($_FILES[$fileKey]["tmp_name"], $targetFile)) {
             <div class="mb-3">
                 <span style="font-weight: 100;font-size: small;margin-bottom: -1px;">After Choosing,</span> 
                 <br>
-                <span style="font-weight: 100;font-size: small;margin-top:-3px;">Click on upload</span>
+                <span style="font-weight: 100;font-size: small;line-height: 1;">click on upload</span>
                 <input type="file" class="form-control custom-file-input"
                     id="newImage<?php echo $i; ?>" name="newImage<?php echo $i; ?>"
                     accept="image/*" onchange="updateFileName(this)">
             </div>
             <button type="submit" name="upload<?php echo $i; ?>"
-                class="btn btn-primary" style="margin-top:-20%;margin-left:-20%;padding-top: 4px;padding-bottom: 4px;">Upload</button>
+                class="btn btn-primary mt-2">Upload</button>
         </form>
     </div>
 </td>
