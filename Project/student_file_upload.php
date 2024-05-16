@@ -186,7 +186,7 @@ for ($i = 1; $i <= 5; $i++) {
         }
 
         .custom-file-input::before {
-            content: 'Choose File';
+            content: 'Choose';
             display: inline-block;
             background-color: rgb(0, 0, 0);
             color: white;
@@ -265,9 +265,9 @@ for ($i = 1; $i <= 5; $i++) {
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="align-middle text-center">File</th>
-                                    <th scope="col" class="align-middle text-center">Image Preview</th>
-                                    <th scope="col" class="align-middle text-center">Upload</th>
+                                    <th scope="col" class="align-middle text-center" style="background-color: #e1e1e1;">File</th>
+                                    <th scope="col" class="align-middle text-center" style="background-color: #e1e1e1;">Image Preview</th>
+                                    <th scope="col" class="align-middle text-center" style="background-color: #e1e1e1;">Upload</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -275,6 +275,7 @@ for ($i = 1; $i <= 5; $i++) {
                                 <tr>
                                     <td style="text-align: center; vertical-align: middle;">
                                         <?php echo $documents[$i-1]; ?>
+                                        <span style="font-weight: bold;color: rgb(239, 159, 84);"><br>(Max 80 kb)</span>
                                     </td>
                                     <td style="text-align: center; vertical-align: middle;">
                                         <!-- This is File <?php echo $i; ?> -->
@@ -294,13 +295,15 @@ for ($i = 1; $i <= 5; $i++) {
     <div class="d-flex flex-column align-items-center">
         <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-3">
-                After Choosing, <br> click on upload
+                <span style="font-weight: 100;font-size: small;margin-bottom: -1px;">After Choosing,</span> 
+                <br>
+                <span style="font-weight: 100;font-size: small;margin-top:-3px;">Click on upload</span>
                 <input type="file" class="form-control custom-file-input"
                     id="newImage<?php echo $i; ?>" name="newImage<?php echo $i; ?>"
                     accept="image/*" onchange="updateFileName(this)">
             </div>
             <button type="submit" name="upload<?php echo $i; ?>"
-                class="btn btn-primary mt-2">Upload</button>
+                class="btn btn-primary" style="margin-top:-20%;margin-left:-20%;padding-top: 4px;padding-bottom: 4px;">Upload</button>
         </form>
     </div>
 </td>

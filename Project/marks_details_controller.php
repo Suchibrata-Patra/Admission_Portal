@@ -3,17 +3,13 @@ require 'session.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// initializing variables
-$username = "";
-$email    = "";
-$errors = array(); 
-
 // Check if user is logged in
 if (!isset($_SESSION['reg_no']) || !isset($_SESSION['email'])) {
     // Redirect user to login page or handle authentication error
     header('Location: login.php');
     exit(); // Stop further execution
 }
+
 
 // Initialize session variables
 $reg_no = $_SESSION['reg_no'];
@@ -43,7 +39,12 @@ if (isset($_POST['submit_marks'])) {
     $geography_marks = mysqli_real_escape_string($db, $_POST['geography_marks']);
     $geography_full_marks = mysqli_real_escape_string($db, $_POST['geography_full_marks']);
 
-
+    // Validation: Check if obtained marks are less than or equal to full marks
+    if ($bengali_marks > $bengali_full_marks || $english_marks > $english_full_marks || $mathematics_marks > $mathematics_full_marks || $physical_science_marks > $physical_science_full_marks || $life_science_marks > $life_science_full_marks || $history_marks > $history_full_marks || $geography_marks > $geography_full_marks) {
+        // Redirect with error message if validation fails
+        header("Location: marks_details.php?error=Obtained marks cannot exceed full marks");
+        exit();
+    }
 
 # Check if Data is empty or not
 # Check if Data is empty or not
