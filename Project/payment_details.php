@@ -74,26 +74,83 @@ $registration_no = $user['reg_no'];
           <td>Admitting Institute</td>
           <td>$100</td>
           <td><img src="Assets/verified.svg" alt="Verified" class="verified-icon"></td>
-          <td>X</td>
+          <td><button id="inst-fee-button" type="button" class="btn btn-info">Pay Inst. Fees</button></td>
         </tr>
         <tr>
           <td>Portal Charges + GST</td>
-          <td>$200</td>
+          <td>$10</td>
           <td class="status-pending">Pending</td>
-          <td>Pay Now</td>
+          <td><button id="portal-fee-button" type="button" class="btn btn-info">Pay Portal Fees</button></td>
         </tr>
         <tr class="total-row">
           <td>TOTAL</td>
-          <td>$300</td>
+          <td>$110</td>
           <td class="status-pending">Pending</td>
           <td> :)</td>
         </tr>
       </tbody>
     </table>
     <div class="button-container">
-        <button type="button" class="btn btn-info">Submit and Download Payment Receipt</button>
+        <!-- <button type="button" class="btn btn-info">Submit and Download Payment Receipt</button> -->
     </div>
 </div>
+<!-- Razorpay Payment Integration Script -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  // Payment handler for Inst. Fees
+  var instFeeOptions = {
+    "key": "rzp_test_MJgA4fLLQnLghp",
+    "amount": "10000", // 100 INR (multiplying by 100 as Razorpay takes amount in paisa)
+    "currency": "INR",
+    "description": "Institution Fees",
+    "image": "example.com/image/rzp.jpg",
+    "handler": function (response) {
+      var paymentId = response.razorpay_payment_id;
+      // Send payment ID to server for database update using AJAX
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "institution_fees_verify.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+              console.log(xhr.responseText); // Log server response (for debugging)
+          }
+      };
+      xhr.send("paymentId=" + paymentId);
+    }
+  };
+  var instFeeRzp = new Razorpay(instFeeOptions);
+  document.getElementById('inst-fee-button').onclick = function (e) {
+    instFeeRzp.open();
+    e.preventDefault();
+  };
+
+  // Payment handler for Portal Fees
+  var portalFeeOptions = {
+    "key": "rzp_test_MJgA4fLLQnLghp",
+    "amount": "1000", // 10 INR (multiplying by 100 as Razorpay takes amount in paisa)
+    "currency": "INR",
+    "description": "Portal Fees",
+    "image": "example.com/image/rzp.jpg",
+    "handler": function (response) {
+      var paymentId = response.razorpay_payment_id;
+      // Send payment ID to server for database update using AJAX
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "portal_fees_verify.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+              console.log(xhr.responseText); // Log server response (for debugging)
+          }
+      };
+      xhr.send("paymentId=" + paymentId);
+    }
+  };
+  var portalFeeRzp = new Razorpay(portalFeeOptions);
+  document.getElementById('portal-fee-button').onclick = function (e) {
+    portalFeeRzp.open();
+    e.preventDefault();
+  };
+</script>
 
 </body>
 </html>
