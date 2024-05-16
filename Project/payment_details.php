@@ -121,7 +121,7 @@ echo $user['institution_fees_payment_done'];
     <?php if ($user['portal_fees_payment_done'] == 1 & $user['institution_fees_payment_done'] == 1): ?>
         <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
     <?php else: ?>
-        <span>Pending</span>
+        <span style="font-weight: 500;color: rgb(226, 188, 141);">Pending</span>
     <?php endif; ?>
 </td>         
  <td> :)</td>
