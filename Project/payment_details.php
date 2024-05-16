@@ -77,7 +77,7 @@ echo $user['institution_fees_payment_done'];
       <tbody>
         <tr>
           <td>Admitting Institute</td>
-          <td>$100</td>
+          <td>Rs.100</td>
           <td>
     <?php if ($user['institution_fees_payment_done'] == 1): ?>
         <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
@@ -85,18 +85,17 @@ echo $user['institution_fees_payment_done'];
         Pending
     <?php endif; ?>
 </td>
-<td>
-    <?php if ($user['institution_fees_payment_done'] == 1): ?>
-      <button id="inst-fee-button" type="button" class="btn btn-info" disabled>Paid</button>
+<td>    
+<?php if ($user['institution_fees_payment_done'] == 1): ?>
+<button id="inst-fee-button" type="button" class="btn btn-light" disabled>Paid</button>
     <?php else: ?>
-      <button id="inst-fee-button" type="button" class="btn btn-info">Pay Inst. Fees</button>
-    <?php endif; ?>
-</td>          
-<!-- <button id="inst-fee-button" type="button" class="btn btn-info">Pay Inst. Fees</button> -->
+    <button id="inst-fee-button" type="button" class="btn btn-info">Pay Inst. Fees</button> 
+       <?php endif; ?>
+</td>
         </tr>
         <tr>
           <td>Portal Charges + GST</td>
-          <td>$10</td>
+          <td>Rs.10</td>
           <td>
     <?php if ($user['portal_fees_payment_done'] == 1): ?>
         <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
@@ -106,26 +105,31 @@ echo $user['institution_fees_payment_done'];
 </td>
 
 <td>
-    <?php if ($user['portal_fees_payment_done'] == 1): ?>
-      <button id="portal-fee-button" type="button" class="btn btn-info" disabled>Paid</button>
-      <?php else: ?>
-      <button id="portal-fee-button" type="button" class="btn btn-info">Pay Portal Fees</button>
-    <?php endif; ?>
+  <?php if ($user['institution_fees_payment_done'] == 1): ?>
+  <button id="portal-fee-button" type="button" class="btn btn-light" disabled>Paid</button>
+    <?php else: ?>
+    <button id="portal-fee-button" type="button" class="btn btn-info">Pay Portal Fees</button>
+  <?php endif; ?>
 </td>
-          <!-- <button id="portal-fee-button" type="button" class="btn btn-info">Pay Portal Fees</button> -->
+          <!-- <td><button id="portal-fee-button" type="button" class="btn btn-info">Pay Portal Fees</button></td> -->
         </tr>
         <tr class="total-row">
           <td>TOTAL</td>
-          <td>$110</td>
+          <td>Rs.110</td>
           <td>
     <?php if ($user['portal_fees_payment_done'] == 1 & $user['institution_fees_payment_done'] == 1): ?>
         <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
     <?php else: ?>
-        <span style="font-weight: 500;color: rgb(226, 188, 141);">Pending</span>
+        Pending
     <?php endif; ?>
 </td>         
- <td> :)</td>
-        </tr>
+<td>
+  <?php if ($user['institution_fees_payment_done'] == 1 & $user['portal-fee-button'] == 1 ): ?>
+  <button id="portal-fee-button" type="button" class="btn btn-light">Download</button>
+    <?php else: ?>
+    <button id="portal-fee-button" type="button" class="btn btn-info">Payment <br> Pending</button>
+  <?php endif; ?>
+</td>        </tr>
       </tbody>
     </table>
     <div class="button-container">
