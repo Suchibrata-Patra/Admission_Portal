@@ -206,6 +206,15 @@ for ($i = 1; $i <= 5; $i++) {
         .td {
             border: 1px solid red;
         }
+        @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
     </style>
 </head>
 
@@ -281,19 +290,21 @@ for ($i = 1; $i <= 5; $i++) {
                                 ?>
                                     </td>
 
-                                    <td class="align-middle text-center">
-                                        <div class="d-flex flex-column align-items-center">
-                                            <form action="" method="post" enctype="multipart/form-data">
-                                                <div class="mb-3">
-                                                    <input type="file" class="form-control custom-file-input"
-                                                        id="newImage<?php echo $i; ?>" name="newImage<?php echo $i; ?>"
-                                                        accept="image/*" onchange="updateFileName(this)">
-                                                </div>
-                                                <button type="submit" name="upload<?php echo $i; ?>"
-                                                    class="btn btn-primary mt-2">Upload</button>
-                                            </form>
-                                        </div>
-                                    </td>
+                                    <td class="align-middle text-center <?php if (isset($_FILES[$fileKey]) && $_FILES[$fileKey]["size"] <= $maxFileSize): ?> fade-in <?php endif; ?>">
+    <div class="d-flex flex-column align-items-center">
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                After Choosing, <br> click on upload
+                <input type="file" class="form-control custom-file-input"
+                    id="newImage<?php echo $i; ?>" name="newImage<?php echo $i; ?>"
+                    accept="image/*" onchange="updateFileName(this)">
+            </div>
+            <button type="submit" name="upload<?php echo $i; ?>"
+                class="btn btn-primary mt-2">Upload</button>
+        </form>
+    </div>
+</td>
+
 
                                     <?php if (isset($uploadMessages[$i])): ?>
                                     <!-- <td>
