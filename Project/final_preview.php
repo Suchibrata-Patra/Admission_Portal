@@ -396,7 +396,7 @@ if (isset($_POST['submit'])) {
         <!-- Checkbox and confirmation message -->
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="confirmCheckbox" name="confirmCheckbox" required>
-            <label class="form-check-label" for="confirmCheckbox">I confirm that the information provided is accurate. Once this form is submitted, it can't be edited later.</label>
+            <label class="form-check-label" for="confirmCheckbox">I confirm that the information provided is Correct. Once this form is submitted, it can't be edited later.</label>
         </div>
 
         <!-- Additional instructions -->

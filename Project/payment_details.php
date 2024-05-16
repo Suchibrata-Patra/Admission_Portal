@@ -6,6 +6,7 @@ $query = "SELECT * FROM student_details WHERE email='$email'";
 $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
 $registration_no = $user['reg_no'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
