@@ -12,7 +12,7 @@ if ($user['issubmitted'] == 1) {
     header('location: payment_details.php');
     exit; // Add exit to stop further execution
 } 
-
+$registration_no = $user['reg_no'];
 // Calculate total and obtained marks
 $total_marks = ($user['bengali_full_marks'] + $user['english_full_marks'] + $user['mathematics_full_marks'] + $user['physical_science_full_marks'] + $user['life_science_full_marks'] + $user['history_full_marks'] + $user['geography_full_marks']);
 $obtained_marks = ($user['bengali_marks'] + $user['english_marks'] + $user['mathematics_marks'] + $user['physical_science_marks'] + $user['life_science_marks'] + $user['history_marks'] + $user['geography_marks']);
@@ -73,9 +73,23 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="form-group col-md-6" style="width: 100px; height: auto">
                     <div class="form-group col-md-6 d-flex justify-content-center" style="margin-left: 25%">
-                        <?php echo '<img src="uploads/1233122_passportsizephoto.jpg" class="img-fluid" alt="Passport Size Photo" style="width: 120px; height:auto;">'
-              ?>
-                    </div>
+                    <?php
+// Define the possible file extensions
+$allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+// Loop through each allowed extension
+foreach ($allowedExtensions as $extension) {
+    // Construct the file path with the current extension
+    $photoPath = "uploads/{$registration_no}_passportsizephoto.{$extension}";
+
+    // Check if the file exists
+    if (file_exists($photoPath)) {
+        // Display the image with the detected file format
+        echo "<img src='{$photoPath}' class='img-fluid' alt='Passport Size Photo' style='width: 120px; height: auto;'>";
+        break; // Exit the loop once the image is found
+    }
+}
+?>                    </div>
                 </div>
             </div>
             <div class="form-row" style="margin-top: -3%">
@@ -388,6 +402,35 @@ if (isset($_POST['submit'])) {
                 </div>
 
             </div>
+
+
+                
+            <hr>
+<h5>Confirmation</h5>
+<div style="display: flex; align-items: center;">
+    <div style="flex: 1;">
+    <p>I hereby confirm that all information provided herein is accurate and complete. My signature serves as an attestation to the veracity of the aforementioned details.</p>
+    </div>
+    <?php
+    // Define the possible file extensions
+    $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+    // Loop through each allowed extension
+    foreach ($allowedExtensions as $extension) {
+        // Construct the file path with the current extension
+        $photoPath = "uploads/{$registration_no}_signature.{$extension}";
+
+        // Check if the file exists
+        if (file_exists($photoPath)) {
+            // Display the image with the detected file format
+            echo "<img src='{$photoPath}' class='img-fluid' alt='Signature' style='width: 120px; height: auto;'>";
+            break; // Exit the loop once the image is found
+        }
+    }
+    ?>
+</div>
+
+<hr>
             <div class="container mt-5">
     <h4>Wait ! Confirm Before Submission</h4>
     <form method="post" action="final_preview.php">
@@ -396,7 +439,7 @@ if (isset($_POST['submit'])) {
         <!-- Checkbox and confirmation message -->
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="confirmCheckbox" name="confirmCheckbox" required>
-            <label class="form-check-label" for="confirmCheckbox">I confirm that the information provided is Correct. Once this form is submitted, it can't be edited later.</label>
+            <label class="form-check-label" for="confirmCheckbox">I Agree with the following condition.</label>
         </div>
 
         <!-- Additional instructions -->

@@ -62,11 +62,18 @@ for ($i = 1; $i <= 5; $i++) {
                 }
 
                 // Move the uploaded file to the upload directory with the new filename
-                if (move_uploaded_file($_FILES[$fileKey]["tmp_name"], $targetFile)) {
-                    $uploadMessages[$i] = "File $i uploaded successfully!";
-                } else {
-                    $uploadMessages[$i] = "File $i could not be uploaded.";
-                }
+               // Move the uploaded file to the upload directory with the new filename
+if (move_uploaded_file($_FILES[$fileKey]["tmp_name"], $targetFile)) {
+    $uploadMessages[$i] = "File $i uploaded successfully!";
+    
+    // Update the respective column in the database to '1' indicating that the file is uploaded
+    $columnName = strtolower(str_replace(' ', '_', $documents[$i - 1])) . '_uploaded';
+    $query = "UPDATE student_details SET $columnName = 1 WHERE reg_no = '$registration_no'";
+    mysqli_query($db, $query);
+} else {
+    $uploadMessages[$i] = "File $i could not be uploaded.";
+}
+
             } else {
                 $uploadMessages[$i] = "File $i: Sorry, only JPG, JPEG, PNG, and GIF files are allowed.";
             }
