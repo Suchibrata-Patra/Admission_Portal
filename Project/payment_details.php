@@ -89,7 +89,7 @@ echo $user['institution_fees_payment_done'];
 <?php if ($user['institution_fees_payment_done'] == 1): ?>
 <button id="inst-fee-button" type="button" class="btn btn-light" disabled>Paid</button>
     <?php else: ?>
-    <button id="inst-fee-button" type="button" class="btn btn-info">Pay Inst. Fees</button> 
+    <button id="inst-fee-button" type="button" class="btn btn-info" onclick="handleInstFeeButtonClick()">Pay Inst. Fees</button> 
        <?php endif; ?>
 </td>
         </tr>
@@ -108,7 +108,7 @@ echo $user['institution_fees_payment_done'];
   <?php if ($user['portal_fees_payment_done'] == 1): ?>
   <button id="portal-fee-button" type="button" class="btn btn-light" disabled>Paid</button>
     <?php else: ?>
-    <button id="portal-fee-button" type="button" class="btn btn-info">Pay Portal Fees</button>
+    <button id="portal-fee-button" type="button" class="btn btn-info" onclick="handlePortalFeeButtonClick()">Pay Portal Fees</button>
   <?php endif; ?>
 </td>
           <!-- <td><button id="portal-fee-button" type="button" class="btn btn-info">Pay Portal Fees</button></td> -->
@@ -125,9 +125,9 @@ echo $user['institution_fees_payment_done'];
 </td>         
 <td>
   <?php if ($user['institution_fees_payment_done'] == 1 & $user['portal_fees_payment_done'] == 1 ): ?>
-  <button id="portal-fee-button" type="button" class="btn btn-light"><a href="receipt_download.php">Download</a></button>
+  <button id="total-payment-button" type="button" class="btn btn-light"><a href="receipt_download.php">Download</a></button>
     <?php else: ?>
-    <button id="portal-fee-button" type="button" class="btn btn-info">Paymentbr Pending</button>
+    <button id="total-payment-button" type="button" class="btn btn-info">Payment Pending</button>
   <?php endif; ?>
 </td>        </tr>
       </tbody>
@@ -161,10 +161,9 @@ echo $user['institution_fees_payment_done'];
     }
   };
   var instFeeRzp = new Razorpay(instFeeOptions);
-  document.getElementById('inst-fee-button').onclick = function (e) {
+  function handleInstFeeButtonClick() {
     instFeeRzp.open();
-    e.preventDefault();
-  };
+  }
 
   // Payment handler for Portal Fees
   var portalFeeOptions = {
@@ -188,10 +187,9 @@ echo $user['institution_fees_payment_done'];
     }
   };
   var portalFeeRzp = new Razorpay(portalFeeOptions);
-  document.getElementById('portal-fee-button').onclick = function (e) {
+  function handlePortalFeeButtonClick() {
     portalFeeRzp.open();
-    e.preventDefault();
-  };
+  }
 </script>
 
 </body>
