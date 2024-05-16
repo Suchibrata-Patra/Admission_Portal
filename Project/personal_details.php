@@ -1,11 +1,11 @@
 <?php 
 require 'session.php';
 
-// echo $user['fname'];
+echo $user['fname'];
 
-    // if ($user['numberVerify'] == 0) {
-    //   header('location: verify.php');
-    // } 
+if ($user['numberVerify'] == 0) {
+      header('location: verify.php');
+    } 
 
 if ($user['issubmitted'] == 1) {
   header('location: payment_details.php');
@@ -161,7 +161,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['previous_school_name']; ?>"
                     <?php endif; ?>  
-                  />
+                  / required>
                 </div>
                 <div class="form-group col-md-2"></div>
               </div>
@@ -181,7 +181,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['fathers_name']; ?>"
                     <?php endif; ?>   
-                    />
+                    / required>
                 </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -225,7 +225,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['current_whatsapp_no']; ?>"
                     <?php endif; ?>   
-                    />                </div>
+                    / required>                </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
                 </div>
@@ -445,7 +445,7 @@ if ($user['issubmitted'] == 1) {
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <input type="text" class="form-control" id="inputCity" name="student_district"
                   <?php if ($user['student_district'] == null): ?>
-                    placeholder="Enter your District"
+                    placeholder="Enter Your District"
                     <?php else: ?>
                     value="<?php echo $user['student_district']; ?>"
                     <?php endif; ?>  
@@ -575,7 +575,6 @@ if ($user['issubmitted'] == 1) {
     </div>
   </div>
   </div>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>

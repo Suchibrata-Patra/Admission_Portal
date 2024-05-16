@@ -45,6 +45,79 @@ if (isset($_POST['submit_personal_details'])) {
     $bank_account_no = mysqli_real_escape_string($db, $_POST['bank_account_no']);
     $bank_ifsc_code = mysqli_real_escape_string($db, $_POST['bank_ifsc_code']);
 
+
+
+# Check if Data is empty or not
+# Check if Data is empty or not
+// if (empty($previous_school_name)) { 
+//     array_push($errors, "Prev School Name is required");
+//     header("location:personal_details.php?error=Prev School Name is required"); 
+// }
+// if (empty($fathers_name)) { 
+//     array_push($errors, "Fathers Name is required");
+//     header("location:personal_details.php?error=Fathers Name is required"); 
+// }
+// if (empty($mothers_name)) { 
+//     array_push($errors, "Mothers Name is required");
+//     header("location:personal_details.php?error=Mothers Name is required"); 
+// }
+// if (empty($current_whatsapp_no)) { 
+//     array_push($errors, "Current Whatsapp no is required");
+//     header("location:personal_details.php?error=Current Whatsapp no is required"); 
+// }
+// if (empty($aadhar_card_no)) { 
+//     array_push($errors, "Aadhr Card no is required");
+//     header("location:personal_details.php?error=Aadhr Card no is required"); 
+// }
+// if (empty($student_religion)) { 
+//     array_push($errors, "religion is required");
+//     header("location:personal_details.php?error=religion is required"); 
+// }
+// if (empty($student_caste)) { 
+//     array_push($errors, "Caste is required");
+//     header("location:personal_details.php?error=Caste is required"); 
+// }
+// if (empty($is_student_PWD)) { 
+//     array_push($errors, "PWD is required");
+//     header("location:personal_details.php?error=PWD is required"); 
+// }
+// if (empty($is_student_EWS)) { 
+//     array_push($errors, "EWS is required");
+//     header("location:personal_details.php?error=EWS is required"); 
+// }
+// if (empty($student_village_town)) { 
+//     array_push($errors, "Villtown is required");
+//     header("location:personal_details.php?error=Villtown is required"); 
+// }
+// if (empty($student_city)) { 
+//     array_push($errors, "City is required");
+//     header("location:personal_details.php?error=City is required"); 
+// }
+// if (empty($student_pin_code)) { 
+//     array_push($errors, "PIN is required");
+//     header("location:personal_details.php?error=PIN is required"); 
+// }
+// if (empty($student_police_station)) { 
+//     array_push($errors, "Police Station is required");
+//     header("location:personal_details.php?error=Police Station is required"); 
+// }
+// if (empty($student_district)) { 
+//     array_push($errors, "District is required");
+//     header("location:personal_details.php?error=District is required"); 
+// }
+// if (empty($bank_name)) { 
+//     array_push($errors, "Bank Name is required");
+//     header("location:personal_details.php?error=Bank Name is required"); 
+// }
+// if (empty($bank_account_no)) { 
+//     array_push($errors, "Bank Acc no is required");
+//     header("location:personal_details.php?error=Bank IFSC no is required"); 
+// }
+// if (empty($bank_ifsc_code)) { 
+//     array_push($errors, "Bank IFSC no is required");
+//     header("location:personal_details.php?error=Bank IFSC no is required"); 
+// }
+
     // Update marks details in the database
     $update_query = "UPDATE student_details 
                  SET previous_school_name = '$previous_school_name', 

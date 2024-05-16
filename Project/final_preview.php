@@ -95,8 +95,8 @@ foreach ($allowedExtensions as $extension) {
             <div class="form-row" style="margin-top: -3%">
                 <div class="form-group col-md-4">
                     <label for="fname">First Name</label>
-                    <input type="text" id="fname" class="form-control disabled-input"
-                        value="<?php echo $user['fname'] ?>" disabled />
+                    <input type="text" id="fname" class="form-control disabled-input check-input" value="<?php echo $user['fname'] ?>" disabled />
+
                 </div>
                 <div class="form-group col-md-4">
                     <label for="lname">Last Name</label>
@@ -112,7 +112,7 @@ foreach ($allowedExtensions as $extension) {
             <div class="personal_details"
                 style="background-color: #f9f5f5; border:1.8px dashed rgb(254, 211, 211); border-radius: 10px; padding:10px;">
                 <div style="margin-bottom: -2%; margin-left:2%;font-weight: bold;">Personal Details</div>
-                <a href="choose_sub.php" class="btn btn-outline-dark" style="margin-left: 85%;">
+                <a href="personal_details.php" class="btn btn-outline-dark" style="margin-left: 85%;">
                     <span class="material-symbols-outlined" style="font-size:20px;">edit_document</span> Edit
                 </a>
                 <div class="form-row">
@@ -273,7 +273,7 @@ foreach ($allowedExtensions as $extension) {
             <div class="marks_details"
                 style="background-color: #ffffff; border:1.8px dashed rgb(254, 211, 211); border-radius: 10px; padding:10px;">
                 <div style="margin-bottom: -2%; margin-left:2%;font-weight: bold;">Marks Details</div>
-                <a href="choose_sub.php" class="btn btn-outline-dark" style="margin-left: 85%;">
+                <a href="marks_details.php" class="btn btn-outline-dark" style="margin-left: 85%;">
                     <span class="material-symbols-outlined" style="font-size:20px;">edit_document</span> Edit
                 </a>
                 <div class="container" style="margin-top:1%;">
@@ -439,13 +439,13 @@ foreach ($allowedExtensions as $extension) {
         <!-- Checkbox and confirmation message -->
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="confirmCheckbox" name="confirmCheckbox" required>
-            <label class="form-check-label" for="confirmCheckbox">I Agree with the following condition.</label>
+            <label class="form-check-label" for="confirmCheckbox">I Agree with the following condition.Once this form is submitted, it can't be edited later.</label>
         </div>
 
         <!-- Additional instructions -->
         <p class="text-muted">Please double-check all the information provided before submitting the form. Once submitted, it cannot be edited.</p>
 
-        <button type="submit" name="submit" class="btn btn-primary">Confirm Submission</button>
+        <button type="submit" name="submit" class="btn btn-primary" id="confirmButton">Confirm Submission</button>
     </form>
 </div>
 
@@ -453,7 +453,9 @@ foreach ($allowedExtensions as $extension) {
         </form>
 
     </div>
-
+<script>
+    if$user['fname']
+</script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
