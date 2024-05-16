@@ -2,6 +2,14 @@
 session_start();
 require 'session.php';
 
+// Process form submission if it's a POST request
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Process the form data and update the database
+    // Redirect the user to another page after processing the form data
+    header("Location: payment_details.php");
+    exit(); // Ensure that no other code is executed after the redirect
+}
+
 $query = "SELECT * FROM student_details WHERE email='$email'";
 $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
@@ -10,7 +18,6 @@ echo $registration_no;
 
 // Debugging statement
 echo $user['institution_fees_payment_done'];
-
 ?>
 
 <!DOCTYPE html>
@@ -134,6 +141,8 @@ echo $user['institution_fees_payment_done'];
         <!-- <button type="button" class="btn btn-info">Submit and Download Payment Receipt</button> -->
     </div>
 </div>
+
+
 <!-- Razorpay Payment Integration Script -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
