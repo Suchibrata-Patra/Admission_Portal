@@ -7,12 +7,16 @@ require 'session.php';
  $user = mysqli_fetch_assoc($results);
 
  echo $user['issubmitted'] ;
- if ($user['issubmitted'] == 1) {
+ if ($user['numberVerify'] == 0) {
+  header('location: verify.php');
+  exit(); // Add exit to stop further execution
+} 
+if ($user['issubmitted'] == 1) {
   header('location: payment_details.php');
   exit(); // Add exit to stop further execution
 } 
- //  echo $user['lname']; 
- ?>
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
