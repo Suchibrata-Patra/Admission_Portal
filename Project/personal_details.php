@@ -157,7 +157,7 @@ if ($user['issubmitted'] == 1) {
                     > -->
                   <input type="text" class="form-control" id="inputCity" name="previous_school_name"
                   <?php if ($user['previous_school_name'] == null): ?>
-                    placeholder="Enter your Marks"
+                    placeholder="Enter your Previous School Name"
                     <?php else: ?>
                     value="<?php echo $user['previous_school_name']; ?>"
                     <?php endif; ?>  
@@ -221,7 +221,7 @@ if ($user['issubmitted'] == 1) {
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <input type="text" class="form-control" id="inputSubject" name="current_whatsapp_no"
                   <?php if ($user['current_whatsapp_no'] == null): ?>
-                    placeholder="Enter your Mother's Name"
+                    placeholder="Current Whatsapp No."
                     <?php else: ?>
                     value="<?php echo $user['current_whatsapp_no']; ?>"
                     <?php endif; ?>   
@@ -379,7 +379,7 @@ if ($user['issubmitted'] == 1) {
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <input type="text" class="form-control" id="inputCity" name="student_city" <?php if ($user['student_city'] == null): ?>
-                    placeholder="Enter your Village/Town"
+                    placeholder="Enter your City"
                     <?php else: ?>
                     value="<?php echo $user['student_city']; ?>"
                     <?php endif; ?>  
@@ -402,7 +402,7 @@ if ($user['issubmitted'] == 1) {
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <input type="text" class="form-control" id="inputCity" name="student_pin_code"
                   <?php if ($user['student_pin_code'] == null): ?>
-                    placeholder="Enter your Village/Town"
+                    placeholder="Enter your PIN"
                     <?php else: ?>
                     value="<?php echo $user['student_pin_code']; ?>"
                     <?php endif; ?>  
@@ -424,7 +424,7 @@ if ($user['issubmitted'] == 1) {
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <input type="text" class="form-control" id="inputCity" name="student_police_station"
                   <?php if ($user['student_police_station'] == null): ?>
-                    placeholder="Enter your Village/Town"
+                    placeholder="Enter your Police Station"
                     <?php else: ?>
                     value="<?php echo $user['student_police_station']; ?>"
                     <?php endif; ?>  
@@ -445,7 +445,7 @@ if ($user['issubmitted'] == 1) {
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <input type="text" class="form-control" id="inputCity" name="student_district"
                   <?php if ($user['student_district'] == null): ?>
-                    placeholder="Enter your Village/Town"
+                    placeholder="Enter your District"
                     <?php else: ?>
                     value="<?php echo $user['student_district']; ?>"
                     <?php endif; ?>  

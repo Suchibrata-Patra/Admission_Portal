@@ -6,8 +6,13 @@ $query = "SELECT * FROM student_details WHERE email='$email'";
 $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
 $registration_no = $user['reg_no'];
-echo $registration_no;
 
+if ($user['issubmitted'] == 0) {
+  header('location: welcome.php');
+  exit(); // Add exit to stop further execution
+} 
+
+echo $registration_no;
 // Debugging statement
 echo $user['institution_fees_payment_done'];
 
