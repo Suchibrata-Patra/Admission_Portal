@@ -11,6 +11,10 @@ if ($user['issubmitted'] == 0) {
   header('location: welcome.php');
   exit(); // Add exit to stop further execution
 } 
+if ($user['numberVerify'] == 0) {
+  header('location: verify.php');
+  exit(); // Add exit to stop further execution
+} 
 
 echo $registration_no;
 // Debugging statement

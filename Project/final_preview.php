@@ -439,7 +439,7 @@ foreach ($allowedExtensions as $extension) {
         <!-- Checkbox and confirmation message -->
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="confirmCheckbox" name="confirmCheckbox" required>
-            <label class="form-check-label" for="confirmCheckbox">I Agree with the following condition.Once this form is submitted, it can't be edited later.</label>
+            <label class="form-check-label" for="confirmCheckbox">I Agree with the following condition.</label>
         </div>
 
         <!-- Additional instructions -->
