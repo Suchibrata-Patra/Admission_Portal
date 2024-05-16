@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 16, 2024 at 05:16 AM
+-- Generation Time: May 16, 2024 at 05:50 AM
 -- Server version: 5.7.39
 -- PHP Version: 7.4.33
 
@@ -83,8 +83,8 @@ CREATE TABLE `student_details` (
   `bank_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `bank_account_no` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `bank_ifsc_code` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `instituion_fees_payment_done` int(11) DEFAULT '0',
-  `instituion_payment_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instittuion_fees_payment_done` int(11) DEFAULT '0',
+  `institution_fees_payments_ID` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `portal_fees_payment_done` int(11) DEFAULT '0',
   `portal_payment_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -93,8 +93,8 @@ CREATE TABLE `student_details` (
 -- Dumping data for table `student_details`
 --
 
-INSERT INTO `student_details` (`reg_no`, `fname`, `lname`, `email`, `phoneNumber`, `dob`, `Address`, `city`, `district`, `state`, `PIN Code`, `terms`, `password`, `emailVerify`, `numberVerify`, `forgot_password_otp`, `password_reset_status`, `ispaymentdone`, `issubmitted`, `previous_school_name`, `fathers_name`, `mothers_name`, `current_whatsapp_no`, `aadhar_card_no`, `student_religion`, `student_caste`, `is_student_PWD`, `is_student_EWS`, `student_village_town`, `student_city`, `student_pin_code`, `student_police_station`, `student_district`, `student_state`, `bengali_marks`, `bengali_full_marks`, `english_marks`, `english_full_marks`, `mathematics_marks`, `mathematics_full_marks`, `physical_science_marks`, `physical_science_full_marks`, `life_science_marks`, `life_science_full_marks`, `history_marks`, `history_full_marks`, `geography_marks`, `geography_full_marks`, `language_1`, `language_2`, `select_stream`, `sub_comb`, `bank_name`, `bank_account_no`, `bank_ifsc_code`, `instituion_fees_payment_done`, `instituion_payment_id`, `portal_fees_payment_done`, `portal_payment_id`) VALUES
-('1233122', 'Suchibrata', 'Patra', 'suchibratapatra2003@gmail.com', '9475755847', '2003-01-01', 'NA', 'NA', 'NA', 'NA', 'NA', 'on', '2003', 1, '1', NULL, NULL, 0, 1, 'DHBSSPV', 'Kamal Kumar Patra ', 'Susmita Maity Patra ', '9475755847', '320873240676', 'Hindu', 'General', 'No', 'No', 'Diamond Harbour ', 'Diamond Harbour ', 'Diamond Harbour ', 'Diamond Harbour ', 'Enter District', 'West Bengal', 98, 100, 98, 100, 89, 100, 91, 100, 78, 100, 90, 100, 97, 100, 'Bengali', 'English', 'Science', 'Chemistry+Stat + CS', 'State Bank of INDIA', '0112345674822', 'UBIN031810000538', 1, 'pay_OB2jHhfMf2MSNw', 1, 'pay_OB2cvkl9T8wXL2');
+INSERT INTO `student_details` (`reg_no`, `fname`, `lname`, `email`, `phoneNumber`, `dob`, `Address`, `city`, `district`, `state`, `PIN Code`, `terms`, `password`, `emailVerify`, `numberVerify`, `forgot_password_otp`, `password_reset_status`, `ispaymentdone`, `issubmitted`, `previous_school_name`, `fathers_name`, `mothers_name`, `current_whatsapp_no`, `aadhar_card_no`, `student_religion`, `student_caste`, `is_student_PWD`, `is_student_EWS`, `student_village_town`, `student_city`, `student_pin_code`, `student_police_station`, `student_district`, `student_state`, `bengali_marks`, `bengali_full_marks`, `english_marks`, `english_full_marks`, `mathematics_marks`, `mathematics_full_marks`, `physical_science_marks`, `physical_science_full_marks`, `life_science_marks`, `life_science_full_marks`, `history_marks`, `history_full_marks`, `geography_marks`, `geography_full_marks`, `language_1`, `language_2`, `select_stream`, `sub_comb`, `bank_name`, `bank_account_no`, `bank_ifsc_code`, `instittuion_fees_payment_done`, `institution_fees_payments_ID`, `portal_fees_payment_done`, `portal_payment_id`) VALUES
+('1233122', 'Suchibrata', 'Patra', 'suchibratapatra2003@gmail.com', '9475755847', '2003-01-01', 'NA', 'NA', 'NA', 'NA', 'NA', 'on', '2003', 1, '1', NULL, NULL, 0, 1, 'DHBSSPV', 'Kamal Kumar Patra ', 'Susmita Maity Patra ', '9475755847', '320873240676', 'Hindu', 'General', 'No', 'No', 'Diamond Harbour ', 'Diamond Harbour ', 'Diamond Harbour ', 'Diamond Harbour ', 'Enter District', 'West Bengal', 98, 100, 98, 100, 89, 100, 91, 100, 78, 100, 90, 100, 97, 100, 'Bengali', 'English', 'Science', 'Chemistry+Stat + CS', 'State Bank of INDIA', '0112345674822', 'UBIN031810000538', 0, '', 1, 'pay_OB3RO7YFVqBjpq');
 
 --
 -- Indexes for dumped tables

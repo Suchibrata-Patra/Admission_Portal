@@ -2,14 +2,6 @@
 session_start();
 require 'session.php';
 
-// Process form submission if it's a POST request
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Process the form data and update the database
-    // Redirect the user to another page after processing the form data
-    header("Location: payment_details.php");
-    exit(); // Ensure that no other code is executed after the redirect
-}
-
 $query = "SELECT * FROM student_details WHERE email='$email'";
 $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
@@ -18,6 +10,7 @@ echo $registration_no;
 
 // Debugging statement
 echo $user['institution_fees_payment_done'];
+
 ?>
 
 <!DOCTYPE html>
@@ -84,23 +77,26 @@ echo $user['institution_fees_payment_done'];
       <tbody>
         <tr>
           <td>Admitting Institute</td>
-          <td>Rs. 100</td>
+          <td>$100</td>
           <td>
-    <?php if ($user['instittuion_fees_payment_done'] == 1): ?>
+    <?php if ($user['institution_fees_payment_done'] == 1): ?>
         <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
     <?php else: ?>
         Pending
     <?php endif; ?>
 </td>
 <td>
-    <?php if ($user['instittuion_fees_payment_done'] == 1): ?>
-      <button id="portal-fee-button" class="btn btn-light" type="button" disabled> Paid</button>    <?php else: ?>
-        <button id="portal-fee-button" type="button" class="btn btn-info" >Pay Inst Fees Fees</button>
+    <?php if ($user['institution_fees_payment_done'] == 1): ?>
+      <button id="inst-fee-button" type="button" class="btn btn-info" disabled>Paid</button>
+    <?php else: ?>
+      <button id="inst-fee-button" type="button" class="btn btn-info">Pay Inst. Fees</button>
     <?php endif; ?>
-</td>        </tr>
+</td>          
+<!-- <button id="inst-fee-button" type="button" class="btn btn-info">Pay Inst. Fees</button> -->
+        </tr>
         <tr>
           <td>Portal Charges + GST</td>
-          <td>Rs. 10</td>
+          <td>$10</td>
           <td>
     <?php if ($user['portal_fees_payment_done'] == 1): ?>
         <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
@@ -108,32 +104,27 @@ echo $user['institution_fees_payment_done'];
         Pending
     <?php endif; ?>
 </td>
+
 <td>
     <?php if ($user['portal_fees_payment_done'] == 1): ?>
-      <button id="portal-fee-button" type="button" class="btn btn-light" disabled> Paid</button>    <?php else: ?>
-        <button id="portal-fee-button" type="button" class="btn btn-info" >Pay Portal Fees</button>
+      <button id="portal-fee-button" type="button" class="btn btn-info" disabled>Paid</button>
+      <?php else: ?>
+      <button id="portal-fee-button" type="button" class="btn btn-info">Pay Portal Fees</button>
     <?php endif; ?>
 </td>
+          <!-- <button id="portal-fee-button" type="button" class="btn btn-info">Pay Portal Fees</button> -->
         </tr>
         <tr class="total-row">
           <td>TOTAL</td>
-          <td>RS. 110</td>
-          
-<td>
-    <?php if ($user['portal_fees_payment_done'] == 1 & $user['instittuion_fees_payment_done'] == 1 ): ?>
+          <td>$110</td>
+          <td>
+    <?php if ($user['portal_fees_payment_done'] == 1 & $user['institution_fees_payment_done'] == 1): ?>
         <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
     <?php else: ?>
-        Pending
+        <span>Pending</span>
     <?php endif; ?>
-</td>
-<td>
-    <?php if ($user['portal_fees_payment_done'] == 1): ?>
-      <a href="download_receipt.php" class="btn btn-info" id="portal-fee-button">Download <br> Receipt</a>
- <?php else: ?>
-        
-        <button id="portal-fee-button" type="button" class="btn btn-info" disabled>Complete All Payment</button>
-    <?php endif; ?>
-</td>
+</td>         
+ <td> :)</td>
         </tr>
       </tbody>
     </table>
@@ -141,8 +132,6 @@ echo $user['institution_fees_payment_done'];
         <!-- <button type="button" class="btn btn-info">Submit and Download Payment Receipt</button> -->
     </div>
 </div>
-
-
 <!-- Razorpay Payment Integration Script -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>

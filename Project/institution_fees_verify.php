@@ -1,21 +1,23 @@
-<?php
+2<?php
 session_start();
 require 'session.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['paymentId'])) {
     $paymentId = $_POST['paymentId'];
     $email = $_SESSION['email'];
-
-    // Update portal_fees_payment_done and portal_payment_id in the database
-    $query = "UPDATE student_details SET instituion_fees_payment_done = 1, instituion_payment_id = '$paymentId' WHERE email = '$email'";
+    $query = "UPDATE student_details SET institution_fees_payment_done = 1, institution_fees_payments_ID='$paymentId' WHERE email = '$email'";
     $result = mysqli_query($db, $query);
 
-    if ($result) {
-        echo "Portal fees payment updated successfully.";
+    if($result) {
+        // Payment verification successful, you can echo any response if needed
+        echo "Payment verification successful!";
     } else {
-        echo "Error updating portal fees payment.";
+        // Payment verification failed, you can echo any error response if needed
+        echo "Error: Payment verification failed!";
     }
 } else {
-    echo "Invalid request.";
+    // If paymentId is not set or empty, redirect the user back to the payment page
+    header("Location: payment_details.php");
+    exit();
 }
 ?>
