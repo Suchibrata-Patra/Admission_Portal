@@ -7,13 +7,14 @@ $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
 $registration_no = $user['reg_no'];
 
-
 if ($user['issubmitted'] == 1) {
     header('location: payment_details.php');
-    exit(); // Add exit to stop further execution
+    exit; // Add exit to stop further execution
 } 
+
 // Set a directory for uploads
 $uploadDir = 'uploads/';
+
 // Check if the directory exists, if not create it
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0777, true);
@@ -25,18 +26,19 @@ $documents = array(
   "Aadhar Card",
   "Madhyamik Marksheet",
   "Madhyamik Certificate",
-  "Madhyamik Admit"
+  "Signature"
 );
 
+// Maximum file size allowed (80 KB)
+$maxFileSize = 80 * 1024; // 80 KB in bytes
 
-// Check for each file upload individually
 // Check for each file upload individually
 for ($i = 1; $i <= 5; $i++) {
     // Check if the form is submitted and the upload button for this file is clicked
     $fileKey = "newImage$i";
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["upload$i"])) {
-        // Check if the file is uploaded successfully
-        if (isset($_FILES[$fileKey]) && $_FILES[$fileKey]["error"] == 0) {
+        // Check if the file is uploaded successfully and within size limit
+        if (isset($_FILES[$fileKey]) && $_FILES[$fileKey]["error"] == 0 && $_FILES[$fileKey]["size"] <= $maxFileSize) {
             $originalName = $_FILES[$fileKey]["name"];
             $fileType = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
 
@@ -64,11 +66,10 @@ for ($i = 1; $i <= 5; $i++) {
                 $uploadMessages[$i] = "File $i: Sorry, only JPG, JPEG, PNG, and GIF files are allowed.";
             }
         } else {
-            $uploadMessages[$i] = "File $i not uploaded or an error occurred.";
+            $uploadMessages[$i] = "File $i: Either not uploaded or exceeds size limit of 80 KB.";
         }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
