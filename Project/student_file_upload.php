@@ -15,6 +15,11 @@ if ($user['issubmitted'] == 1) {
 // Set a directory for uploads
 $uploadDir = 'uploads/';
 
+$allFilesUploaded = false;
+// Check if all files are uploaded successfully
+if(isset($uploadMessages) && count($uploadMessages) == 5 && !in_array("File $i: Either not uploaded or exceeds size limit of 80 KB.", $uploadMessages)) {
+    $allFilesUploaded = true;
+}
 // Check if the directory exists, if not create it
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0777, true);
@@ -78,6 +83,7 @@ for ($i = 1; $i <= 5; $i++) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="public, max-age=3600">
     <title>Welcome</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
