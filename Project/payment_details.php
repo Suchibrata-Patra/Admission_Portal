@@ -77,7 +77,7 @@ echo $user['institution_fees_payment_done'];
       <tbody>
         <tr>
           <td>Admitting Institute</td>
-          <td>Rs.100</td>
+          <td>$100</td>
           <td>
     <?php if ($user['institution_fees_payment_done'] == 1): ?>
         <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
@@ -95,7 +95,7 @@ echo $user['institution_fees_payment_done'];
         </tr>
         <tr>
           <td>Portal Charges + GST</td>
-          <td>Rs.10</td>
+          <td>$10</td>
           <td>
     <?php if ($user['portal_fees_payment_done'] == 1): ?>
         <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
@@ -105,7 +105,7 @@ echo $user['institution_fees_payment_done'];
 </td>
 
 <td>
-  <?php if ($user['institution_fees_payment_done'] == 1): ?>
+  <?php if ($user['portal_fees_payment_done'] == 1): ?>
   <button id="portal-fee-button" type="button" class="btn btn-light" disabled>Paid</button>
     <?php else: ?>
     <button id="portal-fee-button" type="button" class="btn btn-info">Pay Portal Fees</button>
@@ -115,7 +115,7 @@ echo $user['institution_fees_payment_done'];
         </tr>
         <tr class="total-row">
           <td>TOTAL</td>
-          <td>Rs.110</td>
+          <td>$110</td>
           <td>
     <?php if ($user['portal_fees_payment_done'] == 1 & $user['institution_fees_payment_done'] == 1): ?>
         <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
@@ -124,10 +124,10 @@ echo $user['institution_fees_payment_done'];
     <?php endif; ?>
 </td>         
 <td>
-  <?php if ($user['institution_fees_payment_done'] == 1 & $user['portal-fee-button'] == 1 ): ?>
-  <button id="portal-fee-button" type="button" class="btn btn-light">Download</button>
+  <?php if ($user['institution_fees_payment_done'] == 1 & $user['portal_fees_payment_done'] == 1 ): ?>
+  <button id="portal-fee-button" type="button" class="btn btn-light"><a href="receipt_download.php">Download</a></button>
     <?php else: ?>
-    <button id="portal-fee-button" type="button" class="btn btn-info">Payment <br> Pending</button>
+    <button id="portal-fee-button" type="button" class="btn btn-info">Paymentbr Pending</button>
   <?php endif; ?>
 </td>        </tr>
       </tbody>
