@@ -6,8 +6,13 @@ $query = "SELECT * FROM student_details WHERE email='$email'";
 $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
 $registration_no = $user['reg_no'];
+echo $registration_no;
+
+// Debugging statement
+echo $user['institution_fees_payment_done'];
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,21 +77,56 @@ $registration_no = $user['reg_no'];
       <tbody>
         <tr>
           <td>Admitting Institute</td>
-          <td>$100</td>
-          <td><img src="Assets/verified.svg" alt="Verified" class="verified-icon"></td>
-          <td><button id="inst-fee-button" type="button" class="btn btn-info">Pay Inst. Fees</button></td>
-        </tr>
+          <td>Rs. 100</td>
+          <td>
+    <?php if ($user['instittuion_fees_payment_done'] == 1): ?>
+        <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
+    <?php else: ?>
+        Pending
+    <?php endif; ?>
+</td>
+<td>
+    <?php if ($user['instittuion_fees_payment_done'] == 1): ?>
+      <button id="portal-fee-button" class="btn btn-light" type="button" disabled> Paid</button>    <?php else: ?>
+        <button id="portal-fee-button" type="button" class="btn btn-info" >Pay Inst Fees Fees</button>
+    <?php endif; ?>
+</td>        </tr>
         <tr>
           <td>Portal Charges + GST</td>
-          <td>$10</td>
-          <td class="status-pending">Pending</td>
-          <td><button id="portal-fee-button" type="button" class="btn btn-info">Pay Portal Fees</button></td>
+          <td>Rs. 10</td>
+          <td>
+    <?php if ($user['portal_fees_payment_done'] == 1): ?>
+        <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
+    <?php else: ?>
+        Pending
+    <?php endif; ?>
+</td>
+<td>
+    <?php if ($user['portal_fees_payment_done'] == 1): ?>
+      <button id="portal-fee-button" type="button" class="btn btn-light" disabled> Paid</button>    <?php else: ?>
+        <button id="portal-fee-button" type="button" class="btn btn-info" >Pay Portal Fees</button>
+    <?php endif; ?>
+</td>
         </tr>
         <tr class="total-row">
           <td>TOTAL</td>
-          <td>$110</td>
-          <td class="status-pending">Pending</td>
-          <td> :)</td>
+          <td>RS. 110</td>
+          
+<td>
+    <?php if ($user['portal_fees_payment_done'] == 1 & $user['instittuion_fees_payment_done'] == 1 ): ?>
+        <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
+    <?php else: ?>
+        Pending
+    <?php endif; ?>
+</td>
+<td>
+    <?php if ($user['portal_fees_payment_done'] == 1): ?>
+      <a href="download_receipt.php" class="btn btn-info" id="portal-fee-button">Download <br> Receipt</a>
+ <?php else: ?>
+        
+        <button id="portal-fee-button" type="button" class="btn btn-info" disabled>Complete All Payment</button>
+    <?php endif; ?>
+</td>
         </tr>
       </tbody>
     </table>
