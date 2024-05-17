@@ -2,7 +2,7 @@
 session_start();
 
 require_once "database.php"; // Ensure this file contains the database connection
-
+require "super_admin.php";
 // Check if the user is not logged in
 if (!isset($_SESSION['email'])) {
     $_SESSION['msg'] = "You must log in first";
@@ -17,10 +17,12 @@ if (isset($_GET['logout'])) {
     header("location: login.php");
     exit();
 }
+$table_name = $udise_code . '_student_details';
+echo $table_names;
 
 // Fetch user details from the database using a safer approach
 $email = $_SESSION['email']; // Assuming email is already sanitized when saved in session
-$query = "SELECT * FROM student_details WHERE email = ?";
+$query = "SELECT * FROM $table_name WHERE email = ?";
 
 // Prepare statement to avoid SQL injection
 if ($stmt = $db->prepare($query)) {

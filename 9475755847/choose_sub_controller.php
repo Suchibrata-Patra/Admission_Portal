@@ -3,7 +3,10 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 require 'session.php';
-
+require 'super_admin.php';
+$table_name = $udise_code . '_student_details';
+echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+echo 'Table name: ' . $table_name . '<br>';
 // initializing variables
 $username = "";
 $email    = "";
@@ -20,7 +23,7 @@ $reg_no = $_SESSION['reg_no'];
 $email = $_SESSION['email'];
 
 // Fetch user details from the database
-$query = "SELECT * FROM student_details WHERE email='$email'";
+$query = "SELECT * FROM $table_name WHERE email='$email'";
 $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
 $registration_no = $user['reg_no'];

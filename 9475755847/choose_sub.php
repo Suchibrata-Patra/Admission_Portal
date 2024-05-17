@@ -1,18 +1,20 @@
 <?php 
 require 'session.php';
-
-// echo $user['fname'];
+require 'super_admin.php';
+$table_name = $udise_code . '_student_details';
+echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+echo 'Table name: ' . $table_name . '<br>';
 
 if ($user['issubmitted'] == 1) {
-    header('location: payment_details.php');
+    echo '<script>window.location.href = "payment_details.php";</script>';
     exit(); // Add exit to stop further execution
 } 
- $query = "SELECT * FROM student_details WHERE email='$email'";
- $results = mysqli_query($db, $query);
- $user = mysqli_fetch_assoc($results);
+$query = "SELECT * FROM $table_name WHERE email='$email'";
+$results = mysqli_query($db, $query);
+$user = mysqli_fetch_assoc($results);
 
- //  echo $user['lname']; 
- ?>
+//  echo $user['lname']; 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -184,7 +186,7 @@ if ($user['issubmitted'] == 1) {
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <!-- <label for="language1Select" class="form-label">Select Language 1:</label> -->
-                        <select id="language1Select" class="form-select" name="language_1" onchange="validateLanguages()">
+                        <select id="language1Select" class="form-select" name="language_1" onchange="validateLanguages()" required>
                             <option value="">Select Language 1</option>
                             <option value="Bengali">Bengali</option>
                             <option value="English">English</option>
@@ -198,7 +200,7 @@ if ($user['issubmitted'] == 1) {
                     </div>
                     <div class="col-md-6 mb-3">
                         <!-- <label for="language2Select" class="form-label">Select Language 2:</label> -->
-                        <select id="language2Select" class="form-select" name="language_2" onchange="validateLanguages()">
+                        <select id="language2Select" class="form-select" name="language_2" onchange="validateLanguages()" required>
                             <option value="">Select Language 2</option>
                             <option value="Bengali">Bengali</option>
                             <option value="English">English</option>
@@ -215,7 +217,7 @@ if ($user['issubmitted'] == 1) {
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <!-- <label for="streamSelect" class="form-label">Select a Stream:</label> -->
-                        <select id="streamSelect" class="form-select"  name="select_stream"  onchange="updateSubjects()">
+                        <select id="streamSelect" class="form-select"  name="select_stream"  onchange="updateSubjects()" required>
                             <option value="">Select a Stream</option> 
                             <option value="Arts">Arts</option>
                             <option value="Science">Science</option>
@@ -226,7 +228,7 @@ if ($user['issubmitted'] == 1) {
                     <div class="col-md-6 mb-3">
                         <!-- <label for="subjectSelect" class="form-label">Select Subject Combinations:</label> -->
                         <select id="subjectSelect" name="sub_comb" class="form-select" disabled>
-                            <option value="">Select a Subject</option>
+                            <option value="" required>Select a Subject</option>
                             <!-- Add subject options here -->
                         </select>
                     </div>
@@ -302,7 +304,12 @@ if ($user['issubmitted'] == 1) {
 
                         </div>
 
-
+<script>
+            // Check if submission is already done, then redirect
+            if (<?php echo $user['issubmitted']; ?> === 1) {
+                window.location.href = "payment_details.php";
+            }
+        </script>
                         <script>
                             function updateSubjects() {
                                 const streamSelect = document.getElementById('streamSelect');

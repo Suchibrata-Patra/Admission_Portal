@@ -1,6 +1,10 @@
 <?php 
 require 'session.php';
 require 'database.php';
+require 'super_admin.php';
+ $table_name = $udise_code . '_student_details';
+ echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+ echo 'Table name: ' . $table_name . '<br>';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -102,7 +106,7 @@ try {
     $_SESSION['success'] = "Code has been sent to your email";
 
     $user_id = $user['reg_no'];
-    $query = "UPDATE student_details SET emailVerify= $rand WHERE reg_no ='$user_id'";
+    $query = "UPDATE $table_name SET emailVerify= $rand WHERE reg_no ='$user_id'";
     $results = mysqli_query($db, $query);
     header('location: verify.php');
 } catch (Exception $e) {

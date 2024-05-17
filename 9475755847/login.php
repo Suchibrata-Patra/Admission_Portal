@@ -1,10 +1,17 @@
 <?php
 session_start();
 include 'database.php';
+include 'super_admin.php';
+
+// Enable error reporting for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $errors = array();
+$table_name = $udise_code . '_student_details';
+// The following lines should be removed or placed after the header redirection
+// echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+// echo 'Table name: ' . $table_name . '<br>';
 
 // LOGIN USER
 if (isset($_POST['login_user'])) {
@@ -19,7 +26,7 @@ if (isset($_POST['login_user'])) {
   }
 
   if (count($errors) == 0) {
-    $query = "SELECT * FROM student_details WHERE email='$email' AND password='$password'";
+    $query = "SELECT * FROM $table_name WHERE email='$email' AND password='$password'";
     $results = mysqli_query($db, $query);
     
     if (mysqli_num_rows($results) == 1) {
@@ -35,7 +42,6 @@ if (isset($_POST['login_user'])) {
 }
 
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>

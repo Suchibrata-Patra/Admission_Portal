@@ -1,9 +1,13 @@
 <?php 
 require_once('dompdf/vendor/autoload.php');
+require 'super_admin.php';
+ $table_name = $udise_code . '_student_details';
+ echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+ echo 'Table name: ' . $table_name . '<br>';
 use Dompdf\Dompdf;
 
 // Fetch user details from the database
-$query = "SELECT * FROM student_details WHERE email='$email'";
+$query = "SELECT * FROM $table_name WHERE email='$email'";
 $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
 

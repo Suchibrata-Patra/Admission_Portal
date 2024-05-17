@@ -1,24 +1,38 @@
 <?php 
-ini_set('display_errors', 1); error_reporting(E_ALL);
-require 'session.php';
+ini_set('display_errors', 1); 
+error_reporting(E_ALL);
 
-// initializing variables
+ob_start(); // Start output buffering at the beginning
+
+require 'session.php';
+require 'super_admin.php';
+
+// Ensure $udise_code is defined
+if (!isset($udise_code) && isset($_SESSION['udise_code'])) {
+    $udise_code = $_SESSION['udise_code'];
+} elseif (!isset($udise_code)) {
+    $udise_code = 'default_udise_code'; // Provide a default or handle error
+}
+
+$table_name = $udise_code . '_student_details';
+
+// Initializing variables
 $username = "";
 $email    = "";
 $errors = array(); 
 
 // Check if user is logged in
 if (!isset($_SESSION['reg_no']) || !isset($_SESSION['email'])) {
-    // Redirect user to login page or handle authentication error
     header('Location: login.php');
     exit(); // Stop further execution
 }
+
 // Initialize session variables
 $reg_no = $_SESSION['reg_no'];
 $email = $_SESSION['email'];
 
 // Fetch user details from the database
-$query = "SELECT * FROM student_details WHERE email='$email'";
+$query = "SELECT * FROM $table_name WHERE email='$email'";
 $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
 $registration_no = $user['reg_no'];
@@ -46,78 +60,6 @@ if (isset($_POST['submit_personal_details'])) {
     $bank_ifsc_code = mysqli_real_escape_string($db, $_POST['bank_ifsc_code']);
 
 
-
-# Check if Data is empty or not
-# Check if Data is empty or not
-// if (empty($previous_school_name)) { 
-//     array_push($errors, "Prev School Name is required");
-//     header("location:personal_details.php?error=Prev School Name is required"); 
-// }
-// if (empty($fathers_name)) { 
-//     array_push($errors, "Fathers Name is required");
-//     header("location:personal_details.php?error=Fathers Name is required"); 
-// }
-// if (empty($mothers_name)) { 
-//     array_push($errors, "Mothers Name is required");
-//     header("location:personal_details.php?error=Mothers Name is required"); 
-// }
-// if (empty($current_whatsapp_no)) { 
-//     array_push($errors, "Current Whatsapp no is required");
-//     header("location:personal_details.php?error=Current Whatsapp no is required"); 
-// }
-// if (empty($aadhar_card_no)) { 
-//     array_push($errors, "Aadhr Card no is required");
-//     header("location:personal_details.php?error=Aadhr Card no is required"); 
-// }
-// if (empty($student_religion)) { 
-//     array_push($errors, "religion is required");
-//     header("location:personal_details.php?error=religion is required"); 
-// }
-// if (empty($student_caste)) { 
-//     array_push($errors, "Caste is required");
-//     header("location:personal_details.php?error=Caste is required"); 
-// }
-// if (empty($is_student_PWD)) { 
-//     array_push($errors, "PWD is required");
-//     header("location:personal_details.php?error=PWD is required"); 
-// }
-// if (empty($is_student_EWS)) { 
-//     array_push($errors, "EWS is required");
-//     header("location:personal_details.php?error=EWS is required"); 
-// }
-// if (empty($student_village_town)) { 
-//     array_push($errors, "Villtown is required");
-//     header("location:personal_details.php?error=Villtown is required"); 
-// }
-// if (empty($student_city)) { 
-//     array_push($errors, "City is required");
-//     header("location:personal_details.php?error=City is required"); 
-// }
-// if (empty($student_pin_code)) { 
-//     array_push($errors, "PIN is required");
-//     header("location:personal_details.php?error=PIN is required"); 
-// }
-// if (empty($student_police_station)) { 
-//     array_push($errors, "Police Station is required");
-//     header("location:personal_details.php?error=Police Station is required"); 
-// }
-// if (empty($student_district)) { 
-//     array_push($errors, "District is required");
-//     header("location:personal_details.php?error=District is required"); 
-// }
-// if (empty($bank_name)) { 
-//     array_push($errors, "Bank Name is required");
-//     header("location:personal_details.php?error=Bank Name is required"); 
-// }
-// if (empty($bank_account_no)) { 
-//     array_push($errors, "Bank Acc no is required");
-//     header("location:personal_details.php?error=Bank IFSC no is required"); 
-// }
-// if (empty($bank_ifsc_code)) { 
-//     array_push($errors, "Bank IFSC no is required");
-//     header("location:personal_details.php?error=Bank IFSC no is required"); 
-// }
-
     // Update marks details in the database
     $update_query = "UPDATE student_details 
                  SET previous_school_name = '$previous_school_name', 
@@ -144,20 +86,19 @@ if (isset($_POST['submit_personal_details'])) {
     // var_dump($update_query);
     // var_dump($update_result);
     if ($update_result) {
-        echo "Update successful";
-    } else {
-        echo "Update failed: " . mysqli_error($db);
-    }
-    
-    if ($update_result) {
-        $_SESSION['success'] = "Marks updated successfully";
+        $_SESSION['success'] = "Details updated successfully";
         header('Location: student_file_upload.php');
         exit(); // Stop further execution
     } else {
+        echo "Update failed: " . mysqli_error($db);
         header('Location: error.php');
         exit(); // Stop further execution
     }
-    
-    ob_end_flush(); // Flush the output buffer
+} else {
+    // If form is not submitted, show the current settings
+    echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+    echo 'Table name: ' . $table_name . '<br>';
 }
+
+ob_end_flush(); // Flush the output buffer and turn off output buffering
 ?>

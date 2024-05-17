@@ -1,7 +1,10 @@
 <?php 
 require 'session.php';
-
+require 'super_admin.php';
 echo $user['fname'];
+$table_name = $udise_code . '_student_details';
+echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+echo 'Table name: ' . $table_name . '<br>';
 
 if ($user['numberVerify'] == 0) {
       header('location: verify.php');
@@ -11,7 +14,7 @@ if ($user['issubmitted'] == 1) {
   header('location: payment_details.php');
   exit(); // Add exit to stop further execution
 } 
- $query = "SELECT * FROM student_details WHERE email='$email'";
+ $query = "SELECT * FROM $table_name WHERE email='$email'";
  $results = mysqli_query($db, $query);
  $user = mysqli_fetch_assoc($results);
  echo '  Session Registration ID - '.$user['reg_no'];

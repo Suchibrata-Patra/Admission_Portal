@@ -1,6 +1,9 @@
 <?php
  include_once 'database.php';
-
+ require 'super_admin.php';
+ $table_name = $udise_code . '_student_details';
+ echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+ echo 'Table name: ' . $table_name . '<br>';
 session_start();
 
 // initializing variables
@@ -63,7 +66,7 @@ if (isset($_POST['reg_user'])) {
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM student_details WHERE email='$email' LIMIT 1";
+  $user_check_query = "SELECT * FROM $table_name WHERE email='$email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
@@ -95,7 +98,7 @@ if (isset($_POST['reg_user'])) {
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
     // $passwordHash = md5($password);//encrypt the password before saving in the database
-    $query = "INSERT INTO student_details (reg_no,fname, lname, email, phoneNumber, dob, terms, password) 
+    $query = "INSERT INTO $table_name (reg_no,fname, lname, email, phoneNumber, dob, terms, password) 
     VALUES ('$reg_no','$fname','$lname','$email','$phoneNumber','$dob','$terms','$password')";
     mysqli_query($db, $query);
 

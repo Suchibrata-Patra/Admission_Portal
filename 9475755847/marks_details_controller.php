@@ -1,22 +1,24 @@
 <?php 
 require 'session.php';
+require 'super_admin.php';
+ob_start();  // Start buffering the output
+
+$table_name = $udise_code . '_student_details';
+echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+echo 'Table name: ' . $table_name . '<br>';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Check if user is logged in
 if (!isset($_SESSION['reg_no']) || !isset($_SESSION['email'])) {
-    // Redirect user to login page or handle authentication error
     header('Location: login.php');
     exit(); // Stop further execution
 }
 
-
-// Initialize session variables
 $reg_no = $_SESSION['reg_no'];
 $email = $_SESSION['email'];
 
-// Fetch user details from the database
-$query = "SELECT * FROM student_details WHERE email='$email'";
+$query = "SELECT * FROM $table_name WHERE email='$email'";
 $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
 $registration_no = $user['reg_no'];
@@ -124,12 +126,14 @@ if (empty($geography_full_marks)) {
                      WHERE reg_no = '$registration_no'";
     $update_result = mysqli_query($db, $update_query);
 
-    if ($update_result) {
+   if ($update_result) {
         $_SESSION['success'] = "Marks updated successfully";
         header('Location: personal_details.php');
-        exit(); // Stop further execution
-    }else{
+        exit();
+    } else {
         header('Location:marks_details.php');
     }
 }
+
+ob_end_flush();  // Send the buffered output
 ?>
