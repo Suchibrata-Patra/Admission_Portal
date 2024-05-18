@@ -1,3 +1,8 @@
+<?php
+ini_set('display_errors', 1); 
+error_reporting(E_ALL);
+ include 'database.php';
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -80,7 +85,7 @@
     </style>
   </head>
   <body>
-    <h2><Center>Head Of the Instituion Login Details</Center></h2>
+    <!-- <h2><Center>Head Of the Instituion Signup</Center></h2> -->
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6">
@@ -90,9 +95,29 @@
             <?php echo $error = $_GET['error']; ?>
           </div>
           <?php } ?>
-          <h3>Sign Up Form</h3>
+          <h3>Head Of the Instituion Signup</h3>
           <hr />
           <form method="post" action="HOI_controller.php">
+          <div class="mb-3">
+              <label for="udiseid" class="form-label">School UDISE ID</label>
+              <input
+                type="text"
+                name="HOI_Udise_ID"
+                class="form-control"
+                id="reg_no"
+                required
+              />
+            </div>
+            <!-- <div class="mb-3">
+              <label for="fname" class="form-label">Instituion Name</label>
+              <input
+                type="text"
+                name="Institution_Name"
+                class="form-control"
+                id="fname"
+                required
+              />
+            </div> -->
             <div class="mb-3">
               <label for="fname" class="form-label">HOI Name</label>
               <input
@@ -117,15 +142,15 @@
               <label for="phoneNumber" class="form-label">Phone Number</label>
               <div class="input-group">
                 <select
-                  name="countryCode"
+                  name=""
                   class="form-select"
                   style="padding-right: 0px; padding-left: 3px"
-                >
+                disabled >
                   <option data-countryCode="IN" value="91" selected>
                     India (+91)
                   </option>
-                  <!-- Add more options for other countries here -->
-                </select>
+                  Add more options for other countries here 
+             </select> 
                 <input
                   type="tel"
                   name="HOI_Mobile_No"
@@ -137,17 +162,6 @@
                 />
               </div>
             </div>
-            <div class="mb-3">
-              <label for="udiseid" class="form-label">School UDISE ID</label>
-              <input
-                type="text"
-                name="HOI_Udise_ID"
-                class="form-control"
-                id="reg_no"
-                required
-              />
-            </div>
-
             <div class="mb-3">
               <label for="password" class="form-label">Create Password</label>
               <input
