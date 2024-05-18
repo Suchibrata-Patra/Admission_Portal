@@ -1,8 +1,8 @@
 <?php
-session_start();  // Initiate session at the very top to avoid 'headers already sent' issues
-
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+session_start();  // Initiate session at the very top to avoid 'headers already sent' issues
+
 
 require_once 'database.php';  // Include database connection
 require 'super_admin.php';    // Assuming this sets $udise_code
