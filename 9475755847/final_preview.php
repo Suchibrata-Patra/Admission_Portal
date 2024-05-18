@@ -14,6 +14,7 @@ if ($user['issubmitted'] == 1) {
     header('location: payment_details.php');
     exit; // Add exit to stop further execution
 } 
+
 $registration_no = $user['reg_no'];
 // Calculate total and obtained marks
 $total_marks = ($user['bengali_full_marks'] + $user['english_full_marks'] + $user['mathematics_full_marks'] + $user['physical_science_full_marks'] + $user['life_science_full_marks'] + $user['history_full_marks'] + $user['geography_full_marks']);
