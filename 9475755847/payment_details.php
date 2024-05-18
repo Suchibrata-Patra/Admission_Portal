@@ -37,9 +37,6 @@ echo $user['institution_fees_payment_done'];
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap">
   <title>Payment Details</title>
-  <script>
-        window.history.forward();
-</script>
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -104,7 +101,7 @@ echo $user['institution_fees_payment_done'];
       <tbody>
         <tr>
           <td>Admitting Institute</td>
-          <td>$100</td>
+          <td>Rs.100</td>
           <td>
             <?php if ($user['institution_fees_payment_done'] == 1): ?>
             <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
@@ -114,7 +111,7 @@ echo $user['institution_fees_payment_done'];
           </td>
           <td>
             <?php if ($user['institution_fees_payment_done'] == 1): ?>
-            <button id="inst-fee-button" type="button" class="btn btn-light" disabled>wait</button>
+            <button id="inst-fee-button" type="button" class="btn btn-light" disabled>Paid</button>
             <?php else: ?>
             <button id="inst-fee-button" type="button" class="btn btn-info" onclick="handleInstFeeButtonClick()">Pay
               Inst. Fees</button>
@@ -123,7 +120,7 @@ echo $user['institution_fees_payment_done'];
         </tr>
         <tr>
           <td>Portal Charges + GST</td>
-          <td>$10</td>
+          <td>Rs.10</td>
           <td>
             <?php if ($user['portal_fees_payment_done'] == 1): ?>
             <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
@@ -137,13 +134,33 @@ echo $user['institution_fees_payment_done'];
             <button id="portal-fee-button" type="button" class="btn btn-light" disabled>Paid</button>
             <?php else: ?>
             <button id="portal-fee-button" type="button" class="btn btn-info" onclick="handlePortalFeeButtonClick()">Pay
-              Portal Fees</button>
+              Platform Fees</button>
+            <?php endif; ?>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            GST <br>
+            <span style="font-size:11px; color:RED;">Merged with Platform Fees</span>
+          </td>
+          <td>
+           2.76 % 
+          </td>
+          <td>
+          <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
+          </td>
+          <td>
+            <?php if ($user['portal_fees_payment_done'] == 1): ?>
+            <button id="portal-fee-button" type="button" class="btn btn-light" disabled>Paid</button>
+            <?php else: ?>
+              <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
             <?php endif; ?>
           </td>
         </tr>
         <tr class="total-row">
           <td>TOTAL</td>
-          <td>$110</td>
+          <td>Rs.110</td>
           <td>
             <?php if ($user['portal_fees_payment_done'] == 1 & $user['institution_fees_payment_done'] == 1): ?>
             <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
@@ -249,6 +266,8 @@ echo $user['institution_fees_payment_done'];
     function handlePortalFeeButtonClick() {
       portalFeeRzp.open();
     }
+
+    
   </script>
 
 </body>
