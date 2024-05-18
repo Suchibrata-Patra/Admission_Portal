@@ -1,21 +1,31 @@
 <?php
 require 'session.php';
+require 'super_admin.php';
+$table_name = $udise_code . '_student_details';
+echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+echo 'Table name: ' . $table_name . '<br>';
 
 // Handle form submission for email verification
 if (isset($_POST['email_code'])) {
     if ($user['emailVerify'] == $_POST['code']) {
         $user_id = $user['reg_no'];
-        $query = "UPDATE student_details SET numberVerify = 1, emailVerify = 1 WHERE reg_no = '$user_id'";
+        $query = "UPDATE $table_name SET numberVerify = 1, emailVerify = 1 WHERE reg_no = '$user_id'";
         $results = mysqli_query($db, $query);
         unset($_SESSION['codeSend']);
-        header('location: welcome.php');
+        echo '<script>window.location.href="welcome.php";</script>';
+        exit();
     } else {
         $error_message = "Incorrect verification code. Please try again.";
     }
 }
 
+if ($user['numberVerify'] == 1 & $user['emailVerify'] == 1) {
+    echo "<script>window.location.href = 'verify.php';</script>"; 
+} 
+
+
 $user_id = $user['reg_no'];
-$query = "SELECT fname FROM student_details WHERE reg_no = '$user_id'";
+$query = "SELECT fname FROM $table_name WHERE reg_no = '$user_id'";
 $result = mysqli_query($db, $query);
 $row = mysqli_fetch_assoc($result);
 $first_name = $row['fname'];
@@ -23,13 +33,12 @@ $first_name = $row['fname'];
 // Handle edit option
 if (isset($_POST['edit'])) {
     $user_id = $user['reg_no'];
-    $query = "DELETE FROM student_details WHERE reg_no = '$user_id'";
+    $query = "DELETE FROM $table_name WHERE reg_no = '$user_id'";
     mysqli_query($db, $query);
-    header('location: signup.php');
+    echo '<script>window.location.href="signup.php";</script>';
     exit(); // Ensure script stops here
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,6 +139,12 @@ if (isset($_POST['edit'])) {
         </div>
         <p class="footer">Need help? Contact support</p>
     </div>
+    <script>
+        // Redirect based on PHP variable
+        if (<?php echo $redirectToWelcome ? 'true' : 'false'; ?>) {
+            window.location.href = "welcome.php";
+        }
+    </script>
 
     <script>
         // Function to trigger email resend

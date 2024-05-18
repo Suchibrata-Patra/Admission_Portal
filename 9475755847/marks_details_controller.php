@@ -108,7 +108,7 @@ if (empty($geography_full_marks)) {
 }
 
     // Update marks details in the database
-    $update_query = "UPDATE student_details 
+    $update_query = "UPDATE $table_name 
                      SET bengali_marks = '$bengali_marks', 
                          bengali_full_marks = '$bengali_full_marks', 
                          english_marks = '$english_marks', 

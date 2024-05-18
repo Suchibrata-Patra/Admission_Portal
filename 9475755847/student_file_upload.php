@@ -241,13 +241,10 @@ for ($i = 1; $i <= 5; $i++) {
                                 <a class="nav-link disabled" href="marks_details.php">Marks Details</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled" href="personal_details.php">Personal Details</a>
+                                <a class="nav-link disabled" href="#">Personal Details</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Address Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">File Upload</a>
+                                <a class="nav-link active" href="student_file_upload.php">File Upload</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link disabled" href="#">Choose Sub.</a>
@@ -278,6 +275,7 @@ for ($i = 1; $i <= 5; $i++) {
                                 <tr>
                                     <td style="text-align: center; vertical-align: middle;">
                                         <?php echo $documents[$i-1]; ?>
+                                        <span style="color:rgb(184, 28, 88);"><br>(80 Kb)</span>
                                     </td>
                                     <td style="text-align: center; vertical-align: middle;">
                                         <!-- This is File <?php echo $i; ?> -->
@@ -288,7 +286,7 @@ for ($i = 1; $i <= 5; $i++) {
                                   echo '<img src="' . $uploadedFilePath . '?t=' . time() . '" alt="Uploaded Image" class="preview-img">';
                   # This is the logic for Cahe Bursting to show fresh copy of images...
                                 } else {
-                                  echo '<p style="text-align: center;">No file uploaded</p>';
+                                  echo '<p style="text-align: center;color: rgb(179, 230, 98);">No file uploaded</p>';
                                 }
                                 ?>
                                     </td>

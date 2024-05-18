@@ -206,7 +206,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['mothers_name']; ?>"
                     <?php endif; ?>   
-                    />
+                    / required>
                 </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -249,7 +249,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['aadhar_card_no']; ?>"
                     <?php endif; ?>   
-                    />    
+                    / required>    
                 </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -366,7 +366,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['student_village_town']; ?>"
                     <?php endif; ?>  
-                  />
+                  / required>
                 </div>
                 <div class="form-group col-md-2"></div>
               </div>
@@ -386,7 +386,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['student_city']; ?>"
                     <?php endif; ?>  
-                  />
+                  / required>
 
                 </div>
                 <div class="form-group col-md-2">
@@ -409,7 +409,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['student_pin_code']; ?>"
                     <?php endif; ?>  
-                  />
+                  / required>
                 </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -431,7 +431,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['student_police_station']; ?>"
                     <?php endif; ?>  
-                  />                </div>
+                  / required>                </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
                 </div>
@@ -452,7 +452,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['student_district']; ?>"
                     <?php endif; ?>  
-                  />   
+                  / required>   
                 </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -516,15 +516,15 @@ if ($user['issubmitted'] == 1) {
       <div class="form-row">
         <div class="form-group col-md-4">
           <label for="bank_name" style="margin-bottom: 0%;display: flex;">Bank Name</label>
-          <input type="text" class="form-control" id="bank_name" name="bank_name" <?php if ($user['bank_name'] == null): ?> placeholder="Enter Bank Name" <?php else: ?> value="<?php echo $user['bank_name']; ?>" <?php endif; ?> />
+          <input type="text" class="form-control" id="bank_name" name="bank_name" <?php if ($user['bank_name'] == null): ?> placeholder="Enter Bank Name" <?php else: ?> value="<?php echo $user['bank_name']; ?>" <?php endif; ?> / required>
         </div>
         <div class="form-group col-md-4">
           <label for="bank_account_no" style="margin-bottom: 0%;display: flex;">Bank Account No</label>
-          <input type="text" class="form-control" id="bank_account_no" name="bank_account_no" <?php if ($user['bank_account_no'] == null): ?> placeholder="Enter Bank Account No" <?php else: ?> value="<?php echo $user['bank_account_no']; ?>" <?php endif; ?> />
+          <input type="text" class="form-control" id="bank_account_no" name="bank_account_no" <?php if ($user['bank_account_no'] == null): ?> placeholder="Enter Bank Account No" <?php else: ?> value="<?php echo $user['bank_account_no']; ?>" <?php endif; ?> / required>
         </div>
         <div class="form-group col-md-4">
           <label for="bank_ifsc_code" style="margin-bottom: 0%;display: flex;">Bank IFSC Code</label>
-          <input type="text" class="form-control" id="bank_ifsc_code" name="bank_ifsc_code" <?php if ($user['bank_ifsc_code'] == null): ?> placeholder="Enter Bank IFSC Code" <?php else: ?> value="<?php echo $user['bank_ifsc_code']; ?>" <?php endif; ?> />
+          <input type="text" class="form-control" id="bank_ifsc_code" name="bank_ifsc_code" <?php if ($user['bank_ifsc_code'] == null): ?> placeholder="Enter Bank IFSC Code" <?php else: ?> value="<?php echo $user['bank_ifsc_code']; ?>" <?php endif; ?> / required>
         </div>
         <p style="margin-bottom: 0; color: rgb(146, 96, 36);"><strong style="margin: 0 5px; padding: 3px; background-color: #FFFF00; border-radius: 3px;">Note:</strong> If you don't have <u><i>Bank Account</i></>, you may provide that of <u><i>your Gurdian.</i></u></p>
         

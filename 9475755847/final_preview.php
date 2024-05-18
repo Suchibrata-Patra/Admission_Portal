@@ -1,20 +1,20 @@
-<?php 
+<?php
 require 'session.php';
 require 'super_admin.php';
- $table_name = $udise_code . '_student_details';
- echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
- echo 'Table name: ' . $table_name . '<br>';
+
+$table_name = $udise_code . '_student_details';
+
 // Fetch user details from the database
 $query = "SELECT * FROM $table_name WHERE email='$email'";
 $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
 
 // Check if user's number is verified, if not, redirect to verify.php
-
 if ($user['issubmitted'] == 1) {
     header('location: payment_details.php');
     exit; // Add exit to stop further execution
 } 
+
 $registration_no = $user['reg_no'];
 // Calculate total and obtained marks
 $total_marks = ($user['bengali_full_marks'] + $user['english_full_marks'] + $user['mathematics_full_marks'] + $user['physical_science_full_marks'] + $user['life_science_full_marks'] + $user['history_full_marks'] + $user['geography_full_marks']);
@@ -35,7 +35,6 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,7 +74,7 @@ if (isset($_POST['submit'])) {
                         value="<?php echo $user['reg_no'] ?>" disabled />
                 </div>
                 <div class="form-group col-md-6" style="width: 100px; height: auto">
-                    <div class="form-group col-md-6 d-flex justify-content-center" style="margin-left: 25%">
+                    <div class="form-group col-md-6 d-flex justify-content-center" style="margin-left: 25%;">
                     <?php
 // Define the possible file extensions
 $allowedExtensions = ['png', 'jpg', 'jpeg'];

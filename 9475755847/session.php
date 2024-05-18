@@ -18,7 +18,7 @@ if (isset($_GET['logout'])) {
     exit();
 }
 $table_name = $udise_code . '_student_details';
-echo $table_names;
+echo $table_name;
 
 // Fetch user details from the database using a safer approach
 $email = $_SESSION['email']; // Assuming email is already sanitized when saved in session

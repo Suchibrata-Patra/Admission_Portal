@@ -178,7 +178,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['bengali_marks']; ?>"
                     <?php endif; ?>
-                    />
+                    /required>
                   </div>
                   <div class="form-group col-md-2">
                   <label for="inputState" style="display: flex"><strong>Full Marks</strong></label>
@@ -214,7 +214,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['english_marks']; ?>"
                     <?php endif; ?>
-                    />
+                    /required>
                   </div>
                   <div class="form-group col-md-2">
                     <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -250,7 +250,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['mathematics_marks']; ?>"
                     <?php endif; ?>
-                    />
+                    /required>
                   </div>
                   <div class="form-group col-md-2">
                     <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -260,7 +260,7 @@ if ($user['issubmitted'] == 1) {
                       id="mathematics_full_marks"
                       name="mathematics_full_marks"
                       value="100"
-                    />
+                    /required>
                   </div>
                 </div>
                 <!-- End of the 3rd Marks Entering Page -->
@@ -275,7 +275,7 @@ if ($user['issubmitted'] == 1) {
                       id="inputSubject"
                       value="Physical Science"
                       disabled
-                    />
+                    /required>
                   </div>
                   <div class="form-group col-md-4">
                     <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
@@ -286,7 +286,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['physical_science_marks']; ?>"
                     <?php endif; ?>
-                    />
+                    /required>
                   </div>
                   <div class="form-group col-md-2">
                     <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -296,7 +296,7 @@ if ($user['issubmitted'] == 1) {
                       id="physical_science_full_marks"
                       name="physical_science_full_marks"
                       value="100"
-                    />
+                    /required>
                   </div>
                 </div>
                 <!-- End of the 4th Marks Entering Page -->
@@ -322,7 +322,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['life_science_marks']; ?>"
                     <?php endif; ?>
-                    />
+                    /required>
                   </div>
                   <div class="form-group col-md-2">
                     <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -358,8 +358,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['history_marks']; ?>"
                     <?php endif; ?>
-
-                    />
+                    /required>
                   </div>
                   <div class="form-group col-md-2">
                     <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->
@@ -395,7 +394,7 @@ if ($user['issubmitted'] == 1) {
                     <?php else: ?>
                     value="<?php echo $user['geography_marks']; ?>"
                     <?php endif; ?>
-                    />
+                    /required>
                   </div>
                   <div class="form-group col-md-2">
                     <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->

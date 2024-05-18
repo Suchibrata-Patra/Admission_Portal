@@ -9,9 +9,6 @@ ini_set('display_errors', 1);
 
 $errors = array();
 $table_name = $udise_code . '_student_details';
-// The following lines should be removed or placed after the header redirection
-// echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
-// echo 'Table name: ' . $table_name . '<br>';
 
 // LOGIN USER
 if (isset($_POST['login_user'])) {
@@ -26,17 +23,26 @@ if (isset($_POST['login_user'])) {
   }
 
   if (count($errors) == 0) {
-    $query = "SELECT * FROM $table_name WHERE email='$email' AND password='$password'";
+    // Retrieve hashed password from the database
+    $query = "SELECT password FROM $table_name WHERE email='$email'";
     $results = mysqli_query($db, $query);
     
     if (mysqli_num_rows($results) == 1) {
-       $_SESSION['email'] = $email;
-       $_SESSION['success'] = "You are now logged in";
-       // Redirect only if there are no errors
-       header('location: welcome.php');
-       exit(); // Ensure that no further code is executed after the redirect
+       $user = mysqli_fetch_assoc($results);
+       $hashed_password = $user['password'];
+
+       // Verify the entered password against the hashed password
+       if (password_verify($password, $hashed_password)) {
+          $_SESSION['email'] = $email;
+          $_SESSION['success'] = "You are now logged in";
+          // Redirect only if there are no errors
+          header('location: welcome.php');
+          exit(); // Ensure that no further code is executed after the redirect
+       } else {
+          array_push($errors, "Wrong password");
+       }
     } else {
-      array_push($errors, "Wrong username/password combination");
+      array_push($errors, "Email not found");
     }
   }
 }

@@ -1,11 +1,12 @@
 <?php 
 ini_set('display_errors', 1); 
 error_reporting(E_ALL);
-
-ob_start(); // Start output buffering at the beginning
-
 require 'session.php';
 require 'super_admin.php';
+echo $user['fname'];
+$table_name = $udise_code . '_student_details';
+echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+echo 'Table name: ' . $table_name . '<br>';
 
 // Ensure $udise_code is defined
 if (!isset($udise_code) && isset($_SESSION['udise_code'])) {
@@ -13,8 +14,6 @@ if (!isset($udise_code) && isset($_SESSION['udise_code'])) {
 } elseif (!isset($udise_code)) {
     $udise_code = 'default_udise_code'; // Provide a default or handle error
 }
-
-$table_name = $udise_code . '_student_details';
 
 // Initializing variables
 $username = "";
@@ -61,7 +60,7 @@ if (isset($_POST['submit_personal_details'])) {
 
 
     // Update marks details in the database
-    $update_query = "UPDATE student_details 
+    $update_query = "UPDATE $table_name 
                  SET previous_school_name = '$previous_school_name', 
                  fathers_name = '$fathers_name', 
                  mothers_name = '$mothers_name', 
@@ -87,11 +86,13 @@ if (isset($_POST['submit_personal_details'])) {
     // var_dump($update_result);
     if ($update_result) {
         $_SESSION['success'] = "Details updated successfully";
-        header('Location: student_file_upload.php');
+        echo "<script>window.location.href = 'student_file_upload.php';</script>"; 
+        // header('Location: student_file_upload.php');
         exit(); // Stop further execution
     } else {
         echo "Update failed: " . mysqli_error($db);
-        header('Location: error.php');
+        echo "<script>window.location.href = 'error.php';</script>"; 
+        // header('Location: error.php');
         exit(); // Stop further execution
     }
 } else {
@@ -100,5 +101,4 @@ if (isset($_POST['submit_personal_details'])) {
     echo 'Table name: ' . $table_name . '<br>';
 }
 
-ob_end_flush(); // Flush the output buffer and turn off output buffering
 ?>
