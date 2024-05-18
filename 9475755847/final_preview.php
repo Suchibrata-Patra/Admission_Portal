@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <style>
+   <style>
         .disabled-input {
             background-color: #e9ecef;
             opacity: 1;
