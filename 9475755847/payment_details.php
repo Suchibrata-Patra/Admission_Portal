@@ -84,7 +84,7 @@ echo $user['institution_fees_payment_done'];
     <div class="container">
       <h1 class="display-4">Payment Details</h1>
       <p class="lead">Confirm the payment details below.</p>
-      <button type="button"><a href="logout.php">logout</a></button>
+      <button type="button" class="btn btn-info" onclick="window.location.href='logout.php';">Logout</button>
     </div>
   </div>
 
