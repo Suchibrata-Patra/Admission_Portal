@@ -13,8 +13,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // require_once "/public_html/vendor/autoload.php";
-require_once "/Applications/MAMP/htdocs/vendor/autoload.php";
-
+require_once __DIR__ . '/../vendor/autoload.php'; 
 $rand = rand(100000, 999999);  // Ensure the OTP is a 6-digit number
 $mail = new PHPMailer(true);
 

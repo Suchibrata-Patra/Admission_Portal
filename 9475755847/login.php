@@ -113,7 +113,7 @@ if (isset($_POST['login_user'])) {
             <div class="col-md-6 login-container">
                 <h3>Welcome Back!</h3>
                 <hr>
-                <form method="post" action="controller.php">
+                <form method="post" action="login.php">
                     <?php include('errors.php'); ?>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email Address</label>

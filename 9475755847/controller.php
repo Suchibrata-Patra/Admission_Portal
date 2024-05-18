@@ -1,114 +1,89 @@
 <?php
- include_once 'database.php';
- require 'super_admin.php';
- 
- $table_name = $udise_code . '_student_details';
- echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
- echo 'Table name: ' . $table_name . '<br>';
-session_start();
+session_start();  // Initiate session at the very top to avoid 'headers already sent' issues
 
-// initializing variables
-$username = "";
-$email    = "";
-$errors = array(); 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
+require_once 'database.php';  // Include database connection
+require 'super_admin.php';    // Assuming this sets $udise_code
 
-// REGISTER USER
+$table_name = $udise_code . '_student_details';
+
+// Start buffering output to manage header redirections later
+ob_start();
+
+echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+echo 'Table name: ' . $table_name . '<br>';
+
+$errors = array();
+
 if (isset($_POST['reg_user'])) {
-  // receive all input values from the form
-  $fname = $_POST['fname'];
-  $lname = mysqli_real_escape_string($db, $_POST['lname']);
-  $email = mysqli_real_escape_string($db, $_POST['email']);
-  $password = mysqli_real_escape_string($db, $_POST['password']);
-  $countryCode = mysqli_real_escape_string($db, $_POST['countryCode']);
-  $phoneNumber = mysqli_real_escape_string($db, $_POST['phoneNumber']);
-  $dob = mysqli_real_escape_string($db, $_POST['dob']);
-  $terms = mysqli_real_escape_string($db, $_POST['terms']);
-  $reg_no = mysqli_real_escape_string($db, $_POST['reg_no']);
+    // Collect input from form and sanitize
+    $fname = filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_STRING);
+    $lname = filter_input(INPUT_POST, 'lname', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+    $countryCode = filter_input(INPUT_POST, 'countryCode', FILTER_SANITIZE_STRING);
+    $phoneNumber = filter_input(INPUT_POST, 'phoneNumber', FILTER_SANITIZE_STRING);
+    $dob = filter_input(INPUT_POST, 'dob', FILTER_SANITIZE_STRING);
+    $terms = filter_input(INPUT_POST, 'terms', FILTER_SANITIZE_STRING);
+    $reg_no = filter_input(INPUT_POST, 'reg_no', FILTER_SANITIZE_STRING);
 
-  // form validation: ensure that the form is correctly filled ...
-  // by adding (array_push()) corresponding error unto $errors array
-  if (empty($fname)) { 
-    array_push($errors, "First name is required");
-    header("location: signup.php?error=First name is required"); 
-}
-  if (empty($lname)) { 
-    array_push($errors, "Last name is required");
-    header("location: signup.php?error=Last name is required"); 
-}
-  if (empty($password)) { 
-    array_push($errors, "Password is required"); 
-    header("location: signup.php?error=Password is required");
-}
-  if (empty($countryCode)) { 
-    array_push($errors, "Country Code is required");
-    header("location: signup.php?error=Country Code is required");
-}
-  if (empty($phoneNumber)) { 
-    array_push($errors, "Phone number is required"); 
-    header("location: signup.php?error=Phone Number is required");
-}
-  if (empty($dob)) { 
-    array_push($errors, "Date of birth is required"); 
-    header("location: signup.php?error=Date of birth is required");
-}
-  if (empty($email)) { 
-    array_push($errors, "Email is required"); 
-    header("location: signup.php?error=Email is required");
-}
-  if (empty($password)) { 
-    array_push($errors, "Password is required"); 
-    header("location: signup.php?error=Password is required");
-} 
- if (empty($terms)) { 
-    array_push($errors, "terms is required"); 
-    header("location: signup.php?error=terms is required");
-}
+    // Basic input validation
+    if (empty($fname)) { $errors[] = "First name is required"; }
+    if (empty($lname)) { $errors[] = "Last name is required"; }
+    if (empty($email)) { $errors[] = "Email is required"; }
+    if (empty($password)) { $errors[] = "Password is required"; }
+    if (empty($countryCode)) { $errors[] = "Country Code is required"; }
+    if (empty($phoneNumber)) { $errors[] = "Phone number is required"; }
+    if (empty($dob)) { $errors[] = "Date of birth is required"; }
+    if (empty($terms)) { $errors[] = "Acceptance of terms is required"; }
 
-  // first check the database to make sure 
-  // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM $table_name WHERE email='$email' LIMIT 1";
-  $result = mysqli_query($db, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
-  
-  if ($user) { // if user exists
-    if ($user['email'] === $email) {
-      array_push($errors, "email already exists");
-      header("location: signup.php?error=Email already exists");
+    // Check if there are no errors before querying the database
+    if (empty($errors)) {
+        // Database query to check if the user already exists
+        $stmt = $db->prepare("SELECT email, reg_no, phoneNumber FROM $table_name WHERE email = ? OR reg_no = ? OR phoneNumber = ?");
+        $stmt->bind_param("sss", $email, $reg_no, $phoneNumber);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            while ($user = $result->fetch_assoc()) {
+                if ($user['email'] === $email) {
+                    $errors[] = "Email already exists";
+                }
+                if ($user['reg_no'] === $reg_no) {
+                    $errors[] = "Registration number already registered";
+                }
+                if ($user['phoneNumber'] === $phoneNumber) {
+                    $errors[] = "Mobile number already registered";
+                }
+            }
+        }
+
+        if (empty($errors)) {
+            // Encrypt password
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+            // Insert new user into the database
+            $stmt = $db->prepare("INSERT INTO $table_name (reg_no, fname, lname, email, phoneNumber, dob, terms, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssssss", $reg_no, $fname, $lname, $email, $phoneNumber, $dob, $terms, $passwordHash);
+            $stmt->execute();
+
+            $_SESSION['email'] = $email;
+            $_SESSION['success'] = "You are now logged in";
+            header('Location: welcome.php');
+            exit;
+        }
     }
-  }
-  
-  if ($user) { // if user exists
-    if ($user['reg_np'] === $reg_no) {
-      array_push($errors, "Registration No is already Registered.");
-      header("location: signup.php?error=Registration No is already Registered.");
-    }
-  }
-  if ($user) { // if user exists
-    if ($user['phoneNumber'] === $phoneNumber) {
-      array_push($errors, "Mobile No is already registered.");
-      header("location: signup.php?error=Mobile  No is already Registered.");
-    }
-  }
 
- if (time() < strtotime('+18 years', strtotime($dob))) {
-    array_push($errors, "Age is under 18"); 
-    header("location: signup.php?error=Age is not 18");
-} 
-// echo $number = $countryCode.$phoneNumber;
-  // Finally, register user if there are no errors in the form
-  if (count($errors) == 0) {
-    // $passwordHash = md5($password);//encrypt the password before saving in the database
-    $query = "INSERT INTO $table_name (reg_no,fname, lname, email, phoneNumber, dob, terms, password) 
-    VALUES ('$reg_no','$fname','$lname','$email','$phoneNumber','$dob','$terms','$password')";
-    mysqli_query($db, $query);
-
-    $_SESSION['email'] = $email;
-    $_SESSION['success'] = "You are now logged in";
-    header('location: welcome.php');
-  }
+    // If there are errors, redirect back to the form with errors
+    if (!empty($errors)) {
+        $_SESSION['errors'] = $errors;  // Store errors in session to show them in the form later
+        header('Location: signup.php');
+        exit;
+    }
 }
 
-// ... 
-
+// Flush the output buffer and turn off output buffering
+ob_end_flush();
 ?>

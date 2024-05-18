@@ -96,6 +96,4 @@ if (isset($_POST['HOI_Signup'])) {
   }
 }
 
-// ... 
-
 ?>
