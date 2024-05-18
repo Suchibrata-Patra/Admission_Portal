@@ -96,18 +96,16 @@ if (isset($_POST['reg_user'])) {
 } 
 // echo $number = $countryCode.$phoneNumber;
   // Finally, register user if there are no errors in the form
-  if (count($errors) == 0) {
-    // $passwordHash = md5($password);//encrypt the password before saving in the database
-    $query = "INSERT INTO $table_name (reg_no,fname, lname, email, phoneNumber, dob, terms, password) 
-    VALUES ('$reg_no','$fname','$lname','$email','$phoneNumber','$dob','$terms','$password')";
+  if (empty($errors)) {
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT); // Hashing the password
+    $query = "INSERT INTO $table_name (reg_no, fname, lname, email, phoneNumber, dob, terms, password) 
+    VALUES ('$reg_no', '$fname', '$lname', '$email', '$phoneNumber', '$dob', '$terms', '$passwordHash')";
     mysqli_query($db, $query);
 
     $_SESSION['email'] = $email;
     $_SESSION['success'] = "You are now logged in";
     header('location: welcome.php');
+    exit();
   }
 }
 ?>
-<script>
-        window.history.forward();
-</script>
