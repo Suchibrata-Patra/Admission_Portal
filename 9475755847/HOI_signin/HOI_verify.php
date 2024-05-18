@@ -1,15 +1,15 @@
 <?php
-require 'session.php';
-require 'super_admin.php';
-$table_name = $udise_code . '_student_details';
+require 'HOI_session.php';
+require 'HOI_super_admin.php';
+$table_name = $udise_code . '_HOI_Login_Credentials';
 echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
 echo 'Table name: ' . $table_name . '<br>';
 
 // Handle form submission for email verification
 if (isset($_POST['email_code'])) {
     if ($user['emailVerify'] == $_POST['code']) {
-        $user_id = $user['reg_no'];
-        $query = "UPDATE $table_name SET numberVerify = 1, emailVerify = 1 WHERE reg_no = '$user_id'";
+        $user_id = $user['HOI_UDISE_ID'];
+        $query = "UPDATE $table_name SET numberVerify = 1, emailVerify = 1 WHERE HOI_UDISE_ID = '$user_id'";
         $results = mysqli_query($db, $query);
         unset($_SESSION['codeSend']);
         echo '<script>window.location.href="welcome.php";</script>';
@@ -24,16 +24,16 @@ if ($user['numberVerify'] == 1 & $user['emailVerify'] == 1) {
 } 
 
 
-$user_id = $user['reg_no'];
-$query = "SELECT fname FROM $table_name WHERE reg_no = '$user_id'";
+$user_id = $user['HOI_UDISE_ID'];
+$query = "SELECT HOI_UDISE_ID FROM $table_name WHERE HOI_UDISE_ID = '$user_id'";
 $result = mysqli_query($db, $query);
 $row = mysqli_fetch_assoc($result);
-$first_name = $row['fname'];
+$first_name = $row['HOI_Name'];
 
 // Handle edit option
 if (isset($_POST['edit'])) {
-    $user_id = $user['reg_no'];
-    $query = "DELETE FROM $table_name WHERE reg_no = '$user_id'";
+    $user_id = $user['HOI_UDISE_ID'];
+    $query = "DELETE FROM $table_name WHERE HOI_UDISE_ID = '$user_id'";
     mysqli_query($db, $query);
     echo '<script>window.location.href="signup.php";</script>';
     exit(); // Ensure script stops here
@@ -111,7 +111,7 @@ if (isset($_POST['edit'])) {
     <div class="container">
         <h2>Email Verification</h2>
         <div class="card-body">
-            <?php if (isset($_SESSION['email'])): ?>
+            <?php if (isset($_SESSION['udiseid'])): ?>
                 <p>Welcome, <strong><?php echo htmlspecialchars($first_name); ?></strong> | <a href="welcome.php?logout='1'" style="color: #FF5A5F; text-decoration: none;">Logout</a></p>
             <?php endif ?>
 
@@ -151,7 +151,7 @@ if (isset($_POST['edit'])) {
         function resendEmail() {
             // Use AJAX to send a request to a PHP script that handles email resend
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'email.php', true);
+            xhr.open('POST', 'HOI_email.php', true);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {

@@ -2,40 +2,38 @@
 session_start();
 
 require_once "database.php"; // Ensure this file contains the database connection
-require "super_admin.php";
+require "HOI_super_admin.php";
 // Check if the user is not logged in
-if (!isset($_SESSION['email'])) {
+if (!isset($_SESSION['udiseid'])) {
     $_SESSION['msg'] = "You must log in first";
-    header('location: login.php');
+    header('location: HOI_login.php');
     exit(); // It's important to call exit() after header redirection
 }
 
 // Handle logout
 if (isset($_GET['logout'])) {
     session_destroy();
-    unset($_SESSION['email']);
-    header("location: login.php");
+    unset($_SESSION['udiseid']);
+    header("location: HOI_login.php");
     exit();
 }
-$table_name = $udise_code . '_student_details';
+$table_name = $udise_code . '_HOI_Login_Credentials';
 echo $table_name;
 
 // Fetch user details from the database using a safer approach
-$email = $_SESSION['email']; // Assuming email is already sanitized when saved in session
-$query = "SELECT * FROM $table_name WHERE email = ?";
+$udiseid = $_SESSION['udiseid']; // Assuming email is already sanitized when saved in session
+$query = "SELECT * FROM $table_name WHERE HOI_UDISE_ID = ?";
 
 // Prepare statement to avoid SQL injection
 if ($stmt = $db->prepare($query)) {
-    $stmt->bind_param("s", $email); // 's' specifies the variable type => 'string'
+    $stmt->bind_param("s", $udiseid); // 's' specifies the variable type => 'string'
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
     if ($user) {
-        $reg_no = $user['reg_no'];
-        
-        // Store reg_no in session
-        $_SESSION['reg_no'] = $reg_no;
+        $reg_no = $user['HOI_UDISE_ID'];
+        $_SESSION['HOI_UDISE_ID'] = $reg_no;
     } else {
         // Handle case where no user data is found
         echo "No user found.";

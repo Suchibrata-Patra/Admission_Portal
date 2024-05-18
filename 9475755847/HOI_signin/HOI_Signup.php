@@ -1,50 +1,190 @@
-<?php
-require 'database.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+
     <title>Sign Up</title>
-</head>
-<body>
-    <h2>Sign Up</h2>
-    <form action="HOI_Signup.php" method="post">
-        <div>
-            <label>HOI UDISE ID</label>
-            <input type="text" name="HOI_UDISE_ID" value="<?php echo isset($_POST['HOI_UDISE_ID']) ? $_POST['HOI_UDISE_ID'] : ''; ?>">
+    <style>
+      body {
+        background-color: #f6f6f6;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        margin-top: 50px;
+        width: 95%;
+      }
+      .alert {
+        border-radius: 10px;
+      }
+      h3 {
+        color: #484848;
+        text-align: center;
+      }
+      hr {
+        border-top: 1px solid #ddd;
+      }
+      .form-label {
+        color: #484848;
+        font-weight: bold;
+      }
+      .form-control {
+        border-radius: 8px;
+        border: 1px solid #ddd;
+      }
+      .btn-primary {
+        background-color: #fd5c63;
+        border: none;
+        border-radius: 8px;
+        width: 100%;
+        margin-top: 20px;
+      }
+      .btn-primary:hover {
+        background-color: #eb4248;
+      }
+      .form-check-input {
+        margin-top: 8px;
+      }
+      .form-check-label {
+        color: #484848;
+      }
+      .form-check-input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+      }
+      .form-check-input[type="checkbox"]:focus {
+        box-shadow: none;
+      }
+      .form-check-input[type="checkbox"]:checked {
+        background-color: #fd5c63;
+      }
+      .form-check-input[type="checkbox"]:checked:after {
+        content: "";
+        display: block;
+        width: 6px;
+        height: 11px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        transform: rotate(45deg);
+        margin-left: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2><Center>Head Of the Instituion Login Details</Center></h2>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <br />
+          <?php if(isset($_GET['error'])) { ?>
+          <div class="alert alert-danger">
+            <?php echo $error = $_GET['error']; ?>
+          </div>
+          <?php } ?>
+          <h3>Sign Up Form</h3>
+          <hr />
+          <form method="post" action="HOI_controller.php">
+            <div class="mb-3">
+              <label for="fname" class="form-label">HOI Name</label>
+              <input
+                type="text"
+                name="HOI_HOI_Name"
+                class="form-control"
+                id="fname"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                name="HOI_email"
+                class="form-control"
+                id="email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="phoneNumber" class="form-label">Phone Number</label>
+              <div class="input-group">
+                <select
+                  name="countryCode"
+                  class="form-select"
+                  style="padding-right: 0px; padding-left: 3px"
+                >
+                  <option data-countryCode="IN" value="91" selected>
+                    India (+91)
+                  </option>
+                  <!-- Add more options for other countries here -->
+                </select>
+                <input
+                  type="tel"
+                  name="HOI_Mobile_No"
+                  class="form-control"
+                  id="phoneNumber"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter your number here..."
+                  required
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="udiseid" class="form-label">School UDISE ID</label>
+              <input
+                type="text"
+                name="HOI_Udise_ID"
+                class="form-control"
+                id="reg_no"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Create Password</label>
+              <input
+                type="password"
+                class="form-control"
+                name="HOI_Login_Password"
+                id="password"
+                required
+              />
+            </div>
+            <div class="mb-3 form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                name="terms"
+                id="terms"
+                required
+              />
+              <label class="form-check-label" for="terms"
+                >I'm Sure The UDISE ID I have provided is Correct</label
+              >
+            </div>
+            <button type="submit" name="HOI_Signup" class="btn btn-primary">
+              Submit
+            </button>
+          </form>
         </div>
-        <div>
-            <label>Password</label>
-            <input type="password" name="HOI_Password" value="<?php echo isset($_POST['HOI_Password']) ? $_POST['HOI_Password'] : ''; ?>">
-        </div>
-        <div>
-            <label>Email</label>
-            <input type="text" name="HOI_Email_ID" value="<?php echo isset($_POST['HOI_Email_ID']) ? $_POST['HOI_Email_ID'] : ''; ?>">
-        </div>
-        <div>
-            <input type="submit" name="submit" value="Submit">
-            <input type="reset" value="Reset">
-        </div>
-    </form>
-</body>
+      </div>
+    </div>
+
+    <div class="container" style="padding-bottom: 200px"></div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
-
-<?php
-if(isset($_POST['submit'])){
-    $HOI_UDISE_ID = $_POST['HOI_UDISE_ID'];
-    $HOI_Password = $_POST['HOI_Password'];
-    $HOI_Email_ID = $_POST['HOI_Email_ID'];
-
-    // Insert data into database
-    $sql = "INSERT INTO 9475755847_HOI_Login_Credentials (HOI_UDISE_ID, HOI_Password, HOI_Email_ID) VALUES ('$HOI_UDISE_ID', '$HOI_Password', '$HOI_Email_ID')";
-    
-    if(mysqli_query($db, $sql)){
-        echo "Records added successfully.";
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
-    }
-}
-?>
