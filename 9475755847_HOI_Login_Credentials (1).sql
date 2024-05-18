@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 18, 2024 at 06:48 AM
+-- Generation Time: May 18, 2024 at 07:32 AM
 -- Server version: 5.7.39
 -- PHP Version: 7.4.33
 
@@ -24,13 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `9475755847_HOI_login_credentials`
+-- Table structure for table `9475755847_HOI_Login_Credentials`
 --
 
-CREATE TABLE `9475755847_HOI_login_credentials` (
-  `HOI_UDISE_ID` int(11) NOT NULL,
-  `HOI_Password` int(11) NOT NULL
+CREATE TABLE `9475755847_HOI_Login_Credentials` (
+  `HOI_UDISE_ID` varchar(30) NOT NULL,
+  `HOI_Password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `9475755847_HOI_Login_Credentials`
+--
+
+INSERT INTO `9475755847_HOI_Login_Credentials` (`HOI_UDISE_ID`, `HOI_Password`) VALUES
+('9475755847', '2003');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
