@@ -20,8 +20,8 @@ if (isset($_POST['email_code'])) {
 }
 
 if ($user['numberVerify'] == 1 & $user['emailVerify'] == 1) {
-    echo "<script>window.location.href = 'verify.php';</script>"; 
-} 
+    echo "<script>window.location.href = 'welcome.php';</script>"; 
+}
 
 
 $user_id = $user['reg_no'];
@@ -47,7 +47,10 @@ if (isset($_POST['edit'])) {
     <title>Verification</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
+    <script>
+  window.history.forward();
+</script>
+   <style>
         body {
             background-color: #fff;
             font-family: 'Montserrat', sans-serif;

@@ -413,7 +413,10 @@ if ($user['issubmitted'] == 1) {
                 <!-- Start of the 6th Marks Entering Details -->
 
                 <!-- End of the 6th Marks Entering Page -->
-               
+                <a
+                href="welcome.php"
+                style="color: black; text-decoration: none"
+              >
                 <button
                   type="button"
                   class="btn btn-primary"

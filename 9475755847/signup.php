@@ -1,3 +1,6 @@
+<?php
+require 'session.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -80,6 +83,9 @@
     </style>
   </head>
   <body>
+<script>
+  window.history.forward();
+</script>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6">

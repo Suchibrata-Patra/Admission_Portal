@@ -11,3 +11,6 @@ session_destroy();
 header("location: login.php");
 exit; // Stop further execution of the script
 ?>
+<script>
+        window.history.forward();
+</script>

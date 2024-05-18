@@ -30,6 +30,9 @@ if ($user['issubmitted'] == 1) {
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+<!-- <script>
+  window.history.forward();
+</script> -->
     <style>
       body {
         font-family: Arial, sans-serif;

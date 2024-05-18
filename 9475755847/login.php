@@ -59,6 +59,9 @@ if (isset($_POST['login_user'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>Login</title>
+    <script>
+        window.history.forward();
+    </script>
     <style>
         body {
             background-color: #f6f6f6; /* Light grey background */

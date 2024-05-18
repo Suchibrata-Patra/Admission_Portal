@@ -108,3 +108,6 @@ if (isset($_POST['reg_user'])) {
   }
 }
 ?>
+<script>
+        window.history.forward();
+</script>
