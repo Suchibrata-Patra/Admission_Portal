@@ -1,193 +1,264 @@
 <?php
-require 'HOI_session.php';
+ini_set('display_errors', 1); 
+error_reporting(E_ALL);
+session_start();
+require_once 'database.php';
 require 'HOI_super_admin.php';
+include 'HOI_session.php';
 $table_name = $udise_code . '_HOI_Login_Credentials';
 echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
 echo 'Table name: ' . $table_name . '<br>';
-$query = "SELECT * FROM $table_name WHERE HOI_UDISE_IDmail='$HOI_UDISE_ID'";
-$results = mysqli_query($db, $query);
-$user = mysqli_fetch_assoc($results);
+echo $udiseid;
+    $user_check_query = "SELECT * FROM $table_name WHERE `HOI_UDISE_ID` = '$user_id' LIMIT 1";
+    $result = mysqli_query($db, $user_check_query);
+    if (!$result) {
+        echo "Error: " . mysqli_error($db);
+    }
+    $user = mysqli_fetch_assoc($result);
 
 if ($user['is_HOI_Account_Verified'] == 0) {
     header('Location: HOI_verify.php');
     exit;
 } 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        margin: 0;
-        padding: 0;
-      }
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      .header {
-        background-color: white;
-        color: black;
-        text-align: right;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="style.css">
 
-      .container {
-        margin: 20px;
-      }
+	<title>AdminHub</title>
+</head>
+<body>
 
-      .form-group {
-        margin-bottom: 20px;
-      }
 
-      .row {
-        margin-left: -15px;
-        margin-right: -15px;
-      }
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">AdminHub</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="#">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-shopping-bag-alt' ></i>
+					<span class="text">My Store</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-doughnut-chart' ></i>
+					<span class="text">Analytics</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-message-dots' ></i>
+					<span class="text">Message</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Team</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="#">
+					<i class='bx bxs-cog' ></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
 
-      .col-xs-6 {
-        width: 50%;
-        float: left;
-        padding-left: 15px;
-        padding-right: 15px;
-      }
 
-      .tab-content {
-        padding: 20px;
-        background-color: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        margin-top: 20px;
-      }
 
-      .logout {
-        color: white;
-        background-color: red;
-        padding: 7px;
-        border-radius: 5px;
-        text-decoration: none;
-      }
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="#" class="nav-link">Categories</a>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+				<i class='bx bxs-bell' ></i>
+				<span class="num">8</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="img/people.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
 
-      .logout:hover {
-        background-color: yellow;
-        color: black;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="header">
-      <h2 style="margin: 0">
-        Welcome
-        <?php echo $user['fname']; ?>
-      </h2>
-      <a href="welcome.php?logout='1'" class="logout">Logout</a>
-    </div>
-    <div class="container">
-      <div class="row" >
-        <div class="col-xs-12">
-          <div class="card text-center">
-            <div class="card-header">
-              <ul class="nav nav-pills card-header-pills">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Student Details</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="marks_details.php"
-                    >Marks Details</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Personal Details</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Address Details</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">File Upload</a>
-                </li>
-                <li class="nav-item">
-                   <a class="nav-link disabled" href="#">Preview</a>
-                 </li>
-                 <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Final Submission</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Payment</a>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-xs-6 form-group">
-                  <label><strong>Registration</strong> No</label>
-                  <input
-                    class="form-control"
-                    type="text"
-                    value="<?php echo $user['reg_no'];?>"
-                    disabled
-                  />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-6 form-group">
-                  <label>Name</label>
-                  <input
-                    class="form-control"
-                    type="text"
-                    value="<?php echo $user['fname'] . ' ' . $user['lname']; ?>"
-                    disabled
-                  />
-                </div>
-                <div class="col-xs-6 form-group">
-                  <label>Email ID</label>
-                  <input
-                    class="form-control"
-                    type="text"
-                    value="<?php echo $user['email']; ?>"
-                    disabled
-                  />
-                </div>
-                <div class="col-xs-6 form-group">
-                  <label>Mobile No</label>
-                  <input
-                    class="form-control"
-                    type="text"
-                    value="<?php echo $user['phoneNumber']; ?>"
-                    disabled
-                  />
-                </div>
-                <div class="col-xs-6 form-group">
-                  <label>Date of Birth</label>
-                  <input
-                    class="form-control"
-                    type="text"
-                    value="<?php echo date('F j, Y', strtotime($user['dob'])); ?>"
-                    disabled
-                  />
-                </div>
-              </div>
-            </div>
-            <div style="margin-left: 90%; padding-bottom: 2%;">
-            <a href="marks_details.php" style="color: black;text-decoration: none;"> <button type="button" class="btn btn-primary" style="margin-right: 2%; background-color: white;color:black;"> Next</button></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Dashboard</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Dashboard</a>
+						</li>
+						<li><i class='bx bx-chevron-right' ></i></li>
+						<li>
+							<a class="active" href="#">Home</a>
+						</li>
+					</ul>
+				</div>
+				<a href="#" class="btn-download">
+					<i class='bx bxs-cloud-download' ></i>
+					<span class="text">Download PDF</span>
+				</a>
+			</div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  </body>
+			<ul class="box-info">
+				<li>
+					<i class='bx bxs-calendar-check' ></i>
+					<span class="text">
+						<h3>1020</h3>
+						<p>New Order</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-group' ></i>
+					<span class="text">
+						<h3>2834</h3>
+						<p>Visitors</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-dollar-circle' ></i>
+					<span class="text">
+						<h3>$2543</h3>
+						<p>Total Sales</p>
+					</span>
+				</li>
+			</ul>
+
+
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Recent Orders</h3>
+						<i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>User</th>
+								<th>Date Order</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status completed">Completed</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status pending">Pending</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status process">Process</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status pending">Pending</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status completed">Completed</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="todo">
+					<div class="head">
+						<h3>Todos</h3>
+						<i class='bx bx-plus' ></i>
+						<i class='bx bx-filter' ></i>
+					</div>
+					<ul class="todo-list">
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="not-completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="not-completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+
+	<script src="script.js"></script>
+</body>
 </html>

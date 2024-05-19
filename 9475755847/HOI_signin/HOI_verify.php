@@ -12,7 +12,7 @@ if (isset($_POST['email_code'])) {
         $query = "UPDATE $table_name SET numberVerify = 1, emailVerify = 1 WHERE HOI_UDISE_ID = '$user_id'";
         $results = mysqli_query($db, $query);
         unset($_SESSION['codeSend']);
-        echo '<script>window.location.href="welcome.php";</script>';
+        echo '<script>window.location.href="HOI_Dashboard.php";</script>';
         exit();
     } else {
         $error_message = "Incorrect verification code. Please try again.";
