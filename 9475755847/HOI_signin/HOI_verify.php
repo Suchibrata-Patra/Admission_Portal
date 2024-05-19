@@ -35,7 +35,7 @@ if (isset($_POST['edit'])) {
     $user_id = $user['HOI_UDISE_ID'];
     $query = "DELETE FROM $table_name WHERE HOI_UDISE_ID = '$user_id'";
     mysqli_query($db, $query);
-    echo '<script>window.location.href="signup.php";</script>';
+    echo '<script>window.location.href="HOI_signup.php";</script>';
     exit(); // Ensure script stops here
 }
 ?>
@@ -112,7 +112,7 @@ if (isset($_POST['edit'])) {
         <h2>Email Verification</h2>
         <div class="card-body">
             <?php if (isset($_SESSION['udiseid'])): ?>
-                <p>Welcome, <strong><?php echo htmlspecialchars($first_name); ?></strong> | <a href="welcome.php?logout='1'" style="color: #FF5A5F; text-decoration: none;">Logout</a></p>
+                <p>Welcome, <strong><?php echo htmlspecialchars($first_name); ?></strong> | <a href="HOI_Login.php?logout='1'" style="color: #FF5A5F; text-decoration: none;">Logout</a></p>
             <?php endif ?>
 
             <?php if (isset($error_message)): ?>
@@ -142,7 +142,7 @@ if (isset($_POST['edit'])) {
     <script>
         // Redirect based on PHP variable
         if (<?php echo $redirectToWelcome ? 'true' : 'false'; ?>) {
-            window.location.href = "welcome.php";
+            window.location.href = "HOI_Dashboard";
         }
     </script>
 

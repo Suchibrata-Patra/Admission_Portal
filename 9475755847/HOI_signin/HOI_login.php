@@ -36,7 +36,8 @@ if (isset($_POST['HOI_Login'])) {
           $_SESSION['udiseid'] = $udiseid;
           $_SESSION['success'] = "You are now logged in";
           // Redirect only if there are no errors
-          header('location: HOI_Dashboard.php');
+          echo '<script>window.location.href="HOI_Dashboard.php";</script>';
+        //   header('location: HOI_Dashboard.php');
           exit(); // Ensure that no further code is executed after the redirect
        } else {
           array_push($errors, "Wrong password");
@@ -113,7 +114,7 @@ if (isset($_POST['HOI_Login'])) {
             <div class="col-md-6 login-container">
                 <h3>Welcome Back!</h3>
                 <hr>
-                <form method="post" action="HOI_login.php">
+                <form method="post" action="HOI_Login.php">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">HOI_UDISE_ID</label>
                         <input type="udiseid" name="this_is_HOI_Udise_ID_data_input" class="form-control" id="exampleInputEmail1" aria-describedby="udiseidHelp" placeholder="Enter your udiseid">

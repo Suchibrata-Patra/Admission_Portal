@@ -13,8 +13,7 @@ echo 'Table name: ' . $table_name . '<br>';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once "/Applications/MAMP/htdocs/vendor/autoload.php";
-
+require '../../vendor/autoload.php';
 # Function to generate a 6-character alphanumeric string
 function generateRandomString($length = 6) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

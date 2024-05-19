@@ -28,32 +28,38 @@ if (isset($_POST['HOI_Signup'])) {
 
     if (empty($HOI_Udise_ID)) {
         array_push($errors, "First name is required");
-        header("location: HOI_Signup.php?error=First name is required");
+        echo '<script>window.location.href="HOI_Signup.php?error=First name is required";</script>';
+        // header("location: HOI_Signup.php?error=First name is required");
         exit();
     }
     if (empty($HOI_HOI_Name)) {
         array_push($errors, "Last name is required");
-        header("location: HOI_Signup.php?error=Last name is required");
+        echo '<script>window.location.href="HOI_Signup.php?error=Last name is required";</script>';
+        // header("location: HOI_Signup.php?error=Last name is required");
         exit();
     }
     if (empty($HOI_email)) {
         array_push($errors, "Email is required");
-        header("location: HOI_Signup.php?error=Email is required");
+        echo '<script>window.location.href="HOI_Signup.php?error=Email is required";</script>';
+        //  header("location: HOI_Signup.php?error=Email is required");
         exit();
     }
     if (empty($HOI_Mobile_No)) {
         array_push($errors, "Mobile No is required");
-        header("location: HOI_Signup.php?error=Mobile No is required");
+        echo '<script>window.location.href="HOI_Signup.php?error=Mobile No is required";</script>';
+        // header("location: HOI_Signup.php?error=Mobile No is required");
         exit();
     }
     if (empty($HOI_Login_Password)) {
         array_push($errors, "Password is required");
-        header("location: HOI_Signup.php?error=Password is required");
+        echo '<script>window.location.href="HOI_Signup.php?error=Password is required";</script>';
+        // header("location: HOI_Signup.php?error=Password is required");
         exit();
     }
     if (empty($terms)) {
         array_push($errors, "Terms acceptance is required");
-        header("location: HOI_Signup.php?error=Terms acceptance is required");
+        echo '<script>window.location.href="HOI_Signup.php?error=Terms acceptance is required";</script>';
+        // header("location: HOI_Signup.php?error=Terms acceptance is required");
         exit();
     }
 
@@ -67,7 +73,7 @@ if (isset($_POST['HOI_Signup'])) {
     if ($user) {
         if ($user['HOI_UDISE_ID'] === $HOI_Udise_ID) {
             array_push($errors, "User with this UDISE ID already exists");
-            header("location: HOI_Signup.php?error=User with this UDISE ID already exists");
+            // header("location: HOI_Signup.php?error=User with this UDISE ID already exists");
             exit();
         }
         if ($user['HOI_email'] === $HOI_email) {
@@ -91,7 +97,8 @@ if (isset($_POST['HOI_Signup'])) {
         if (mysqli_query($db, $query)) {
             $_SESSION['HOI_UDISE_ID'] = $HOI_email;
             $_SESSION['success'] = "You are now logged in";
-            header('location: HOI_Dashboard.php');
+          echo '<script>window.location.href="HOI_Dashboard.php";</script>';
+            // header('location: HOI_Dashboard.php');
         } else {
             echo "Error: " . mysqli_error($db);
         }
