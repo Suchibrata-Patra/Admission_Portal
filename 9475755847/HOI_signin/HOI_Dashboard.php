@@ -9,8 +9,8 @@ if (!isset($udise_code) || !isset($udiseid)) {
 }
 
 $table_name = $udise_code . '_HOI_Login_Credentials';
-echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
-echo 'Table name: ' . $table_name . '<br>';
+// echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+// echo 'Table name: ' . $table_name . '<br>';
 
 $udiseid = mysqli_real_escape_string($db, $udiseid);
 $query = "SELECT * FROM $table_name WHERE `HOI_UDISE_ID` = '$udiseid' LIMIT 1";
@@ -24,7 +24,7 @@ $user = mysqli_fetch_assoc($results);
 if ($user['numberVerify'] != 1 | $user['emailVerify'] != 1) {
     echo "<script>window.location.href = 'HOI_verify.php';</script>"; 
 } 
-echo $query . '<br>';
+// echo $query . '<br>';
 if (!$user) {
     die("User not found");
 }
@@ -41,7 +41,7 @@ if (!$user) {
 	<!-- My CSS -->
 	<link rel="stylesheet" href="style.css">
 
-	<title>AdminHub</title>
+	<title>Haggle</title>
 </head>
 <body>
 
@@ -50,7 +50,7 @@ if (!$user) {
 	<section id="sidebar">
 		<a href="#" class="brand">
 			<i class='bx bxs-smile'></i>
-			<span class="text">AdminHub</span>
+			<span class="text">Haggle</span>
 		</a>
 		<ul class="side-menu top">
 			<li class="active">
@@ -88,13 +88,13 @@ if (!$user) {
 			<li>
 				<a href="#">
 					<i class='bx bxs-cog' ></i>
-					<span class="text">Settings</span>
+					<span class="text">Admission Preferences</span>
 				</a>
 			</li>
 			<li>
-				<a href="#" class="logout">
+				<a href="HOI_Logout.php" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
-					<span class="text">Logout</span>
+				   <span class="text">Logout</span>
 				</a>
 			</li>
 		</ul>
@@ -108,7 +108,7 @@ if (!$user) {
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu' ></i>
-			<a href="#" class="nav-link">Categories</a>
+			<!-- <a href="#" class="nav-link">Categories</a> -->
 			<form action="#">
 				<div class="form-input">
 					<input type="search" placeholder="Search...">
@@ -122,16 +122,17 @@ if (!$user) {
 				<span class="num">8</span>
 			</a>
 			<a href="#" class="profile">
-				<img src="img/people.png">
+				<img src="img/HOI_logo.png">
 			</a>
 		</nav>
 		<!-- NAVBAR -->
-
+		
 		<!-- MAIN -->
 		<main>
+			<span style="width:80%;font-weight:400px;font-size:20px; "><?php echo htmlspecialchars($user['Institution_Name'], ENT_QUOTES, 'UTF-8'); ?></span>
 			<div class="head-title">
 				<div class="left">
-					<h1>Dashboard</h1>
+					<!-- <h1>Admin</h1> -->
 					<ul class="breadcrumb">
 						<li>
 							<a href="#">Dashboard</a>
@@ -144,10 +145,10 @@ if (!$user) {
 				</div>
 				<a href="#" class="btn-download">
 					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
+					<span class="text">Download Report</span>
 				</a>
 			</div>
-
+			<div class="container" style="font-size:20px;font-weight:bold;margin-top:1.5%;">Quick Statistics of this season</div>
 			<ul class="box-info">
 				<li>
 					<i class='bx bxs-calendar-check' ></i>
@@ -160,19 +161,17 @@ if (!$user) {
 					<i class='bx bxs-group' ></i>
 					<span class="text">
 						<h3>2834</h3>
-						<p>Visitors</p>
+						<p>Total Application</p>
 					</span>
 				</li>
 				<li>
 					<i class='bx bxs-dollar-circle' ></i>
 					<span class="text">
-						<h3>$2543</h3>
-						<p>Total Sales</p>
+						<h3>Rs.2543</h3>
+						<p>New Revenue</p>
 					</span>
 				</li>
 			</ul>
-
-
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
@@ -191,23 +190,23 @@ if (!$user) {
 						<tbody>
 							<tr>
 								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
+								<img src="../uploads/2003_passportsizephoto.png">
+									<p>Suchibrata Patra</p>
 								</td>
 								<td>01-10-2021</td>
 								<td><span class="status completed">Completed</span></td>
 							</tr>
 							<tr>
 								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
+									<img src="../uploads/2003_passportsizephoto.png">
+									<p>Amitanshu Maity</p>
 								</td>
 								<td>01-10-2021</td>
 								<td><span class="status pending">Pending</span></td>
 							</tr>
 							<tr>
 								<td>
-									<img src="img/people.png">
+								<img src="../uploads/2003_passportsizephoto.png">
 									<p>John Doe</p>
 								</td>
 								<td>01-10-2021</td>
@@ -215,7 +214,7 @@ if (!$user) {
 							</tr>
 							<tr>
 								<td>
-									<img src="img/people.png">
+								<img src="../uploads/2003_passportsizephoto.png">
 									<p>John Doe</p>
 								</td>
 								<td>01-10-2021</td>
@@ -223,7 +222,7 @@ if (!$user) {
 							</tr>
 							<tr>
 								<td>
-									<img src="img/people.png">
+								<img src="../uploads/2003_passportsizephoto.png">
 									<p>John Doe</p>
 								</td>
 								<td>01-10-2021</td>
@@ -262,6 +261,7 @@ if (!$user) {
 					</ul>
 				</div>
 			</div>
+			
 		</main>
 		<!-- MAIN -->
 	</section>

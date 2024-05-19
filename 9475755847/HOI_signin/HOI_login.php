@@ -58,7 +58,9 @@ if (isset($_POST['HOI_Login'])) {
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <script>
+        window.history.forward();
+    </script>
     <title>Login</title>
     <style>
         body {

@@ -17,7 +17,9 @@ include 'database.php';
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
-
+    <script>
+  window.history.forward();
+</script>
     <title>Sign Up</title>
     <style>
       body {

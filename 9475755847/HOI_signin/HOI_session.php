@@ -18,7 +18,7 @@ if (isset($_GET['logout'])) {
     exit();
 }
 $table_name = $udise_code . '_HOI_Login_Credentials';
-echo $table_name;
+// echo $table_name;
 
 // Fetch user details from the database using a safer approach
 $udiseid = $_SESSION['udiseid']; // Assuming email is already sanitized when saved in session
