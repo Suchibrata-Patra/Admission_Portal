@@ -29,7 +29,7 @@ if (isset($_POST['HOI_Login'])) {
     
     if (mysqli_num_rows($results) == 1) {
        $user = mysqli_fetch_assoc($results);
-       $hashed_password = $user['password'];
+       $hashed_password = $user['HOI_Password'];
 
        // Verify the entered password against the hashed password
        if (password_verify($password, $hashed_password)) {

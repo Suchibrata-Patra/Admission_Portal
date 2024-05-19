@@ -1,26 +1,33 @@
 <?php
-ini_set('display_errors', 1); 
-error_reporting(E_ALL);
-session_start();
-require_once 'database.php';
+require 'HOI_session.php';
 require 'HOI_super_admin.php';
-include 'HOI_session.php';
+
+if (!isset($udise_code) || !isset($udiseid)) {
+    die("UDISE code and ID must be set");
+}
+
 $table_name = $udise_code . '_HOI_Login_Credentials';
 echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
 echo 'Table name: ' . $table_name . '<br>';
-echo $udiseid;
-    $user_check_query = "SELECT * FROM $table_name WHERE `HOI_UDISE_ID` = '$user_id' LIMIT 1";
-    $result = mysqli_query($db, $user_check_query);
-    if (!$result) {
-        echo "Error: " . mysqli_error($db);
-    }
-    $user = mysqli_fetch_assoc($result);
 
-if ($user['is_HOI_Account_Verified'] == 0) {
-    header('Location: HOI_verify.php');
-    exit;
+$udiseid = mysqli_real_escape_string($db, $udiseid);
+$query = "SELECT * FROM $table_name WHERE `HOI_UDISE_ID` = '$udiseid' LIMIT 1";
+$results = mysqli_query($db, $query);
+
+if (!$results) {
+    die("Error in query: " . mysqli_error($db));
+}
+
+$user = mysqli_fetch_assoc($results);
+if ($user['numberVerify'] != 1 | $user['emailVerify'] != 1) {
+    echo "<script>window.location.href = 'HOI_verify.php';</script>"; 
 } 
+echo $query . '<br>';
+if (!$user) {
+    die("User not found");
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

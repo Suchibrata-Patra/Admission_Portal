@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', 1); 
+ini_set('display_errors', 1);
 error_reporting(E_ALL);
 session_start();
 
@@ -28,7 +28,7 @@ if (isset($_POST['HOI_Signup'])) {
 
     if (empty($HOI_Udise_ID)) {
         array_push($errors, "First name is required");
-        header("location: HOI_Signup.php?error=First name is required"); 
+        header("location: HOI_Signup.php?error=First name is required");
         exit();
     }
     if (empty($HOI_HOI_Name)) {
@@ -83,8 +83,10 @@ if (isset($_POST['HOI_Signup'])) {
     }
 
     if (count($errors) == 0) {
+        $hashed_password = password_hash($HOI_Login_Password, PASSWORD_BCRYPT);
+
         $query = "INSERT INTO $table_name (`HOI_UDISE_ID`, `HOI_Password`, `HOI_Email_ID`, `HOI_Mobile_No`, `is_HOI_Account_Verified`, `emailVerify`, `numberVerify`, `Institution_Name`, `HOI_Name`, `Institution_Address`) 
-        VALUES ('$HOI_Udise_ID', '$HOI_Login_Password', '$HOI_email', '$HOI_Mobile_No', 0, 0, 0, NULL, '$HOI_HOI_Name', NULL)";
+        VALUES ('$HOI_Udise_ID', '$hashed_password', '$HOI_email', '$HOI_Mobile_No', 0, 0, 0, NULL, '$HOI_HOI_Name', NULL)";
         
         if (mysqli_query($db, $query)) {
             $_SESSION['HOI_UDISE_ID'] = $HOI_email;
