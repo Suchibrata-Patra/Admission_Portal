@@ -122,7 +122,7 @@ if (!$user) {
 				<span class="num">8</span>
 			</a>
 			<a href="#" class="profile">
-				<img src="img/HOI_logo.png">
+				<img src="img/people.png">
 			</a>
 		</nav>
 		<!-- NAVBAR -->
@@ -190,7 +190,7 @@ if (!$user) {
 						<tbody>
 							<tr>
 								<td>
-								<img src="../uploads/2003_passportsizephoto.png">
+								<img src="img/people.png">
 									<p>Suchibrata Patra</p>
 								</td>
 								<td>01-10-2021</td>
@@ -198,7 +198,7 @@ if (!$user) {
 							</tr>
 							<tr>
 								<td>
-									<img src="../uploads/2003_passportsizephoto.png">
+									<img src="img/people.png">
 									<p>Amitanshu Maity</p>
 								</td>
 								<td>01-10-2021</td>
@@ -206,7 +206,7 @@ if (!$user) {
 							</tr>
 							<tr>
 								<td>
-								<img src="../uploads/2003_passportsizephoto.png">
+								<img src="img/people.png">
 									<p>John Doe</p>
 								</td>
 								<td>01-10-2021</td>
@@ -214,7 +214,7 @@ if (!$user) {
 							</tr>
 							<tr>
 								<td>
-								<img src="../uploads/2003_passportsizephoto.png">
+								<img src="img/people.png">
 									<p>John Doe</p>
 								</td>
 								<td>01-10-2021</td>
@@ -222,7 +222,7 @@ if (!$user) {
 							</tr>
 							<tr>
 								<td>
-								<img src="../uploads/2003_passportsizephoto.png">
+								<img src="img/people.png">
 									<p>John Doe</p>
 								</td>
 								<td>01-10-2021</td>

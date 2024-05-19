@@ -39,6 +39,6 @@
 <body>
     <button><a href="login.php">Login</a></button>
     <button><a href="signup.php">Sign Up</a></button>
-    <button><a href="HOI_Signin/Hoi_Login.php">HOI</a></button>
+    <button><a href="HOI_signin/HOI_Login.php">HOI</a></button>
 </body>
 </html>

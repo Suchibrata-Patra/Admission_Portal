@@ -58,9 +58,7 @@ if (isset($_POST['HOI_Login'])) {
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script>
-        window.history.forward();
-    </script>
+
     <title>Login</title>
     <style>
         body {
@@ -88,7 +86,7 @@ if (isset($_POST['HOI_Login'])) {
             border: 1px solid #ddd;
         }
         .btn-primary {
-            background-color: #fd5c63; /* Airbnb's red color */
+            background-color: #FC4100; /* Airbnb's red color */
             border: none;
             border-radius: 8px;
             width: 100%; /* Full width button */
@@ -108,17 +106,26 @@ if (isset($_POST['HOI_Login'])) {
         a:hover {
             text-decoration: underline;
         }
+        .form-label{
+            background-color: #FFEC9E;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            padding-left:7px;
+            padding-right: 7px;
+            margin-bottom: -2px;
+            margin-left: 10px;;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 login-container">
-                <h3>Welcome Back!</h3>
+                <h3>Administrator Login</h3>
                 <hr>
                 <form method="post" action="HOI_Login.php">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">HOI_UDISE_ID</label>
+                        <label for="exampleInputEmail1" class="form-label">UDISE ID</label>
                         <input type="udiseid" name="this_is_HOI_Udise_ID_data_input" class="form-control" id="exampleInputEmail1" aria-describedby="udiseidHelp" placeholder="Enter your udiseid">
                     </div>
                     <div class="mb-3">
