@@ -206,6 +206,10 @@ echo $user['institution_fees_payment_done'];
       "currency": "INR",
       "description": "Institution Fees",
       "image": "example.com/image/rzp.jpg",
+      "prefill": {
+      "contact": "9475755847",  // Prefill mobile number
+      "email": "example@example.com"  // Optionally prefill the email as well
+     },
       "handler": function (response) {
         var paymentId = response.razorpay_payment_id;
         // Send payment ID to server for database update using AJAX
@@ -240,6 +244,10 @@ echo $user['institution_fees_payment_done'];
       "currency": "INR",
       "description": "Portal Fees",
       "image": "example.com/image/rzp.jpg",
+      "prefill": {
+      "contact": "9475755847",  // Prefill mobile number
+      "email": "example@example.com"  // Optionally prefill the email as well
+     },
       "handler": function (response) {
         var paymentId = response.razorpay_payment_id;
         // Send payment ID to server for database update using AJAX

@@ -38,12 +38,44 @@ if (!$user) {
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	<!-- My CSS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />	
+
+<!-- My CSS -->
 	<link rel="stylesheet" href="style.css">
 
-	<title>Haggle</title>
+	<title style="font-family: 'Roboto', Times, serif;">Haggle</title>
+	<style>
+        .institution-name {
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        /* Media query for screens smaller than 900px */
+        @media screen and (max-width: 900px) {
+            .institution-name {
+                font-size: 14px;
+            }
+        }
+
+        /* Media query for screens smaller than 600px */
+        @media screen and (max-width: 600px) {
+            .institution-name {
+                font-size: 990%;
+            }
+        }
+
+        /* Media query for screens smaller than 400px */
+        @media screen and (max-width: 400px) {
+            .institution-name {
+                font-size: 10px;
+            }
+        }
+    </style>
 </head>
-<body>
+<body style="font-family: 'Roboto', sans-serif;">
 
 
 	<!-- SIDEBAR -->
@@ -55,20 +87,69 @@ if (!$user) {
 		<ul class="side-menu top">
 			<li class="active">
 				<a href="#">
-					<i class='bx bxs-dashboard' ></i>
+					<i class='bx'><span class="material-symbols-outlined">dashboard</span></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
 			<li>
 				<a href="#">
-					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">My Store</span>
+					<i class='bx'><span class="material-symbols-outlined">currency_rupee</span></i>
+					<span class="text">Fees Control</span>
+				</a>
+			</li>
+
+			<li>
+				<a href="#">
+					<i class='bx'><span class="material-symbols-outlined">list</span></i>
+					<span class="text">Merit LIst</span>
 				</a>
 			</li>
 			<li>
 				<a href="#">
-					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Analytics</span>
+					<i class='bx'><span class="material-symbols-outlined">calendar_month</span></i>
+					<span class="text">Admission Date</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx'><span class="material-symbols-outlined">account_balance</span></i>
+					<span class="text">School Profile</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx'><span class="material-symbols-outlined">update</span></i>
+					<span class="text">Updates</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx'><span class="material-symbols-outlined">auto_stories</span></i>
+					<span class="text">Subject Combo</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx'><span class="material-symbols-outlined">info</span></i>
+					<span class="text">Change Info</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx'><span class="material-symbols-outlined">mail</span></i>
+					<span class="text">Mail</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx'><span class="material-symbols-outlined">id_card</span></i>
+					<span class="text">Admission</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-message-dots' ></i>
+					<span class="text">Message</span>
 				</a>
 			</li>
 			<li>
@@ -129,10 +210,9 @@ if (!$user) {
 		
 		<!-- MAIN -->
 		<main>
-			<span style="width:80%;font-weight:400px;font-size:20px; "><?php echo htmlspecialchars($user['Institution_Name'], ENT_QUOTES, 'UTF-8'); ?></span>
 			<div class="head-title">
 				<div class="left">
-					<!-- <h1>Admin</h1> -->
+					<h1>Admin</h1>
 					<ul class="breadcrumb">
 						<li>
 							<a href="#">Dashboard</a>
@@ -144,11 +224,12 @@ if (!$user) {
 					</ul>
 				</div>
 				<a href="#" class="btn-download">
-					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download Report</span>
+					<i class='bx' ><span class="material-symbols-outlined">download</span></i>
+					<!-- <span class="text"></span> -->
 				</a>
 			</div>
-			<div class="container" style="font-size:20px;font-weight:bold;margin-top:1.5%;">Quick Statistics of this season</div>
+			<span class="institution-name"><?php echo $user['Institution_Name'] ?></span>
+			<div class="container" style="font-size:20px;font-weight:bold;margin-top:1.5%;">Admission Statisitcs</div>
 			<ul class="box-info">
 				<li>
 					<i class='bx bxs-calendar-check' ></i>
