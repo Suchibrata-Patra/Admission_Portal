@@ -93,8 +93,14 @@ if (!$user) {
 			</li>
 			<li>
 				<a href="#">
+					<i class='bx'><span class="material-symbols-outlined">calendar_month</span></i>
+					<span class="text">Admission Date</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
 					<i class='bx'><span class="material-symbols-outlined">currency_rupee</span></i>
-					<span class="text">Fees Control</span>
+					<span class="text">Bank Account</span>
 				</a>
 			</li>
 
@@ -102,12 +108,6 @@ if (!$user) {
 				<a href="#">
 					<i class='bx'><span class="material-symbols-outlined">list</span></i>
 					<span class="text">Merit LIst</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx'><span class="material-symbols-outlined">calendar_month</span></i>
-					<span class="text">Admission Date</span>
 				</a>
 			</li>
 			<li>
@@ -148,18 +148,6 @@ if (!$user) {
 			</li>
 			<li>
 				<a href="#">
-					<i class='bx bxs-message-dots' ></i>
-					<span class="text">Message</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-message-dots' ></i>
-					<span class="text">Message</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Team</span>
 				</a>
@@ -169,7 +157,7 @@ if (!$user) {
 			<li>
 				<a href="#">
 					<i class='bx bxs-cog' ></i>
-					<span class="text">Admission Preferences</span>
+					<span class="text">System Preferences</span>
 				</a>
 			</li>
 			<li>
@@ -224,7 +212,7 @@ if (!$user) {
 					</ul>
 				</div>
 				<a href="#" class="btn-download">
-					<i class='bx' ><span class="material-symbols-outlined">download</span></i>
+					<i class='bx'><span class="material-symbols-outlined">download</span></i>
 					<!-- <span class="text"></span> -->
 				</a>
 			</div>
@@ -232,10 +220,10 @@ if (!$user) {
 			<div class="container" style="font-size:20px;font-weight:bold;margin-top:1.5%;">Admission Statisitcs</div>
 			<ul class="box-info">
 				<li>
-					<i class='bx bxs-calendar-check' ></i>
+					<i class='bx'><img src="../Assets/live_animation.gif" alt="" style="width:100px;height: auto; background-color: #f9f9f9;"></i>
 					<span class="text">
-						<h3>1020</h3>
-						<p>New Order</p>
+						<h3>Live</h3>
+						<p>Application Status</p>
 					</span>
 				</li>
 				<li>
@@ -256,7 +244,7 @@ if (!$user) {
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Recent Orders</h3>
+						<h3>Recent Application</h3>
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
@@ -314,7 +302,7 @@ if (!$user) {
 				</div>
 				<div class="todo">
 					<div class="head">
-						<h3>Todos</h3>
+						<h3>To - dos</h3>
 						<i class='bx bx-plus' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
