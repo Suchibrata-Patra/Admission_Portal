@@ -26,30 +26,41 @@ if ($user['numberVerify'] != 1 || $user['emailVerify'] != 1) {
 if (!$user) {
     die("User not found");
 }
-
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $start_date = mysqli_real_escape_string($db, $_POST['start_date']);
     $end_date = mysqli_real_escape_string($db, $_POST['end_date']);
 
-    // Update admission dates in the database
-    $update_query = "UPDATE $table_name
-                     SET `Formfillup_Start_Date` = '$start_date', `Formfillup_Last_Date` = '$end_date'
-                     WHERE `HOI_UDISE_ID` = '$udiseid'";
-    $update_result = mysqli_query($db, $update_query);
-
-    if ($update_result) {
-        $message = "Admission dates updated successfully.";
+    // Check if end date is before start date
+    if (strtotime($end_date) < strtotime($start_date)) {
+        $message = "Error: End date must be after the start date.";
     } else {
-        $message = "Error updating admission dates: " . mysqli_error($db);
+        // Update admission dates in the database
+        $update_query = "UPDATE $table_name
+                         SET `Formfillup_Start_Date` = '$start_date', `Formfillup_Last_Date` = '$end_date'
+                         WHERE `HOI_UDISE_ID` = '$udiseid'";
+        $update_result = mysqli_query($db, $update_query);
+
+        if ($update_result) {
+            $message = "Admission dates updated successfully.";
+        } else {
+            $message = "Error updating admission dates: " . mysqli_error($db);
+        }
     }
 }
+
 
 // Fetch the current admission dates
 $admission_query = "SELECT `Formfillup_Start_Date`, `Formfillup_Last_Date` FROM $table_name WHERE `HOI_UDISE_ID` = '$udiseid' LIMIT 1";
 $admission_results = mysqli_query($db, $admission_query);
 $admission_dates = mysqli_fetch_assoc($admission_results);
 
+$current_date = date('Y-m-d');
+if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
+    $application_status = "Admission Deadline is Over";
+} else {
+    $application_status = "Application Portal is Live !";
+}
 ?>
 
 <!DOCTYPE html>
@@ -188,50 +199,178 @@ $admission_dates = mysqli_fetch_assoc($admission_results);
 		
 		<!-- MAIN -->
 		<main>
-			<div class="head-title">
-				<div class="left">
-					<ul class="breadcrumb">
-						<li>
-							<a href="#">Dashboard</a>
-						</li>
-						<li><i class='bx bx-chevron-right'></i></li>
-						<li>
-							<a class="active" href="HOI_Admission_Date.php">Admission Date</a>
-						</li>
-					</ul>
-				</div>
-				<a href="#" class="btn-download">
-					<i class='bx'><span class="material-symbols-outlined">download</span></i>
-				</a>
-			</div>
-			<span class="institution-name"><?php echo $user['Institution_Name']; ?></span>
+    <div class="container">
+        <div class="head-title">
+            <div class="left">
+                <ul class="breadcrumb">
+                    <li><a href="#">Dashboard</a></li>
+                    <li><i class='bx bx-chevron-right'></i></li>
+                    <li><a class="active" href="HOI_Admission_Date.php">Admission Date</a></li>
+                </ul>
+            </div>
+            <a href="#" class="btn-download">
+                <i class='bx'><span class="material-symbols-outlined">download</span></i>
+            </a>
+        </div>
+        <span class="institution-name"><?php echo $user['Institution_Name']; ?></span>
 
-			<?php if (isset($message)) : ?>
-				<div class="alert alert-info"><?php echo $message; ?></div>
-			<?php endif; ?>
-			
-			<!-- Admission Date Form -->
-			<div class="admission-date-form">
-				<h3>Set Admission Dates</h3>
-				<form action="HOI_Admission_Date.php" method="POST">
-					<div class="form-group">
-						<label for="start_date">Start Date:</label>
-						<input type="date" id="start_date" name="start_date" class="form-control" value="<?php echo isset($admission_dates['Formfillup_Start_Date']) ? $admission_dates['Formfillup_Start_Date'] : ''; ?>" required>
-					</div>
-					<div class="form-group">
-						<label for="end_date">End Date:</label>
-						<input type="date" id="end_date" name="end_date" class="form-control" value="<?php echo isset($admission_dates['Formfillup_Last_Date']) ? $admission_dates['Formfillup_Last_Date'] : ''; ?>" required>
-					</div>
-					<button type="submit" class="btn btn-primary">Set Dates</button>
-				</form>
-			</div>
-			<!-- End of Admission Date Form -->
+        <?php if (isset($message)) : ?>
+            <div class="alert alert-info"><?php echo $message; ?></div>
+        <?php endif; ?>
+        
+        <!-- Admission Date Form -->
+        <div class="admission-date-form">
+            <h3>Set Admission Dates</h3>
+            <form action="HOI_Admission_Date.php" method="POST" id="admission-form">
+            <ul class="box-info">
+    <li>
+        <?php if ($admission_dates['Formfillup_Last_Date'] < $current_date) : ?>
+            <i class='bx'><img src="../Assets/stopped_admission.png" alt="Application is Stopped" style="width:80px;height: auto; background-color: #f9f9f9;"></i>
+            <span class="text">
+                <h3><?php echo $application_status; ?></h3>
+                <p>Students Can't No LOnger Submit their Forms Details</p>
+            </span>
+        <?php else : ?>
+            <i class='bx'><img src="../Assets/live_animation.gif" alt="Application Portal is Open" style="width:100px;height: auto; background-color: #f9f9f9;"></i>
+            <span class="text">
+                <h3><?php echo $application_status; ?></h3>
+                <p>Studnet Can Now Submit Application </p>
+            </span>
+        <?php endif; ?>
+    </li>
+</ul>
 
-		</main>
+                <div class="row">
+                    <!-- Start Date Group -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="start_date">Start Date:</label>
+                            <input type="date" id="start_date" name="start_date" class="form-control" value="<?php echo isset($admission_dates['Formfillup_Start_Date']) ? $admission_dates['Formfillup_Start_Date'] : ''; ?>" required onchange="validateEndDate(); blockPastDates();" min="<?php echo date('Y-m-d'); ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="start_date_formatted">Start Date (Formatted):</label>
+                            <input type="text" id="start_date_formatted" class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- End Date Group -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="end_date">End Date:</label>
+                            <input type="date" id="end_date" name="end_date" class="form-control" value="<?php echo isset($admission_dates['Formfillup_Last_Date']) ? $admission_dates['Formfillup_Last_Date'] : ''; ?>" required onchange="validateEndDate(); blockPastDates();">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="end_date_formatted">End Date (Formatted):</label>
+                            <input type="text" id="end_date_formatted" class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="submit-btn">Fix Dates</button>
+            </form>
+            <br>
+            <div class="instructions" style="padding:0.15rem;">
+            <!-- <button type="button" class="btn btn-warning">Guide to set Dates</button> -->
+            <h5>How to Use this Date Selection Page</h5>
+                <p>These dates are immutable. Once established, admissions will commence automatically from the designated days. For example, if the start date is slated for August 15th, 2024, the admission portal will open for students precisely after midnight (i.e, 12:00 AM IST) on the 14th.</p>
+            </div>
+        </div>
+        <!-- End of Admission Date Form -->
+    </div>
+</main>
+
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
-	
+	<script>
+    function validateEndDate() {
+        var startDate = new Date(document.getElementById('start_date').value);
+        var endDate = new Date(document.getElementById('end_date').value);
+
+        if (endDate < startDate) {
+            document.getElementById('end-date-error').innerText = "End date must be after the start date.";
+            document.getElementById('submit-btn').disabled = true;
+        } else {
+            document.getElementById('end-date-error').innerText = "";
+            document.getElementById('submit-btn').disabled = false;
+        }
+    }
+
+    function blockPastDates() {
+        var startDate = new Date(document.getElementById('start_date').value);
+        var endDateInput = document.getElementById('end_date');
+        if (startDate) {
+            endDateInput.min = startDate.toISOString().split('T')[0];
+            endDateInput.value = ''; // Reset end date to clear any previously selected date
+        }
+    }
+    function formatSelectedDate(inputDate) {
+    var date = new Date(inputDate);
+    var day = date.getDate();
+    var month = date.toLocaleString('default', { month: 'long' });
+    var year = date.getFullYear();
+
+    var suffix = "";
+    if (day > 3 && day < 21) suffix = "th";
+    switch (day % 10) {
+        case 1:  suffix = "st"; break;
+        case 2:  suffix = "nd"; break;
+        case 3:  suffix = "rd"; break;
+        default: suffix = "th";
+    }
+
+    return day + suffix + " " + month + " " + year;
+}
+
+document.getElementById('start_date').addEventListener('change', function() {
+    var formattedDate = formatSelectedDate(this.value);
+    document.getElementById('start_date_formatted').value = formattedDate;
+});
+document.getElementById('end_date').addEventListener('change', function() {
+    var formattedDate = formatSelectedDate(this.value);
+    document.getElementById('end_date_formatted').value = formattedDate;
+});
+function formatSelectedDate(inputDate) {
+        var date = new Date(inputDate);
+        var day = date.getDate();
+        var month = date.toLocaleString('default', { month: 'long' });
+        var year = date.getFullYear();
+
+        var suffix = "";
+        if (day > 3 && day < 21) suffix = "th";
+        switch (day % 10) {
+            case 1:  suffix = "st"; break;
+            case 2:  suffix = "nd"; break;
+            case 3:  suffix = "rd"; break;
+            default: suffix = "th";
+        }
+
+        return day + suffix + " " + month + " " + year;
+    }
+
+    // Function to set the value of formatted date fields
+    function setFormattedDates() {
+        var startDate = document.getElementById('start_date').value;
+        var endDate = document.getElementById('end_date').value;
+
+        document.getElementById('start_date_formatted').value = formatSelectedDate(startDate);
+        document.getElementById('end_date_formatted').value = formatSelectedDate(endDate);
+    }
+
+    // Call the function to set formatted dates when the page loads
+    window.onload = setFormattedDates;
+
+</script>
+
+
+
+
 	<script src="script.js"></script>
 </body>
 </html>
