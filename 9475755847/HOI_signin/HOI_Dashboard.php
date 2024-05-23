@@ -9,12 +9,16 @@ if (!isset($udise_code) || !isset($udiseid)) {
 }
 
 $table_name = $udise_code . '_HOI_Login_Credentials';
+$student_table_name = $udise_code .'_Student_Details';
 // echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
 // echo 'Table name: ' . $table_name . '<br>';
 
 $udiseid = mysqli_real_escape_string($db, $udiseid);
 $query = "SELECT * FROM $table_name WHERE `HOI_UDISE_ID` = '$udiseid' LIMIT 1";
 $results = mysqli_query($db, $query);
+
+$recent_application = "SELECT * FROM $student_table_name ORDER BY Registration_Time_Stamp DESC";
+$student_application_result = mysqli_query($db,$recent_application); 
 
 if (!$results) {
     die("Error in query: " . mysqli_error($db));
@@ -249,56 +253,54 @@ if (!$user) {
 						<i class='bx bx-filter' ></i>
 					</div>
 					<table>
-						<thead>
-							<tr>
-								<th>User</th>
-								<th>Date Order</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-								<img src="img/people.png">
-									<p>Suchibrata Patra</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>Amitanshu Maity</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-								<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-								<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-								<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-						</tbody>
-					</table>
+    <thead>
+        <tr>
+            <th>Sl No.</th>
+            <th>User Account</th>
+            <th>Reg No.</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php 
+        $sl_no = 1; // Initialize the serial number
+        while ($student = mysqli_fetch_assoc($student_application_result)) { 
+        ?>
+        <tr>
+            <td>
+                <?php echo $sl_no++; ?>
+            </td>
+            <td>
+                <div style="display: flex; align-items: center;">
+				<?php 
+                if($student['issubmitted'] == 0){
+                    echo '<span class="material-symbols-outlined" style="padding-right:17%;color:RED;">person</span>';
+                } else {
+                    echo '<span class="material-symbols-outlined" style="padding-right:17%;color:GREEN;">person</span>';
+                }
+                ?>
+                    
+                    <p style="margin: 0;">
+                        <?php echo htmlspecialchars($student['fname']); ?>
+                    </p>
+                </div>
+            </td>
+            <td>
+                <?php echo htmlspecialchars($student['reg_no']); ?>
+            </td>
+            <td>
+                <?php 
+                if($student['issubmitted'] == 0){
+                    echo '<span class="badge rounded-pill bg-warning" style="font-weight:500;color:BLACK;">Draft</span>';
+                } else {
+                    echo '<span class="badge rounded-pill bg-success" style="font-weight:500;">Submitted</span>';
+                }
+                ?>
+            </td>
+        </tr>
+        <?php } ?>
+    </tbody>
+</table>
 				</div>
 				<div class="todo">
 					<div class="head">
