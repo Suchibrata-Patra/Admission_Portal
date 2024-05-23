@@ -46,38 +46,11 @@ if (!$user) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />	
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <!-- My CSS -->
 	<link rel="stylesheet" href="style.css">
 
 	<title style="font-family: 'Roboto', Times, serif;">Haggle</title>
-	<style>
-        .institution-name {
-            font-weight: 600;
-            font-size: 20px;
-        }
-
-        /* Media query for screens smaller than 900px */
-        @media screen and (max-width: 900px) {
-            .institution-name {
-                font-size: 14px;
-            }
-        }
-
-        /* Media query for screens smaller than 600px */
-        @media screen and (max-width: 600px) {
-            .institution-name {
-                font-size: 990%;
-            }
-        }
-
-        /* Media query for screens smaller than 400px */
-        @media screen and (max-width: 400px) {
-            .institution-name {
-                font-size: 10px;
-            }
-        }
-    </style>
 </head>
 <body style="font-family: 'Roboto', sans-serif;">
 
@@ -90,13 +63,13 @@ if (!$user) {
 		</a>
 		<ul class="side-menu top">
 			<li class="active">
-				<a href="#">
+				<a href="HOI_Admission_Date.php">
 					<i class='bx'><span class="material-symbols-outlined">dashboard</span></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="HOI_Admission_Date.php">
 					<i class='bx'><span class="material-symbols-outlined">calendar_month</span></i>
 					<span class="text">Admission Date</span>
 				</a>
@@ -204,7 +177,7 @@ if (!$user) {
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1>Admin</h1>
+					<!-- <h1>Admin</h1> -->
 					<ul class="breadcrumb">
 						<li>
 							<a href="#">Dashboard</a>
@@ -221,7 +194,7 @@ if (!$user) {
 				</a>
 			</div>
 			<span class="institution-name"><?php echo $user['Institution_Name'] ?></span>
-			<div class="container" style="font-size:20px;font-weight:bold;margin-top:1.5%;">Admission Statisitcs</div>
+			<div class="container" style="font-size:2rem;font-weight:normal;margin-top:1.5%;">Admission Statisitcs</div>
 			<ul class="box-info">
 				<li>
 					<i class='bx'><img src="../Assets/live_animation.gif" alt="" style="width:100px;height: auto; background-color: #f9f9f9;"></i>
@@ -248,58 +221,65 @@ if (!$user) {
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Recent Application</h3>
-						<i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
+						<h3>Recent Applications</h3>
+						<!-- <i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i> -->
 					</div>
 					<table>
     <thead>
         <tr>
             <th>Sl No.</th>
-            <th>User Account</th>
+            <th>Account</th>
             <th>Reg No.</th>
             <th>Status</th>
         </tr>
     </thead>
     <tbody>
-        <?php 
-        $sl_no = 1; // Initialize the serial number
-        while ($student = mysqli_fetch_assoc($student_application_result)) { 
-        ?>
-        <tr>
-            <td>
-                <?php echo $sl_no++; ?>
-            </td>
-            <td>
-                <div style="display: flex; align-items: center;">
-				<?php 
-                if($student['issubmitted'] == 0){
-                    echo '<span class="material-symbols-outlined" style="padding-right:17%;color:RED;">person</span>';
-                } else {
-                    echo '<span class="material-symbols-outlined" style="padding-right:17%;color:GREEN;">person</span>';
-                }
-                ?>
-                    
-                    <p style="margin: 0;">
-                        <?php echo htmlspecialchars($student['fname']); ?>
-                    </p>
-                </div>
-            </td>
-            <td>
-                <?php echo htmlspecialchars($student['reg_no']); ?>
-            </td>
-            <td>
-                <?php 
-                if($student['issubmitted'] == 0){
-                    echo '<span class="badge rounded-pill bg-warning" style="font-weight:500;color:BLACK;">Draft</span>';
-                } else {
-                    echo '<span class="badge rounded-pill bg-success" style="font-weight:500;">Submitted</span>';
-                }
-                ?>
-            </td>
-        </tr>
-        <?php } ?>
-    </tbody>
+    <?php 
+    $sl_no = 1;
+    $students = [];
+    while ($student = mysqli_fetch_assoc($student_application_result)) {
+        $students[] = $student;
+    }
+
+    $last_10_students = array_slice($students, -10);
+    foreach ($last_10_students as $student) { 
+    ?>
+    <tr>
+        <td>
+            <?php echo $sl_no++; ?>
+        </td>
+        <td>
+            <div style="display: flex; align-items: center;">
+            <?php 
+            if($student['issubmitted'] == 0){
+                echo '<span class="material-symbols-outlined" style="padding-right:17%;color:RED;">person</span>';
+            } else {
+                echo '<span class="material-symbols-outlined" style="padding-right:17%;color:GREEN;">person</span>';
+            }
+            ?>
+                
+                <p style="margin: 0;">
+                    <?php echo htmlspecialchars($student['fname']); ?>
+                </p>
+            </div>
+        </td>
+        <td>
+            <?php echo htmlspecialchars($student['reg_no']); ?>
+        </td>
+        <td>
+            <?php 
+            if($student['issubmitted'] == 0){
+                echo '<span class="badge rounded-pill bg-warning" style="font-weight:500;">Draft</span>';
+            } else {
+                echo '<span class="badge rounded-pill bg-success" style="font-weight:500;background-color:#89ff88;color:White;">Submitted</span>';
+            }
+            ?>
+        </td>
+    </tr>
+    <?php } ?>
+</tbody>
+
 </table>
 				</div>
 				<div class="todo">
