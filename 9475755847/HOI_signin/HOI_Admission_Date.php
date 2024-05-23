@@ -15,9 +15,6 @@ $udiseid = mysqli_real_escape_string($db, $udiseid);
 $query = "SELECT * FROM $table_name WHERE `HOI_UDISE_ID` = '$udiseid' LIMIT 1";
 $results = mysqli_query($db, $query);
 
-$recent_application = "SELECT * FROM $student_table_name ORDER BY Registration_Time_Stamp DESC";
-$student_application_result = mysqli_query($db,$recent_application); 
-
 if (!$results) {
     die("Error in query: " . mysqli_error($db));
 }
@@ -29,12 +26,14 @@ if ($user['numberVerify'] != 1 || $user['emailVerify'] != 1) {
 if (!$user) {
     die("User not found");
 }
+
+// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $start_date = mysqli_real_escape_string($db, $_POST['start_date']);
     $end_date = mysqli_real_escape_string($db, $_POST['end_date']);
 
     // Update admission dates in the database
-    $update_query = "UPDATE `Admission_Dates` 
+    $update_query = "UPDATE $table_name
                      SET `Formfillup_Start_Date` = '$start_date', `Formfillup_Last_Date` = '$end_date'
                      WHERE `HOI_UDISE_ID` = '$udiseid'";
     $update_result = mysqli_query($db, $update_query);
@@ -45,6 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = "Error updating admission dates: " . mysqli_error($db);
     }
 }
+
+// Fetch the current admission dates
+$admission_query = "SELECT `Formfillup_Start_Date`, `Formfillup_Last_Date` FROM $table_name WHERE `HOI_UDISE_ID` = '$udiseid' LIMIT 1";
+$admission_results = mysqli_query($db, $admission_query);
+$admission_dates = mysqli_fetch_assoc($admission_results);
 
 ?>
 
@@ -164,7 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu'></i>
-			<form action="HOI_Admission_Date.php">
+			<form action="#">
 				<div class="form-input">
 					<input type="search" placeholder="Search...">
 					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
@@ -201,6 +205,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				</a>
 			</div>
 			<span class="institution-name"><?php echo $user['Institution_Name']; ?></span>
+
+			<?php if (isset($message)) : ?>
+				<div class="alert alert-info"><?php echo $message; ?></div>
+			<?php endif; ?>
 			
 			<!-- Admission Date Form -->
 			<div class="admission-date-form">
