@@ -103,7 +103,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="HOI_Bank_Details.php">
 					<i class='bx'><span class="material-symbols-outlined">currency_rupee</span></i>
 					<span class="text">Bank Account</span>
 				</a>
