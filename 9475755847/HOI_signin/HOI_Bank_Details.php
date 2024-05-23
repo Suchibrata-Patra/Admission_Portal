@@ -264,7 +264,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
                         <h5>Instructions for Updating Bank Details</h5>
                         <p>Please be aware of the following guidelines regarding the update of bank details:</p>
                         <ul style="list-style-type: disc; padding-left: 20px;">
-                            <li>• Bank details cannot be updated while an application is ongoing.</li>
+                            <li>• Bank details cannot be updated while the Application Window for Students are Open.</li>
                             <li>• To update bank details, please ensure that no application is live at the time.</li>
                             <li>• If it is essential to update the bank details during an active application period,
                                 please contact our customer support team.</li>
