@@ -318,7 +318,7 @@ endwhile;
             </div>
         </main>
     </section>
-    <script>
+     <script>
     // JavaScript code to handle delete button click
     document.addEventListener("DOMContentLoaded", function () {
         const deleteButtons = document.querySelectorAll('.delete-btn');

@@ -1,4 +1,4 @@
-<?php 
+<?php
 require 'session.php';
 require 'super_admin.php';
 $table_name = $udise_code . '_student_details';
@@ -9,12 +9,17 @@ if ($user['issubmitted'] == 1) {
     echo '<script>window.location.href = "payment_details.php";</script>';
     exit(); // Add exit to stop further execution
 } 
-$query = "SELECT * FROM $table_name WHERE email='$email'";
-$results = mysqli_query($db, $query);
-$user = mysqli_fetch_assoc($results);
 
-//  echo $user['lname']; 
+$query = "SELECT * FROM 9475755847_Subject_Details"; // Query to fetch data from the table
+$results = mysqli_query($db, $query);
+$subject_combinations = [];
+while ($row = mysqli_fetch_assoc($results)) {
+    $subject_combinations[] = $row;
+}
+
+$subject_combinations_json = json_encode($subject_combinations); // Encode fetched data into JSON
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -310,32 +315,35 @@ $user = mysqli_fetch_assoc($results);
                 window.location.href = "payment_details.php";
             }
         </script>
+       <script>
+    var subjectData = <?php echo $subject_combinations_json; ?>;
+
+    function updateSubjects() {
+        const streamSelect = document.getElementById('streamSelect');
+        const subjectSelect = document.getElementById('subjectSelect');
+        const stream = streamSelect.value;
+        subjectSelect.innerHTML = '';
+        subjectSelect.disabled = false;
+        let subjects = [];
+
+        // Filter subject combinations based on selected stream
+        const filteredSubjects = subjectData.filter(subject => subject.Stream === stream);
+
+        if (stream === "") {
+            subjectSelect.disabled = true;
+        }
+
+        if (filteredSubjects.length > 0) {
+            subjectSelect.add(new Option("--Select a Subject--", ""));
+            filteredSubjects.forEach(function (subject) {
+                subjectSelect.add(new Option(subject.Subject_Combinations, subject.Subject_Combinations));
+            });
+        }
+    }
+</script>
+
                         <script>
-                            function updateSubjects() {
-                                const streamSelect = document.getElementById('streamSelect');
-                                const subjectSelect = document.getElementById('subjectSelect');
-                                const stream = streamSelect.value;
-                                subjectSelect.innerHTML = '';
-                                subjectSelect.disabled = false;
-                                let subjects = [];
-
-                                if (stream === "Arts") {
-                                    subjects = ["History + Geography+Sanskrit", "Geography + Pol Sc + Hist", "Sanskrit + Pol + Hist", "Sociology"];
-                                } else if (stream === "Science") {
-                                    subjects = ["Physics+Chem+Maths", "Chemistry+Stat + CS", "Maths", "Biology"];
-                                } else if (stream === "Commerce") {
-                                    subjects = ["Accountancy", "Business Studies", "Economics", "Mathematics"];
-                                } else {
-                                    subjectSelect.disabled = true;
-                                }
-
-                                if (subjects.length > 0) {
-                                    subjectSelect.add(new Option("--Select a Subject--", ""));
-                                    subjects.forEach(function (subject) {
-                                        subjectSelect.add(new Option(subject, subject));
-                                    });
-                                }
-                            }
+                          
 
                             function validateLanguages() {
                                 const lang1 = document.getElementById('language1Select').value;
@@ -346,24 +354,7 @@ $user = mysqli_fetch_assoc($results);
                                     document.getElementById('language2Select').value = "";
                                 }
                             }
-                            function previewFile(inputId, previewId) {
-                                const preview = document.getElementById(previewId);
-                                const file = document.getElementById(inputId).files[0];
-                                const reader = new FileReader();
-
-                                reader.addEventListener("load", function () {
-                                    // Convert image file to base64 string
-                                    preview.style.backgroundImage = 'url(' + reader.result + ')';
-                                    preview.textContent = '';
-                                }, false);
-
-                                if (file) {
-                                    reader.readAsDataURL(file);
-                                } else {
-                                    preview.style.backgroundImage = 'none';
-                                    preview.textContent = 'No image chosen';
-                                }
-                            }
+                            
                         </script>
 </body>
 
