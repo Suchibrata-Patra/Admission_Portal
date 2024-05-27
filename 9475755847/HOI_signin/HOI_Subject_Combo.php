@@ -9,9 +9,24 @@ if (!isset($udise_code) || !isset($udiseid)) {
 }
 
 $table_name = $udise_code . '_HOI_Login_Credentials';
-$Subject_table_name = $udise_code .'_Subject_details';
+$Subject_table_name = $udise_code . '_Subject_Details';
 
 $udiseid = mysqli_real_escape_string($db, $udiseid);
+
+// Check if the form has been submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    $delete_id = mysqli_real_escape_string($db, $_POST['delete_id']);
+    // Delete the row from the database
+    $delete_query = "DELETE FROM $Subject_table_name WHERE Combo_ID = '$delete_id'";
+    $delete_result = mysqli_query($db, $delete_query);
+    if ($delete_result) {
+        echo "Row deleted successfully.";
+        exit(); // Exit after successful deletion
+    } else {
+        echo "Error deleting row: " . mysqli_error($db);
+        exit(); // Exit after error
+    }
+}
 
 // Check if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -29,20 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit(); // Make sure to stop executing the script after redirection
     } else {
         $message = "Error updating Subject Combo: " . mysqli_error($db);
-    }
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
-    $delete_id = mysqli_real_escape_string($db, $_POST['delete_id']);
-    // Delete the row from the database
-    $delete_query = "DELETE FROM $Subject_table_name WHERE Combo_ID = '$delete_id'";
-    $delete_result = mysqli_query($db, $delete_query);
-    if ($delete_result) {
-        echo "Row deleted successfully.";
-        exit(); // Exit after successful deletion
-    } else {
-        echo "Error deleting row: " . mysqli_error($db);
-        exit(); // Exit after error
     }
 }
 
@@ -69,6 +70,7 @@ if ($user['numberVerify'] != 1 || $user['emailVerify'] != 1) {
 $Subjects = "SELECT * from $Subject_table_name ORDER BY Stream";
 $Avialable_Subjects = mysqli_query($db, $Subjects);
 ?>
+
 
 
 <!DOCTYPE html>
@@ -248,35 +250,34 @@ $Avialable_Subjects = mysqli_query($db, $Subjects);
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-    $counter = 1; // Initialize the counter variable
-    while ($subject = mysqli_fetch_assoc($Avialable_Subjects)) : 
+                    <?php
+$counter = 1; // Initialize the counter variable
+while ($subject = mysqli_fetch_assoc($Avialable_Subjects)) : 
 ?>
 
-                        <tr>
-                            <th scope="row">
-                                <?php echo $counter; ?>
-                            </th> <!-- Use the counter variable here -->
-                            <td>
-                                <?php echo $subject['Stream']; ?>
-                            </td>
-                            <td>
-                                <?php echo $subject['Subject_Combinations']; ?>
-                            </td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic mixed styles example"
-                                    style="margin-bottom: 10px;">
-                                    <button type="button" class="btn btn-danger" style="border-radius: 9%;"><span class="material-symbols-outlined">
-                                        delete
-                                        </span></button>
-                                </div>
-                            </td>
+<tr data-id="<?php echo $subject['Combo_ID']; ?>">
+    <th scope="row">
+        <?php echo $counter; ?>
+    </th> <!-- Use the counter variable here -->
+    <td>
+        <?php echo $subject['Stream']; ?>
+    </td>
+    <td>
+        <?php echo $subject['Subject_Combinations']; ?>
+    </td>
+    <td>
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example"
+            style="margin-bottom: 10px;">
+            <button type="button" class="btn btn-danger delete-btn" style="border-radius: 9%;"><span class="material-symbols-outlined">delete</span></button>
+        </div>
+    </td>
+</tr>
 
-                        </tr>
-                        <?php 
-    $counter++; // Increment the counter variable
-    endwhile; 
+<?php 
+$counter++; // Increment the counter variable
+endwhile; 
 ?>
+
                     </tbody>
                 </table>
                 <div class="admission-date-form">
@@ -327,26 +328,26 @@ $Avialable_Subjects = mysqli_query($db, $Subjects);
                 const delete_id = row.getAttribute('data-id');
                 // Send AJAX request to delete the row
                 fetch('HOI_Subject_Combo.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: 'delete_id=' + encodeURIComponent(delete_id),
-                })
-                .then(response => response.text())
-                .then(data => {
-                    // Display response message
-                    alert(data);
-                    // Remove the row from the table if deletion is successful
-                    if (data === 'Row deleted successfully.') {
-                        row.remove();
-                    }
-                })
-                .catch(error => console.error('Error:', error));
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: 'delete_id=' + encodeURIComponent(delete_id),
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        // Display response message
+                        alert(data);
+                        // Remove the row from the table if deletion is successful
+                        if (data === 'Row deleted successfully.') {
+                            row.remove();
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
             });
         });
     });
-</script>
+    </script>
     <script src="script.js"></script>
 </body>
 
