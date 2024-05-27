@@ -1,7 +1,6 @@
 <?php 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-
 require 'session.php';
 require 'super_admin.php';
 $table_name = $udise_code . '_student_details';
@@ -38,7 +37,7 @@ if (isset($_POST['submit_documents'])) {
     $sub_comb = mysqli_real_escape_string($db, $_POST['sub_comb']);
 
     // Update the specified variables in the database
-    $update_query = "UPDATE student_details 
+    $update_query = "UPDATE $table_name 
                      SET language_1 = '$language_1', 
                          language_2 = '$language_2', 
                          select_stream = '$select_stream', 
