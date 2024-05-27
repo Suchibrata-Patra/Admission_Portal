@@ -78,7 +78,7 @@ $htmlContent = '<!DOCTYPE html>
     width: 88%;
     border-collapse: collapse;
   }
-  
+   
   th, td {
     padding: 15px;
     border-bottom: 1px solid #000;
