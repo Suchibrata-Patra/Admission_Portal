@@ -32,6 +32,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    $delete_id = mysqli_real_escape_string($db, $_POST['delete_id']);
+    // Delete the row from the database
+    $delete_query = "DELETE FROM $Subject_table_name WHERE Combo_ID = '$delete_id'";
+    $delete_result = mysqli_query($db, $delete_query);
+    if ($delete_result) {
+        echo "Row deleted successfully.";
+        exit(); // Exit after successful deletion
+    } else {
+        echo "Error deleting row: " . mysqli_error($db);
+        exit(); // Exit after error
+    }
+}
+
 // Check for success message in the URL and display it
 if (isset($_GET['success']) && $_GET['success'] == 1) {
     $message = "Subject Combo Updated successfully.";
@@ -238,6 +252,7 @@ $Avialable_Subjects = mysqli_query($db, $Subjects);
     $counter = 1; // Initialize the counter variable
     while ($subject = mysqli_fetch_assoc($Avialable_Subjects)) : 
 ?>
+
                         <tr>
                             <th scope="row">
                                 <?php echo $counter; ?>
@@ -251,10 +266,6 @@ $Avialable_Subjects = mysqli_query($db, $Subjects);
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic mixed styles example"
                                     style="margin-bottom: 10px;">
-                                    <button type="button" class="btn btn-light" style="border-radius: 9%;margin-right: 5%;"><span class="material-symbols-outlined">
-                                        edit
-                                        </span></button>
-                                    <br>
                                     <button type="button" class="btn btn-danger" style="border-radius: 9%;"><span class="material-symbols-outlined">
                                         delete
                                         </span></button>
@@ -306,6 +317,36 @@ $Avialable_Subjects = mysqli_query($db, $Subjects);
             </div>
         </main>
     </section>
+    <script>
+    // JavaScript code to handle delete button click
+    document.addEventListener("DOMContentLoaded", function () {
+        const deleteButtons = document.querySelectorAll('.delete-btn');
+        deleteButtons.forEach(function (button) {
+            button.addEventListener('click', function (event) {
+                const row = event.target.closest('tr');
+                const delete_id = row.getAttribute('data-id');
+                // Send AJAX request to delete the row
+                fetch('HOI_Subject_Combo.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'delete_id=' + encodeURIComponent(delete_id),
+                })
+                .then(response => response.text())
+                .then(data => {
+                    // Display response message
+                    alert(data);
+                    // Remove the row from the table if deletion is successful
+                    if (data === 'Row deleted successfully.') {
+                        row.remove();
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    });
+</script>
     <script src="script.js"></script>
 </body>
 
