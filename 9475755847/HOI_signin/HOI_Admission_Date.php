@@ -228,7 +228,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
             <i class='bx'><img src="../Assets/stopped_admission.png" alt="Application is Stopped" style="width:80px;height: auto; background-color: #f9f9f9;"></i>
             <span class="text">
                 <h3><?php echo $application_status; ?></h3>
-                <p>Students Can't No LOnger Submit their Forms Details</p>
+                <p>Students Can No Longer Submit their Forms Details</p>
             </span>
         <?php else : ?>
             <i class='bx'><img src="../Assets/live_animation.gif" alt="Application Portal is Open" style="width:100px;height: auto; background-color: #f9f9f9;"></i>
@@ -367,10 +367,6 @@ function formatSelectedDate(inputDate) {
     window.onload = setFormattedDates;
 
 </script>
-
-
-
-
-	<script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

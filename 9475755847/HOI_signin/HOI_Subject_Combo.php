@@ -9,59 +9,53 @@ if (!isset($udise_code) || !isset($udiseid)) {
 }
 
 $table_name = $udise_code . '_HOI_Login_Credentials';
-$student_table_name = $udise_code .'_Student_Details';
+$Subject_table_name = $udise_code .'_Subject_details';
 
 $udiseid = mysqli_real_escape_string($db, $udiseid);
-$query = "SELECT * FROM $table_name WHERE `HOI_UDISE_ID` = '$udiseid' LIMIT 1";
-$results = mysqli_query($db, $query);
+
+// Check if the form has been submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $Stream = mysqli_real_escape_string($db, $_POST['Stream']);
+    $Subject_Combinations = mysqli_real_escape_string($db, $_POST['Subject_Combinations']);
+
+    // Update admission dates in the database
+    $update_query = "INSERT INTO $Subject_table_name (`Stream`, `Subject_Combinations`) 
+                    VALUES ('$Stream', '$Subject_Combinations')";
+    $update_result = mysqli_query($db, $update_query);
+
+    if ($update_result) {
+        // Redirect after form submission to prevent resubmission on refresh
+        header("Location: HOI_Subject_Combo.php?success=1");
+        exit(); // Make sure to stop executing the script after redirection
+    } else {
+        $message = "Error updating Subject Combo: " . mysqli_error($db);
+    }
+}
+
+// Check for success message in the URL and display it
+if (isset($_GET['success']) && $_GET['success'] == 1) {
+    $message = "Subject Combo Updated successfully.";
+}
+
+$results = mysqli_query($db, "SELECT * FROM $table_name WHERE `HOI_UDISE_ID` = '$udiseid' LIMIT 1");
 
 if (!$results) {
     die("Error in query: " . mysqli_error($db));
 }
 
 $user = mysqli_fetch_assoc($results);
-if ($user['numberVerify'] != 1 || $user['emailVerify'] != 1) {
-    echo "<script>window.location.href = 'HOI_verify.php';</script>"; 
-}
 if (!$user) {
     die("User not found");
 }
-// Handle form submission
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $start_date = mysqli_real_escape_string($db, $_POST['start_date']);
-    $end_date = mysqli_real_escape_string($db, $_POST['end_date']);
 
-    // Check if end date is before start date
-    if (strtotime($end_date) < strtotime($start_date)) {
-        $message = "Error: End date must be after the start date.";
-    } else {
-        // Update admission dates in the database
-        $update_query = "UPDATE $table_name
-                         SET `Formfillup_Start_Date` = '$start_date', `Formfillup_Last_Date` = '$end_date'
-                         WHERE `HOI_UDISE_ID` = '$udiseid'";
-        $update_result = mysqli_query($db, $update_query);
-
-        if ($update_result) {
-            $message = "Admission dates updated successfully.";
-        } else {
-            $message = "Error updating admission dates: " . mysqli_error($db);
-        }
-    }
+if ($user['numberVerify'] != 1 || $user['emailVerify'] != 1) {
+    echo "<script>window.location.href = 'HOI_verify.php';</script>"; 
 }
 
-
-// Fetch the current admission dates
-$admission_query = "SELECT `Formfillup_Start_Date`, `Formfillup_Last_Date` FROM $table_name WHERE `HOI_UDISE_ID` = '$udiseid' LIMIT 1";
-$admission_results = mysqli_query($db, $admission_query);
-$admission_dates = mysqli_fetch_assoc($admission_results);
-
-$current_date = date('Y-m-d');
-if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
-    $application_status = "Admission Deadline is Over";
-} else {
-    $application_status = "Application Portal is Live !";
-}
+$Subjects = "SELECT * from $Subject_table_name ORDER BY Stream";
+$Avialable_Subjects = mysqli_query($db, $Subjects);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,6 +76,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- My CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="style.css">
 
     <title style="font-family: 'Roboto', Times, serif;">Haggle</title>
@@ -108,7 +103,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
                     <span class="text">Admission Date</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="HOI_Bank_Details.php">
                     <i class='bx'><span class="material-symbols-outlined">currency_rupee</span></i>
                     <span class="text">Bank Account</span>
@@ -132,8 +127,8 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
                     <span class="text">Updates</span>
                 </a>
             </li>
-            <li>
-                <a href="HOI_Subject_Combo.php">
+            <li class="active">
+                <a href="#">
                     <i class='bx'><span class="material-symbols-outlined">auto_stories</span></i>
                     <span class="text">Subject Combo</span>
                 </a>
@@ -151,7 +146,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
                 </a>
             </li>
             <li>
-                <a href="#">s
+                <a href="#">
                     <i class='bx'><span class="material-symbols-outlined">id_card</span></i>
                     <span class="text">Admission</span>
                 </a>
@@ -211,12 +206,11 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
                         <ul class="breadcrumb">
                             <li><a href="#">Dashboard</a></li>
                             <li><i class='bx bx-chevron-right'></i></li>
-                            <li><a class="active" href="HOI_Bank_Details.php">Bank Details</a></li>
+                            <li><a class="active" href="HOI_Admission_Date.php">Admission Date</a></li>
                         </ul>
                     </div>
-                    <!-- <a href="#" class="btn-download">
-                        <i class='bx'><span class="material-symbols-outlined">download</span></i>
-                    </a> -->
+                    <a href="#" class="btn-download"><i class='bx'><span
+                                class="material-symbols-outlined">download</span></i></a>
                 </div>
                 <span class="institution-name">
                     <?php echo $user['Institution_Name']; ?>
@@ -228,56 +222,89 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
                 </div>
                 <?php endif; ?>
 
-                <!-- Admission Date Form -->
+                <h3>Current Subjects</h3>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Stream</th>
+                            <th scope="col">Combinations</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+    $counter = 1; // Initialize the counter variable
+    while ($subject = mysqli_fetch_assoc($Avialable_Subjects)) : 
+?>
+                        <tr>
+                            <th scope="row">
+                                <?php echo $counter; ?>
+                            </th> <!-- Use the counter variable here -->
+                            <td>
+                                <?php echo $subject['Stream']; ?>
+                            </td>
+                            <td>
+                                <?php echo $subject['Subject_Combinations']; ?>
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example"
+                                    style="margin-bottom: 10px;">
+                                    <button type="button" class="btn btn-light" style="border-radius: 9%;margin-right: 5%;"><span class="material-symbols-outlined">
+                                        edit
+                                        </span></button>
+                                    <br>
+                                    <button type="button" class="btn btn-danger" style="border-radius: 9%;"><span class="material-symbols-outlined">
+                                        delete
+                                        </span></button>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <?php 
+    $counter++; // Increment the counter variable
+    endwhile; 
+?>
+                    </tbody>
+                </table>
                 <div class="admission-date-form">
-                    <h3>Bank Account Details</h3>
-                    <form action="#" method="POST" id="admission-form">
-                        <div class="container">
-                            <div class="col">
-                                <label for="exampleInputEmail1">Bank Account No</label>
-                                <input type="text" class="form-control"
-                                    placeholder="<?php echo htmlspecialchars($user['Bank_Account_No']); ?>"
-                                    disabled="disabled"> <!-- Added disabled attribute -->
+                    <h4>Update Subject Details</h4>
+                    <form action="HOI_Subject_Combo.php" method="POST" id="admission-form">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="stream">Stream</label>
+                                    <select id="stream" name="Stream" class="form-control">
+                                        <option value="Science">Science</option>
+                                        <option value="Arts">Arts</option>
+                                        <option value="Commerce">Commerce</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col">
-                                <label for="exampleInputEmail1">Bank IFSC Code</label>
-                                <input type="text" class="form-control"
-                                    placeholder="<?php echo htmlspecialchars($user['Bank_IFSC_Code']); ?>"
-                                    disabled="disabled"> <!-- Added disabled attribute -->
-                            </div>
-                            <div class="col">
-                                <label for="exampleInputEmail1">Bank Branch</label>
-                                <input type="text" class="form-control"
-                                    placeholder="<?php echo htmlspecialchars($user['Bank_Branch_Name']); ?>"
-                                    disabled="disabled"> <!-- Added disabled attribute -->
-                                <small id="emailHelp" class="form-text text-muted">We Never Share the bank Account
-                                    Details With any other Third Party.</small>
-                                <br>
-                                <button type="button" class="btn btn-info" onclick="window.open('https://forms.gle/Dm4GYYjzGW8BQyPS6', '_blank')">Request for Bank Details Update</button>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="subject-combo">Subject Combinations</label>
+                                    <input type="text" id="subject-combo" name="Subject_Combinations"
+                                        class="form-control" required>
+                                </div>
                             </div>
                         </div>
-                        
+
+                        <button type="submit" class="btn btn-primary" id="submit-btn">Add +</button>
                     </form>
-                    
                     <br>
                     <div class="instructions" style="padding:0.15rem;">
-                        <h5>Instructions for Updating Bank Details</h5>
-                        <p>Please be aware of the following guidelines regarding the update of bank details:</p>
-                        <ul style="list-style-type: disc; padding-left: 20px;">
-                            <li>• Bank details cannot be updated while the Application Window for Students are Open.</li>
-                            <li>• To update bank details, please ensure that no application is live at the time.</li>
-                            <li>• If it is essential to update the bank details during an active application period,
-                                please contact our customer support team.</li>
-                            <li>• Once we receive the necessary information, we will process the update as soon as
-                                possible.</li>
-                        </ul>
+                        <h5>How to Use this Date Selection Page</h5>
+                        <p>These dates are immutable. Once established, admissions will commence automatically from the
+                            designated days. For example, if the start date is slated for August 15th, 2024, the
+                            admission portal will open for students precisely after midnight (i.e, 12:00 AM IST) on the
+                            14th.</p>
                     </div>
-
                 </div>
                 <!-- End of Admission Date Form -->
             </div>
         </main>
-        <!-- MAIN -->
     </section>
     <script src="script.js"></script>
 </body>
