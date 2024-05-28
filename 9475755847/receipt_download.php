@@ -1,5 +1,5 @@
 <?php
-require 'database.php';
+require 'database.php'; 
 require 'session.php';
 require 'super_admin.php';
 require_once __DIR__ . '/../dompdf/vendor/autoload.php';
