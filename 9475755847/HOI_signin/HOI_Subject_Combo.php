@@ -162,9 +162,9 @@ $Avialable_Subjects = mysqli_query($db, $Subjects);
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="HOI_Admission_Merit_list.php">
                     <i class='bx'><span class="material-symbols-outlined">id_card</span></i>
-                    <span class="text">Admission</span>
+                    <span class="text">Merit List</span>
                 </a>
             </li>
             <li>
