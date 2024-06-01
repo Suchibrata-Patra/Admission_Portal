@@ -69,39 +69,78 @@ $current_files = scandir($upload_dir);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- My CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="style.css">
     <style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    th, td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-    a {
-        color: #007bff;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-    .btn-danger {
-        color: #fff;
-        background-color: #dc3545;
-        border-color: #dc3545;
-    }
-    .btn-danger:hover {
-        background-color: #c82333;
-        border-color: #bd2130;
-    }
-</style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-danger {
+            color: #fff;
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+      
+        .upload-form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .jumbotron {
+            background: #2f3c4a;
+            color: white;
+            border-radius: 8px;
+            padding: 30px 20px;
+        }
+        .btn-primary {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #bd2130;
+        }
+        .files-title {
+            margin-top: 40px;
+        }
+        .table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
     <title style="font-family: 'Roboto', Times, serif;">Haggle</title>
 </head>
 
@@ -223,53 +262,56 @@ $current_files = scandir($upload_dir);
 
         <!-- MAIN -->
         <main>
-        <div class="container">
-            <div class="content-section">
-                <h2 class="page-title">Upload Merit List</h2>
-                <form action="" method="POST" enctype="multipart/form-data" class="upload-form">
-                    <div class="form-group">
-                        <label for="merit_list_pdf" class="file-label">Select PDF:</label>
-                        <input type="file" name="merit_list_pdf" id="merit_list_pdf" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary upload-btn">Upload</button>
-                </form>
-<br>
-                <h2 class="files-title">Uploaded Files:</h2>
-                <table class="table table-hover">
-    <thead>
-        <tr>
-            <th>File Name</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($current_files as $file):
-            if ($file != '.' && $file != '..'): ?>
-                <tr>
-                    <td>
-                        <a href="<?php echo htmlspecialchars($upload_dir . '/' . $file); ?>" target="_blank">
-                            <?php echo htmlspecialchars($file); ?>
-                        </a>
-                    </td>
-                    <td>
-                        <form method="post" action="">
-                            <input type="hidden" name="filename" value="<?php echo htmlspecialchars($file); ?>">
-                            <button type="submit" name="delete" class="btn btn-danger btn-sm">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            <?php endif;
-        endforeach; ?>
-    </tbody>
-</table>
-
+            <div class="container">
+                <div class="content-section">
+                    <form action="" method="POST" enctype="multipart/form-data" class="upload-form">
+    
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h3 class="display-4">Upload Merit List</h3>
+                                <div class="form-group">
+                                    <label for="merit_list_pdf" class="file-label">Select PDF:</label>
+                                    <input type="file" name="merit_list_pdf" id="merit_list_pdf" class="form-control-file" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary upload-btn">Upload</button>
+                            </div>
+                        </div>
+                    </form>
+    
+                    <br>
+                    <h2 class="files-title">Currently Uploaded Merit Lists:</h2>
+                    <table class="table table-hover table-striped">
+                        <thead class="thead">
+                            <tr>
+                                <th>File Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($current_files as $file): if ($file != '.' && $file != '..'): ?>
+                            <tr>
+                                <td>
+                                    <a href="<?php echo htmlspecialchars($upload_dir . '/' . $file); ?>" target="_blank">
+                                        <?php echo htmlspecialchars($file); ?>
+                                    </a>
+                                </td>
+                                <td>
+                                    <form method="post" action="">
+                                        <input type="hidden" name="filename" value="<?php echo htmlspecialchars($file); ?>">
+                                        <button type="submit" name="delete" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php endif; endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
 
     </section>
     <script src="script.js"></script>
-    
+
 </body>
 
 </html>
