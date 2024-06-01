@@ -41,8 +41,8 @@
         }
         .photo {
             position: absolute;
-            top: 8%;
-            right: 30px; /* Changed from percentage to fixed pixel value */
+            top: 6%;
+            right: 57px; /* Changed from percentage to fixed pixel value */
             width: 60px;
             height: 75px;
         }
