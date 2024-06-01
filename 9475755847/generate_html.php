@@ -43,8 +43,8 @@
             position: absolute;
             top: 8%;
             right: 30px; /* Changed from percentage to fixed pixel value */
-            width: 80px;
-            height: 90px;
+            width: 60px;
+            height: 75px;
         }
         .section {
             margin-bottom: 20px;
