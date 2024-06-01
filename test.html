@@ -25,30 +25,27 @@
             position: relative;
         }
         .header img {
-            max-width: 50px;
-            margin-bottom: 10px;
+            max-height: 120px;
+            max-width: 120px;
+            position: absolute;
+            top: 25%;
+            left: 0;
         }
         .header h1 {
-            margin: 10px 0;
+            margin: 10px 0 10px 60px; /* Added margin-left to create space for the logo */
             font-size: 24px;
             font-weight: normal;
         }
         .header p {
-            margin: 5px 0;
+            margin: 5px 0 5px 60px; /* Added margin-left to create space for the logo */
             font-size: 14px;
         }
         .photo {
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 50%;
+            right: 4%;
             width: 100px;
             height: 120px;
-            border: 1px solid #ccc;
-            background-color: #f2f2f2;
-            text-align: center;
-            line-height: 120px;
-            font-size: 14px;
-            color: #888;
         }
         .section {
             margin-bottom: 20px;
@@ -74,7 +71,7 @@
         .info-table th {
             width: 20%;
             background-color: #f2f2f2;
-            font-weight: bold;
+            font-weight: 400;
         }
         .info-table td {
             width: 30%;
@@ -91,20 +88,24 @@
         }
         .details-table th {
             background-color: #f2f2f2;
+            font-weight: 400;
         }
+        
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img src="Template/img/HOI_logo.png" alt="Logo" style="display: fl;">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing</h1>
+            <img src="Template/img/HOI_logo.png" alt="Logo" style="width:90px;height: auto;padding-left: 2%;">
+            <h1 style="margin-left: 10%; margin-right: 7%;padding-top: 2%;">Diamond Harbour Bharat Sevasram Sangha Pranab Vidyapith</h1>
             <p>UDISE Code - 320873240676</p>
             <p>30, Mother Teresa Sarani, Kolkata - 700016, West Bengal</p>
             <p>Contact Mobile - 9475755847</p>
             <p>Email - contact@email.com</p>
-            <div class="photo">PHOTO</div>
-        </div>
+            <div class="photo" style="display: flex; justify-content: center; align-items: center; margin-top: -4%;">
+                <img src="9475755847/uploads/profile_image.jpeg" style="border: 2px solid rgb(168, 168, 168);">
+            </div>
+    </div>
         <div class="section">
             <h2>Application Receipt</h2>
             <table class="info-table">
@@ -198,14 +199,36 @@
             </table>
         </div>
         <div class="section">
-            <h2>Bank Details</h2>
-            <p>Bank Name: State Bank of India &nbsp;&nbsp;&nbsp;&nbsp; Account No: 320810003578 &nbsp;&nbsp;&nbsp;&nbsp; IFSC: 320873240676</p>
+            <h2 style="color: #333;">Bank Details</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Bank Name:</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">State Bank of India</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Account No:</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">320810003578</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">IFSC:</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">320873240676</td>
+                </tr>
+            </table>
         </div>
+        
         <div class="section">
-            <h2>Application Details</h2>
-            <p>Stream: Science</p>
-            <p>Languages: Beng + English</p>
-            <p>Combination: Maths + Coms + Stat + Physics</p>
+            <h2 style="color: #333;">Application Details</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Stream</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Science</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Language</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Bengali + English</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Combination</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Maths + Coms + Stat + Physics</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;"></td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;"></td>
+
+                </tr>
+            </table>
         </div>
     </div>
 </body>

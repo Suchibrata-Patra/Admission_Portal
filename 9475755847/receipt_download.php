@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 require 'database.php'; 
 require 'session.php';
 require 'super_admin.php';
@@ -54,123 +56,236 @@ $currentTimestamp = date("YmdHis");
 $htmlContent = '<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admission Receipt</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-  }
-  
-  .container {
-    width: 88.5%;
-    height: auto;
-    margin: auto;
-    padding: 40px;
-    box-sizing: border-box;
-    border: 1px solid #000;
-  }
-  
-  table {
-    width: 88%;
-    border-collapse: collapse;
-  }
-   
-  th, td {
-    padding: 15px;
-    border-bottom: 1px solid #000;
-  }
-  
-  th {
-    text-align: left;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #000;
-    margin-bottom: 20px;
-  }
-  
-  .total {
-    margin-top: 20px;
-    float: right;
-    font-weight: bold;
-    color: #000;
-  }
-  
-  .footer {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 14px;
-    color: #888;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Receipt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .header img {
+            max-height: 120px;
+            max-width: 120px;
+            position: absolute;
+            top: 25%;
+            left: 0;
+        }
+        .header h1 {
+            margin: 10px 0 10px 60px; /* Added margin-left to create space for the logo */
+            font-size: 24px;
+            font-weight: normal;
+        }
+        .header p {
+            margin: 5px 0 5px 60px; /* Added margin-left to create space for the logo */
+            font-size: 14px;
+        }
+        .photo {
+            position: absolute;
+            top: 50%;
+            right: 4%;
+            width: 100px;
+            height: 120px;
+        }
+        .section {
+            margin-bottom: 20px;
+            clear: both;
+        }
+        .section h2 {
+            font-size: 18px;
+            margin: 0 0 10px 0;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .info-table th,
+        .info-table td {
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        .info-table th {
+            width: 20%;
+            background-color: #f2f2f2;
+            font-weight: 400;
+        }
+        .info-table td {
+            width: 30%;
+        }
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .details-table th,
+        .details-table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .details-table th {
+            background-color: #f2f2f2;
+            font-weight: 400;
+        }
+        
+    </style>
 </head>
 <body>
-<div class="container">
-  <h1>Admission Receipt</h1>
-  <table>
-    <tr>
-      <th>Student Name:</th>
-      <td>John Doe</td>
-    </tr>
-    <tr>
-      <th>Admission Number:</th>
-      <td>ABC123456</td>
-    </tr>
-    <tr>
-      <th>Date:</th>
-      <td>May 28, 2024</td>
-    </tr>
-    <tr>
-      <th>Program:</th>
-      <td>Bachelor of Science in Computer Science</td>
-    </tr>
-    <tr>
-      <th>Amount Paid:</th>
-      <td>$5000.00</td>
-    </tr>
-    <tr>
-      <th>Payment Method:</th>
-      <td>Credit Card</td>
-    </tr>
-    <tr>
-      <th>Transaction ID:</th>
-      <td>1234567890</td>
-    </tr>
-    <tr>
-      <th>Receipt ID:</th>
-      <td>9876543210</td>
-    </tr>
-    <tr>
-      <th>Term Start Date:</th>
-      <td>September 1, 2024</td>
-    </tr>
-    <tr>
-      <th>Term End Date:</th>
-      <td>June 30, 2025</td>
-    </tr>
-    <tr>
-      <th>Payment Deadline:</th>
-      <td>August 15, 2024</td>
-    </tr>
-    <tr>
-      <th>Payment Status:</th>
-      <td>Paid</td>
-    </tr>
-    <tr>
-      <th>Additional Notes:</th>
-      <td>This is a sample receipt template.</td>
-    </tr>
-  </table>
-  <div class="total">Total: $5000.00</div>
-  <div class="footer">
-    <p>Thank you for choosing our institution!</p>
-  </div>
-</div>
+    <div class="container">
+        <div class="header">
+            <img src="Template/img/HOI_logo.png" alt="Logo" style="width:90px;height: auto;padding-left: 2%;">
+            <h1 style="margin-left: 10%; margin-right: 7%;padding-top: 2%;">Diamond Harbour Bharat Sevasram Sangha Pranab Vidyapith</h1>
+            <p>UDISE Code - 320873240676</p>
+            <p>30, Mother Teresa Sarani, Kolkata - 700016, West Bengal</p>
+            <p>Contact Mobile - 9475755847</p>
+            <p>Email - contact@email.com</p>
+            <div class="photo" style="display: flex; justify-content: center; align-items: center; margin-top: -4%;">
+                <img src="9475755847/uploads/profile_image.jpeg" style="border: 2px solid rgb(168, 168, 168);">
+            </div>
+    </div>
+        <div class="section">
+            <h2>Application Receipt</h2>
+            <table class="info-table">
+                <tr>
+                    <th>Registration No</th>
+                    <td colspan="3">2180392</td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td>Suchibrata Patra</td>
+                    <th>Year</th>
+                    <td>2023/24</td>
+                </tr>
+                <tr>
+                    <th>Father's Name</th>
+                    <td>Kamal Kumar Patra</td>
+                    <th>Mother's Name</th>
+                    <td>Susmita Maity Patra</td>
+                </tr>
+                <tr>
+                    <th>Ph.</th>
+                    <td>9475755847</td>
+                    <th>Email</th>
+                    <td>Suchibratapatra2003@gmail.com</td>
+                </tr>
+                <tr>
+                    <th>DOB</th>
+                    <td>01/01/2003</td>
+                    <th>Aadhar</th>
+                    <td>32087324</td>
+                </tr>
+                <tr>
+                    <th>Whatsapp</th>
+                    <td>9475755847</td>
+                    <th>Caste</th>
+                    <td>General</td>
+                </tr>
+                <tr>
+                    <th>Religion</th>
+                    <td>Hindu</td>
+                    <th>PWD</th>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <th>EWS</th>
+                    <td colspan="3">No</td>
+                </tr>
+                <tr>
+                    <th>Previous School</th>
+                    <td colspan="3">Lorem ipsum dolor sit amet, consectetur adipiscing School</td>
+                </tr>
+            </table>
+        </div>
+        <div class="section">
+            <h2>Marks Details</h2>
+            <table class="details-table">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Bengali</th>
+                        <th>English</th>
+                        <th>Maths</th>
+                        <th>Phy. Sc</th>
+                        <th>Life Sc</th>
+                        <th>Geography</th>
+                        <th>History</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Obtained</td>
+                        <td>98</td>
+                        <td>95</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>95</td>
+                        <td>99</td>
+                        <td>94</td>
+                    </tr>
+                    <tr>
+                        <td>Full Marks</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="section">
+            <h2 style="color: #333;">Bank Details</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Bank Name:</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">State Bank of India</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Account No:</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">320810003578</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">IFSC:</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">320873240676</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2 style="color: #333;">Application Details</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Stream</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Science</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Language</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Bengali + English</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Combination</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Maths + Coms + Stat + Physics</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;"></td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: left;"></td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
 ';
