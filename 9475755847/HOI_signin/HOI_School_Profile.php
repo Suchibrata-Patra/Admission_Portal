@@ -48,6 +48,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['merit_list_pdf'])) {
 }
 
 $current_files = scandir($upload_dir);
+
+// Handle profile update
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['profile_update'])) {
+    $school_name = $_POST['school_name'];
+    $address = $_POST['address'];
+    $contact_number = $_POST['contact_number'];
+    $principal_name = $_POST['principal_name'];
+
+    // Save profile data to a file (you can use a database in real application)
+    $profile_data = [
+        'school_name' => $school_name,
+        'address' => $address,
+        'contact_number' => $contact_number,
+        'principal_name' => $principal_name,
+    ];
+    file_put_contents($udise_code . '_profile_data.json', json_encode($profile_data));
+}
+
+// Load profile data
+$profile_data = [];
+if (file_exists($udise_code . '_profile_data.json')) {
+    $profile_data = json_decode(file_get_contents($udise_code . '_profile_data.json'), true);
+}
 ?>
 
 <!DOCTYPE html>
@@ -74,73 +97,6 @@ $current_files = scandir($upload_dir);
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="style.css">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .btn-danger {
-            color: #fff;
-            background-color: #dc3545;
-            border-color: #dc3545;
-        }
-
-        .btn-danger:hover {
-            background-color: #c82333;
-            border-color: #bd2130;
-        }
-      
-        .upload-form {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .jumbotron {
-            background: #2f3c4a;
-            color: white;
-            border-radius: 8px;
-            padding: 30px 20px;
-        }
-        .btn-primary {
-            background-color: #0056b3;
-            border-color: #004085;
-        }
-        .btn-danger {
-            background-color: #dc3545;
-            border-color: #bd2130;
-        }
-        .files-title {
-            margin-top: 40px;
-        }
-        .table {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
     <title style="font-family: 'Roboto', Times, serif;">Haggle</title>
 </head>
 
@@ -171,13 +127,13 @@ $current_files = scandir($upload_dir);
                     <span class="text">Bank Account</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="#">
                     <i class='bx'><span class="material-symbols-outlined">list</span></i>
                     <span class="text">Merit List</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="HOI_School_Profile.php">
                     <i class='bx'><span class="material-symbols-outlined">account_balance</span></i>
                     <span class="text">School Profile</span>
@@ -262,51 +218,7 @@ $current_files = scandir($upload_dir);
 
         <!-- MAIN -->
         <main>
-            <div class="container">
-                <div class="content-section">
-                    <form action="" method="POST" enctype="multipart/form-data" class="upload-form">
-    
-                        <div class="jumbotron jumbotron-fluid">
-                            <div class="container">
-                                <h3 class="display-4">Upload Merit List</h3>
-                                <div class="form-group">
-                                    <label for="merit_list_pdf" class="file-label">Select PDF:</label>
-                                    <input type="file" name="merit_list_pdf" id="merit_list_pdf" class="form-control-file" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary upload-btn">Upload</button>
-                            </div>
-                        </div>
-                    </form>
-    
-                    <br>
-                    <h2 class="files-title">Currently Uploaded Merit Lists:</h2>
-                    <table class="table table-hover table-striped">
-                        <thead class="thead">
-                            <tr>
-                                <th>File Name</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($current_files as $file): if ($file != '.' && $file != '..'): ?>
-                            <tr>
-                                <td>
-                                    <a href="<?php echo htmlspecialchars($upload_dir . '/' . $file); ?>" target="_blank">
-                                        <?php echo htmlspecialchars($file); ?>
-                                    </a>
-                                </td>
-                                <td>
-                                    <form method="post" action="">
-                                        <input type="hidden" name="filename" value="<?php echo htmlspecialchars($file); ?>">
-                                        <button type="submit" name="delete" class="btn btn-danger btn-sm">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            <?php endif; endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+
         </main>
 
     </section>

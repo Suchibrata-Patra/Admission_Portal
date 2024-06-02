@@ -75,14 +75,14 @@ if (!$user) {
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="HOI_Bank_Details.php">
 					<i class='bx'><span class="material-symbols-outlined">currency_rupee</span></i>
 					<span class="text">Bank Account</span>
 				</a>
 			</li>
 
 			<li>
-				<a href="#">
+				<a href="HOI_Admission_Merit_list.php">
 					<i class='bx'><span class="material-symbols-outlined">list</span></i>
 					<span class="text">Merit LIst</span>
 				</a>
