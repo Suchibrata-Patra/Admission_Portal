@@ -125,11 +125,11 @@
             </li>
 
             <li>
-              <a href="#destination" class="navbar-link" data-nav-link>destination</a>
+              <a href="#destination" class="navbar-link" data-nav-link>Ranking</a>
             </li>
 
             <li>
-              <a href="#package" class="navbar-link" data-nav-link>packages</a>
+              <a href="#package" class="navbar-link" data-nav-link>Guide</a>
             </li>
 
             <li>
@@ -144,7 +144,7 @@
 
         </nav>
 
-        <button class="btn btn-primary">Book Now</button>
+        <a href="#"><button class="btn btn-primary">Login</button></a>
 
       </div>
     </div>
@@ -168,8 +168,7 @@
           <h2 class="h1 hero-title">Apply For New School Admission</h2>
 
           <p class="hero-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos eos deleniti quod necessitatibus placeat
-            asperiores sunt, ea ipsam, illo, saepe nesciunt vel magni? Molestiae, alias! </p>
+          Ensure smooth application processing: Create separate accounts for each institution, then proceed to apply to each school individually.          </p>
           <form action="#" method="GET" style="padding-top: 8%;padding-bottom:8%;">
             <input type="text" name="search" id="search"
               style="padding: 16px;font-size: 18px; border-radius: 30px; border: 2px solid #ffffff;background-color: #ffffff; width: calc(100% - 160px); max-width: 600px; display: inline-block; box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.1);"
@@ -196,9 +195,7 @@
           <h2 class="h2 section-title">Most Applied Schools</h2>
 
           <p class="section-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis illum earum pariatur perferendis nostrum
-            aspernatur assumenda asperiores iure.
-          </p>
+          Ensure smooth application processing: <b>Create separate accounts for each institution,</b>then proceed to apply to each school individually.          </p>
 
           <ul class="popular-list">
 
@@ -326,9 +323,9 @@
       <section class="package" id="package">
         <div class="container">
 
-          <p class="section-subtitle">Popular Packeges</p>
+          <p class="section-subtitle">Dont Heitate to kickstart your Education Journey </p>
 
-          <h2 class="h2 section-title">Checkout Our Packeges</h2>
+          <h2 class="h2 section-title">Apply @ Top Schools</h2>
 
           <p class="section-text">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error voluptate modi corrupti nisi nihil quasi
@@ -348,7 +345,7 @@
 
                 <div class="card-content">
 
-                  <h3 class="h3 card-title">Experience The Great Holiday On Beach</h3>
+                  <h3 class="h3 card-title">D.H Bharat Sevasram Sangha Pranab Vidyapith</h3>
 
                   <p class="card-text">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora maxime possimus numquam laboriosam
@@ -358,25 +355,22 @@
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                        <ion-icon name="time"></ion-icon>
-
-                        <p class="text">7D/6N</p>
+                      <ion-icon name="logo-react"></ion-icon>
+                        <p class="text">Science</p>
                       </div>
                     </li>
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                        <ion-icon name="people"></ion-icon>
-
-                        <p class="text">pax: 10</p>
+                      <ion-icon name="brush-outline"></ion-icon>                        
+                      <p class="text">Arts</p>
                       </div>
                     </li>
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                        <ion-icon name="location"></ion-icon>
-
-                        <p class="text">Malaysia</p>
+                      <ion-icon name="bar-chart-outline"></ion-icon>
+                        <p class="text">Commerce</p>
                       </div>
                     </li>
 
@@ -388,24 +382,24 @@
 
                   <div class="wrapper">
 
-                    <p class="reviews">(25 reviews)</p>
+                    <p class="reviews">Application Fees *</p>
 
-                    <div class="card-rating">
+                    <!-- <div class="card-rating">
                       <ion-icon name="star"></ion-icon>
                       <ion-icon name="star"></ion-icon>
                       <ion-icon name="star"></ion-icon>
                       <ion-icon name="star"></ion-icon>
                       <ion-icon name="star"></ion-icon>
-                    </div>
+                    </div> -->
 
                   </div>
 
                   <p class="price">
                     ₹750
-                    <span>/ per person</span>
+                    <!-- <span>/ per person</span> -->
                   </p>
 
-                  <button class="btn btn-secondary">Book Now</button>
+                  <button class="btn btn-secondary">Apply</button>
 
                 </div>
 
@@ -423,7 +417,7 @@
 
                 <div class="card-content">
 
-                  <h3 class="h3 card-title">Summer Holiday To The Oxolotan River</h3>
+                  <h3 class="h3 card-title">KakDwip Sundarban Adarsha Vidyapith</h3>
 
                   <p class="card-text">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, minus!
@@ -433,25 +427,22 @@
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                        <ion-icon name="time"></ion-icon>
-
-                        <p class="text">7D/6N</p>
+                      <ion-icon name="logo-react"></ion-icon>
+                        <p class="text">Science</p>
                       </div>
                     </li>
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                        <ion-icon name="people"></ion-icon>
-
-                        <p class="text">pax: 10</p>
+                      <ion-icon name="brush-outline"></ion-icon>
+                      <p class="text">Arts</p>
                       </div>
                     </li>
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                        <ion-icon name="location"></ion-icon>
-
-                        <p class="text">Malaysia</p>
+                      <ion-icon name="bar-chart-outline"></ion-icon>
+                        <p class="text">Commerce</p>
                       </div>
                     </li>
 
@@ -463,24 +454,24 @@
 
                   <div class="wrapper">
 
-                    <p class="reviews">(20 reviews)</p>
+                    <p class="reviews">Application Fees *</p>
 
-                    <div class="card-rating">
+                    <!-- <div class="card-rating">
                       <ion-icon name="star"></ion-icon>
                       <ion-icon name="star"></ion-icon>
                       <ion-icon name="star"></ion-icon>
                       <ion-icon name="star"></ion-icon>
                       <ion-icon name="star"></ion-icon>
-                    </div>
+                    </div> -->
 
                   </div>
 
                   <p class="price">
                     ₹520
-                    <span>/ per person</span>
+                    <!-- <span>/ per person</span> -->
                   </p>
 
-                  <button class="btn btn-secondary">Book Now</button>
+                  <button class="btn btn-secondary">Apply</button>
 
                 </div>
 
@@ -498,7 +489,7 @@
 
                 <div class="card-content">
 
-                  <h3 class="h3 card-title">Santorini Island's Weekend Vacation</h3>
+                  <h3 class="h3 card-title">Naba Pathabhawan School</h3>
 
                   <p class="card-text">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi, temporibus! </p>
@@ -507,25 +498,22 @@
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                        <ion-icon name="time"></ion-icon>
-
-                        <p class="text">7D/6N</p>
+                      <ion-icon name="logo-react"></ion-icon>
+                        <p class="text">Science</p>
                       </div>
                     </li>
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                        <ion-icon name="people"></ion-icon>
-
-                        <p class="text">pax: 10</p>
+                      <ion-icon name="brush-outline"></ion-icon>
+                      <p class="text">Arts</p>
                       </div>
                     </li>
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                        <ion-icon name="location"></ion-icon>
-
-                        <p class="text">Malaysia</p>
+                      <ion-icon name="bar-chart-outline"></ion-icon>
+                        <p class="text">Commerce</p>
                       </div>
                     </li>
 
@@ -537,24 +525,24 @@
 
                   <div class="wrapper">
 
-                    <p class="reviews">(40 reviews)</p>
+                    <p class="reviews">Application Fees *</p>
 
-                    <div class="card-rating">
+                    <!-- <div class="card-rating">
                       <ion-icon name="star"></ion-icon>
                       <ion-icon name="star"></ion-icon>
                       <ion-icon name="star"></ion-icon>
                       <ion-icon name="star"></ion-icon>
                       <ion-icon name="star"></ion-icon>
-                    </div>
+                    </div> -->
 
                   </div>
 
                   <p class="price">
                     ₹660
-                    <span>/ per person</span>
+                    <!-- <span>/ per person</span> -->
                   </p>
 
-                  <button class="btn btn-secondary">Book Now</button>
+                  <button class="btn btn-secondary">Apply</button>
 
                 </div>
 
@@ -562,8 +550,10 @@
             </li>
 
           </ul>
-
-          <button class="btn btn-primary">View All Packages</button>
+<p class="section-text">
+<b>NOTE :</b>  Application fees are managed directly by the institutions; we ensure a hands-off approach to fee details.
+</p>
+<button class="btn btn-primary">View All Packages</button>
 
         </div>
       </section>
@@ -666,131 +656,12 @@
 
 
 
-
-
-  <!-- 
-    - #FOOTER
-  -->
-
-  <footer class="footer">
-
-    <div class="footer-top">
-      <div class="container">
-
-        <div class="footer-brand">
-
-          <a href="#" class="logo">
-            <img src="./assets/images/logo.svg" alt="Tourly logo">
-          </a>
-
-          <p class="footer-text">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque quod laborum, atque, autem cum ex dolorum,
-            velit in debitis mollitia magnam neque accusamus iure unde modi voluptatem officia! Assumenda, omnis.
-          </p>
-
-        </div>
-
-        <div class="footer-contact">
-
-          <h4 class="contact-title">Contact Us</h4>
-
-          <p class="contact-text">
-            Feel free to contact and reach us !!
-          </p>
-
-          <ul>
-
-            <li class="contact-item">
-              <ion-icon name="call-outline"></ion-icon>
-
-              <a href="tel:+01123456790" class="contact-link">+01 (123) 4567 90</a>
-            </li>
-
-            <li class="contact-item">
-              <ion-icon name="mail-outline"></ion-icon>
-
-              <a href="mailto:info.tourly.com" class="contact-link">info.tourly.com</a>
-            </li>
-
-            <li class="contact-item">
-              <ion-icon name="location-outline"></ion-icon>
-
-              <address>3146 Koontz, California</address>
-            </li>
-
-          </ul>
-
-        </div>
-
-        <div class="footer-form">
-
-          <p class="form-text">
-            Subscribe our newsletter for more update & news !!
-          </p>
-
-          <form action="" class="form-wrapper">
-            <input type="email" name="email" class="input-field" placeholder="Enter Your Email" required>
-
-            <button type="submit" class="btn btn-secondary">Subscribe</button>
-          </form>
-
-        </div>
-
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-
-        <p class="copyright">
-          &copy; 2022 <a href="">codewithsadee</a>. All rights reserved
-        </p>
-
-        <ul class="footer-bottom-list">
-
-          <li>
-            <a href="#" class="footer-bottom-link">Privacy Policy</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-bottom-link">Term & Condition</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-bottom-link">FAQ</a>
-          </li>
-
-        </ul>
-
-      </div>
-    </div>
-
-  </footer>
-
-
-
-
-
-  <!-- 
-    - #GO TO TOP
-  -->
-
+<?php include 'footer.php' ?>
+  
   <a href="#top" class="go-top" data-go-top>
     <ion-icon name="chevron-up-outline"></ion-icon>
   </a>
-
-
-
-
-
-  <!-- 
-    - custom js link
-  -->
   <script src="./assets/js/script.js"></script>
-
-  <!-- 
-    - ionicon link
-  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
