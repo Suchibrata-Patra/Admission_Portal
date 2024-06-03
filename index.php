@@ -11,15 +11,6 @@
     - favicon
   -->
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-
-  <!-- 
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!-- 
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -48,7 +39,7 @@
           </div>
 
           <div class="wrapper">
-            <p class="helpline-title">For Further Inquires :</p>
+            <p class="helpline-title">Got Stuck Somewhere ?</p>
 
             <p class="helpline-number">+91 9475755847</p>
           </div>
@@ -165,16 +156,16 @@
       <section class="hero" id="home">
         <div class="container">
 
-          <h2 class="h1 hero-title">Apply For New School Admission</h2>
+          <h2 class="h1 hero-title">Apply @ New Schools</h2>
 
           <p class="hero-text">
           Ensure smooth application processing: Create separate accounts for each institution, then proceed to apply to each school individually.          </p>
-          <form action="#" method="GET" style="padding-top: 8%;padding-bottom:8%;">
+          <form action="Complete_List.php" method="GET" style="padding-top: 8%;padding-bottom:8%;">
             <input type="text" name="search" id="search"
               style="padding: 16px;font-size: 18px; border-radius: 30px; border: 2px solid #ffffff;background-color: #ffffff; width: calc(100% - 160px); max-width: 600px; display: inline-block; box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.1);"
               placeholder="Search Schools">
             <button type="submit"
-              style="padding: 16px 32px; font-size: 18px; border-radius: 30px; border: none; background-color: #FF5A5F; color: #fff; display: inline-block; cursor: pointer; transition: background-color 0.3s ease;">Search</button>
+              style="padding: 16px 32px; font-size: 18px; border-radius: 30px; border: none; background-color: #FF5A5F; color: #fff; display: inline-block; cursor: pointer; transition: background-color 0.3s ease;" name="school_search">Search</button>
           </form>
           <div class="btn-group">
             <button class="btn btn-primary">How to Apply ?</button>
@@ -323,7 +314,7 @@
       <section class="package" id="package">
         <div class="container">
 
-          <p class="section-subtitle">Dont Heitate to kickstart your Education Journey </p>
+          <p class="section-subtitle">Dont Hesitate to kickstart your Education Journey </p>
 
           <h2 class="h2 section-title">Apply @ Top Schools</h2>
 
@@ -351,8 +342,8 @@
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora maxime possimus numquam laboriosam
                     praesentium voluptatem? </p>
 
+                    <p>Avialable Strems</p>
                   <ul class="card-meta-list">
-
                     <li class="card-meta-item">
                       <div class="meta-box">
                       <ion-icon name="logo-react"></ion-icon>
@@ -422,6 +413,7 @@
                   <p class="card-text">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, minus!
                   </p>
+                  <p>Avialable Strems</p>
 
                   <ul class="card-meta-list">
 
@@ -493,6 +485,7 @@
 
                   <p class="card-text">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi, temporibus! </p>
+<p>Avialable Strems</p>
 
                   <ul class="card-meta-list">
 
@@ -551,7 +544,7 @@
 
           </ul>
 <p class="section-text">
-<b>NOTE :</b>  Application fees are managed directly by the institutions; we ensure a hands-off approach to fee details.
+<b>NOTE :</b> (*) Application fees are managed directly by the institutions; we ensure a hands-off approach to fee details.
 </p>
 <button class="btn btn-primary">View All Packages</button>
 

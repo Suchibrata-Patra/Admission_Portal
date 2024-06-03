@@ -410,11 +410,13 @@
 
   .hero {
     /* background-image: url("../images/hero-banner.jpg"); */
-    background-image: url("https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHVuaXZlcnNpdHl8ZW58MHx8MHx8fDA%3D");
+    /* background-image: url("https://images.unsplash.com/photo-1589366025085-d060e3f956e6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
+    background-image: url("https://d3nn873nee648n.cloudfront.net/1200x1800-new/20099/SM990079.jpg");
+    /* background-image: url(hero.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: hsla(0, 0%, 0%, 0.7);
+    background-color: hsla(0, 0%, 21%, 0.5);
     background-blend-mode: overlay;
     display: grid;
     place-items: center;
