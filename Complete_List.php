@@ -87,7 +87,7 @@ mysqli_close($db);
     <!-- 
     - favicon
   -->
-    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="favicon.png" type="image/svg+xml">
 
     <!-- 
     - custom css link
@@ -256,8 +256,8 @@ mysqli_close($db);
                                 style="padding: 16px; font-size: 18px; border-radius: 30px; border: 1.5px solid #588cd0; background-color: #fafafa; width: calc(100% - 160px); max-width: 600px; box-shadow: 0px 2px 5px rgba(118, 174, 224, 0.1); margin-right: 10px;"
                                 placeholder="<?php echo htmlspecialchars($search); ?>"
                                 value="<?php echo htmlspecialchars($search); ?>">
-                            <button type="submit"
-                                style="padding: 16px 32px; font-size: 18px; border-radius: 30px; border: none; background-color: #FF5A5F; color: #fff; cursor: pointer; transition: background-color 0.3s ease;">Search</button>
+                                <button type="submit"
+              style="margin-left:-10%; padding: 18px 34px; font-size: 18px;border-top-right-radius: 30px;border-bottom-right-radius: 30px; background-color: #FF5A5F; color: #fff; display: inline-block; cursor: pointer; transition: background-color 0.3s ease;">Search</button>
                         </form>
                     </div>
 
