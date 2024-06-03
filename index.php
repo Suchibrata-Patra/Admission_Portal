@@ -155,12 +155,12 @@
 
           <p class="hero-text">
           Ensure smooth application processing: Create separate accounts for each institution, then proceed to apply to each school individually.          </p>
-          <form action="Complete_List.php" method="GET" style="padding-top: 8%;padding-bottom:8%;">
+          <form action="Complete_List.php" method="GET" style="padding-top:7%;padding-bottom:8%;">
             <input type="text" name="search" id="search"
               style="padding: 16px;font-size: 18px; border-radius: 30px; border: 2px solid #ffffff;background-color: #ffffff; width: calc(100% - 160px); max-width: 600px; display: inline-block; box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.1);"
               placeholder="Search Schools . . .">
             <button type="submit"
-              style="margin-left:-19%; padding: 18px 34px; font-size: 18px;border-top-right-radius: 30px;border-bottom-right-radius: 30px; background-color: #ff385c; color: #fff; display: inline-block; cursor: pointer; transition: background-color 0.3s ease;">Search</button>
+              style="margin-left:-9%; padding: 18px 34px; font-size: 18px;width:10%; border-top-right-radius: 30px;border-bottom-right-radius: 30px; background-color: #ff385c; color: #fff; display: inline-block; cursor: pointer; transition: background-color 0.3s ease;">Q</button>
           </form>
           <div class="btn-group">
             <button class="btn btn-primary">How to Apply ?</button>
