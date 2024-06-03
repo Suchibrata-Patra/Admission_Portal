@@ -6,13 +6,12 @@
       <div class="footer-brand">
 
         <a href="#" class="logo">
-          <img src="./assets/images/logo.svg" alt="Tourly logo">
+          <img src="favicon.png" alt="Haggle logo">
         </a>
 
         <p class="footer-text">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque quod laborum, atque, autem cum ex dolorum,
-          velit in debitis mollitia magnam neque accusamus iure unde modi voluptatem officia! Assumenda, omnis.
-        </p>
+lorem
+      </p>
       </div>
 
       <div class="footer-contact">
@@ -28,13 +27,13 @@
           <li class="contact-item">
             <ion-icon name="call-outline"></ion-icon>
 
-            <a href="tel:+01123456790" class="contact-link">+01 (123) 4567 90</a>
+            <a href="tel:+919475755847" class="contact-link">+91 9475755847</a>
           </li>
 
           <li class="contact-item">
             <ion-icon name="mail-outline"></ion-icon>
 
-            <a href="mailto:info.tourly.com" class="contact-link">info.tourly.com</a>
+            <a href="mailto:suchibratapatra2003@gmail.com" class="contact-link">suchibratapatra2003@gmail.com</a>
           </li>
 
           <li class="contact-item">

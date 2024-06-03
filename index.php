@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Haggle - Admission</title>
+  <title>Haggle</title>
 
   <!-- 
     - favicon
@@ -18,7 +17,6 @@
     rel="stylesheet">
   <link rel="stylesheet" href="style_listing_page.css">
 </head>
-
 <body id="top">
 
   <!-- 
@@ -142,10 +140,6 @@
 
   </header>
 
-
-
-
-
   <main>
     <article>
 
@@ -165,7 +159,7 @@
               style="padding: 16px;font-size: 18px; border-radius: 30px; border: 2px solid #ffffff;background-color: #ffffff; width: calc(100% - 160px); max-width: 600px; display: inline-block; box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.1);"
               placeholder="Search Schools . . .">
             <button type="submit"
-              style="margin-left:-19%; padding: 18px 34px; font-size: 18px;border-top-right-radius: 30px;border-bottom-right-radius: 30px; background-color: #FF5A5F; color: #fff; display: inline-block; cursor: pointer; transition: background-color 0.3s ease;">Search</button>
+              style="margin-left:-19%; padding: 18px 34px; font-size: 18px;border-top-right-radius: 30px;border-bottom-right-radius: 30px; background-color: #ff385c; color: #fff; display: inline-block; cursor: pointer; transition: background-color 0.3s ease;">Search</button>
           </form>
           <div class="btn-group">
             <button class="btn btn-primary">How to Apply ?</button>
@@ -195,7 +189,7 @@
 
                 <figure class="card-img">
                   <img
-                    src="https://images.unsplash.com/photo-1579862325998-44e49ab74138?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8SGFydmFyZHxlbnwwfHwwfHx8MA%3D%3D"
+                  src="https://images.unsplash.com/photo-1613896527026-f195d5c818ed?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2Nob29sJTIwYnVpbGRpbmd8ZW58MHx8MHx8fDA%3D"
                     alt="San miguel, italy" loading="lazy">
                 </figure>
 
@@ -214,11 +208,11 @@
                   </p>
 
                   <h3 class="h3 card-title">
-                    <a href="#">NARENDRAPUR</a>
+                    <a href="#">DHBSSPV</a>
                   </h3>
 
                   <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                    Nurturing minds, fostering service, inspiring hearts.
                   </p>
 
                 </div>
@@ -231,7 +225,7 @@
 
                 <figure class="card-img">
                   <img
-                    src="https://images.unsplash.com/photo-1622397333309-3056849bc70b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8SGFydmFyZHxlbnwwfHwwfHx8MA%3D%3D"
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/02/Ramakrishna_Belur_Math%2C_Howrah.jpg?20081010104934"
                     alt="Burj khalifa, dubai" loading="lazy">
                 </figure>
 
@@ -250,11 +244,11 @@
                   </p>
 
                   <h3 class="h3 card-title">
-                    <a href="#">Harvard</a>
+                    <a href="#">Belur</a>
                   </h3>
 
                   <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing.
+                    <b>Spiritual sanctuary</b>,beacon of service, unity.
                   </p>
 
                 </div>
@@ -286,11 +280,11 @@
                   </p>
 
                   <h3 class="h3 card-title">
-                    <a href="#">RKM </a>
+                    <a href="#">Sarisha RKM Sikshamansir</a>
                   </h3>
 
                   <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur.
+                    Transforming lives, serving humanity, spiritual refuge.
                   </p>
 
                 </div>
@@ -316,7 +310,7 @@
 
           <p class="section-subtitle">Dont Hesitate to kickstart your Education Journey </p>
 
-          <h2 class="h2 section-title">Apply @ Top Schools</h2>
+          <h2 class="h2 section-title">Apply Nearby Schools</h2>
 
           <p class="section-text">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error voluptate modi corrupti nisi nihil quasi
