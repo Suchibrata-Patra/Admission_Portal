@@ -165,7 +165,7 @@
               style="padding: 16px;font-size: 18px; border-radius: 30px; border: 2px solid #ffffff;background-color: #ffffff; width: calc(100% - 160px); max-width: 600px; display: inline-block; box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.1);"
               placeholder="Search Schools">
             <button type="submit"
-              style="padding: 16px 32px; font-size: 18px; border-radius: 30px; border: none; background-color: #FF5A5F; color: #fff; display: inline-block; cursor: pointer; transition: background-color 0.3s ease;" name="school_search">Search</button>
+              style="padding: 16px 32px; font-size: 18px; border-radius: 30px; border: none; background-color: #FF5A5F; color: #fff; display: inline-block; cursor: pointer; transition: background-color 0.3s ease;">Search</button>
           </form>
           <div class="btn-group">
             <button class="btn btn-primary">How to Apply ?</button>

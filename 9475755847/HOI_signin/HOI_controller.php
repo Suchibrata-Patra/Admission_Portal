@@ -90,15 +90,26 @@ if (isset($_POST['HOI_Signup'])) {
 
     if (count($errors) == 0) {
         $hashed_password = password_hash($HOI_Login_Password, PASSWORD_BCRYPT);
-
-        $query = "INSERT INTO $table_name (`HOI_UDISE_ID`, `HOI_Password`, `HOI_Email_ID`, `HOI_Mobile_No`, `is_HOI_Account_Verified`, `emailVerify`, `numberVerify`, `Institution_Name`, `HOI_Name`, `Institution_Address`) 
-        VALUES ('$HOI_Udise_ID', '$hashed_password', '$HOI_email', '$HOI_Mobile_No', 0, 0, 0, NULL, '$HOI_HOI_Name', NULL)";
-        
-        if (mysqli_query($db, $query)) {
-            $_SESSION['HOI_UDISE_ID'] = $HOI_email;
-            $_SESSION['success'] = "You are now logged in";
-          echo '<script>window.location.href="HOI_Dashboard.php";</script>';
-            // header('location: HOI_Dashboard.php');
+    
+        // First query to insert into the HOI table
+        $query1 = "INSERT INTO $table_name (`HOI_UDISE_ID`, `HOI_Password`, `HOI_Email_ID`, `HOI_Mobile_No`, `is_HOI_Account_Verified`, `emailVerify`, `numberVerify`, `Institution_Name`, `HOI_Name`, `Institution_Address`) 
+                   VALUES ('$HOI_Udise_ID', '$hashed_password', '$HOI_email', '$HOI_Mobile_No', 0, 0, 0, NULL, '$HOI_HOI_Name', NULL)";
+    
+        if (mysqli_query($db, $query1)) {
+            // Second query to insert into the edu_org_records table
+            $query2 = "INSERT INTO edu_org_records (udise_id, school_name)
+                       VALUES ('$HOI_Udise_ID', NULL)";
+    
+            $query2_result = mysqli_query($db, $query2);
+    
+            if ($query2_result) {
+                $_SESSION['HOI_UDISE_ID'] = $HOI_email;
+                $_SESSION['success'] = "You are now logged in";
+                echo '<script>window.location.href="HOI_Dashboard.php";</script>';
+                // header('location: HOI_Dashboard.php');
+            } else {
+                echo "Error updating edu_org_records: " . mysqli_error($db);
+            }
         } else {
             echo "Error: " . mysqli_error($db);
         }
