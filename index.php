@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +17,9 @@
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style_listing_page.css">
+  
 </head>
+
 <body id="top">
 
   <!-- 
@@ -56,8 +59,8 @@
           </button>
 
           <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
-  <ion-icon name="menu-outline"></ion-icon>
-</button>
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
 
 
         </div>
@@ -127,7 +130,7 @@
             </li>
 
             <li>
-              <a href="#contact" class="navbar-link" data-nav-link>contact us</a>
+              <a href="terms_and_conditions.php" class="navbar-link" data-nav-link>T&C</a>
             </li>
 
           </ul>
@@ -154,8 +157,9 @@
           <h2 class="h1 hero-title">Apply @ New Schools</h2>
 
           <p class="hero-text">
-          Ensure smooth application processing: Create separate accounts for each institution, then proceed to apply to each school individually.          </p>
-          <form action="Complete_List.php" method="GET" style="padding-top:7%;padding-bottom:8%;">
+            Ensure smooth application processing: Create separate accounts for each institution, then proceed to apply
+            to each school individually. </p>
+          <form action="Complete_List.php" method="GET" style="padding-top: 8%;padding-bottom:8%;">
             <input type="text" name="search" id="search"
               style="padding: 16px;font-size: 18px; border-radius: 30px; border: 2px solid #ffffff;background-color: #ffffff; width: calc(100% - 160px); max-width: 600px; display: inline-block; box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.1);"
               placeholder="Search Schools . . .">
@@ -181,7 +185,8 @@
           <h2 class="h2 section-title">Most Applied Schools</h2>
 
           <p class="section-text">
-          Ensure smooth application processing: <b>Create separate accounts for each institution,</b>then proceed to apply to each school individually.          </p>
+            Ensure smooth application processing: <b>Create separate accounts for each institution,</b>then proceed to
+            apply to each school individually. </p>
 
           <ul class="popular-list">
 
@@ -190,7 +195,7 @@
 
                 <figure class="card-img">
                   <img
-                  src="https://images.unsplash.com/photo-1613896527026-f195d5c818ed?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2Nob29sJTIwYnVpbGRpbmd8ZW58MHx8MHx8fDA%3D"
+                    src="https://images.unsplash.com/photo-1613896527026-f195d5c818ed?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2Nob29sJTIwYnVpbGRpbmd8ZW58MHx8MHx8fDA%3D"
                     alt="San miguel, italy" loading="lazy">
                 </figure>
 
@@ -337,25 +342,25 @@
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora maxime possimus numquam laboriosam
                     praesentium voluptatem? </p>
 
-                    <p>Avialable Strems</p>
+                  <p>Avialable Strems</p>
                   <ul class="card-meta-list">
                     <li class="card-meta-item">
                       <div class="meta-box">
-                      <ion-icon name="logo-react"></ion-icon>
+                        <ion-icon name="logo-react"></ion-icon>
                         <p class="text">Science</p>
                       </div>
                     </li>
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                      <ion-icon name="brush-outline"></ion-icon>                        
-                      <p class="text">Arts</p>
+                        <ion-icon name="brush-outline"></ion-icon>
+                        <p class="text">Arts</p>
                       </div>
                     </li>
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                      <ion-icon name="bar-chart-outline"></ion-icon>
+                        <ion-icon name="bar-chart-outline"></ion-icon>
                         <p class="text">Commerce</p>
                       </div>
                     </li>
@@ -414,21 +419,21 @@
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                      <ion-icon name="logo-react"></ion-icon>
+                        <ion-icon name="logo-react"></ion-icon>
                         <p class="text">Science</p>
                       </div>
                     </li>
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                      <ion-icon name="brush-outline"></ion-icon>
-                      <p class="text">Arts</p>
+                        <ion-icon name="brush-outline"></ion-icon>
+                        <p class="text">Arts</p>
                       </div>
                     </li>
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                      <ion-icon name="bar-chart-outline"></ion-icon>
+                        <ion-icon name="bar-chart-outline"></ion-icon>
                         <p class="text">Commerce</p>
                       </div>
                     </li>
@@ -480,27 +485,27 @@
 
                   <p class="card-text">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi, temporibus! </p>
-<p>Avialable Strems</p>
+                  <p>Avialable Strems</p>
 
                   <ul class="card-meta-list">
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                      <ion-icon name="logo-react"></ion-icon>
+                        <ion-icon name="logo-react"></ion-icon>
                         <p class="text">Science</p>
                       </div>
                     </li>
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                      <ion-icon name="brush-outline"></ion-icon>
-                      <p class="text">Arts</p>
+                        <ion-icon name="brush-outline"></ion-icon>
+                        <p class="text">Arts</p>
                       </div>
                     </li>
 
                     <li class="card-meta-item">
                       <div class="meta-box">
-                      <ion-icon name="bar-chart-outline"></ion-icon>
+                        <ion-icon name="bar-chart-outline"></ion-icon>
                         <p class="text">Commerce</p>
                       </div>
                     </li>
@@ -538,10 +543,11 @@
             </li>
 
           </ul>
-<p class="section-text">
-<b>NOTE :</b> (*) Application fees are managed directly by the institutions; we ensure a hands-off approach to fee details.
-</p>
-<button class="btn btn-primary">View All Packages</button>
+          <p class="section-text">
+            <b>NOTE :</b> (*) Application fees are managed directly by the institutions; we ensure a hands-off approach
+            to fee details.
+          </p>
+          <button class="btn btn-primary">View All Packages</button>
 
         </div>
       </section>
@@ -644,8 +650,8 @@
 
 
 
-<?php include 'footer.php' ?>
-  
+  <?php include 'footer.php' ?>
+
   <a href="#top" class="go-top" data-go-top>
     <ion-icon name="chevron-up-outline"></ion-icon>
   </a>

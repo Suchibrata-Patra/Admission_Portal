@@ -1,4 +1,5 @@
-<meta name="description" content="Welcome to the Class XII Admission Portal, your gateway to streamlined admissions in West Bengal. Discover top-rated higher secondary schools, simplify your application process, and secure your spot in the best institutions. Explore our user-friendly platform for hassle-free admissions today.">
+<meta name="description"
+  content="Welcome to the Class XII Admission Portal, your gateway to streamlined admissions in West Bengal. Discover top-rated higher secondary schools, simplify your application process, and secure your spot in the best institutions. Explore our user-friendly platform for hassle-free admissions today.">
 
 <footer class="footer">
 
@@ -8,7 +9,7 @@
       <div class="footer-brand">
 
         <a href="#" class="logo">
-          <img src="favicon.png" alt="Haggle logo" style="width: 15%;">
+          <img src="../favicon.png" alt="Haggle logo" style="width: 15%;">
         </a>
 
         <p class="footer-text" description="Class XII Admission Portal">

@@ -1,57 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <title>Google Search</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f1f1f1;
-    }
-    .search-container {
-      margin-top: 100px;
-      text-align: center;
-    }
-    .search-input {
-      width: 50%;
-      padding: 10px;
-      border-radius: 24px;
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: box-shadow 0.3s;
-    }
-    .search-input:focus {
-      outline: none;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .search-button {
-      background-color: #f2f2f2;
-      border: none;
-      border-radius: 24px;
-      padding: 10px 20px;
-      margin-left: -50px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .search-button:hover {
-      background-color: #e6e6e6;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search Results Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: white;
+            padding: 10px 20px;
+            box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+        }
+
+        .logo {
+            height: 34px;
+            margin-top: 8px;
+        }
+
+        .search-form {
+            margin-top: 12px;
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            box-shadow: none;
+        }
+
+        .search-result {
+            background: white;
+            padding: 12px 20px;
+            margin-top: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .search-result h3 a {
+            color: #1a0dab;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .search-result p {
+            color: #006621;
+            margin: 5px 0;
+        }
+
+        .search-result .url {
+            color: #006621;
+            font-style: normal;
+            font-size: 14px;
+        }
+
+        .container {
+            padding: 0 10px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="search-container">
-          <form action="https://www.google.com/search" method="GET">
-            <input type="text" name="q" class="search-input" placeholder="Search Google">
-            <button type="submit" class="search-button"><img src="https://www.google.com/images/icons/material/system/1x/search_black_24dp.png" alt="Search" width="20" height="20"></button>
-          </form>
+   <div class="container">
+    <header>
+      <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_92x30dp.png" alt="Google Logo" class="logo">
+      <form action="#" method="GET" class="search-form">
+          <input type="text" name="q" value="Example Query" class="search-box">
+          <button type="submit" style="position: absolute; left: -9999px">Google Search</button>
+      </form>
+    </header>
+  
+    <main>
+        <div class="search-result">
+            <h3><a href="#">Example Domain</a></h3>
+            <p class="url">https://www.example.com</p>
+            <p>Description of the first search result. This part usually contains a brief snippet from the webpage.</p>
         </div>
-      </div>
-    </div>
-  </div>
+        <div class="search-result">
+            <h3><a href="#">Another Example Domain</a></h3>
+            <p class="url">https://www.anotherexample.com</p>
+            <p>Description of the second search result. It may also include some additional text or links.</p>
+        </div>
+    </main>
+   </div>
 </body>
 </html>
