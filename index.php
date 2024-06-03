@@ -108,7 +108,7 @@
           <ul class="navbar-list">
 
             <li>
-              <a href="index.html" class="navbar-link" data-nav-link>home</a>
+              <a href="index.php" class="navbar-link" data-nav-link>home</a>
             </li>
 
             <li>
