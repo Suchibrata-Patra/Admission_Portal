@@ -254,7 +254,7 @@ mysqli_close($db);
                             style="padding-top: 1.5%; padding-bottom: 2%; display: flex; justify-content: center; align-items: center;">
                             <input type="text" name="search" id="search"
                                 style="padding: 16px; font-size: 18px; border-radius: 30px; border: 1.5px solid #588cd0; background-color: #fafafa; width: calc(100% - 160px); max-width: 600px; box-shadow: 0px 2px 5px rgba(118, 174, 224, 0.1); margin-right: 10px;"
-                                placeholder="<?php echo htmlspecialchars($search); ?>"
+                                placeholder="Search Schools. . . "
                                 value="<?php echo htmlspecialchars($search); ?>">
                                 <button type="submit"
               style="margin-left:-10%; padding: 18px 34px; font-size: 18px;border-top-right-radius: 30px;border-bottom-right-radius: 30px; background-color: #FF5A5F; color: #fff; display: inline-block; cursor: pointer; transition: background-color 0.3s ease;">Search</button>
@@ -419,108 +419,7 @@ mysqli_close($db);
 
 
 
-    <!-- 
-    - #FOOTER
-  -->
-
-    <footer class="footer">
-
-        <div class="footer-top">
-            <div class="container">
-
-                <div class="footer-brand">
-
-                    <a href="#" class="logo">
-                        <img src="./assets/images/logo.svg" alt="Tourly logo">
-                    </a>
-
-                    <p class="footer-text">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque quod laborum, atque, autem cum
-                        ex dolorum,
-                        velit in debitis mollitia magnam neque accusamus iure unde modi voluptatem officia! Assumenda,
-                        omnis.
-                    </p>
-
-                </div>
-
-                <div class="footer-contact">
-
-                    <h4 class="contact-title">Contact Us</h4>
-
-                    <p class="contact-text">
-                        Feel free to contact and reach us !!
-                    </p>
-
-                    <ul>
-
-                        <li class="contact-item">
-                            <ion-icon name="call-outline"></ion-icon>
-
-                            <a href="tel:+01123456790" class="contact-link">+01 (123) 4567 90</a>
-                        </li>
-
-                        <li class="contact-item">
-                            <ion-icon name="mail-outline"></ion-icon>
-
-                            <a href="mailto:info.tourly.com" class="contact-link">info.tourly.com</a>
-                        </li>
-
-                        <li class="contact-item">
-                            <ion-icon name="location-outline"></ion-icon>
-
-                            <address>3146 Koontz, California</address>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <div class="footer-form">
-
-                    <p class="form-text">
-                        Subscribe our newsletter for more update & news !!
-                    </p>
-
-                    <form action="" class="form-wrapper">
-                        <input type="email" name="email" class="input-field" placeholder="Enter Your Email" required>
-
-                        <button type="submit" class="btn btn-secondary">Subscribe</button>
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <div class="container">
-
-                <p class="copyright">
-                    &copy; 2022 <a href="">codewithsadee</a>. All rights reserved
-                </p>
-
-                <ul class="footer-bottom-list">
-
-                    <li>
-                        <a href="#" class="footer-bottom-link">Privacy Policy</a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="footer-bottom-link">Term & Condition</a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="footer-bottom-link">FAQ</a>
-                    </li>
-
-                </ul>
-
-            </div>
-        </div>
-
-    </footer>
-
-
+    <?php include 'footer.php' ?>
 
 
 
@@ -539,7 +438,7 @@ mysqli_close($db);
     <!-- 
     - custom js link
   -->
-    <script src="./assets/js/script.js"></script>
+    <script src="script.js"></script>
 
     <!-- 
     - ionicon link
