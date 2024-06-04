@@ -87,22 +87,13 @@ mysqli_close($db);
     <!-- 
     - favicon
   -->
-    <link rel="shortcut icon" href="favicon.png" type="image/svg+xml">
-
-    <!-- 
-    - custom css link
-  -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-
-    <!-- 
-    - google font link
-  -->
+    <link rel="shortcut icon" href="Assets/images/favicon.png" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Assets/css/style.css">
 </head>
 
 <body id="top">
@@ -419,7 +410,6 @@ mysqli_close($db);
 
 
 
-    <?php include 'footer.php' ?>
 
 
 

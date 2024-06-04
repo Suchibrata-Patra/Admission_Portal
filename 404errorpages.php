@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../Assets/css/style.css">
     <style>
         body {
             font-family: "Roboto Mono", monospace;
@@ -118,7 +118,7 @@
                                     </p>
                                 <br>
                                 <br>
-                <img src="../../offline_jerry_images.jpg" alt="Jerry Offline page Image" srcset="" style="display: block; margin: 0 auto;">
+                <img src="../Assets/images/offline_jerry_images.jpg" alt="Jerry Offline page Image" srcset="" style="display: block; margin: 0 auto;">
             </div>
         </article>
     </main>

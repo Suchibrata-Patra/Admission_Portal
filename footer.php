@@ -25,7 +25,7 @@
       <div class="container">
         <div class="footer-brand">
           <a href="#" class="logo">
-            <img src="../favicon.png" alt="Haggle logo" style="width: 15%;">
+            <img src="../Assets/images/favicon.png" alt="Haggle logo" style="width: 15%;">
           </a>
           <p class="footer-text" description="Class XII Admission Portal">
             Welcome to the Common Higher Secondary Admission Portal for students in West Bengal. Our platform simplifies
