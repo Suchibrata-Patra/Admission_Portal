@@ -1,0 +1,20 @@
+# The following Files arethe main Files
+Complete_List.php [Want to Rank in Search Engines and want to crawl the search Engines regularly]
+database.php[Dont want to Rank in Searh Engines at all]
+footer.php[Want to Rank in Search Engines]
+index.php [Want to Rank in Search Engines and Engines Should Crawk This Regularly]
+privacy_policy.php[Want to Rank by Search Engines and Should Crawl it regularly]
+terms_and_conditions.php [Want to Rank by Search Engines and Should Crawl it regularly]
+
+# This is the folders and each folder Contains index.php file
+9475755847 (This is a folder )
+|
+|-->index.php
+
+9475755848 (This is also a folder)
+|
+|-->index.php
+
+
+# This is also two examples of folder like (9475755847 and 9475755848) there will be tons of folders like these numerical values...
+# Now write down the sitemap.php such that it makes best SEo practises 
