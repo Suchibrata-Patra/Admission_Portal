@@ -1,3 +1,4 @@
+<?php include ('favicon.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,6 @@
     <meta name="keywords" content="Educational Institution, Online Admission Portal, Class 11 Admissions, Admission Process, Top Ranking, SEO Ranking, School Admissions, College Admissions, University Admissions, Online Application, Admission Form, Entrance Exams, Academic Programs, Student Enrollment, Registration Process, Admission Requirements, Application Deadline, Admission Fees, Admission Criteria, Admission Notifications">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haggle</title>
-    <link rel="shortcut icon" href="favicon.png" type="image/svg+xml">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../../../../Assets/css/style.css">
+    <link rel="stylesheet" href="../../../../../Assets/css/style.css">
     <style>
         body {
             font-family: "Roboto Mono", monospace;
@@ -114,18 +114,17 @@
                 <p style="font-size: 40px;">404 Page Not Found</p>
                 <p style="margin-top: 20px;">
                     <center>
-                        <a href="index.php" style="background-color: #3b79c9; color: white; padding: 10px; border-radius: 40px; width: 60%; max-width: 300px;">Go to Homepage</a>
+                        <a href="../index.php" style="background-color: #3b79c9; color: white; padding: 10px; border-radius: 40px; width: 60%; max-width: 300px;">Go to Homepage</a>
                     </center>
                                     </p>
                                 <br>
                                 <br>
-                <img src="../../../../Assets/images/offline_jerry_images.jpg" alt="Jerry Offline page Image" srcset="" style="display: block; margin: 0 auto;">
+                <img src="../../Assets/images/offline_jerry_images.jpg" alt="Jerry Offline page Image" srcset="" style="display: block; margin: 0 auto;">
             </div>
         </article>
     </main>
     
     
-    <?php include 'footer.php' ?>
     <a href="#top" class="go-top" data-go-top>
         <ion-icon name="chevron-up-outline"></ion-icon>
     </a>

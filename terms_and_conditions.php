@@ -1,3 +1,5 @@
+<?php include ('favicon.php') ?>
+<?php include ('header.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +9,6 @@
     <meta name="keywords" content="Educational Institution, Online Admission Portal, Class 11 Admissions, Admission Process, Top Ranking, SEO Ranking, School Admissions, College Admissions, University Admissions, Online Application, Admission Form, Entrance Exams, Academic Programs, Student Enrollment, Registration Process, Admission Requirements, Application Deadline, Admission Fees, Admission Criteria, Admission Notifications">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haggle</title>
-    <link rel="shortcut icon" href="favicon.png" type="image/svg+xml">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +25,7 @@
 </head>
 
 <body id="top">
-    <header class="header" data-header>
+    <!-- <header class="header" data-header>
         <div class="overlay" data-overlay></div>
         <div class="header-top">
             <div class="container">
@@ -103,7 +104,7 @@
                 <button class="btn btn-primary">Apply</button>
             </div>
         </div>
-    </header>
+    </header> -->
     <main>
         <article>
             <section class="popular" id="destination" style="margin-top: 1%;">

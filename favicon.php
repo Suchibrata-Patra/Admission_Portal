@@ -1,0 +1,1 @@
+<link rel="shortcut icon" href="../Assets/images/favicon.png" type="image/svg+xml">

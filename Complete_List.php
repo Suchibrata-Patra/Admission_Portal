@@ -1,3 +1,4 @@
+<?php include ('favicon.php') ?>
 <?php
 include 'database.php';
 

@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduHome - Education Is About Academic Excellence</title>
+  <title>DHBSSPV</title>
 
   <!-- 
     - favicon
   -->
-  <link rel="shortcut icon" href="Site/Template_1/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="../Assets/images/favicon.png" type="image/svg+xml">
 
   <!-- 
     - custom css link
@@ -34,82 +34,10 @@
 
 <body id="top">
 
-  <!-- 
-    - #HEADER
-  -->
-
-  <header class="header" data-header>
-    <div class="container">
-
-      <h1>
-        <img src="assets/images/School_logo.png" alt="Diamond Harbour Bharat Sevasram Sangha Pranab Vidyapith" style="height: 50%;">
-      </h1>
-
-      <nav class="navbar" data-navbar>
-
-        <div class="navbar-top">
-          <a href="#" class="logo">EduHome</a>
-
-          <button class="nav-close-btn" aria-label="Close menu" data-nav-toggler>
-            <ion-icon name="close-outline"></ion-icon>
-          </button>
-        </div>
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <a href="#home" class="navbar-link" data-nav-toggler>Home</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#about" class="navbar-link" data-nav-toggler>About</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#courses" class="navbar-link" data-nav-toggler>Courses</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#event" class="navbar-link" data-nav-toggler>Event</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#" class="navbar-link" data-nav-toggler>Blog</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#" class="navbar-link" data-nav-toggler>Contact</a>
-          </li>
-
-        </ul>
-
-      </nav>
-
-      <div class="header-actions">
-
-        <button class="header-action-btn" aria-label="Open search" data-search-toggler>
-          <ion-icon name="search-outline"></ion-icon>
-        </button>
-
-        <a href="#" class="header-action-btn login-btn">
-          <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-
-          <span class="span">Login / Register</span>
-        </a>
-
-        <button class="header-action-btn nav-open-btn" aria-label="Open menu" data-nav-toggler>
-          <ion-icon name="menu-outline"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="overlay" data-nav-toggler data-overlay></div>
-
-    </div>
-  </header>
 
 
-
+<!-- # HEADER -->
+<?php include('site_header.php') ?>
 
 
   <!-- 
@@ -150,12 +78,12 @@
 
           <div class="hero-content">
 
-            <p class="section-subtitle">Better Learning Future With Us</p>
+            <p class="section-subtitle">Diamond Harbour Bharat Sevasram Sangha Pranab Vidyapith</p>
 
             <h2 class="h1 hero-title">Education Is About Academic Excellence</h2>
 
             <p class="hero-text">
-              Sed eu volutpat arcu, a tincidunt nulla quam, feugiat sit amet ipsum a, dapibus porta velit.
+              This is Our Landing Page For Online Admission
             </p>
 
             <a href="#" class="btn btn-primary">
@@ -662,6 +590,7 @@
                       <time datetime="PT18H15M44S" class="card-meta-text">18h 15m 44s</time>
                     </li>
 
+
                   </ul>
 
                   <h3 class="h3">
@@ -1145,212 +1074,7 @@
   <!-- 
     - #FOOTER
   -->
-
-  <footer class="footer">
-    <div class="container">
-
-      <div class="footer-top">
-
-        <div class="footer-brand">
-
-          <a href="#" class="logo">EduHome</a>
-
-          <p class="section-text">
-            It is a long established fact that a reader will be distracted by the readable content of a page when
-            looking at its
-            layout. The point of using Lorem Ipsum.
-          </p>
-
-          <ul class="social-list">
-
-            <li>
-              <a href="#" class="social-link">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="social-link">
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="social-link">
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="social-link">
-                <ion-icon name="logo-pinterest"></ion-icon>
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-
-        <ul class="footer-list">
-
-          <li>
-            <p class="footer-list-title">Explore</p>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">
-              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
-
-              <span class="span">About Us</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">
-              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
-
-              <span class="span">Upcoming Events</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">
-              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
-
-              <span class="span">Blog & News</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">
-              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
-
-              <span class="span">FAQ Question</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">
-              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
-
-              <span class="span">Testimonial</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">
-              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
-
-              <span class="span">Privacy Policy</span>
-            </a>
-          </li>
-
-        </ul>
-
-        <ul class="footer-list">
-
-          <li>
-            <p class="footer-list-title">Useful Links</p>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">
-              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
-
-              <span class="span">Contact Us</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">
-              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
-
-              <span class="span">Pricing Plan</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">
-              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
-
-              <span class="span">Instructor Profile</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">
-              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
-
-              <span class="span">FAQ</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">
-              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
-
-              <span class="span">Popular Courses</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">
-              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
-
-              <span class="span">Terms & Conditions</span>
-            </a>
-          </li>
-
-        </ul>
-
-        <ul class="footer-list">
-
-          <li>
-            <p class="footer-list-title">Contact Info</p>
-          </li>
-
-          <li class="footer-item">
-            <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-
-            <address class="footer-link">
-              275 Quadra Street Victoria Road, New York
-            </address>
-          </li>
-
-          <li class="footer-item">
-            <ion-icon name="call" aria-hidden="true"></ion-icon>
-
-            <a href="tel:+13647657839" class="footer-link">+ 1 (364) 765-7839</a>
-          </li>
-
-          <li class="footer-item">
-            <ion-icon name="call" aria-hidden="true"></ion-icon>
-
-            <a href="tel:+13647657840" class="footer-link">+ 1 (364) 765-7840</a>
-          </li>
-
-          <li class="footer-item">
-            <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-
-            <a href="mailto:contact@eduhome.com" class="footer-link">contact@eduhome.com</a>
-          </li>
-
-        </ul>
-
-      </div>
-
-      <div class="footer-bottom">
-        <p class="copyright">
-          Copyright 2022 EduHome. All Rights Reserved by <a href="#" class="copyright-link">codewithsadee</a>
-        </p>
-      </div>
-
-    </div>
-  </footer>
-
-
-
-
+ <?php include('site_footer.php') ?>
 
   <!-- 
     - #BACK TO TOP
