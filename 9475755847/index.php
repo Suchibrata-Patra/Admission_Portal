@@ -15,7 +15,7 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 
   <!-- 
     - google font link
@@ -33,6 +33,7 @@
 </head>
 
 <body id="top">
+
 <!-- # HEADER -->
 <?php include('site_header.php') ?>
 
@@ -1089,7 +1090,8 @@
   <!-- 
     - custom js link
   -->
-  <script src="./assets/js/script.js" defer></script>
+  <script src="../assets/js/script.js" defer></script>
+  <link rel="stylesheet" href="./assets/css/style.css">
 
   <!-- 
     - ionicon link
