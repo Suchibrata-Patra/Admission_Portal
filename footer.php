@@ -65,13 +65,13 @@
               <a href="index.php" class="contact-link">Home</a>
             </li>
             <li class="contact-item">
-              <a href="privacy_policy.php" class="contact-link">Privacy Policy</a>
+              <a href="../../privacy_policy.php" class="contact-link">Privacy Policy</a>
             </li>
             <li class="contact-item">
-              <a href="Complete_List.php" class="contact-link">Search Results</a>
+              <a href="../../Complete_List.php" class="contact-link">Search Results</a>
             </li>
             <li class="contact-item">
-              <a href="terms_and_conditions.php" class="contact-link">Terms & Conditions</a>
+              <a href="../../terms_and_conditions.php" class="contact-link">Terms & Conditions</a>
             </li>
           </ul>
         </div>
