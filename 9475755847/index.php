@@ -15,7 +15,7 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 
   <!-- 
     - google font link
@@ -33,9 +33,6 @@
 </head>
 
 <body id="top">
-
-
-
 <!-- # HEADER -->
 <?php include('site_header.php') ?>
 
@@ -307,11 +304,17 @@
 
           <figure class="about-banner">
 
-            <img src="./assets/images/about-banner.jpg" width="450" height="590" loading="lazy" alt="about banner"
+            <img src="https://images.unsplash.com/photo-1630239037684-0753a96a082f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width="450" height="590" loading="lazy" alt="about banner"
               class="w-100 about-img">
+            <!-- <img src="./assets/images/about-banner.jpg" width="450" height="590" loading="lazy" alt="about banner"
+              class="w-100 about-img"> -->
 
-            <img src="./assets/images/about-abs-1.jpg" width="188" height="242" loading="lazy" aria-hidden="true"
+            <!-- <img src="https://images.unsplash.com/photo-1529158062015-cad636e205a0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D" width="188" height="242" loading="lazy" aria-hidden="true"
+              class="abs-img abs-img-1"> -->
+           
+           <img src="./assets/images/about-abs-1.jpg" width="188" height="242" loading="lazy" aria-hidden="true"
               class="abs-img abs-img-1">
+          
 
             <img src="./assets/images/about-abs-2.jpg" width="150" height="200" loading="lazy" aria-hidden="true"
               class="abs-img abs-img-2">
@@ -320,9 +323,9 @@
 
           <div class="about-content">
 
-            <p class="section-subtitle">Who We Are</p>
+            <p class="section-subtitle">Institution Details</p>
 
-            <h2 class="h2 section-title">We Offer The Best Carrier</h2>
+            <h2 class="h2 section-title">What we Do</h2>
 
             <ul class="about-list">
 
@@ -333,11 +336,10 @@
                 </div>
 
                 <div>
-                  <h3 class="h3 item-title">Industry Expert Instructor</h3>
+                  <h3 class="h3 item-title">SR and Phillanthropy</h3>
 
                   <p class="item-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmoded tempor incididunt dolore magna
-                    aliqua.
+                  It aims at helping the distressed, nursing the sick, feeding the hungry and clothing the naked. It has always pioneered the holy task of giving necessary relief to the afflicted people during natural calamities.
                   </p>
                 </div>
 
@@ -350,11 +352,10 @@
                 </div>
 
                 <div>
-                  <h3 class="h3 item-title">Up-to-Date Course Content</h3>
+                  <h3 class="h3 item-title">Best Educational Content</h3>
 
                   <p class="item-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmoded tempor incididunt dolore magna
-                    aliqua.
+                  It also endeavours to provide educational facilities to the suffering humanity in general.
                   </p>
                 </div>
 
@@ -370,8 +371,7 @@
                   <h3 class="h3 item-title">Biggest Student Community</h3>
 
                   <p class="item-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmoded tempor incididunt dolore magna
-                    aliqua.
+                  It maintains, administers and assists free educational and medical institutions and other charitable societies. It considers to foster the moral, spiritual and cultural heritage of India as one of its mission.
                   </p>
                 </div>
 
@@ -891,9 +891,7 @@
             <h2 class="h2 section-title">Join Our Free Workshops</h2>
 
             <p class="section-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit amet, consect adipi scing elit, sed do
-              eiusmod tempor
-              incididunt ut sed do eiusmod tempor incididunt ut labore et dolore aliqua.
+            It also endeavours to provide educational facilities to the suffering humanity in general.
             </p>
 
             <a href="#" class="btn btn-secondary">

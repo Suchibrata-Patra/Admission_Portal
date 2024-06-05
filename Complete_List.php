@@ -440,3 +440,4 @@ mysqli_close($db);
 </body>
 
 </html>
+<?php include ('footer.php') ?>
