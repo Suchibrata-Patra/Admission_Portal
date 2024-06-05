@@ -1090,8 +1090,8 @@
   <!-- 
     - custom js link
   -->
-  <script src="../assets/js/script.js" defer></script>
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="./Assets/js/script.js" defer></script>
+  <link rel="stylesheet" href="./Assets/css/style.css">
 
   <!-- 
     - ionicon link
