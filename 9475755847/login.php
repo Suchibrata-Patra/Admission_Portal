@@ -125,7 +125,14 @@ if (isset($_POST['login_user'])) {
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
+                        <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="showPasswordCheck">
+                                                    <label class="form-check-label" for="showPasswordCheck">
+                                                        Show Password
+                                                    </label>
+                                                </div>
                     </div>
+                    
                     <button type="submit" class="btn btn-primary" name="login_user">Login</button>
                     <div class="signup-link">
                         <a href="signup.php">New Here? Sign Up</a>
@@ -136,5 +143,15 @@ if (isset($_POST['login_user'])) {
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+         document.getElementById('showPasswordCheck').addEventListener('click', function() {
+            var passwordInput = document.getElementById('exampleInputPassword1');
+            if (this.checked) {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+    </script>
 </body>
 </html>

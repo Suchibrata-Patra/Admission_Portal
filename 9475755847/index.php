@@ -121,23 +121,22 @@
 
           <p class="section-subtitle">Course Categories</p>
 
-          <h2 class="h2 section-title">Popular Topics To Learn</h2>
+          <h2 class="h2 section-title"> Streams We Offer </h2>
 
           <ul class="grid-list">
-
             <li>
               <div class="category-card">
 
                 <div class="card-icon">
-                  <ion-icon name="briefcase-outline"></ion-icon>
+                <ion-icon name="logo-react"></ion-icon>
                 </div>
 
                 <div>
                   <h3 class="h3 card-title">
-                    <a href="#">Personal Development</a>
+                    <a href="#">Science</a>
                   </h3>
 
-                  <span class="card-meta">39 Course</span>
+                  <span class="card-meta">5 Subjects</span>
                 </div>
 
               </div>
@@ -147,15 +146,15 @@
               <div class="category-card">
 
                 <div class="card-icon">
-                  <ion-icon name="file-tray-full-outline"></ion-icon>
+                <ion-icon name="brush-outline"></ion-icon>
                 </div>
 
                 <div>
                   <h3 class="h3 card-title">
-                    <a href="#">Human Research</a>
+                    <a href="#">Arts</a>
                   </h3>
 
-                  <span class="card-meta">24 Course</span>
+                  <span class="card-meta">6 Subjects Course</span>
                 </div>
 
               </div>
@@ -165,123 +164,15 @@
               <div class="category-card">
 
                 <div class="card-icon">
-                  <ion-icon name="color-palette-outline"></ion-icon>
+                <ion-icon name="bar-chart-outline"></ion-icon>
                 </div>
 
                 <div>
                   <h3 class="h3 card-title">
-                    <a href="#">Art & Design</a>
+                    <a href="#">Commerce</a>
                   </h3>
 
-                  <span class="card-meta">39 Course</span>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="category-card">
-
-                <div class="card-icon">
-                  <ion-icon name="layers-outline"></ion-icon>
-                </div>
-
-                <div>
-                  <h3 class="h3 card-title">
-                    <a href="#">Business Management</a>
-                  </h3>
-
-                  <span class="card-meta">39 Course</span>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="category-card">
-
-                <div class="card-icon">
-                  <ion-icon name="laptop-outline"></ion-icon>
-                </div>
-
-                <div>
-                  <h3 class="h3 card-title">
-                    <a href="#">Web Development</a>
-                  </h3>
-
-                  <span class="card-meta">39 Course</span>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="category-card">
-
-                <div class="card-icon">
-                  <ion-icon name="thumbs-up-outline"></ion-icon>
-                </div>
-
-                <div>
-                  <h3 class="h3 card-title">
-                    <a href="#">Lifestyle</a>
-                  </h3>
-
-                  <span class="card-meta">39 Course</span>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="category-card">
-
-                <div class="card-icon">
-                  <ion-icon name="headset-outline"></ion-icon>
-                </div>
-
-                <div>
-                  <h3 class="h3 card-title">
-                    <a href="#">Digital Marketing</a>
-                  </h3>
-
-                  <span class="card-meta">39 Course</span>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="category-card">
-
-                <div class="card-icon">
-                  <ion-icon name="server-outline"></ion-icon>
-                </div>
-
-                <div>
-                  <h3 class="h3 card-title">
-                    <a href="#">Data Sciences</a>
-                  </h3>
-
-                  <span class="card-meta">39 Course</span>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="category-card">
-
-                <div class="card-icon">
-                  <ion-icon name="medkit-outline"></ion-icon>
-                </div>
-
-                <div>
-                  <h3 class="h3 card-title">
-                    <a href="#">Health & Fitness</a>
-                  </h3>
-
-                  <span class="card-meta">39 Course</span>
+                  <span class="card-meta">5 Subjects</span>
                 </div>
 
               </div>
@@ -917,9 +808,9 @@
       <section class="section event" id="event" aria-label="event">
         <div class="container">
 
-          <p class="section-subtitle">Upcomming Event</p>
+          <p class="section-subtitle">Upates and Newsroom</p>
 
-          <h2 class="h2 section-title">Let’s Join Our Community</h2>
+          <h2 class="h2 section-title">Our Acheievments</h2>
 
           <ul class="grid-list">
 
@@ -938,15 +829,15 @@
                   <address class="card-address">
                     <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
 
-                    <span class="span">Alpaca Way Anaheim, CA 92805</span>
+                    <span class="span">West Bengal, India</span>
                   </address>
 
                   <h3 class="h3">
-                    <a href="#" class="card-title">Innovation & Technological Entrepreneurship Team</a>
+                    <a href="#" class="card-title">State Rank Holder in West Bengal </a>
                   </h3>
 
                   <a href="#" class="btn-link">
-                    <span class="span">Get Ticket</span>
+                    <span class="span">Know More</span>
 
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                   </a>
@@ -971,7 +862,7 @@
                   <address class="card-address">
                     <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
 
-                    <span class="span">Ritter Avenue Detroit, MI 48226</span>
+                    <span class="span">West Bengal,India</span>
                   </address>
 
                   <h3 class="h3">
@@ -979,7 +870,7 @@
                   </h3>
 
                   <a href="#" class="btn-link">
-                    <span class="span">Get Ticket</span>
+                    <span class="span">Know More</span>
 
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                   </a>
@@ -1004,7 +895,7 @@
                   <address class="card-address">
                     <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
 
-                    <span class="span">Stout Street York, PA 17401</span>
+                    <span class="span">West Bengal,India</span>
                   </address>
 
                   <h3 class="h3">
@@ -1012,7 +903,7 @@
                   </h3>
 
                   <a href="#" class="btn-link">
-                    <span class="span">Get Ticket</span>
+                    <span class="span">Know More</span>
 
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                   </a>

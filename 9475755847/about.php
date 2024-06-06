@@ -10,12 +10,12 @@
   <!-- 
     - favicon
   -->
-  <link rel="shortcut icon" href="../Assets/images/favicon.png" type="image/svg+xml">
+  <link rel="shortcut icon" href="/../Assets/images/favicon.png" type="image/svg+xml">
 
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./Assets/css/style.css">
 
   <!-- 
     - google font link
@@ -27,9 +27,9 @@
   <!-- 
     - preload images
   -->
-  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
-  <link rel="preload" as="image" href="./assets/images/hero-abs-1.png" media="min-width(768px)">
-  <link rel="preload" as="image" href="./assets/images/hero-abs-2.png" media="min-width(768px)">
+  <link rel="preload" as="image" href="./Assets/images/hero-banner.png">
+  <link rel="preload" as="image" href="./Assets/images/hero-abs-1.png" media="min-width(768px)">
+  <link rel="preload" as="image" href="./Assets/images/hero-abs-2.png" media="min-width(768px)">
 </head>
 
 <body id="top">
@@ -52,36 +52,28 @@
       <h2 class="h2 section-title">About Us</h2>
       <p style="text-align: justify;">
 
-        Welcome to DHBSSPV, where education meets excellence and every student’s potential is nurtured.
-        Established in [Year], our school has been a beacon of knowledge, innovation, and holistic development. Located
-        in the heart of Diamond Harbour, we pride ourselves on creating a vibrant, inclusive, and dynamic learning
-        environment.
+      <p style="text-align: justify; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; margin: 20px;">
+    Welcome to DHBSSPV, where education meets excellence and every student’s potential is nurtured. Established in [Year], our school has been a beacon of knowledge, innovation, and holistic development. Located in the heart of Diamond Harbour, we pride ourselves on creating a vibrant, inclusive, and dynamic learning environment.
+</p>
+<p style="text-align: justify; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; margin: 20px;">
+    At DHBSSPV, our mission is to empower students with a well-rounded education that not only focuses on academic excellence but also emphasizes character development, critical thinking, and creativity. We believe that every child is unique and capable of achieving great things with the right guidance and support.
+</p>
+<p style="text-align: justify; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; margin: 20px;">
+    Our experienced and dedicated faculty are the cornerstone of our institution. They are committed to providing a high-quality education that inspires a lifelong love of learning. With a student-centered approach, they foster an environment where curiosity is encouraged, and every student is motivated to reach their full potential.
+</p>
+<p style="text-align: justify; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; margin: 20px;">
+    We offer a comprehensive curriculum that is designed to challenge and engage students at every level. From our rigorous academic programs to our diverse extracurricular activities, we ensure that our students are well-prepared for the future. Our state-of-the-art facilities, including modern classrooms, science labs, a library, sports complexes, and art studios, provide an ideal setting for learning and growth.
+</p>
+<p style="text-align: justify; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; margin: 20px;">
+    Community involvement and social responsibility are integral parts of our ethos. We encourage our students to be active participants in their community and to develop a sense of empathy and responsibility towards others. Through various community service projects and environmental initiatives, our students learn the importance of giving back and making a positive impact on the world.
+</p>
+<p style="text-align: justify; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; margin: 20px;">
+    At DHBSSPV, we are more than just a school; we are a family. We value the partnerships we build with parents, guardians, and the wider community. Together, we work towards a common goal of nurturing well-rounded individuals who are ready to take on the challenges of the future with confidence and resilience.
+</p>
+<p style="text-align: justify; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; margin: 20px;">
+    Thank you for considering DHBSSPV as a place for your child’s education. We invite you to visit our campus, meet our faculty, and experience the vibrant community that makes our school truly special. Join us in our journey of fostering excellence and shaping the leaders of tomorrow.
+</p>
 
-        At DHBSSPV, our mission is to empower students with a well-rounded education that not only focuses on
-        academic excellence but also emphasizes character development, critical thinking, and creativity. We believe
-        that every child is unique and capable of achieving great things with the right guidance and support.
-
-        Our experienced and dedicated faculty are the cornerstone of our institution. They are committed to providing a
-        high-quality education that inspires a lifelong love of learning. With a student-centered approach, they foster
-        an environment where curiosity is encouraged, and every student is motivated to reach their full potential.
-
-        We offer a comprehensive curriculum that is designed to challenge and engage students at every level. From our
-        rigorous academic programs to our diverse extracurricular activities, we ensure that our students are
-        well-prepared for the future. Our state-of-the-art facilities, including modern classrooms, science labs, a
-        library, sports complexes, and art studios, provide an ideal setting for learning and growth.
-
-        Community involvement and social responsibility are integral parts of our ethos. We encourage our students to be
-        active participants in their community and to develop a sense of empathy and responsibility towards others.
-        Through various community service projects and environmental initiatives, our students learn the importance of
-        giving back and making a positive impact on the world.
-
-        At DHBSSPV, we are more than just a school; we are a family. We value the partnerships we build with
-        parents, guardians, and the wider community. Together, we work towards a common goal of nurturing well-rounded
-        individuals who are ready to take on the challenges of the future with confidence and resilience.
-
-        Thank you for considering DHBSSPV as a place for your child’s education. We invite you to visit our
-        campus, meet our faculty, and experience the vibrant community that makes our school truly special. Join us in
-        our journey of fostering excellence and shaping the leaders of tomorrow.
       </p>
       <br>
 
@@ -93,7 +85,7 @@
       -->
 
   <section class="section newsletter" aria-label="newsletter"
-    style="background-image: url('./assets/images/newsletter-bg.jpg')">
+    style="background-image: url('./Assets/images/newsletter-bg.jpg')">
     <div class="container">
 
       <p class="section-subtitle">Subscribe Newsletter</p>
@@ -147,7 +139,7 @@
   <!-- 
     - custom js link
   -->
-  <script src="./assets/js/script.js" defer></script>
+  <script src="./Assets/js/script.js" defer></script>
 
   <!-- 
     - ionicon link

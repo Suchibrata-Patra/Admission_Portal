@@ -94,7 +94,7 @@ mysqli_close($db);
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="Assets/css/style.css">
+    <link rel="stylesheet" href="/Assets/css/style.css">
 </head>
 
 <body id="top">
@@ -184,7 +184,7 @@ mysqli_close($db);
                     <ul class="navbar-list">
 
                         <li>
-                            <a href="index.php" class="navbar-link" data-nav-link>home</a>
+                            <a href="/index.php" class="navbar-link" data-nav-link>home</a>
                         </li>
 
                         <li>

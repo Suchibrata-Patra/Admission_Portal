@@ -26,7 +26,7 @@
           </li>
 
           <li class="navbar-item">
-            <a href="#courses" class="navbar-link" data-nav-toggler>Admission</a>
+            <a href="admission.php" class="navbar-link" data-nav-toggler>Admission</a>
           </li>
 
           <li class="navbar-item">
@@ -34,7 +34,7 @@
           </li>
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link" data-nav-toggler>Blog</a>
+            <a href="#" class="navbar-link" data-nav-toggler>Faculties</a>
           </li>
 
           <li class="navbar-item">

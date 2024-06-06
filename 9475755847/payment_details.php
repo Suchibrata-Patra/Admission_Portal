@@ -22,12 +22,9 @@ if ($user['numberVerify'] == 0) {
 echo $registration_no;
 // Debugging statement
 echo $user['institution_fees_payment_done'];
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,6 +77,7 @@ echo $user['institution_fees_payment_done'];
 </head>
 
 <body>
+  
   <div class="jumbotron jumbotron-fluid jumbotron-custom">
     <div class="container">
       <h1 class="display-4">Payment Details</h1>
