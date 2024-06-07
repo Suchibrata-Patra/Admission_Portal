@@ -1,3 +1,4 @@
+<?php
 require 'database.php' ;
 require 'super_admin.php';
 $table_name = $udise_code . '_HOI_Login_Credentials';
