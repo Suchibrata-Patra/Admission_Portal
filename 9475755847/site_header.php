@@ -51,7 +51,7 @@
           <ion-icon name="search-outline"></ion-icon>
         </button>
 
-        <a href="login.php" class="header-action-btn login-btn">
+        <a href="./HOI_signin/HOI_Logout.php" class="header-action-btn login-btn">
           <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
 
           <span class="span">Login / Register</span>

@@ -57,6 +57,8 @@ if (isset($_POST['login_user'])) {
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./Assets/css/style.css">
+
 
     <title>Login</title>
     <script>
@@ -68,7 +70,8 @@ if (isset($_POST['login_user'])) {
             font-family: Arial, sans-serif; /* Standard font */
         }
         .login-container {
-            margin-top: 50px;
+            margin-top: 120px;
+            margin-bottom:120px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
             border-radius: 10px; /* Rounded corners */
             padding: 30px; /* Padding for spacing */
@@ -111,6 +114,8 @@ if (isset($_POST['login_user'])) {
     </style>
 </head>
 <body>
+<?php include('site_header.php') ?>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 login-container">
@@ -153,5 +158,25 @@ if (isset($_POST['login_user'])) {
             }
         });
     </script>
+    <?php include('site_footer.php') ?>
+
+<!-- 
+  - #BACK TO TOP
+  -->
+
+<a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+  <ion-icon name="arrow-up"></ion-icon>
+</a>
+<script src="./Assets/js/script.js" defer></script>
+
+<!-- Optional JavaScript; choose one of the two! -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

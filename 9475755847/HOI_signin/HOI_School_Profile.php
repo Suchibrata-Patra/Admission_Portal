@@ -1,77 +1,115 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-require 'HOI_session.php';
-require 'HOI_super_admin.php';
+// Ensure errors are not displayed to users
+ini_set('display_errors', 0);
+error_reporting(0);
 
+// Include session handling and super admin functionality
+require_once 'HOI_session.php';
+require_once 'HOI_super_admin.php';
+
+// Ensure UDISE code and ID are set, otherwise terminate execution
 if (!isset($udise_code) || !isset($udiseid)) {
-    die("UDISE code and ID must be set");
+    die("Unauthorized access.");
 }
 
+// Define table names
 $table_name = $udise_code . '_HOI_Login_Credentials';
 $Subject_table_name = $udise_code . '_Subject_Details';
 
-// Directory where merit lists are uploaded
+// Define upload directory for merit lists
 $upload_dir = "Merit_Lists";
 
-// Handle file deletion
-if (isset($_POST['delete']) && isset($_POST['filename'])) {
-    $filename = $upload_dir . '/' . $_POST['filename'];
-    if (file_exists($filename)) {
-        unlink($filename); // Delete the file
-        // echo "File deleted successfully.";
-    } else {
-        // echo "File does not exist.";
+// Function to securely delete a file
+function secure_delete_file($filename) {
+    $filename = realpath($filename); // Ensure the filename is absolute
+    if (strpos($filename, $upload_dir) === 0 && file_exists($filename)) {
+        unlink($filename); // Only delete files in upload directory
     }
 }
 
+// Handle file deletion securely
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete']) && isset($_POST['filename'])) {
+    secure_delete_file($upload_dir . '/' . $_POST['filename']);
+}
+
+// Function to securely move uploaded file
+function secure_upload_file($file, $target_dir, $target_filename) {
+    $file_type = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+    $target_file = $target_dir . '/' . $target_filename;
+
+    // Validate file type and move uploaded file
+    if ($file_type === 'pdf' && move_uploaded_file($file['tmp_name'], $target_file)) {
+        return $target_file; // Return path to uploaded file
+    } else {
+        return false; // Upload failed
+    }
+}
+
+// Handle file upload securely
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['merit_list_pdf'])) {
-    $file_type = strtolower(pathinfo($_FILES['merit_list_pdf']['name'], PATHINFO_EXTENSION));
+    $i = 1;
+    do {
+        $target_filename = $udise_code . "_meritlist_" . $i . ".pdf";
+        $i++;
+    } while (file_exists($upload_dir . '/' . $target_filename));
 
-    if ($file_type != 'pdf') {
-        echo "Only PDF files are allowed.";
+    $uploaded_file = secure_upload_file($_FILES['merit_list_pdf'], $upload_dir, $target_filename);
+    if ($uploaded_file) {
+        echo "The file has been uploaded as " . htmlspecialchars(basename($uploaded_file)) . ".";
+        header("Location: " . $_SERVER['REQUEST_URI']);
+        exit;
     } else {
-        $i = 1;
-        do {
-            $target_file = $upload_dir . "/$udise_code" . "_meritlist_" . $i . ".pdf";
-            $i++;
-        } while (file_exists($target_file));
-
-        if (move_uploaded_file($_FILES['merit_list_pdf']['tmp_name'], $target_file)) {
-            echo "The file has been uploaded as " . htmlspecialchars(basename($target_file)) . ".";
-            header("Location: " . $_SERVER['REQUEST_URI']);
-            exit;
-        } else {
-            // echo "Sorry, there was an error uploading your file.";
-        }
+        echo "Sorry, there was an error uploading your file.";
     }
 }
 
-$current_files = scandir($upload_dir);
-
-// Handle profile update
+// Load and save profile data securely
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['profile_update'])) {
-    $school_name = $_POST['school_name'];
-    $address = $_POST['address'];
-    $contact_number = $_POST['contact_number'];
-    $principal_name = $_POST['principal_name'];
+    // Validate and sanitize input data
+    $school_name = filter_var($_POST['school_name'], FILTER_SANITIZE_STRING);
+    $address = filter_var($_POST['address'], FILTER_SANITIZE_STRING);
+    $contact_number = filter_var($_POST['contact_number'], FILTER_SANITIZE_STRING);
+    $principal_name = filter_var($_POST['principal_name'], FILTER_SANITIZE_STRING);
+    $first_merit_list_date = $_POST['first_merit_list_date']; // Validate format on client side
+    $admission_starts_date = $_POST['admission_starts_date']; // Validate format on client side
+    $last_admission_date = $_POST['last_admission_date']; // Validate format on client side
+    $second_merit_list_date = isset($_POST['second_merit_list_date']) ? $_POST['second_merit_list_date'] : null;
 
-    // Save profile data to a file (you can use a database in real application)
+    // Save profile data to a JSON file
     $profile_data = [
         'school_name' => $school_name,
         'address' => $address,
         'contact_number' => $contact_number,
         'principal_name' => $principal_name,
+        'first_merit_list_date' => $first_merit_list_date,
+        'admission_starts_date' => $admission_starts_date,
+        'last_admission_date' => $last_admission_date,
+        'second_merit_list_date' => $second_merit_list_date
     ];
-    file_put_contents($udise_code . '_profile_data.json', json_encode($profile_data));
+
+    // Encode and save profile data to JSON file
+    $json_data = json_encode($profile_data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    if ($json_data !== false) {
+        $json_file = $udise_code . '_profile_data.json';
+        file_put_contents($json_file, $json_data, LOCK_EX); // Lock file for exclusive writing
+    } else {
+        echo "Failed to encode profile data.";
+    }
 }
 
-// Load profile data
+// Load profile data securely
 $profile_data = [];
-if (file_exists($udise_code . '_profile_data.json')) {
-    $profile_data = json_decode(file_get_contents($udise_code . '_profile_data.json'), true);
+$json_file = $udise_code . '_profile_data.json';
+if (file_exists($json_file)) {
+    $json_data = file_get_contents($json_file);
+    $profile_data = json_decode($json_data, true);
+    if ($profile_data === null) {
+        echo "Error decoding profile data.";
+        $profile_data = []; // Reset to empty array
+    }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -218,8 +256,35 @@ if (file_exists($udise_code . '_profile_data.json')) {
 
         <!-- MAIN -->
         <main>
+    <div class="container">
+        <h2>School Profile Update</h2>
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            
+            <div class="form-group">
+                <label for="first_merit_list_date">1st Merit List Date:</label>
+                <input type="date" class="form-control" id="first_merit_list_date" name="first_merit_list_date"
+                    value="<?php echo isset($profile_data['first_merit_list_date']) ? $profile_data['first_merit_list_date'] : ''; ?>">
+            </div>
+            <div class="form-group">
+                <label for="admission_starts_date">Admission Starts For 1st List Date:</label>
+                <input type="date" class="form-control" id="admission_starts_date" name="admission_starts_date"
+                    value="<?php echo isset($profile_data['admission_starts_date']) ? $profile_data['admission_starts_date'] : ''; ?>">
+            </div>
+            <div class="form-group">
+                <label for="last_admission_date">Last Date for Admission Date:</label>
+                <input type="date" class="form-control" id="last_admission_date" name="last_admission_date"
+                    value="<?php echo isset($profile_data['last_admission_date']) ? $profile_data['last_admission_date'] : ''; ?>">
+            </div>
+            <div class="form-group">
+                <label for="second_merit_list_date">Second Merit List Date (If Any):</label>
+                <input type="date" class="form-control" id="second_merit_list_date" name="second_merit_list_date"
+                    value="<?php echo isset($profile_data['second_merit_list_date']) ? $profile_data['second_merit_list_date'] : ''; ?>">
+            </div>
+            <button type="submit" name="profile_update" class="btn btn-primary">Update Profile</button>
+        </form>
+    </div>
+</main>
 
-        </main>
 
     </section>
     <script src="script.js"></script>

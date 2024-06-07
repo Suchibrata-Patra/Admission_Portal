@@ -30,7 +30,7 @@
     hr {
       border-top: 1px solid #ddd;
     }
-
+ 
     .form-label {
       color: black;
       font-weight: 500;
@@ -49,15 +49,6 @@
       border-radius: 8px;
       border: 1px solid #ddd;
       font-size: 15px;
-    }
-
-    .btn-primary {
-      background-color: #fd5c63;
-      border: none;
-      border-radius: 8px;
-      width: 100%;
-      margin-top: 20px;
-
     }
 
     .btn-primary:hover {

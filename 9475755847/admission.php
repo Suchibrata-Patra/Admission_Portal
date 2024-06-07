@@ -1,3 +1,23 @@
+require 'database.php' ;
+require 'super_admin.php';
+$table_name = $udise_code . '_HOI_Login_Credentials';
+$query = "SELECT * FROM $table_name WHERE `HOI_UDISE_ID` = '$udise_code' LIMIT 1";
+$results = mysqli_query($db, $query);
+if (!$results) {
+    die("Error in query: " . mysqli_error($db));
+}
+$user = mysqli_fetch_assoc($results);
+$Formfillup_Start_Date = $user['Formfillup_Start_Date'];
+$Formfillup_Last_Date = $user['Formfillup_Last_Date'];
+$First_merit_list_date = $user['First_merit_list_date'];
+$Admission_Beginning_for_First_List = $user['Admission_Beginning_for_First_List'];
+$Admission_Closes_For_First_List = $user['Admission_Closes_For_First_List'];
+$Second_List = $user['Second_List'];
+$HOI_Email_ID = $user['HOI_Email_ID'];
+$HOI_Mobile_No = $user['HOI_Mobile_No'];
+$HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -237,24 +257,24 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Online Application <b style="color:#fd5c63">Starts</b></td>
-                                                    <td>10th May 2024</td>
+                                                    <td><?php echo $Formfillup_Start_Date ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Online Application <b style="color:#fd5c63"><u>Closes</u></b>
                                                     </td>
-                                                    <td>20th May 2024</td>
+                                                    <td><?php echo $Formfillup_Last_Date ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b style="color:#fd5c63">1st</b> Merit List</td>
-                                                    <td>25th June 2024</td>
+                                                    <td><?php echo $First_merit_list_date ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Admission Starts For <b style="color:#fd5c63">1st List</b></td>
-                                                    <td>26th June 2024</td>
+                                                    <td><?php echo $Admission_Beginning_for_First_List ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Last Date for <b style="color:#fd5c63"><u>Admission</u></b></td>
-                                                    <td>25th June 2024</td>
+                                                    <td><?php echo $Admission_Closes_For_First_List ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Second List <b>( If Any)</b></td>
@@ -368,7 +388,7 @@
                                                             <b
                                                                 style="display: inline-block; vertical-align: middle;"></b>
                                                         </td>
-                                                        <td style="padding: 8px;">Patra.group.official@gmail.com</td>
+                                                        <td style="padding: 8px;"><?php echo $HOI_Email_ID?></td>
                                                     </tr>
                                                     <tr>
                                                         <td style="padding: 8px;"><ion-icon name="call-outline"
@@ -376,7 +396,7 @@
                                                             <b
                                                                 style="display: inline-block; vertical-align: middle;"></b>
                                                         </td>
-                                                        <td style="padding: 8px;">+91 947575547</td>
+                                                        <td style="padding: 8px;">+91 <?php echo $HOI_Mobile_No?></td>
                                                     </tr>
                                                     <tr>
                                                         <td style="padding: 8px;"><ion-icon name="logo-whatsapp"
@@ -384,7 +404,7 @@
                                                             <b
                                                                 style="display: inline-block; vertical-align: middle;"></b>
                                                         </td>
-                                                        <td style="padding: 8px;">+91 8145302135</td>
+                                                        <td style="padding: 8px;">+91 <?php echo $HOI_Whatsapp_No?></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
