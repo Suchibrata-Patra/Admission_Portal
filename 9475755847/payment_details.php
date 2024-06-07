@@ -77,7 +77,9 @@ echo $user['institution_fees_payment_done'];
 </head>
 
 <body>
-  
+  <!--PageLoader-->
+<?php require ('Secure_Pageloader.php') ?>
+<!--PageLoader-->
   <div class="jumbotron jumbotron-fluid jumbotron-custom">
     <div class="container">
       <h1 class="display-4">Payment Details</h1>
