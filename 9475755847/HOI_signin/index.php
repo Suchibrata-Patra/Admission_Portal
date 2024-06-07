@@ -32,6 +32,16 @@ if ($user['numberVerify'] != 1 | $user['emailVerify'] != 1) {
 if (!$user) {
     die("User not found");
 }
+// Fetch the current admission dates
+$admission_query = "SELECT `Formfillup_Start_Date`, `Formfillup_Last_Date` FROM $table_name WHERE `HOI_UDISE_ID` = '$udiseid' LIMIT 1";
+$admission_results = mysqli_query($db, $admission_query);
+$admission_dates = mysqli_fetch_assoc($admission_results);
+$current_date = date('Y-m-d');
+if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
+    $application_status = "Admission Deadline is Over";
+} else {
+    $application_status = "Application Portal is Live !";
+}
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +49,8 @@ if (!$user) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- FAVICON -->
+ <link rel="shortcut icon" href="../../../Assets/images/favicon.png" type="image/svg+xml">
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -107,9 +119,17 @@ if (!$user) {
 			<div class="container" style="font-size:2rem;font-weight:normal;margin-top:1.5%;">Admission Statisitcs</div>
 			<ul class="box-info">
 				<li>
-					<i class='bx'><img src="../Assets/live_animation.gif" alt="" style="width:100px;height: auto; background-color: #f9f9f9;"></i>
+				<?php if ($admission_dates['Formfillup_Last_Date'] < $current_date) : ?>
+					<i class='bx'><img src="../../../../../Assets/images/stopped_admission.png" alt="" style="width:85px;height: auto; background-color: #f9f9f9;"></i>
+        <?php else : ?>
+			<i class='bx'><img src="../../../../../Assets/images/live.gif" alt="" style="width:100px;height: auto; background-color: #f9f9f9;"></i>
+        <?php endif; ?>
 					<span class="text">
+					<?php if ($admission_dates['Formfillup_Last_Date'] < $current_date) : ?>
+						<h3>Stopped</h3>
+						<?php else : ?>
 						<h3>Live</h3>
+						<?php endif; ?>
 						<p>Application Status</p>
 					</span>
 				</li>

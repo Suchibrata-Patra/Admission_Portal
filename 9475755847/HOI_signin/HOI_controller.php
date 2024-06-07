@@ -105,8 +105,8 @@ if (isset($_POST['HOI_Signup'])) {
             if ($query2_result) {
                 $_SESSION['HOI_UDISE_ID'] = $HOI_email;
                 $_SESSION['success'] = "You are now logged in";
-                echo '<script>window.location.href="HOI_Dashboard.php";</script>';
-                // header('location: HOI_Dashboard.php');
+                echo '<script>window.location.href="index.php";</script>';
+                // header('location: inde.php');
             } else {
                 echo "Error updating edu_org_records: " . mysqli_error($db);
             }

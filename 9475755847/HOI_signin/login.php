@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows >0) {
         // Login successful
         echo "Login successful!";
-        echo '<script>window.location.href="HOI_Dashboard.php";</script>';        // You can redirect the user to another page here
+        echo '<script>window.location.href="index.php";</script>';        // You can redirect the user to another page here
     } else {
         // Login failed
         echo "Invalid username or password.";

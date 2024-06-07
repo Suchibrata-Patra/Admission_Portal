@@ -120,80 +120,13 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 
         <!-- MAIN -->
         <main>
-            <div class="container">
-                <div class="head-title">
-                    <div class="left">
-                        <ul class="breadcrumb">
-                            <li><a href="#">Dashboard</a></li>
-                            <li><i class='bx bx-chevron-right'></i></li>
-                            <li><a class="active" href="HOI_Bank_Details.php">Bank Details</a></li>
-                        </ul>
-                    </div>
-                    <!-- <a href="#" class="btn-download">
-                        <i class='bx'><span class="material-symbols-outlined">download</span></i>
-                    </a> -->
-                </div>
-                <span class="institution-name">
-                    <?php echo $user['Institution_Name']; ?>
-                </span>
 
-                <?php if (isset($message)) : ?>
-                <div class="alert alert-info">
-                    <?php echo $message; ?>
-                </div>
-                <?php endif; ?>
-
-                <!-- Admission Date Form -->
-                <div class="admission-date-form">
-                    <h3>Bank Account Details</h3>
-                    <form action="#" method="POST" id="admission-form">
-                        <div class="container">
-                            <div class="col">
-                                <label for="exampleInputEmail1">Bank Account No</label>
-                                <input type="text" class="form-control"
-                                    placeholder="<?php echo htmlspecialchars($user['Bank_Account_No']); ?>"
-                                    disabled="disabled"> <!-- Added disabled attribute -->
-                            </div>
-                            <div class="col">
-                                <label for="exampleInputEmail1">Bank IFSC Code</label>
-                                <input type="text" class="form-control"
-                                    placeholder="<?php echo htmlspecialchars($user['Bank_IFSC_Code']); ?>"
-                                    disabled="disabled"> <!-- Added disabled attribute -->
-                            </div>
-                            <div class="col">
-                                <label for="exampleInputEmail1">Bank Branch</label>
-                                <input type="text" class="form-control"
-                                    placeholder="<?php echo htmlspecialchars($user['Bank_Branch_Name']); ?>"
-                                    disabled="disabled"> <!-- Added disabled attribute -->
-                                <small id="emailHelp" class="form-text text-muted">We Never Share the bank Account
-                                    Details With any other Third Party.</small>
-                                <br>
-                                <button type="button" class="btn btn-info" onclick="window.open('https://forms.gle/Dm4GYYjzGW8BQyPS6', '_blank')">Request for Bank Details Update</button>
-                            </div>
-                        </div>
-                        
-                    </form>
-                    
-                    <br>
-                    <div class="instructions" style="padding:0.15rem;">
-                        <h5>Instructions for Updating Bank Details</h5>
-                        <p>Please be aware of the following guidelines regarding the update of bank details:</p>
-                        <ul style="list-style-type: disc; padding-left: 20px;">
-                            <li>• Bank details cannot be updated while the Application Window for Students are Open.</li>
-                            <li>• To update bank details, please ensure that no application is live at the time.</li>
-                            <li>• If it is essential to update the bank details during an active application period,
-                                please contact our customer support team.</li>
-                            <li>• Once we receive the necessary information, we will process the update as soon as
-                                possible.</li>
-                        </ul>
-                    </div>
-
-                </div>
-                <!-- End of Admission Date Form -->
-            </div>
         </main>
+
         <!-- MAIN -->
     </section>
+    <!-- CONTENT -->
+
     <script src="script.js"></script>
 </body>
 

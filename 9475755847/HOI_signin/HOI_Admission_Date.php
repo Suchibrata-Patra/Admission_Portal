@@ -68,6 +68,8 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="../../../Assets/images/favicon.png" type="image/svg+xml">
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -77,7 +79,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />	
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<!-- My CSS -->
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href=".//style.css">
 
 	<title style="font-family: 'Roboto', Times, serif;">Haggle</title>
 </head>
@@ -138,13 +140,13 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
             <ul class="box-info">
     <li>
         <?php if ($admission_dates['Formfillup_Last_Date'] < $current_date) : ?>
-            <i class='bx'><img src="../Assets/stopped_admission.png" alt="Application is Stopped" style="width:80px;height: auto; background-color: #f9f9f9;"></i>
+            <i class='bx'><img src="../../../../../Assets/stopped_admission.png" alt="Application is Stopped" style="width:80px;height: auto; background-color: #f9f9f9;"></i>
             <span class="text">
                 <h3><?php echo $application_status; ?></h3>
                 <p>Students Can No Longer Submit their Forms Details</p>
             </span>
         <?php else : ?>
-            <i class='bx'><img src="../Assets/live_animation.gif" alt="Application Portal is Open" style="width:100px;height: auto; background-color: #f9f9f9;"></i>
+            <i class='bx'><img src="../../../../../Assets/images/live.gif" alt="Application Portal is Open" style="width:100px;height: auto; background-color: #f9f9f9;"></i>
             <span class="text">
                 <h3><?php echo $application_status; ?></h3>
                 <p>Studnet Can Now Submit Application </p>
@@ -185,7 +187,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary" id="submit-btn">Fix Dates</button>
+                <button type="submit" class="btn btn-info" id="submit-btn">Fix Dates</button>
             </form>
             <br>
             <div class="instructions" style="padding:0.15rem;">

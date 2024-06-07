@@ -7,8 +7,8 @@ require_once 'HOI_session.php';
         <span class="text">Haggle</span>
     </a>
     <ul class="side-menu top">
-        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Dashboard.php') ? 'class="active"' : ''; ?>>
-            <a href="HOI_Dashboard.php">
+        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'index.php') ? 'class="active"' : ''; ?>>
+            <a href="index.php">
                 <i class='bx'><span class="material-symbols-outlined">dashboard</span></i>
                 <span class="text">Dashboard</span>
             </a>
@@ -25,16 +25,10 @@ require_once 'HOI_session.php';
                 <span class="text">Bank Account</span>
             </a>
         </li>
-        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_School_Profile.php') ? 'class="active"' : ''; ?>>
-            <a href="HOI_School_Profile.php">
-                <i class='bx'><span class="material-symbols-outlined">account_balance</span></i>
-                <span class="text">School Profile</span>
-            </a>
-        </li>
-        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Updates.php') ? 'class="active"' : ''; ?>>
-            <a href="HOI_Updates.php">
-                <i class='bx'><span class="material-symbols-outlined">update</span></i>
-                <span class="text">Updates</span>
+        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Important_Dates.php') ? 'class="active"' : ''; ?>>
+            <a href="HOI_Important_Dates.php">
+                <i class='bx'><span class="material-symbols-outlined">schedule</span></i>
+                <span class="text">Imp. Dates</span>
             </a>
         </li>
         <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Subject_Combo.php') ? 'class="active"' : ''; ?>>
@@ -43,10 +37,11 @@ require_once 'HOI_session.php';
                 <span class="text">Subject Combo</span>
             </a>
         </li>
-        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Change_Info.php') ? 'class="active"' : ''; ?>>
-            <a href="HOI_Change_Info.php">
-                <i class='bx'><span class="material-symbols-outlined">info</span></i>
-                <span class="text">Change Info</span>
+        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Short_Listing.php') ? 'class="active"' : ''; ?>>
+            <a href="HOI_Short_Listing.php">
+                <!-- <i class='bx'><span class="material-symbols-outlined">info</span></i> -->
+                <i class='bx'><span class="material-symbols-outlined">id_card</span></i>
+                <span class="text">Short List</span>
             </a>
         </li>
         <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Mail.php') ? 'class="active"' : ''; ?>>
@@ -59,6 +54,12 @@ require_once 'HOI_session.php';
             <a href="HOI_Merit_List.php">
                 <i class='bx'><span class="material-symbols-outlined">id_card</span></i>
                 <span class="text">Merit List</span>
+            </a>
+        </li>
+        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Updates.php') ? 'class="active"' : ''; ?>>
+            <a href="HOI_Updates.php">
+                <i class='bx'><span class="material-symbols-outlined">update</span></i>
+                <span class="text">Updates</span>
             </a>
         </li>
         <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Team.php') ? 'class="active"' : ''; ?>>

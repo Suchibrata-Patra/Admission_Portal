@@ -36,8 +36,8 @@ if (isset($_POST['HOI_Login'])) {
           $_SESSION['udiseid'] = $udiseid;
           $_SESSION['success'] = "You are now logged in";
           // Redirect only if there are no errors
-          echo '<script>window.location.href="HOI_Dashboard.php";</script>';
-        //   header('location: HOI_Dashboard.php');
+          echo '<script>window.location.href="index.php";</script>';
+        //   header('location: inde.php');
           exit(); // Ensure that no further code is executed after the redirect
        } else {
           array_push($errors, "Wrong password");

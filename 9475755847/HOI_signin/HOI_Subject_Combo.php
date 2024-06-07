@@ -79,6 +79,8 @@ $Avialable_Subjects = mysqli_query($db, $Subjects);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- FAVICON -->
+ <link rel="shortcut icon" href="../../../Assets/images/favicon.png" type="image/svg+xml">
 
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -216,7 +218,7 @@ endwhile;
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" id="submit-btn">Add +</button>
+                        <button type="submit" class="btn btn-info" id="submit-btn">Add +</button>
                     </form>
                     <br>
                     <div class="instructions" style="padding:0.15rem;">
