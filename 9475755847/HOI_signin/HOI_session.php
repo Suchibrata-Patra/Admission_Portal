@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once "database.php"; // Ensure this file contains the database connection
 require "HOI_super_admin.php";
 // Check if the user is not logged in

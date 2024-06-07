@@ -1,5 +1,5 @@
 <?php
-// Start PHP code
+require_once 'HOI_session.php';
 ?>
 <section id="sidebar">
     <a href="#" class="brand">
