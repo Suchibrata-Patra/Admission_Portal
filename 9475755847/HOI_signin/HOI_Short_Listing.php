@@ -37,6 +37,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 } else {
     $application_status = "Application Portal is Live !";
 }
+
 ?>
 
 <!DOCTYPE html>
