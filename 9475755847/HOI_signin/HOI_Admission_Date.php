@@ -83,96 +83,9 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 </head>
 <body style="font-family: 'Roboto', sans-serif;">
 
-	<!-- SIDEBAR -->
-	<section id="sidebar">
-		<a href="#" class="brand">
-			<i class='bx bxs-smile'></i>
-			<span class="text">Haggle</span>
-		</a>
-		<ul class="side-menu top">
-			<li>
-				<a href="HOI_Dashboard.php">
-					<i class='bx'><span class="material-symbols-outlined">dashboard</span></i>
-					<span class="text">Dashboard</span>
-				</a>
-			</li>
-			<li class="active">
-				<a href="HOI_Admission_Date.php">
-					<i class='bx'><span class="material-symbols-outlined">calendar_month</span></i>
-					<span class="text">Admission Date</span>
-				</a>
-			</li>
-			<li>
-				<a href="HOI_Bank_Details.php">
-					<i class='bx'><span class="material-symbols-outlined">currency_rupee</span></i>
-					<span class="text">Bank Account</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx'><span class="material-symbols-outlined">list</span></i>
-					<span class="text">Merit List</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx'><span class="material-symbols-outlined">account_balance</span></i>
-					<span class="text">School Profile</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx'><span class="material-symbols-outlined">update</span></i>
-					<span class="text">Updates</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx'><span class="material-symbols-outlined">auto_stories</span></i>
-					<span class="text">Subject Combo</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx'><span class="material-symbols-outlined">info</span></i>
-					<span class="text">Change Info</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx'><span class="material-symbols-outlined">mail</span></i>
-					<span class="text">Mail</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx'><span class="material-symbols-outlined">id_card</span></i>
-					<span class="text">Admission</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-group'></i>
-					<span class="text">Team</span>
-				</a>
-			</li>
-		</ul>
-		<ul class="side-menu">
-			<li>
-				<a href="#">
-					<i class='bx bxs-cog'></i>
-					<span class="text">System Preferences</span>
-				</a>
-			</li>
-			<li>
-				<a href="HOI_Logout.php" class="logout">
-					<i class='bx bxs-log-out-circle'></i>
-					<span class="text">Logout</span>
-				</a>
-			</li>
-		</ul>
-	</section>
-	<!-- SIDEBAR -->
+	  <!-- SIDEBAR -->
+      <?php include('HOI_Sidebar.php') ?>
+    <!-- SIDEBAR -->
 
 	<!-- CONTENT -->
 	<section id="content">

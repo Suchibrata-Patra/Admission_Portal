@@ -1,23 +1,40 @@
 <?php
-require 'database.php' ;
+require 'database.php';
 require 'super_admin.php';
+
 $table_name = $udise_code . '_HOI_Login_Credentials';
-$query = "SELECT * FROM $table_name WHERE `HOI_UDISE_ID` = '$udise_code' LIMIT 1";
+$query = "
+    SELECT 
+        Formfillup_Start_Date, 
+        Formfillup_Last_Date, 
+        First_merit_list_date, 
+        Admission_Beginning_for_First_List, 
+        Admission_Closes_For_First_List, 
+        Second_List, 
+        HOI_Email_ID, 
+        HOI_Mobile_No, 
+        HOI_Whatsapp_No 
+    FROM $table_name 
+    WHERE `HOI_UDISE_ID` = '$udise_code' 
+    LIMIT 1";
 $results = mysqli_query($db, $query);
 if (!$results) {
     die("Error in query: " . mysqli_error($db));
 }
 $user = mysqli_fetch_assoc($results);
-$Formfillup_Start_Date = $user['Formfillup_Start_Date'];
-$Formfillup_Last_Date = $user['Formfillup_Last_Date'];
-$First_merit_list_date = $user['First_merit_list_date'];
-$Admission_Beginning_for_First_List = $user['Admission_Beginning_for_First_List'];
-$Admission_Closes_For_First_List = $user['Admission_Closes_For_First_List'];
-$Second_List = $user['Second_List'];
+
+$Formfillup_Start_Date = date('F j, Y', strtotime($user['Formfillup_Start_Date']));
+$Formfillup_Last_Date = date('F j, Y', strtotime($user['Formfillup_Last_Date']));
+$First_merit_list_date = date('F j, Y', strtotime($user['First_merit_list_date']));
+$Admission_Beginning_for_First_List = date('F j, Y', strtotime($user['Admission_Beginning_for_First_List']));
+$Admission_Closes_For_First_List = date('F j, Y', strtotime($user['Admission_Closes_For_First_List']));
+$Second_List = date('F j, Y', strtotime($user['Second_List']));
+
 $HOI_Email_ID = $user['HOI_Email_ID'];
 $HOI_Mobile_No = $user['HOI_Mobile_No'];
 $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

@@ -90,7 +90,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 <body style="font-family: 'Roboto', sans-serif;">
 
     <!-- SIDEBAR -->
-    <section id="sidebar">
+    <!-- <section id="sidebar">
         <a href="#" class="brand">
             <i class='bx bxs-smile'></i>
             <span class="text">Haggle</span>
@@ -177,7 +177,9 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
                 </a>
             </li>
         </ul>
-    </section>
+    </section> -->
+    <!-- SIDEBAR -->
+    <?php include('HOI_Sidebar.php') ?>
     <!-- SIDEBAR -->
 
     <!-- CONTENT -->

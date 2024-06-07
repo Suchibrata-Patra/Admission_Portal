@@ -1,114 +1,72 @@
 <?php
-// Ensure errors are not displayed to users
-ini_set('display_errors', 0);
-error_reporting(0);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+require 'HOI_session.php';
+require 'HOI_super_admin.php';
 
-// Include session handling and super admin functionality
-require_once 'HOI_session.php';
-require_once 'HOI_super_admin.php';
-
-// Ensure UDISE code and ID are set, otherwise terminate execution
 if (!isset($udise_code) || !isset($udiseid)) {
-    die("Unauthorized access.");
+    die("UDISE code and ID must be set");
 }
 
-// Define table names
 $table_name = $udise_code . '_HOI_Login_Credentials';
-$Subject_table_name = $udise_code . '_Subject_Details';
+$student_table_name = $udise_code . '_Student_Details';
 
-// Define upload directory for merit lists
-$upload_dir = "Merit_Lists";
+$udiseid = mysqli_real_escape_string($db, $udiseid);
 
-// Function to securely delete a file
-function secure_delete_file($filename) {
-    $filename = realpath($filename); // Ensure the filename is absolute
-    if (strpos($filename, $upload_dir) === 0 && file_exists($filename)) {
-        unlink($filename); // Only delete files in upload directory
-    }
-}
-
-// Handle file deletion securely
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete']) && isset($_POST['filename'])) {
-    secure_delete_file($upload_dir . '/' . $_POST['filename']);
-}
-
-// Function to securely move uploaded file
-function secure_upload_file($file, $target_dir, $target_filename) {
-    $file_type = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-    $target_file = $target_dir . '/' . $target_filename;
-
-    // Validate file type and move uploaded file
-    if ($file_type === 'pdf' && move_uploaded_file($file['tmp_name'], $target_file)) {
-        return $target_file; // Return path to uploaded file
-    } else {
-        return false; // Upload failed
-    }
-}
-
-// Handle file upload securely
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['merit_list_pdf'])) {
-    $i = 1;
-    do {
-        $target_filename = $udise_code . "_meritlist_" . $i . ".pdf";
-        $i++;
-    } while (file_exists($upload_dir . '/' . $target_filename));
-
-    $uploaded_file = secure_upload_file($_FILES['merit_list_pdf'], $upload_dir, $target_filename);
-    if ($uploaded_file) {
-        echo "The file has been uploaded as " . htmlspecialchars(basename($uploaded_file)) . ".";
-        header("Location: " . $_SERVER['REQUEST_URI']);
-        exit;
-    } else {
-        echo "Sorry, there was an error uploading your file.";
-    }
-}
-
-// Load and save profile data securely
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['profile_update'])) {
-    // Validate and sanitize input data
-    $school_name = filter_var($_POST['school_name'], FILTER_SANITIZE_STRING);
-    $address = filter_var($_POST['address'], FILTER_SANITIZE_STRING);
-    $contact_number = filter_var($_POST['contact_number'], FILTER_SANITIZE_STRING);
-    $principal_name = filter_var($_POST['principal_name'], FILTER_SANITIZE_STRING);
-    $first_merit_list_date = $_POST['first_merit_list_date']; // Validate format on client side
-    $admission_starts_date = $_POST['admission_starts_date']; // Validate format on client side
-    $last_admission_date = $_POST['last_admission_date']; // Validate format on client side
-    $second_merit_list_date = isset($_POST['second_merit_list_date']) ? $_POST['second_merit_list_date'] : null;
+    // Check each field individually and update if provided
+    $update_query = "UPDATE $table_name SET ";
+    $set_values = [];
 
-    // Save profile data to a JSON file
-    $profile_data = [
-        'school_name' => $school_name,
-        'address' => $address,
-        'contact_number' => $contact_number,
-        'principal_name' => $principal_name,
-        'first_merit_list_date' => $first_merit_list_date,
-        'admission_starts_date' => $admission_starts_date,
-        'last_admission_date' => $last_admission_date,
-        'second_merit_list_date' => $second_merit_list_date
-    ];
+    // Check and append each field to the update query
+    if (!empty($_POST['First_merit_list_date'])) {
+        $First_merit_list_date = mysqli_real_escape_string($db, $_POST['First_merit_list_date']);
+        $set_values[] = "First_merit_list_date = '$First_merit_list_date'";
+    }
+    if (!empty($_POST['Admission_Beginning_for_First_List'])) {
+        $Admission_Beginning_for_First_List = mysqli_real_escape_string($db, $_POST['Admission_Beginning_for_First_List']);
+        $set_values[] = "Admission_Beginning_for_First_List = '$Admission_Beginning_for_First_List'";
+    }
+    if (!empty($_POST['Admission_Closes_For_First_List'])) {
+        $Admission_Closes_For_First_List = mysqli_real_escape_string($db, $_POST['Admission_Closes_For_First_List']);
+        $set_values[] = "Admission_Closes_For_First_List = '$Admission_Closes_For_First_List'";
+    }
+    if (isset($_POST['Second_List'])) {
+        $Second_List = mysqli_real_escape_string($db, $_POST['Second_List']);
+        $set_values[] = "Second_List = '$Second_List'";
+    }
 
-    // Encode and save profile data to JSON file
-    $json_data = json_encode($profile_data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-    if ($json_data !== false) {
-        $json_file = $udise_code . '_profile_data.json';
-        file_put_contents($json_file, $json_data, LOCK_EX); // Lock file for exclusive writing
+    // Construct the SET clause of the update query
+    $set_clause = implode(', ', $set_values);
+
+    // Complete the update query
+    if (!empty($set_clause)) {
+        $update_query .= "$set_clause WHERE HOI_UDISE_ID = '$udiseid'";
+
+        // Execute the update query
+        if (mysqli_query($db, $update_query)) {
+            echo "Profile updated successfully.";
+        } else {
+            echo "Error updating record: " . mysqli_error($db);
+        }
     } else {
-        echo "Failed to encode profile data.";
+        echo "No fields to update.";
     }
 }
+$query = "SELECT * FROM $table_name WHERE HOI_UDISE_ID = '$udiseid'";
+$result = mysqli_query($db, $query);
 
-// Load profile data securely
-$profile_data = [];
-$json_file = $udise_code . '_profile_data.json';
-if (file_exists($json_file)) {
-    $json_data = file_get_contents($json_file);
-    $profile_data = json_decode($json_data, true);
-    if ($profile_data === null) {
-        echo "Error decoding profile data.";
-        $profile_data = []; // Reset to empty array
-    }
+// Check if data is fetched successfully
+if ($result && mysqli_num_rows($result) > 0) {
+    $profile_data = mysqli_fetch_assoc($result);
+} else {
+    // Handle errors or set default values for profile data
+    $profile_data = array();
 }
+// Close the database connection
+mysqli_close($db);
 ?>
+
 
 
 <!DOCTYPE html>
@@ -141,94 +99,7 @@ if (file_exists($json_file)) {
 <body style="font-family: 'Roboto', sans-serif;">
 
     <!-- SIDEBAR -->
-    <section id="sidebar">
-        <a href="#" class="brand">
-            <i class='bx bxs-smile'></i>
-            <span class="text">Haggle</span>
-        </a>
-        <ul class="side-menu top">
-            <li>
-                <a href="HOI_Dashboard.php">
-                    <i class='bx'><span class="material-symbols-outlined">dashboard</span></i>
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="HOI_Admission_Date.php">
-                    <i class='bx'><span class="material-symbols-outlined">calendar_month</span></i>
-                    <span class="text">Admission Date</span>
-                </a>
-            </li>
-            <li>
-                <a href="HOI_Bank_Details.php">
-                    <i class='bx'><span class="material-symbols-outlined">currency_rupee</span></i>
-                    <span class="text">Bank Account</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx'><span class="material-symbols-outlined">list</span></i>
-                    <span class="text">Merit List</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="HOI_School_Profile.php">
-                    <i class='bx'><span class="material-symbols-outlined">account_balance</span></i>
-                    <span class="text">School Profile</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx'><span class="material-symbols-outlined">update</span></i>
-                    <span class="text">Updates</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx'><span class="material-symbols-outlined">auto_stories</span></i>
-                    <span class="text">Subject Combo</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx'><span class="material-symbols-outlined">info</span></i>
-                    <span class="text">Change Info</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx'><span class="material-symbols-outlined">mail</span></i>
-                    <span class="text">Mail</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx'><span class="material-symbols-outlined">id_card</span></i>
-                    <span class="text">Merit List</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">Team</span>
-                </a>
-            </li>
-        </ul>
-        <ul class="side-menu">
-            <li>
-                <a href="#">
-                    <i class='bx bxs-cog'></i>
-                    <span class="text">System Preferences</span>
-                </a>
-            </li>
-            <li>
-                <a href="HOI_Logout.php" class="logout">
-                    <i class='bx bxs-log-out-circle'></i>
-                    <span class="text">Logout</span>
-                </a>
-            </li>
-        </ul>
-    </section>
+    <?php include('HOI_Sidebar.php') ?>
     <!-- SIDEBAR -->
 
     <!-- CONTENT -->
@@ -259,29 +130,45 @@ if (file_exists($json_file)) {
     <div class="container">
         <h2>School Profile Update</h2>
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            
+    <div class="row">
+        <div class="col-md-6">
             <div class="form-group">
-                <label for="first_merit_list_date">1st Merit List Date:</label>
-                <input type="date" class="form-control" id="first_merit_list_date" name="first_merit_list_date"
-                    value="<?php echo isset($profile_data['first_merit_list_date']) ? $profile_data['first_merit_list_date'] : ''; ?>">
+                <label for="First_merit_list_date">1st Merit List Date:</label>
+                <input type="date" class="form-control" id="First_merit_list_date" name="First_merit_list_date"
+                    value="<?php echo isset($profile_data['First_merit_list_date']) ? $profile_data['First_merit_list_date'] : ''; ?>">
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="form-group">
-                <label for="admission_starts_date">Admission Starts For 1st List Date:</label>
-                <input type="date" class="form-control" id="admission_starts_date" name="admission_starts_date"
-                    value="<?php echo isset($profile_data['admission_starts_date']) ? $profile_data['admission_starts_date'] : ''; ?>">
+                <label for="Admission_Beginning_for_First_List">Admission Starts For 1st List Date:</label>
+                <input type="date" class="form-control" id="Admission_Beginning_for_First_List" name="Admission_Beginning_for_First_List"
+                    value="<?php echo isset($profile_data['Admission_Beginning_for_First_List']) ? $profile_data['Admission_Beginning_for_First_List'] : ''; ?>">
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
             <div class="form-group">
-                <label for="last_admission_date">Last Date for Admission Date:</label>
-                <input type="date" class="form-control" id="last_admission_date" name="last_admission_date"
-                    value="<?php echo isset($profile_data['last_admission_date']) ? $profile_data['last_admission_date'] : ''; ?>">
+                <label for="Admission_Closes_For_First_List">Last Date for Admission Date:</label>
+                <input type="date" class="form-control" id="Admission_Closes_For_First_List" name="Admission_Closes_For_First_List"
+                    value="<?php echo isset($profile_data['Admission_Closes_For_First_List']) ? $profile_data['Admission_Closes_For_First_List'] : ''; ?>">
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="form-group">
-                <label for="second_merit_list_date">Second Merit List Date (If Any):</label>
-                <input type="date" class="form-control" id="second_merit_list_date" name="second_merit_list_date"
-                    value="<?php echo isset($profile_data['second_merit_list_date']) ? $profile_data['second_merit_list_date'] : ''; ?>">
+                <label for="Second_List">Second Merit List Date (If Any):</label>
+                <input type="date" class="form-control" id="Second_List" name="Second_List"
+                    value="<?php echo isset($profile_data['Second_List']) ? $profile_data['Second_List'] : ''; ?>">
             </div>
-            <button type="submit" name="profile_update" class="btn btn-primary">Update Profile</button>
-        </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="submit" name="profile_update" class="btn btn-primary">Update Dates</button>
+        </div>
+    </div>
+</form>
+
     </div>
 </main>
 
