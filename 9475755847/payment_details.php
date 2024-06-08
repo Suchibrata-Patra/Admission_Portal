@@ -1,3 +1,5 @@
+<?php include('../favicon.php') ?>
+
 <?php
 session_start();
 require 'session.php';
@@ -78,7 +80,8 @@ echo $user['institution_fees_payment_done'];
 
 <body>
   <!--PageLoader-->
-<?php require ('Secure_Pageloader.php') ?>
+<?php require ('../Secure_Pageloader.php') ?>
+<?php require ('../Student_Process_header.php') ?>
 <!--PageLoader-->
   <div class="jumbotron jumbotron-fluid jumbotron-custom">
     <div class="container">

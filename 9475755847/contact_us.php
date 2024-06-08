@@ -1,3 +1,4 @@
+<?php include('../favicon.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,6 @@
   <!-- 
     - favicon
   -->
-  <link rel="shortcut icon" href="../Assets/images/favicon.png" type="image/svg+xml">
 
   <!-- 
     - custom css link

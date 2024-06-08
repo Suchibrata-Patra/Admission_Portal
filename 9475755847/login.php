@@ -1,3 +1,4 @@
+<?php include('../favicon.php') ?>
 <?php
 session_start();
 include 'database.php';

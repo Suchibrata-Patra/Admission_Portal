@@ -1,3 +1,4 @@
+<?php require ('../favicon.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,11 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DHBSSPV</title>
-
-  <!-- 
-    - favicon
-  -->
-  <link rel="shortcut icon" href="/../Assets/images/favicon.png" type="image/svg+xml">
 
   <!-- 
     - custom css link

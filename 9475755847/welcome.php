@@ -1,3 +1,4 @@
+<?php require ('../favicon.php') ?>
 <?php
 require 'session.php';
 require 'super_admin.php';
@@ -88,87 +89,63 @@ if ($user['issubmitted'] == 1) {
       background-color: yellow;
       color: black;
     }
-
-    /* Preloader CSS */
+  .field-lebels{
+    display: flex;
+    padding-left:2%;
+    font-weight: 400;
+  }
   </style>
 </head>
 
 <body>
 <!--PageLoader-->
-<?php require ('Secure_Pageloader.php') ?>
-<!--PageLoader-->
-  <div class="header">
-    <h2 style="margin: 0">
-      Welcome
-      <?php echo $user['fname']; ?>
-    </h2>
-    <a href="welcome.php?logout='1'" class="logout">Logout</a>
-  </div>
+<?php require ('../Secure_Pageloader.php') ?>
+<!--Process Header-->
+
+<?php require ('../Student_Process_header.php') ?>
+
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
         <div class="card text-center">
-          <div class="card-header">
-            <ul class="nav nav-pills card-header-pills">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Student Details</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="marks_details.php">Marks Details</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Personal Details</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Address Details</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">File Upload</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Preview</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Final Submission</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Payment</a>
-              </li>
-            </ul>
-          </div>
+          <?php include('../card_header.php') ?>
           <div class="card-body">
-            <div class="row">
-              <div class="col-xs-6 form-group">
-                <label><strong>Registration</strong> No</label>
-                <input class="form-control" type="text" value="<?php echo $user['reg_no'];?>" disabled />
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-6 form-group">
-                <label>Name</label>
-                <input class="form-control" type="text" value="<?php echo $user['fname'] . ' ' . $user['lname']; ?>"
-                  disabled />
-              </div>
-              <div class="col-xs-6 form-group">
-                <label>Email ID</label>
-                <input class="form-control" type="text" value="<?php echo $user['email']; ?>" disabled />
-              </div>
-              <div class="col-xs-6 form-group">
-                <label>Mobile No</label>
-                <input class="form-control" type="text" value="<?php echo $user['phoneNumber']; ?>" disabled />
-              </div>
-              <div class="col-xs-6 form-group">
-                <label>Date of Birth</label>
-                <input class="form-control" type="text" value="<?php echo date('F j, Y', strtotime($user['dob'])); ?>"
-                  disabled />
-              </div>
-            </div>
-          </div>
-          <div style="margin-left: 90%; padding-bottom: 2%;">
-            <a href="marks_details.php" style="color: black;text-decoration: none;"> <button type="button"
-                class="btn btn-primary" style="margin-right: 2%; background-color: white;color:black;">
-                Next</button></a>
-          </div>
+  <div class="row">
+    <div class="col-md-6 form-group">
+      <label class="field-lebels"><strong style="padding-right:2px;">Registration </strong> No</label>
+      <input class="form-control" type="text" value="<?php echo $user['reg_no'];?>" disabled />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 form-group">
+      <label class="field-lebels">Name</label>
+      <input class="form-control" type="text" value="<?php echo $user['fname'] . ' ' . $user['lname']; ?>"
+        disabled />
+    </div>
+    <div class="col-md-6 form-group">
+      <label class="field-lebels">Email ID</label>
+      <input class="form-control" type="text" value="<?php echo $user['email']; ?>" disabled />
+    </div>
+    <div class="col-md-6 form-group">
+      <label class="field-lebels">Mobile No</label>
+      <input class="form-control" type="text" value="<?php echo $user['phoneNumber']; ?>" disabled />
+    </div>
+    <div class="col-md-6 form-group">
+      <label class="field-lebels">Date of Birth</label>
+      <input class="form-control" type="text" value="<?php echo date('F j, Y', strtotime($user['dob'])); ?>"
+        disabled />
+    </div>
+  </div>
+</div>
+
+<div style="padding-bottom: 2%; text-align: center;">
+  <a href="marks_details.php" style="color: black; text-decoration: none;">
+      <button type="button" class="btn btn-info" style="background-color: white; color: black;">
+          Next
+      </button>
+  </a>
+</div>
+
         </div>
       </div>
     </div>

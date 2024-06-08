@@ -1,3 +1,4 @@
+<?php include('../favicon.php') ?>
 <?php
 require 'session.php';
 require 'super_admin.php';
@@ -137,50 +138,15 @@ $subject_combinations_json = json_encode($subject_combinations); // Encode fetch
 </head>
 
 <body>
-    <form action="choose_sub_controller.php" method="POST">
+<?php require ('../Student_Process_header.php') ?>
 
-    <div class="header">
-        <h2 style="margin: 0">
-            Welcome
-            <?php echo $user['fname']; ?>
-        </h2>
-        <a href="welcome.php?logout='1'" class="logout">Logout</a>
-    </div>
+    <form action="choose_sub_controller.php" method="POST">
     <div class="container">
         <div class="row" style="width: 120%;">
             <div class="col-xs-12">
                 <div class="card text-center">
-                    <div class="card-header">
-                        <ul class="nav nav-pills card-header-pills">
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Student Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="marks_details.php">Marks Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="personal_details.php">Personal Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Address Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">File Upload</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">Choose Sub.</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Preview</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Final Submission</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Payment</a>
-                            </li>
-                        </ul>
-                    </div>
+                <?php include('../card_header.php') ?>
+
 <!-- This is the beginning of the Card Body portion-->
 <div class="card-body">
 <div class="container mt-5">

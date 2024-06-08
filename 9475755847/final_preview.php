@@ -1,3 +1,4 @@
+<?php include('../favicon.php') ?>
 <?php
 require 'session.php';
 require 'super_admin.php';
@@ -64,6 +65,7 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+<?php require ('../Student_Process_header.php') ?>
     <div class="container mt-5">
         <h2>Student Profile</h2>
         <form method="post" action="final_preview.php">

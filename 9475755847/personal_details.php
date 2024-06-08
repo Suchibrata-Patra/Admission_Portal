@@ -105,34 +105,8 @@ if ($user['issubmitted'] == 1) {
     <div class="row">
       <div class="col-xs-12">
         <div class="card text-center">
-          <div class="card-header">
-            <ul class="nav nav-pills card-header-pills">
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Student Details</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="marks_details.php">Marks Details</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="personal_details.php">Personal Details</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Address Details</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">File Upload</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Preview</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Final Submission</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Payment</a>
-              </li>
-            </ul>
-          </div>
+        <?php include('../card_header.php') ?>
+
 
           <!--- This is the beginning of the Card Body portion-->
 
@@ -335,9 +309,9 @@ if ($user['issubmitted'] == 1) {
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                   <select id="inputState" class="form-control" name="is_student_EWS">
-                    <option value="No" Selected>No</option>
-                    <option value="Yes">Yes</option>
-                  </select>
+    <option <?php if ($user['is_student_EWS'] == 'No'): ?> selected <?php endif; ?> value="No">No</option>
+    <option <?php if ($user['is_student_EWS'] == 'Yes'): ?> selected <?php endif; ?> value="Yes">Yes</option>
+</select>
                 </div>
                 <div class="form-group col-md-2">
                   <!-- <label for="inputZip" style="display: flex" >Full Marks</label> -->

@@ -1,3 +1,4 @@
+<?php include('../favicon.php') ?>
 <?php
 session_start();
 require 'session.php';
@@ -209,57 +210,30 @@ for ($i = 1; $i <= 5; $i++) {
         .td {
             border: 1px solid red;
         }
+
         @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+            from {
+                opacity: 0;
+            }
 
-.fade-in {
-    animation: fadeIn 0.5s ease-in-out;
-}
+            to {
+                opacity: 1;
+            }
+        }
 
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <h2>Welcome
-            <?php echo $user['fname']; ?>
-        </h2>
-        <a href="welcome.php?logout='1'" class="logout">Logout</a>
-    </div>
+    <?php require ('../Student_Process_header.php') ?>
     <div class="container">
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div class="card-header">
-                        <ul class="nav nav-pills card-header-pills">
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Student Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="marks_details.php">Marks Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Personal Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="student_file_upload.php">File Upload</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Choose Sub.</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Preview</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Final Submission</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Payment</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <?php include('../card_header.php') ?>
                     <div class="card-body">
                         <h5 class="card-title mb-4">Upload Necessary Documents</h5>
                         <table class="table table-bordered">
@@ -291,22 +265,28 @@ for ($i = 1; $i <= 5; $i++) {
                                 ?>
                                     </td>
 
-                                    <td class="align-middle text-center <?php if (isset($_FILES[$fileKey]) && $_FILES[$fileKey]["size"] <= $maxFileSize): ?> fade-in <?php endif; ?>">
-    <div class="d-flex flex-column align-items-center">
-        <form action="" method="post" enctype="multipart/form-data">
-            <div class="mb-3">
-                <span style="font-weight: 100;font-size: small;margin-bottom: -1px;">After Choosing,</span> 
-                <br>
-                <span style="font-weight: 100;font-size: small;line-height: 1;">click on upload</span>
-                <input type="file" class="form-control custom-file-input"
-                    id="newImage<?php echo $i; ?>" name="newImage<?php echo $i; ?>"
-                    accept="image/*" onchange="updateFileName(this)">
-            </div>
-            <button type="submit" name="upload<?php echo $i; ?>"
-                class="btn btn-primary mt-2">Upload</button>
-        </form>
-    </div>
-</td>
+                                    <td class="align-middle text-center <?php if (isset($_FILES[$fileKey]) && $_FILES[$fileKey]["
+                                        size"] <=$maxFileSize): ?> fade-in
+                                        <?php endif; ?>">
+                                        <div class="d-flex flex-column align-items-center">
+                                            <form action="" method="post" enctype="multipart/form-data">
+                                                <div class="mb-3">
+                                                    <span
+                                                        style="font-weight: 100;font-size: small;margin-bottom: -1px;">After
+                                                        Choosing,</span>
+                                                    <br>
+                                                    <span
+                                                        style="font-weight: 100;font-size: small;line-height: 1;">click
+                                                        on upload</span>
+                                                    <input type="file" class="form-control custom-file-input"
+                                                        id="newImage<?php echo $i; ?>" name="newImage<?php echo $i; ?>"
+                                                        accept="image/*" onchange="updateFileName(this)">
+                                                </div>
+                                                <button type="submit" name="upload<?php echo $i; ?>"
+                                                    class="btn btn-primary mt-2">Upload</button>
+                                            </form>
+                                        </div>
+                                    </td>
 
 
                                     <?php if (isset($uploadMessages[$i])): ?>
@@ -321,27 +301,20 @@ for ($i = 1; $i <= 5; $i++) {
                             </tbody>
                         </table>
                     </div>
-                    <div style="margin-left: 50%; padding-bottom: 2%">
-                        <a href="marks_details.php" style="color: black; text-decoration: none">
-                            <button type="button" class="btn btn-primary" style="
-        margin-right: 2%;
-        background-color: rgb(0, 0, 0);
-        color: rgb(255, 255, 255);
-        border: 0px;
-      ">
+                    <div style="padding-bottom: 2%; text-align: center;">
+                        <a href="marks_details.php" style="text-decoration: none;">
+                            <button type="button" class="btn btn-info" style="margin-right: 2%;">
                                 Back
                             </button>
                         </a>
-                        <a href="choose_sub.php" style="color: black; text-decoration: none">
-                            <button type="button" class="btn btn-primary" name="file Upload" style="
-        margin-right: 2%;
-        background-color: rgb(0, 0, 0);
-        color: rgb(255, 255, 255);
-        border: 0px;
-      ">
+                        <a href="choose_sub.php" style="text-decoration: none;">
+                            <button type="button" class="btn btn-info" name="file Upload">
                                 Save & Next
-                            </button></a>
+                            </button>
+                        </a>
                     </div>
+                    
+                    
                 </div>
 
             </div>

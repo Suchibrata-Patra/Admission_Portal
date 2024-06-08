@@ -1,3 +1,4 @@
+<?php include('../favicon.php') ?>
 <?php 
 require 'session.php';
 require 'super_admin.php';
@@ -109,49 +110,12 @@ if ($user['issubmitted'] == 1) {
     </style>
   </head>
   <body>
-    <div class="header">
-      <h2 style="margin: 0">
-        Welcome
-        <?php echo $user['fname']; ?>
-      </h2>
-      <a href="welcome.php?logout='1'" class="logout">Logout</a>
-    </div>
+  <?php require ('../Student_Process_header.php') ?>
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
           <div class="card text-center">
-            <div class="card-header">
-            
-              <ul class="nav nav-pills card-header-pills">
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Student Details</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" href="marks_details.php"
-                    >Marks Details</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Personal Details</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Address Details</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">File Upload</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Preview</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Final Submission</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Payment</a>
-                </li>
-              </ul>
-            </div>
-
+            <?php include('../card_header.php') ?>
             <!--- This is the beginning of the Card Body portion-->
 
             <div class="card-body">
@@ -419,7 +383,7 @@ if ($user['issubmitted'] == 1) {
               >
                 <button
                   type="button"
-                  class="btn btn-primary"
+                  class="btn btn-info"
                   style="
                     margin-right: 2%;
                     background-color: rgb(255, 255, 255);
@@ -436,7 +400,7 @@ if ($user['issubmitted'] == 1) {
               <button
                   type="submit"
                   name="submit_marks"
-                  class="btn btn-primary"
+                  class="btn btn-info"
                   tyle="
                     margin-right: 2%;
                     background-color: rgb(255, 255, 255);
