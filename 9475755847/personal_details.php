@@ -133,13 +133,8 @@ if ($user['issubmitted'] == 1) {
                   <!-- <label for="inputState" style="display: flex"
                       >Enter Details</label
                     > -->
-                  <input type="text" class="form-control" id="inputCity" name="previous_school_name"
-                  <?php if ($user['previous_school_name'] == null): ?>
-                    placeholder="Enter your Previous School Name"
-                    <?php else: ?>
-                    value="<?php echo $user['previous_school_name']; ?>"
-                    <?php endif; ?>  
-                  / required>
+                    <input type="text" class="form-control" id="inputCity" name="previous_school_name" oninput="restrictSpecialChars(this)" <?php if ($user['previous_school_name'] == null): ?> placeholder="Enter your Previous School Name" <?php else: ?> value="<?php echo $user['previous_school_name']; ?>" <?php endif; ?> required>
+
                 </div>
                 <div class="form-group col-md-2"></div>
               </div>
@@ -153,7 +148,7 @@ if ($user['issubmitted'] == 1) {
                 </div>
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                  <input type="text" class="form-control" id="inputCity" name="fathers_name"
+                  <input type="text" class="form-control" id="inputCity" name="fathers_name" oninput="restrictSpecialChars(this)"
                   <?php if ($user['fathers_name'] == null): ?>
                     placeholder="Enter your Father's Name"
                     <?php else: ?>
@@ -175,7 +170,7 @@ if ($user['issubmitted'] == 1) {
                 </div>
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                  <input type="text" class="form-control" id="inputCity" name="mothers_name"
+                  <input type="text" class="form-control" id="inputCity" name="mothers_name" oninput="restrictSpecialChars(this)"
                   <?php if ($user['mothers_name'] == null): ?>
                     placeholder="Enter your Mother's Name"
                     <?php else: ?>
@@ -197,7 +192,7 @@ if ($user['issubmitted'] == 1) {
                 </div>
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                  <input type="text" class="form-control" id="inputSubject" name="current_whatsapp_no"
+                  <input type="text" class="form-control" id="inputSubject" name="current_whatsapp_no" oninput="restrictSpecialChars(this)"
                   <?php if ($user['current_whatsapp_no'] == null): ?>
                     placeholder="Current Whatsapp No."
                     <?php else: ?>
@@ -218,7 +213,7 @@ if ($user['issubmitted'] == 1) {
                 </div>
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                  <input type="text" class="form-control" id="inputCity" name="aadhar_card_no"
+                  <input type="text" class="form-control" id="inputCity" name="aadhar_card_no" oninput="restrictSpecialChars(this)"
                   <?php if ($user['aadhar_card_no'] == null): ?>
                     placeholder="XXXX - XXXX - XXXX"
                     <?php else: ?>
@@ -240,7 +235,7 @@ if ($user['issubmitted'] == 1) {
                 </div>
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                  <select id="inputState" name="student_religion" class="form-control">
+                  <select id="inputState" name="student_religion" class="form-control" >
     <!-- <option  selected value="Choose">Choose...</option> -->
     <option <?php if ($user['student_religion'] == null || $user['student_religion'] == 'Hindu'): ?> selected <?php endif; ?>>Hindu</option>
     <option <?php if ($user['student_religion'] == 'Muslim'): ?> selected <?php endif; ?>>Muslim</option>
@@ -335,7 +330,7 @@ if ($user['issubmitted'] == 1) {
                   <!-- <label for="inputState" style="display: flex"
         >Enter Details</label
       > -->
-                  <input type="text" class="form-control" id="inputCity" name="student_village_town"
+                  <input type="text" class="form-control" id="inputCity" name="student_village_town" oninput="restrictSpecialChars(this)"
                   <?php if ($user['student_village_town'] == null): ?>
                     placeholder="Enter your Village/Town"
                     <?php else: ?>
@@ -356,7 +351,7 @@ if ($user['issubmitted'] == 1) {
                 </div>
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                  <input type="text" class="form-control" id="inputCity" name="student_city" <?php if ($user['student_city'] == null): ?>
+                  <input type="text" class="form-control" id="inputCity" name="student_city" oninput="restrictSpecialChars(this)" <?php if ($user['student_city'] == null): ?>
                     placeholder="Enter your City"
                     <?php else: ?>
                     value="<?php echo $user['student_city']; ?>"
@@ -378,7 +373,7 @@ if ($user['issubmitted'] == 1) {
                 </div>
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                  <input type="text" class="form-control" id="inputCity" name="student_pin_code"
+                  <input type="text" class="form-control" id="inputCity" name="student_pin_code" oninput="restrictSpecialChars(this)"
                   <?php if ($user['student_pin_code'] == null): ?>
                     placeholder="Enter your PIN"
                     <?php else: ?>
@@ -400,7 +395,7 @@ if ($user['issubmitted'] == 1) {
                 </div>
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                  <input type="text" class="form-control" id="inputCity" name="student_police_station"
+                  <input type="text" class="form-control" id="inputCity" name="student_police_station" oninput="restrictSpecialChars(this)"
                   <?php if ($user['student_police_station'] == null): ?>
                     placeholder="Enter your Police Station"
                     <?php else: ?>
@@ -421,7 +416,7 @@ if ($user['issubmitted'] == 1) {
                 </div>
                 <div class="form-group col-md-4">
                   <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
-                  <input type="text" class="form-control" id="inputCity" name="student_district"
+                  <input type="text" class="form-control" id="inputCity" name="student_district" oninput="restrictSpecialChars(this)"
                   <?php if ($user['student_district'] == null): ?>
                     placeholder="Enter Your District"
                     <?php else: ?>
@@ -488,22 +483,21 @@ if ($user['issubmitted'] == 1) {
       <!-- This is the Address Collection Page -->
       <!-- Start of the Marks Entering Details -->
       <label for="inputState" style="display: flex; color: rgb(245, 117, 162);">Bank Account Details</label>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <label for="bank_name" style="margin-bottom: 0%;display: flex;">Bank Name</label>
-          <input type="text" class="form-control" id="bank_name" name="bank_name" <?php if ($user['bank_name'] == null): ?> placeholder="Enter Bank Name" <?php else: ?> value="<?php echo $user['bank_name']; ?>" <?php endif; ?> / required>
-        </div>
-        <div class="form-group col-md-4">
-          <label for="bank_account_no" style="margin-bottom: 0%;display: flex;">Bank Account No</label>
-          <input type="text" class="form-control" id="bank_account_no" name="bank_account_no" <?php if ($user['bank_account_no'] == null): ?> placeholder="Enter Bank Account No" <?php else: ?> value="<?php echo $user['bank_account_no']; ?>" <?php endif; ?> / required>
-        </div>
-        <div class="form-group col-md-4">
-          <label for="bank_ifsc_code" style="margin-bottom: 0%;display: flex;">Bank IFSC Code</label>
-          <input type="text" class="form-control" id="bank_ifsc_code" name="bank_ifsc_code" <?php if ($user['bank_ifsc_code'] == null): ?> placeholder="Enter Bank IFSC Code" <?php else: ?> value="<?php echo $user['bank_ifsc_code']; ?>" <?php endif; ?> / required>
-        </div>
-        <p style="margin-bottom: 0; color: rgb(146, 96, 36);"><strong style="margin: 0 5px; padding: 3px; background-color: #FFFF00; border-radius: 3px;">Note:</strong> If you don't have <u><i>Bank Account</i></>, you may provide that of <u><i>your Gurdian.</i></u></p>
-        
-      </div>
+<div class="form-row">
+  <div class="form-group col-md-4">
+    <label for="bank_name" style="margin-bottom: 0%;display: flex;">Bank Name</label>
+    <input type="text" class="form-control" id="bank_name" name="bank_name" oninput="restrictSpecialChars(this)" <?php if ($user['bank_name'] == null): ?> placeholder="Enter Bank Name" <?php else: ?> value="<?php echo $user['bank_name']; ?>" <?php endif; ?> required>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="bank_account_no" style="margin-bottom: 0%;display: flex;">Bank Account No</label>
+    <input type="text" class="form-control" id="bank_account_no" name="bank_account_no" oninput="restrictSpecialChars(this)" <?php if ($user['bank_account_no'] == null): ?> placeholder="Enter Bank Account No" <?php else: ?> value="<?php echo $user['bank_account_no']; ?>" <?php endif; ?> required>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="bank_ifsc_code" style="margin-bottom: 0%;display: flex;">Bank IFSC Code</label>
+    <input type="text" class="form-control" id="bank_ifsc_code" name="bank_ifsc_code" oninput="restrictSpecialChars(this); limitLength(this, 11);" <?php if ($user['bank_ifsc_code'] == null): ?> placeholder="Enter Bank IFSC Code [11 Digits Long]" <?php else: ?> value="<?php echo $user['bank_ifsc_code']; ?>" <?php endif; ?> required>
+  </div>
+  <p style="margin-bottom: 0; color: rgb(146, 96, 36);"><strong style="margin: 0 5px; padding: 3px; background-color: #FFFF00; border-radius: 3px;">Note:</strong> If you don't have <u><i>Bank Account</i></u>, you may provide that of <u><i>your Guardian.</i></u></p>
+</div>
 <!-- End of Bank Details -->
 
 
@@ -553,7 +547,27 @@ if ($user['issubmitted'] == 1) {
     </div>
   </div>
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>
+  // Function to restrict special characters
+  function restrictSpecialChars(inputField) {
+    // Regular expression to match special characters
+    var regex = /[!@#$%^&*(),.?":{}|<>]/g;
+
+    // Check if the input contains any special characters
+    if (regex.test(inputField.value)) {
+      // If special characters are found, replace them with an empty string
+      inputField.value = inputField.value.replace(regex, '');
+    }
+  }
+</script>
+<script>
+  function limitLength(element, maxLength) {
+    if (element.value.length > maxLength) {
+      element.value = element.value.slice(0, maxLength);
+    }
+  }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 

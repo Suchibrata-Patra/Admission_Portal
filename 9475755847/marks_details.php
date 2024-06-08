@@ -137,10 +137,11 @@ if ($user['issubmitted'] == 1) {
                   <label for="inputState" style="display: flex"><strong>Obtained Marks</strong></label>
                     <input type="text" class="form-control" id="bengali_marks"
                     name ="bengali_marks"
+                    oninput="restrictSpecialChars(this)"
                     <?php if ($user['bengali_marks'] == null): ?>
                     placeholder="Enter your Marks"
                     <?php else: ?>
-                    value="<?php echo $user['bengali_marks']; ?>"
+                    value="<?php echo $user['bengali_full_marks']; ?>"
                     <?php endif; ?>
                     /required>
                   </div>
@@ -152,7 +153,8 @@ if ($user['issubmitted'] == 1) {
                       class="form-control"
                       id="bengali_full_marks"
                       name="bengali_full_marks"
-                      value="100"
+                      oninput="restrictSpecialChars(this)"
+                      value="<?php echo $user['history_marks']; ?>"
                     />
                   </div>
                 </div>
@@ -173,6 +175,7 @@ if ($user['issubmitted'] == 1) {
                   <div class="form-group col-md-4">
                     <input type="text" class="form-control" id="english_marks"
                     name="english_marks"
+                    oninput="restrictSpecialChars(this)"
                     <?php if ($user['english_marks'] == null): ?>
                     placeholder="Enter your Marks"
                     <?php else: ?>
@@ -187,8 +190,9 @@ if ($user['issubmitted'] == 1) {
                       class="form-control"
                       id="english_full_marks"
                       name="english_full_marks"
-                      value="100"
-                    />
+                      oninput="restrictSpecialChars(this)"
+                      value="<?php echo $user['english_full_marks']; ?>"
+                      />
                   </div>
                 </div>
                 <!-- End of the 2nd Marks Entering Page -->
@@ -209,6 +213,7 @@ if ($user['issubmitted'] == 1) {
                     <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                     <input type="text" class="form-control"
                     id="mathematics_marks" name="mathematics_marks"
+                    oninput="restrictSpecialChars(this)"
                     <?php if ($user['mathematics_marks'] == null): ?>
                     placeholder="Enter your Marks"
                     <?php else: ?>
@@ -223,8 +228,9 @@ if ($user['issubmitted'] == 1) {
                       class="form-control"
                       id="mathematics_full_marks"
                       name="mathematics_full_marks"
-                      value="100"
-                    /required>
+                      oninput="restrictSpecialChars(this)"
+                      value="<?php echo $user['mathematics_full_marks']; ?>"
+                      /required>
                   </div>
                 </div>
                 <!-- End of the 3rd Marks Entering Page -->
@@ -245,6 +251,7 @@ if ($user['issubmitted'] == 1) {
                     <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                     <input type="text" class="form-control"
                     id="physical_science_marks" name="physical_science_marks"
+                    oninput="restrictSpecialChars(this)"
                     <?php if ($user['physical_science_marks'] == null): ?>
                     placeholder="Enter your Marks"
                     <?php else: ?>
@@ -259,7 +266,8 @@ if ($user['issubmitted'] == 1) {
                       class="form-control"
                       id="physical_science_full_marks"
                       name="physical_science_full_marks"
-                      value="100"
+                      oninput="restrictSpecialChars(this)"
+                      value="<?php echo $user['physical_science_full_marks']; ?>"
                     /required>
                   </div>
                 </div>
@@ -281,6 +289,7 @@ if ($user['issubmitted'] == 1) {
                     <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                     <input type="text" class="form-control"
                     id="life_science_marks" name="life_science_marks"
+                    oninput="restrictSpecialChars(this)"
                     <?php if ($user['life_science_marks'] == null): ?>
                     placeholder="Enter your Marks"
                     <?php else: ?>
@@ -295,7 +304,8 @@ if ($user['issubmitted'] == 1) {
                       class="form-control"
                       id="life_science_full_marks"
                       name="life_science_full_marks"
-                      value="100"
+                      oninput="restrictSpecialChars(this)"
+                      value="<?php echo $user['life_science_full_marks']; ?>"
                     />
                   </div>
                 </div>
@@ -317,6 +327,7 @@ if ($user['issubmitted'] == 1) {
                     <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                     <input type="text" class="form-control" id="History_marks"
                     name="History_marks"
+                    oninput="restrictSpecialChars(this)"
                     <?php if ($user['history_marks'] == null): ?>
                     placeholder="Enter your Marks"
                     <?php else: ?>
@@ -331,7 +342,8 @@ if ($user['issubmitted'] == 1) {
                       class="form-control"
                       id="History_full_marks"
                       name="History_full_marks"
-                      value="100"
+                      oninput="restrictSpecialChars(this)"
+                      value="<?php echo $user['history_full_marks']; ?>"
                     />
                   </div>
                 </div>
@@ -353,6 +365,7 @@ if ($user['issubmitted'] == 1) {
                     <!-- <label for="inputState" style="display: flex">Obtained Marks</label> -->
                     <input type="text" class="form-control" id="geography_marks"
                     name="geography_marks"
+                    oninput="restrictSpecialChars(this)"
                     <?php if ($user['geography_marks'] == null): ?>
                     placeholder="Enter your Marks"
                     <?php else: ?>
@@ -367,7 +380,8 @@ if ($user['issubmitted'] == 1) {
                       class="form-control"
                       id="geography_full_marks"
                       name="geography_full_marks"
-                      value="100"
+                      oninput="restrictSpecialChars(this)"
+                      value="<?php echo $user['geography_full_marks']; ?>"
                     />
                   </div>
                 </div>
@@ -422,7 +436,19 @@ if ($user['issubmitted'] == 1) {
         </div>
       </div>
     </div>
+    <script>
+  // Function to restrict special characters
+  function restrictSpecialChars(inputField) {
+    // Regular expression to match special characters
+    var regex = /[!@#$%^&*(),.?":{}|<>]/g;
 
+    // Check if the input contains any special characters
+    if (regex.test(inputField.value)) {
+      // If special characters are found, replace them with an empty string
+      inputField.value = inputField.value.replace(regex, '');
+    }
+  }
+</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   </body>
