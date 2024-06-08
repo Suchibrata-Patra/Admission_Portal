@@ -1,3 +1,4 @@
+<?php include('../favicon.php') ?>
 <?php 
 require 'session.php';
 require 'super_admin.php';
