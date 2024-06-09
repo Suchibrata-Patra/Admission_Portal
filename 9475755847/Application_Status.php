@@ -161,7 +161,7 @@ foreach ($allowedExtensions as $extension) {
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <img src="../../Assets/images/favicon.png" alt="icon" style="width:20%"><span style="padding-left: 10px;font-weight:400;"><b>My Profile</b></span>
+                                    <img src="../../Assets/images/favicon.png" alt="icon" style="width:20%"><span style="padding-left: 10px;font-weight:400;"><b>Profile</b></span>
                                     <h5 class="card-title"></h5>
                                 </div>
                                 <div class="col text-end">
@@ -172,11 +172,11 @@ foreach ($allowedExtensions as $extension) {
                                 </div>
                             </div>
                             <p class="card-text"><?php echo htmlspecialchars($user['fname']) . " " . htmlspecialchars($user['lname']); ?></p>
-                            <p class="card-text" style="font-size: 0.8em;">Contact</p>
+                            <p class="card-text" style="font-size: 0.7em;">Contact</p>
                             <p class="card-text" style="font-size: 1em;margin-top:-18px;">+91 <?php echo $user['phoneNumber'] ?></p>
-                            <p class="card-text" style="font-size: 0.8em;margin-top:-12px;">Regn</p>
+                            <p class="card-text" style="font-size: 0.7em;margin-top:-12px;">Regn</p>
                             <p class="card-text" style="font-size: 1em;margin-top:-18px;"><?php echo $user['reg_no'] ?></p>
-                            <p class="card-text" style="font-size: 0.8em;margin-top:-12px;">Digital Fingerprint</p>
+                            <p class="card-text" style="font-size: 0.7em;margin-top:-12px;">Digital Fingerprint</p>
                             <p class="card-text" style="font-size: 1em;margin-top:-18px;"><?php echo $encryptedTimestamp ?></p>
                         </div>
                     </div>
@@ -222,7 +222,7 @@ foreach ($allowedExtensions as $extension) {
                     </td>
                     <td>
                         <?php if ($user['institution_fees_payment_done'] == 1 & $user['portal_fees_payment_done'] == 1 ): ?>
-                        <button id="inst-fee-button" type="button" class="btn btn-light" disabled>Paid</button>
+                        <button id="inst-fee-button" type="button" class="btn btn-light" disabled>Submitted</button>
                         <?php else: ?>
                         <button id="inst-fee-button" type="button" class="btn btn-info"><a href="payment_details.php" style="color: white; text-decoration: none;">Submit</a></button>
                         <?php endif; ?>
