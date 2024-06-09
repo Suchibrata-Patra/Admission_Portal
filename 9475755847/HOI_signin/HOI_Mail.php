@@ -139,101 +139,11 @@ mysqli_close($db);
 
         <!-- MAIN -->
         <main>
-    <div class="container">
-    <div class="head-title">
-                    <div class="left">
-                        <ul class="breadcrumb">
-                            <li><a href="#">Dashboard</a></li>
-                            <li><i class='bx bx-chevron-right'></i></li>
-                            <li><a class="active" href="HOI_Bank_Details.php">School Preferences</a></li>
-                        </ul>
-                    </div>
-                    <!-- <a href="#" class="btn-download">
-                        <i class='bx'><span class="material-symbols-outlined">download</span></i>
-                    </a> -->
-                </div>
-        <h2>School Preferences</h2>
-        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <div class="row">
-        <div class="col-md-8">
-            <div class="form-group">
-                <label for="Institution_Name">School Name</label>
-                <input type="text" class="form-control" id="Institution_Name" name="Institution_Name"
-                    value="<?php echo isset($profile_data['Institution_Name']) ? $profile_data['Institution_Name'] : ''; ?>">
-            </div>
-        </div>
-        <div class="col-md-4">
-    <div class="form-group">
-        <label for="Institution_Address">School Address</label>
-        <textarea class="form-control" id="Institution_Address" name="Institution_Address" rows="2"><?php echo isset($profile_data['Institution_Address']) ? $profile_data['Institution_Address'] : ''; ?></textarea>
-    </div>
-</div>
-
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="HOI_Name">H.M Name</label>
-                <input type="text" class="form-control" id="HOI_Name" name="HOI_Name"
-                    value="<?php echo isset($profile_data['HOI_Name']) ? $profile_data['HOI_Name'] : ''; ?>">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="HOI_Whatsapp_No">H.M Whatsapp No</label>
-                <input type="text" class="form-control" id="HOI_Whatsapp_No" name="HOI_Whatsapp_No"
-                    value="<?php echo isset($profile_data['HOI_Whatsapp_No']) ? $profile_data['HOI_Whatsapp_No'] : ''; ?>">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="HOI_Mobile_No">School Contact No</label>
-                <input type="text" class="form-control" id="HOI_Mobile_No" name="HOI_Mobile_No"
-                    value="<?php echo isset($profile_data['HOI_Mobile_No']) ? $profile_data['HOI_Mobile_No'] : ''; ?>">
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="Application_Fees">Application Fees (Rs.)</label>
-                <input type="text" class="form-control" id="Application_Fees" name="Application_Fees"
-                    value="<?php echo isset($profile_data['Application_Fees']) ? $profile_data['Application_Fees'] : ''; ?>">
-            </div>
-        </div>
-
-        <div class="col-md-6">
-        <div class="form-group">
-    <label for="Coed_Or_Not">Boys / Coed School</label>
-    <select class="form-control" id="Coed_Or_Not" name="Coed_Or_Not">
-        <option value="Boys Only" <?php echo isset($profile_data['Coed_Or_Not']) && $profile_data['Coed_Or_Not'] == 'Boys Only' ? 'selected' : ''; ?>>Boys Only</option>
-        <option value="Girls Only" <?php echo isset($profile_data['Coed_Or_Not']) && $profile_data['Coed_Or_Not'] == 'Girls Only' ? 'selected' : ''; ?>>Girls Only</option>
-        <option value="Co-ed" <?php echo isset($profile_data['Coed_Or_Not']) && $profile_data['Coed_Or_Not'] == 'Co-ed' ? 'selected' : ''; ?>>Co-ed</option>
-    </select>
-</div>
-
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <button type="submit" name="profile_update" class="btn btn-info">Update</button>
-        </div>
-    </div>
-</form>
-<br>
-                    <div class="instructions" style="padding:0.15rem;">
-                        <h5>Instructions for Updating School Preferences</h5>
-                        <p>Please be aware of the following guidelines regarding the update of details:</p>
-                        <ul style="list-style-type: disc; padding-left: 20px;">
-                            <li>• These School Preferences gets Immediate Effect When you Update them.</li>
-                            <li>• To update bank details, please ensure that no application is live at the time.</li>
-                            <li>• If it is essential to update the bank details during an active application period,
-                                please contact our customer support team.</li>
-                            <li>• Once we receive the necessary information, we will process the update as soon as
-                                possible.</li>
-                        </ul>
-    </div>
-</main>
+        <center>
+    <p style="padding-top:25%; font-size: 18px;">This Feature Coming Soon!</p>
+    <p style="font-size: 16px;">We're working really hard to bring This Feature Live.</p>
+    <p style="font-size: 16px;">Keep an eye out for next Version Updates!</p>
+</center>    </main>
     </section>
     <script src="script.js"></script>
 

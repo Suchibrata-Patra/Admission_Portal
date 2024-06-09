@@ -120,7 +120,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 
         <!-- MAIN -->
         <main>
-<h3><center>What's New in this Update</center></h3>
+<h3><center>Teacher Profiles</center></h3>
         </main>
 
         <!-- MAIN -->
