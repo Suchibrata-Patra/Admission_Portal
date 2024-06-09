@@ -73,6 +73,9 @@
             <li class="contact-item">
               <a href="../../terms_and_conditions.php" class="contact-link">Terms & Conditions</a>
             </li>
+            <li class="contact-item">
+              <a href="../../Digital-Fingerprint-Decoder.php" class="contact-link">Fingerprint Decoder</a>
+            </li>
           </ul>
         </div>
         <div class="footer-form">
