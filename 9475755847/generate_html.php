@@ -2,7 +2,6 @@
 <?php
 require 'session.php';
 require 'super_admin.php';
-
 $table_name = $udise_code . '_student_details';
 $school_table = $udise_code . '_HOI_Login_Credentials';
 
@@ -13,7 +12,7 @@ $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
 
 // Check if user's number is verified, if not, redirect to verify.php
-if ($user['issubmitted'] == 1) {
+if ($user['issubmitted'] == 0) {
     header('location: payment_details.php');
     exit; // Add exit to stop further execution
 } 
@@ -23,20 +22,6 @@ $registration_no = $user['reg_no'];
 $total_marks = ($user['bengali_full_marks'] + $user['english_full_marks'] + $user['mathematics_full_marks'] + $user['physical_science_full_marks'] + $user['life_science_full_marks'] + $user['history_full_marks'] + $user['geography_full_marks']);
 $obtained_marks = ($user['bengali_marks'] + $user['english_marks'] + $user['mathematics_marks'] + $user['physical_science_marks'] + $user['life_science_marks'] + $user['history_marks'] + $user['geography_marks']);
 
-// Handle form submission
-if (isset($_POST['submit'])) {
-    $updateQuery = "UPDATE $table_name SET issubmitted = 1 WHERE reg_no = '$reg_no'";
-    $update_result = mysqli_query($db, $updateQuery);
-
-    if ($update_result) {
-        $_SESSION['success'] = "Marks updated successfully";
-        header('Location: payment_details.php');
-        exit;
-    } else {
-        header('Location: error.php');
-        exit;
-    }
-}
 $school_query = "SELECT `HOI_Mobile_No`, `HOI_Whatsapp_No`, `Institution_Name`, `HOI_Name`, `Institution_Address`, `Formfillup_Start_Date`, `Formfillup_Last_Date`, `First_merit_list_date`, `Admission_Beginning_for_First_List`, `Admission_Closes_For_First_List`, `Second_List` from 9475755847_HOI_Login_Credentials;";
 $info = mysqli_query($db, $school_query);
 $school_info = mysqli_fetch_assoc($info);

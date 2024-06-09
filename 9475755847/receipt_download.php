@@ -17,7 +17,7 @@ $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
 
 // Check if user's number is verified, if not, redirect to verify.php
-if ($user['issubmitted'] == 0) {
+if ($user['issubmitted'] != 1) {
     header('location: payment_details.php');
     exit; // Add exit to stop further execution
 } 
@@ -28,15 +28,6 @@ if (isset($_POST['submit'])) {
     $reg_no = mysqli_real_escape_string($db, $_POST['reg_no']);
     $updateQuery = "UPDATE $table_name SET issubmitted = 1 WHERE reg_no = '$reg_no'";
     $update_result = mysqli_query($db, $updateQuery);
-
-    if ($update_result) {
-        $_SESSION['success'] = "Marks updated successfully";
-        header('Location: payment_details.php');
-        exit;
-    } else {
-        header('Location: error.php');
-        exit;
-    }
 }
 
 // Include and execute the file to generate HTML content
