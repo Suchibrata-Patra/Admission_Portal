@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 07, 2024 at 06:43 PM
+-- Generation Time: Jun 09, 2024 at 05:58 PM
 -- Server version: 5.7.39
 -- PHP Version: 7.4.33
 
@@ -24,10 +24,43 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `9475755847_Student_Details`
+-- Table structure for table `32087324_HOI_Login_Credentials`
 --
 
-CREATE TABLE `9475755847_Student_Details` (
+CREATE TABLE `32087324_HOI_Login_Credentials` (
+  `HOI_UDISE_ID` varchar(20) NOT NULL,
+  `HOI_Password` varchar(100) NOT NULL,
+  `HOI_Email_ID` varchar(50) NOT NULL,
+  `HOI_Mobile_No` varchar(50) DEFAULT NULL,
+  `HOI_Whatsapp_No` varchar(20) DEFAULT NULL,
+  `is_HOI_Account_Verified` int(2) NOT NULL DEFAULT '0',
+  `emailVerify` varchar(10) NOT NULL DEFAULT '0',
+  `numberVerify` varchar(10) NOT NULL DEFAULT '0',
+  `Institution_Name` varchar(255) DEFAULT NULL,
+  `HOI_Name` varchar(50) DEFAULT NULL,
+  `Institution_Address` varchar(255) DEFAULT NULL,
+  `Bank_Account_No` varchar(30) DEFAULT 'Bank Account No',
+  `Bank_IFSC_Code` varchar(30) DEFAULT 'Bank IFSC ',
+  `Bank_Branch_Name` varchar(50) DEFAULT 'Bank Branch Name',
+  `Formfillup_Start_Date` date DEFAULT NULL,
+  `Formfillup_Last_Date` date DEFAULT NULL,
+  `First_merit_list_date` date DEFAULT NULL,
+  `Admission_Beginning_for_First_List` date DEFAULT NULL,
+  `Admission_Closes_For_First_List` date DEFAULT NULL,
+  `Second_List` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `32087324_HOI_Login_Credentials`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `32087324_Student_Details`
+--
+
+CREATE TABLE `32087324_Student_Details` (
   `reg_no` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -89,26 +122,63 @@ CREATE TABLE `9475755847_Student_Details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `9475755847_Student_Details`
+-- Dumping data for table `32087324_Student_Details`
 --
 
-INSERT INTO `9475755847_Student_Details` (`reg_no`, `fname`, `lname`, `email`, `phoneNumber`, `dob`, `terms`, `password`, `emailVerify`, `numberVerify`, `is_finally_submitted`, `issubmitted`, `previous_school_name`, `fathers_name`, `mothers_name`, `current_whatsapp_no`, `aadhar_card_no`, `student_religion`, `student_caste`, `is_student_PWD`, `is_student_EWS`, `student_village_town`, `student_city`, `student_pin_code`, `student_police_station`, `student_district`, `student_state`, `bengali_marks`, `bengali_full_marks`, `english_marks`, `english_full_marks`, `mathematics_marks`, `mathematics_full_marks`, `physical_science_marks`, `physical_science_full_marks`, `life_science_marks`, `life_science_full_marks`, `history_marks`, `history_full_marks`, `geography_marks`, `geography_full_marks`, `language_1`, `language_2`, `select_stream`, `sub_comb`, `bank_name`, `bank_account_no`, `bank_ifsc_code`, `institution_fees_payment_done`, `institution_fees_payments_ID`, `portal_fees_payment_done`, `portal_payment_id`, `passport_size_photo_uploaded`, `aadhar_card_uploaded`, `madhyamik_marksheet_uploaded`, `madhyamik_certificate_uploaded`, `signature_uploaded`, `Registration_Time_Stamp`) VALUES
-('3208', 'Rohit', 'Purkait', 'suchibratapatwra2003@gmail.com', '9475755823', '2003-01-01', 'on', '$2y$10$nq4iBojQYHQj7v9k1MeYeu.YbSyDafRYJ3P63ArZsKP4RDcOyRfbK', 1, '1', 0, 0, 'DHBSSPV', 'Kamal Kumar Patra', 'Susmita Maity Patra', '9475755842', '3208732406762', 'Hindu', 'General', 'No', 'No', 'Diamond Harbour', 'Diamond Harbour', '743331', 'Diamond Harbour', 'South 24 Pgs', 'West Bengal', 90, 100, 91, 100, 92, 100, 93, 100, 94, 100, 95, 100, 96, 100, NULL, NULL, NULL, NULL, 'UBI', '29893khaka', '7r98shjkjfs', 1, 'pay_OD3uLT6bnoRSvg', 1, 'pay_ODUzL8vsNTLOmU', 0, 0, 0, 0, 0, '2024-05-23 07:52:31'),
-('7324', 'Suchibrata', 'Patra', 'suchibratapatra2003@gmail.com', '9475755847', '2003-01-01', 'on', '$2y$10$nq4iBojQYHQj7v9k1MeYeu.YbSyDafRYJ3P63ArZsKP4RDcOyRfbK', 1, '1', 0, 1, 'DHBSSPV', 'Kamal Kumar Patra', 'Susmita Maity Patra', '9475755847', '320873240676', 'Hindu', 'General', 'No', 'No', 'Diamond Harbour', 'Diamond Harbour', '743331', 'Diamond Harbour', 'South 24 Pgs', 'West Bengal', 90, 100, 91, 100, 94, 100, 93, 100, 94, 100, 95, 100, 96, 100, 'English', 'Bengali', 'Science', 'Phy + Maths + coms + Stat', 'UBI', '29893khaka', '7r98shjkjfs', 1, 'pay_OFr0twwsTHsKTn', 1, 'pay_OFr1BMMuquDnHM', 0, 0, 0, 0, 0, '2024-05-23 07:52:31'),
-('8292', 'Biswarup', 'Purkait', 'Sxc@gmail.com', '9475754903', '2003-01-01', 'on', '$2y$10$nq4iBojQYHQj7v9k1MeYeu.YbSyDafRYJ3P63ArZsKP4RDcOyRfbK', 1, '1', 0, 0, 'DHBSSPV', 'Kamal Kumar Patra', 'Susmita Maity Patra', '94757553432', '3208732406762', 'Hindu', 'General', 'No', 'No', 'Diamond Harbour', 'Diamond Harbour', '743331', 'Diamond Harbour', 'South 24 Pgs', 'West Bengal', 90, 100, 91, 100, 92, 100, 93, 100, 94, 100, 95, 100, 96, 100, NULL, NULL, NULL, NULL, 'UBI', '29893khaka', '7r98shjkjfs', 1, 'pay_OD3uLT6bnoRSvg', 1, 'pay_ODUzL8vsNTLOmU', 0, 0, 0, 0, 0, '2024-05-23 07:52:31');
+-- --------------------------------------------------------
 
 --
+-- Table structure for table `32087324_Subject_Details`
+--
+
+CREATE TABLE `32087324_Subject_Details` (
+  `Combo_ID` int(255) NOT NULL,
+  `Stream` varchar(20) NOT NULL,
+  `Subject_Combinations` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `32087324_Subject_Details`
+--
+
+-- Dumping data for table `student_details`
+--
+
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `9475755847_Student_Details`
+-- Indexes for table `32087324_HOI_Login_Credentials`
 --
-ALTER TABLE `9475755847_Student_Details`
+ALTER TABLE `32087324_HOI_Login_Credentials`
+  ADD PRIMARY KEY (`HOI_UDISE_ID`),
+  ADD UNIQUE KEY `HOI_UDISE_ID` (`HOI_UDISE_ID`);
+
+--
+-- Indexes for table `32087324_Student_Details`
+--
+ALTER TABLE `32087324_Student_Details`
   ADD PRIMARY KEY (`reg_no`),
   ADD UNIQUE KEY `users_email_unique` (`email`),
   ADD UNIQUE KEY `users_phonenumber_unique` (`phoneNumber`),
   ADD UNIQUE KEY `reg_no` (`reg_no`);
+
+--
+-- Indexes for table `32087324_Subject_Details`
+--
+ALTER TABLE `32087324_Subject_Details`
+  ADD PRIMARY KEY (`Combo_ID`);
+
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `32087324_Subject_Details`
+--
+ALTER TABLE `32087324_Subject_Details`
+  MODIFY `Combo_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

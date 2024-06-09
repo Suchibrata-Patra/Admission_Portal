@@ -4,7 +4,8 @@ require 'session.php';
 require 'super_admin.php';
 
 $table_name = $udise_code . '_student_details';
-
+$school_table = $udise_code . '_HOI_Login_Credentials';
+echo $school_table;
 // Fetch user details from the database
 $query = "SELECT * FROM $table_name WHERE email='$email'";
 $results = mysqli_query($db, $query);
@@ -36,7 +37,7 @@ if (isset($_POST['submit'])) {
     }
 }
 
-$school_query = "SELECT `HOI_Mobile_No`,`HOI_Mobile_No`, `HOI_Whatsapp_No`, `Institution_Name`, `HOI_Name`, `Institution_Address`, `Formfillup_Start_Date`, `Formfillup_Last_Date`, `First_merit_list_date`, `Admission_Beginning_for_First_List`, `Admission_Closes_For_First_List`, `Second_List` from 9475755847_HOI_Login_Credentials;";
+$school_query = "SELECT `HOI_Mobile_No`,`HOI_Mobile_No`, `HOI_Whatsapp_No`, `Institution_Name`, `HOI_Name`, `Institution_Address`, `Formfillup_Start_Date`, `Formfillup_Last_Date`, `First_merit_list_date`, `Admission_Beginning_for_First_List`, `Admission_Closes_For_First_List`, `Second_List` from $school_table;";
 $info = mysqli_query($db, $school_query);
 $school_info = mysqli_fetch_assoc($info);
 ?>

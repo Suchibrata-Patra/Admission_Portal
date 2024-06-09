@@ -14,14 +14,13 @@ if ($user['numberVerify'] == 0) {
     exit;
 } 
 if ($user['issubmitted'] == 1) {
-    header('Location: closed.php');
+    header('Location: Application_Status.php');
     exit;
 }
 if ($is_Application_live == 0) {
-    header('Location: closed.php');
-    exit;
+  header('Location: closed.php');
+  exit;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
