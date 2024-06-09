@@ -50,8 +50,8 @@ require_once 'HOI_session.php';
                 <span class="text">Mail</span>
             </a>
         </li>
-        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Merit_List.php') ? 'class="active"' : ''; ?>>
-            <a href="HOI_Merit_List.php">
+        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Admission_Merit_list.php') ? 'class="active"' : ''; ?>>
+            <a href="HOI_Admission_Merit_list.php">
                 <i class='bx'><span class="material-symbols-outlined">id_card</span></i>
                 <span class="text">Merit List</span>
             </a>
@@ -70,10 +70,10 @@ require_once 'HOI_session.php';
         </li>
     </ul>
     <ul class="side-menu">
-        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_System_Preferences.php') ? 'class="active"' : ''; ?>>
-            <a href="HOI_System_Preferences.php">
+        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_School_Preferences.php') ? 'class="active"' : ''; ?>>
+            <a href="HOI_School_Preferences.php">
                 <i class='bx bxs-cog'></i>
-                <span class="text">System Preferences</span>
+                <span class="text">School Preferences</span>
             </a>
         </li>
         <li>

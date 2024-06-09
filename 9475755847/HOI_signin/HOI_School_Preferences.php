@@ -8,7 +8,7 @@ if (!isset($udise_code) || !isset($udiseid)) {
     die("UDISE code and ID must be set");
 }
 
-$table_name = $udise_code . '_HOI_Login_Credentials';
+// $table_name = $udise_code . '_HOI_Login_Credentials';
 $student_table_name = $udise_code . '_Student_Details';
 
 $udiseid = mysqli_real_escape_string($db, $udiseid);
@@ -135,59 +135,89 @@ mysqli_close($db);
                         <ul class="breadcrumb">
                             <li><a href="#">Dashboard</a></li>
                             <li><i class='bx bx-chevron-right'></i></li>
-                            <li><a class="active" href="HOI_Bank_Details.php">Imporant Dates</a></li>
+                            <li><a class="active" href="HOI_Bank_Details.php">School Preferences</a></li>
                         </ul>
                     </div>
                     <!-- <a href="#" class="btn-download">
                         <i class='bx'><span class="material-symbols-outlined">download</span></i>
                     </a> -->
                 </div>
-        <h2>Imporant Dates</h2>
+        <h2>School Preferences</h2>
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="First_merit_list_date">1st Merit List Date:</label>
-                <input type="date" class="form-control" id="First_merit_list_date" name="First_merit_list_date"
+                <label for="First_merit_list_date">School Name</label>
+                <input type="text" class="form-control" id="First_merit_list_date" name="First_merit_list_date"
                     value="<?php echo isset($profile_data['First_merit_list_date']) ? $profile_data['First_merit_list_date'] : ''; ?>">
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="Admission_Beginning_for_First_List">Admission Starts For 1st List Date:</label>
-                <input type="date" class="form-control" id="Admission_Beginning_for_First_List" name="Admission_Beginning_for_First_List"
+                <label for="Admission_Beginning_for_First_List">School Address</label>
+                <input type="text" class="form-control" id="Admission_Beginning_for_First_List" name="Admission_Beginning_for_First_List"
                     value="<?php echo isset($profile_data['Admission_Beginning_for_First_List']) ? $profile_data['Admission_Beginning_for_First_List'] : ''; ?>">
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
-                <label for="Admission_Closes_For_First_List">Last Date for Admission Date:</label>
-                <input type="date" class="form-control" id="Admission_Closes_For_First_List" name="Admission_Closes_For_First_List"
+                <label for="First_merit_list_date">H.M Name</label>
+                <input type="text" class="form-control" id="First_merit_list_date" name="First_merit_list_date"
+                    value="<?php echo isset($profile_data['First_merit_list_date']) ? $profile_data['First_merit_list_date'] : ''; ?>">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="Admission_Beginning_for_First_List">H.M Whatsapp No</label>
+                <input type="text" class="form-control" id="Admission_Beginning_for_First_List" name="Admission_Beginning_for_First_List"
+                    value="<?php echo isset($profile_data['Admission_Beginning_for_First_List']) ? $profile_data['Admission_Beginning_for_First_List'] : ''; ?>">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="Admission_Beginning_for_First_List">H.M Whatsapp No</label>
+                <input type="text" class="form-control" id="Admission_Beginning_for_First_List" name="Admission_Beginning_for_First_List"
+                    value="<?php echo isset($profile_data['Admission_Beginning_for_First_List']) ? $profile_data['Admission_Beginning_for_First_List'] : ''; ?>">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="Admission_Closes_For_First_List">School Whatsapp No</label>
+                <input type="text" class="form-control" id="Admission_Closes_For_First_List" name="Admission_Closes_For_First_List"
                     value="<?php echo isset($profile_data['Admission_Closes_For_First_List']) ? $profile_data['Admission_Closes_For_First_List'] : ''; ?>">
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
-                <label for="Second_List">Second Merit List Date (If Any):</label>
-                <input type="date" class="form-control" id="Second_List" name="Second_List"
+                <label for="Second_List">School Address</label>
+                <input type="text" class="form-control" id="Second_List" name="Second_List"
+                    value="<?php echo isset($profile_data['Second_List']) ? $profile_data['Second_List'] : ''; ?>">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="Second_List">Boys / Coed School</label>
+                <input type="text" class="form-control" id="Second_List" name="Second_List"
                     value="<?php echo isset($profile_data['Second_List']) ? $profile_data['Second_List'] : ''; ?>">
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <button type="submit" name="profile_update" class="btn btn-info">Update Dates</button>
+            <button type="submit" name="profile_update" class="btn btn-info">Update</button>
         </div>
     </div>
 </form>
 <br>
                     <div class="instructions" style="padding:0.15rem;">
-                        <h5>Instructions for Updating Bank Details</h5>
-                        <p>Please be aware of the following guidelines regarding the update of bank details:</p>
+                        <h5>Instructions for Updating School Preferences</h5>
+                        <p>Please be aware of the following guidelines regarding the update of details:</p>
                         <ul style="list-style-type: disc; padding-left: 20px;">
-                            <li>• Bank details cannot be updated while the Application Window for Students are Open.</li>
+                            <li>• These School Preferences gets Immediate Effect When you Update them.</li>
                             <li>• To update bank details, please ensure that no application is live at the time.</li>
                             <li>• If it is essential to update the bank details during an active application period,
                                 please contact our customer support team.</li>
