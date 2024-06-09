@@ -17,7 +17,7 @@ $registration_no = $user['reg_no'];
 $total_marks = ($user['bengali_full_marks'] + $user['english_full_marks'] + $user['mathematics_full_marks'] + $user['physical_science_full_marks'] + $user['life_science_full_marks'] + $user['history_full_marks'] + $user['geography_full_marks']);
 $obtained_marks = ($user['bengali_marks'] + $user['english_marks'] + $user['mathematics_marks'] + $user['physical_science_marks'] + $user['life_science_marks'] + $user['history_marks'] + $user['geography_marks']);
 
-$school_query = "SELECT `HOI_Mobile_No`,`HOI_Mobile_No`, `HOI_Whatsapp_No`, `Institution_Name`, `HOI_Name`, `Institution_Address`, `Formfillup_Start_Date`, `Formfillup_Last_Date`, `First_merit_list_date`, `Admission_Beginning_for_First_List`, `Admission_Closes_For_First_List`, `Second_List` from 9475755847_HOI_Login_Credentials;";
+$school_query = "SELECT `HOI_Mobile_No`,`HOI_Mobile_No`, `HOI_Whatsapp_No`, `Institution_Name`, `HOI_Name`, `Institution_Address`, `Formfillup_Start_Date`, `Formfillup_Last_Date`, `First_merit_list_date`, `Admission_Beginning_for_First_List`, `Admission_Closes_For_First_List`, `Second_List` from $school_table;";
 $info = mysqli_query($db, $school_query);
 $school_info = mysqli_fetch_assoc($info);
 
@@ -59,10 +59,10 @@ $encryptedTimestamp = bin2hex($timestamp);
             position: relative;
         }
         .header img {
-            max-height: 120px;
-            max-width: 120px;
+            height: 120px;
+            width: 120px;
             position: absolute;
-            top: 5%;
+            top: 4.6%;
             left: 0;
         }
 
@@ -81,11 +81,11 @@ $encryptedTimestamp = bin2hex($timestamp);
 
         .photo {
             position: absolute;
-            top: 6%;
-            right: 57px;
+            top: 4%;
+            right: 15%;
             /* Changed from percentage to fixed pixel value */
-            width: 60px;
-            height: 75px;
+            width: 30px;
+            height:40px;
         }
 
         .section {
@@ -151,7 +151,7 @@ $encryptedTimestamp = bin2hex($timestamp);
         <div class="header">
             <img src="http://trip-admin.000webhostapp.com/Asset/image.png" alt="Logo"
                 style="width:90px;height: auto;padding-left: 2%;">
-            <h1 style="margin-left: 5%; margin-right: 5%;">Diamond Harbour Bharat Sevasram Sangha Pranab Vidyapith (H.S)
+            <h1 style="margin-left: 5%; margin-right: 5%;"><?php echo $school_info['Institution_Name']?>
             </h1>
             <p>UDISE Code -
                 <?php echo $udise_code ?>
@@ -168,7 +168,7 @@ $encryptedTimestamp = bin2hex($timestamp);
             <!--This is the Profile Image-->
             <div class="photo">
                 <img src="http://trip-admin.000webhostapp.com/Asset/image.png"
-                    style="border: 2px solid rgb(168, 168, 168);">
+                    style="border: 0.7px solid rgb(211, 211, 211);">
             </div>
         </div>
         <div class="section">

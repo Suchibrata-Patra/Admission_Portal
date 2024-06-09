@@ -5,7 +5,7 @@ require 'super_admin.php';
 
 $table_name = $udise_code . '_student_details';
 $school_table = $udise_code . '_HOI_Login_Credentials';
-echo $school_table;
+
 // Fetch user details from the database
 $query = "SELECT * FROM $table_name WHERE email='$email'";
 $results = mysqli_query($db, $query);

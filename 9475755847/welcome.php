@@ -2,6 +2,7 @@
 <?php
 require 'session.php';
 require 'super_admin.php';
+require 'Date_Decider.php';
 $table_name = $udise_code . '_student_details';
 echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
 echo 'Table name: ' . $table_name . '<br>';
@@ -14,10 +15,10 @@ if ($user['numberVerify'] == 0) {
     exit;
 } 
 if ($user['issubmitted'] == 1) {
-    header('Location: closed.php');
+    header('Location:Application_Status.php');
     exit;
 }
-if ($is_Application_live == 0) {
+if ($is_Application_live != 1) {
     header('Location: closed.php');
     exit;
 }

@@ -76,7 +76,7 @@
 
           <div class="hero-content">
 
-            <p class="section-subtitle">Diamond Harbour Bharat Sevasram Sangha Pranab Vidyapith</p>
+            <p class="section-subtitle">Diamond Harbour Girls School</p>
 
             <h2 class="h1 hero-title">Education Is About Academic Excellence</h2>
 
