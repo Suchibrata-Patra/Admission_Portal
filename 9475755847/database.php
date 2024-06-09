@@ -5,5 +5,5 @@
     $database = "user"; 
     // Create a connection 
     $db = mysqli_connect($servername, $username, $password, $database); 
-    echo "Server Connected Succesfully.";
+    // echo "Server Connected Succesfully.";
 ?>

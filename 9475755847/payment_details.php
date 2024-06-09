@@ -5,8 +5,8 @@ session_start();
 require 'session.php';
 require 'super_admin.php';
  $table_name = $udise_code . '_student_details';
- echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
- echo 'Table name: ' . $table_name . '<br>';
+//  echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+//  echo 'Table name: ' . $table_name . '<br>';
 $query = "SELECT * FROM $table_name WHERE email='$email'";
 $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
@@ -21,9 +21,9 @@ if ($user['numberVerify'] == 0) {
   exit(); // Add exit to stop further execution
 } 
 
-echo $registration_no;
+// echo $registration_no;
 // Debugging statement
-echo $user['institution_fees_payment_done'];
+// echo $user['institution_fees_payment_done'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,12 +81,12 @@ echo $user['institution_fees_payment_done'];
 <body>
   <!--PageLoader-->
 <?php require ('../Secure_Pageloader.php') ?>
-<?php require ('../Student_Process_header.php') ?>
 <!--PageLoader-->
   <div class="jumbotron jumbotron-fluid jumbotron-custom">
     <div class="container">
       <h1 class="display-4">Payment Details</h1>
-      <p class="lead">Confirm the payment details below.</p>
+      <p class="lead"><?php echo $user['fname']?>  Confirm the payment details below.</p>
+      <p style="font-size:14px;color:grey;">Don't try to refresh the Page While the Transanction is Going on</p>
       <button type="button" class="btn btn-info" onclick="window.location.href='logout.php';">Logout</button>
     </div>
   </div>
