@@ -1,0 +1,37 @@
+body {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .verified-icon {
+    width: 24px;
+  }
+
+  .status-verified {
+    color: green;
+  }
+
+  .status-pending {
+    color: orange;
+  }
+
+  .total-row th,
+  .total-row td {
+    font-weight: bold;
+  }
+
+  .jumbotron-custom {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    /* Centers the button horizontally */
+    margin-top: 20px;
+    /* Adds some space between the table and the button */
+  }
+  /* Custom CSS */
+.custom-disabled-color {
+color: black !important;
+}

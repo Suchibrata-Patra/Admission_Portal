@@ -1,80 +1,91 @@
-<?php include ('favicon.php') ?>
-<?php
-include 'database.php';
+<?php 
+include 'log.php'; // Include the secureLogger function
 
-// Define arrays to store search results
-$schools = array();
-$institutions = array();
+include 'favicon.php';
 
-// Check if the search parameter is set and is not empty
-if(isset($_GET['search']) && !empty($_GET['search'])) {
-    $search = $_GET['search'];
+include 'database.php'; // Include database connection details securely
 
-    // Validate and sanitize user input
-    $search = htmlspecialchars(trim($_GET['search']));
-
-    // SQL query to search for schools by school name or similar Udise id
-    $sql = "SELECT school_name, udise_id FROM edu_org_records WHERE school_name LIKE ? OR udise_id LIKE ?";
-
-    // Prepare the statement
-    $stmt = mysqli_prepare($db, $sql);
-
-    if($stmt) {
-        // Bind parameters
-        $searchPattern = "%$search%";
-        mysqli_stmt_bind_param($stmt, "ss", $searchPattern, $searchPattern);
-
-        // Execute the statement
-        mysqli_stmt_execute($stmt);
-
-        // Get the result
-        $result = mysqli_stmt_get_result($stmt);
-
-        if ($result) {
-            // Output data of each row
-            while($row = mysqli_fetch_assoc($result)) {
-                // Store school details
-                $schools[] = $row;
-
-                // Now search in the other table for additional details
-                $udiseid = $row["udise_id"];
-                $table_name = $udiseid . '_HOI_Login_Credentials';
-                $sql2 = "SELECT Institution_Name FROM $table_name WHERE HOI_UDISE_ID = ?";
-                $stmt2 = mysqli_prepare($db, $sql2);
-
-                if($stmt2) {
-                    mysqli_stmt_bind_param($stmt2, "s", $udiseid);
-                    mysqli_stmt_execute($stmt2);
-                    $result2 = mysqli_stmt_get_result($stmt2);
-
-                    if(mysqli_num_rows($result2) > 0) {
-                        while($row2 = mysqli_fetch_assoc($result2)) {
-                            // Store institution details
-                            $institutions[$udiseid] = $row2;
-                        }
-                    } else {
-                        $institutions[$udiseid] = "No additional details found for this school.";
-                    }
-
-                    mysqli_stmt_close($stmt2);
-                }
-            }
-        } else {
-            // Handle query execution error
-            echo "Error executing query: " . mysqli_error($db);
-        }
-
-        // Close the statement
-        mysqli_stmt_close($stmt);
-    } else {
-        // Handle statement preparation error
-        echo "Error preparing statement: " . mysqli_error($db);
-    }
+// Custom error handler function to convert PHP errors into exceptions
+function customErrorHandler($errno, $errstr, $errfile, $errline) {
+    // Log the error
+    secureLogger("Error: $errstr in $errfile on line $errline", 'ERROR');
+    // Return true to prevent PHP's default error handler from being called
+    return true;
 }
 
-// Close the database connection
-mysqli_close($db);
+// Set custom error handler
+set_error_handler('customErrorHandler');
+
+$schools = array();
+$institutions = array();
+$search = '';
+
+try {
+    if (isset($_GET['search']) && !empty($_GET['search'])) {
+        $search = $_GET['search'];
+        $search = htmlspecialchars(trim($search));
+
+        $sql = "SELECT school_name, udise_id FROM edu_org_records WHERE school_name LIKE ? OR udise_id LIKE ?";
+        $stmt = mysqli_prepare($db, $sql);
+
+        if ($stmt) {
+            $searchPattern = "%" . $search . "%";
+            mysqli_stmt_bind_param($stmt, "ss", $searchPattern, $searchPattern);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+
+            if ($result) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $schools[] = $row;
+                    $udiseid = $row['udise_id'];
+                    $table_name = mysqli_real_escape_string($db, $udiseid . '_HOI_Login_Credentials');
+                    $sql2 = "SELECT Institution_Name FROM `$table_name` WHERE HOI_UDISE_ID = ?";
+                    $stmt2 = mysqli_prepare($db, $sql2);
+
+                    if ($stmt2) {
+                        mysqli_stmt_bind_param($stmt2, "s", $udiseid);
+                        mysqli_stmt_execute($stmt2);
+                        $result2 = mysqli_stmt_get_result($stmt2);
+
+                        if ($result2) {
+                            if (mysqli_num_rows($result2) > 0) {
+                                while ($row2 = mysqli_fetch_assoc($result2)) {
+                                    // Store institution details
+                                    $institutions[$udiseid] = $row2;
+                                }
+                            } else {
+                                $institutions[$udiseid] = "No additional details found for this school.";
+                            }
+                        } else {
+                            secureLogger("Error executing query: " . mysqli_error($db), 'ERROR');
+                        }
+
+                        mysqli_stmt_close($stmt2);
+                    } else {
+                        secureLogger("Error preparing statement: " . mysqli_error($db), 'ERROR');
+                    }
+                }
+            }else {
+                secureLogger("Error executing query: " . mysqli_error($db), 'ERROR');
+            }
+
+            mysqli_stmt_close($stmt);
+        }else {
+            secureLogger("Error preparing statement: " . mysqli_error($db), 'ERROR');
+        }    
+    } 
+
+} catch (Exception $e) {
+    // Log any exceptions
+    secureLogger("Exception: " . $e->getMessage(), 'ERROR');
+}
+
+// Close database connection
+if (isset($db) && $db) {
+    mysqli_close($db);
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

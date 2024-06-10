@@ -11,7 +11,7 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="./Assets/css/style.css">
+  <link rel="stylesheet" href="../Assets/css/about.css">
 
   <!-- 
     - google font link

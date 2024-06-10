@@ -1,0 +1,55 @@
+.disabled-input {
+    background-color: #e9ecef;
+    opacity: 1;
+}
+
+.preview_item_heading {
+    background-color: rgb(170, 243, 170);
+    padding-left: 4px;
+    padding-right: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-bottom: -7px;
+    margin-left: 5px;
+}
+/* Container Styling */
+.school-info-container {
+max-width: 100%;
+margin: 0 auto;
+padding: 20px;
+background-color: #f9f9f9;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+border-radius: 8px;
+font-family: Arial, sans-serif;
+}
+
+/* Heading Styling */
+.school-name {
+color: #333;
+font-size: 24px;
+margin-bottom: 20px;
+}
+
+/* Detail Container Styling */
+.school-details {
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 10px; /* Optional: Adds space between elements */
+}
+
+/* Detail Styling */
+.school-detail {
+color: #555;
+font-size: 16px;
+}
+
+.school-detail span {
+font-weight: normal;
+color: #777;
+}
+
+/* Center Alignment */
+.school-info-container center {
+margin-bottom: 20px;
+}

@@ -54,174 +54,7 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
     <link rel="preload" as="image" href="../assets/images/hero-banner.png">
     <link rel="preload" as="image" href="../assets/images/hero-abs-1.png" media="min-width(768px)">
     <link rel="preload" as="image" href="../assets/images/hero-abs-2.png" media="min-width(768px)">
-    <link rel="stylesheet" href="../Assets/css/Generalised_Stylesheet.css">
-
-    <style>
-        .login-container {
-            margin-top: 50px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-            /* Shadow effect */
-            border-radius: 10px;
-            /* Rounded corners */
-            padding: 10%;
-            /* Padding for spacing */
-            background-color: #fff;
-            /* White background */
-        }
-
-        h3 {
-            color: #706c6c;
-            /* Dark grey text color */
-            text-align: center;
-            margin-bottom: 30px;
-            /* Margin at the bottom of the heading */
-        }
-
-        hr {
-            border-top: 1px solid #ddd;
-            margin-bottom: 20px;
-            /* Margin at the bottom of the horizontal line */
-        }
-
-        .form-control {
-            border-radius: 2px;
-            border: 1px solid #ddd;
-            font-size: 15px;
-        }
-
-        .btn-primary {
-            background-color: #fd5c63;
-            /* Airbnb's red color */
-            border: none;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-
-        .btn-primary:hover {
-            background-color: #eb4248;
-            /* Lighter red on hover */
-        }
-
-        .signup-link {
-            text-align: center;
-            /* Center the signup link */
-            margin-top: 20px;
-            /* Space between button and link */
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        body {
-            font-family: 'Urbanist', sans-serif;
-            background-color: #f8f9fa;
-        }
-
-        .section-title {
-            font-size: 2em;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #007bff;
-        }
-
-        .card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-title {
-            font-size: 1.5em;
-            /* Increased font size */
-            font-weight: 600;
-            margin-bottom: 15px;
-            padding-left: 1.5%;
-        }
-
-        .table {
-            margin-bottom: 0;
-            background-color: #fff;
-        }
-
-        .table thead th {
-            background-color: #9BB0C1;
-            border: none;
-            color: #ffffff;
-            font-weight: 600;
-            padding: 15px;
-            /* Increased padding */
-        }
-
-        .table tbody tr {
-            transition: background-color 0.3s ease;
-            background-color: #FEFAF6;
-        }
-
-        .table tbody tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        .table tbody td {
-            border: none;
-            padding: 15px;
-            /* Increased padding */
-            font-size: 1em;
-            /* Increased font size */
-        }
-
-        .table-responsive {
-            overflow-x: auto;
-        }
-
-        .back-top-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 50%;
-            padding: 10px;
-            display: none;
-        }
-
-        .back-top-btn:active {
-            transform: translateY(2px);
-        }
-
-        .section-subtitle {
-            padding-top: 7%;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .section-subtitle {
-                margin-top: 20%;
-            }
-        }
-
-        .list-group-item a {
-            color: rgb(227, 80, 80);
-            /* Bootstrap primary color */
-            text-decoration: none;
-        }
-
-        .list-group-item a:hover {
-            text-decoration: underline;
-        }
-
-        .list-group-item {
-            background-color: #f5f2e1;
-            /* Light grey background */
-            border-color: #d9d565;
-            /* Border color */
-        }
-
-        .list-group-item:nth-child(odd) {
-            background-color: #ece3bd;
-            /* Slightly darker grey for odd items */
-        }
-    </style>
+    <link rel="stylesheet" href="../Assets/css/admission.css">
 </head>
 
 <body id="top">
@@ -313,19 +146,20 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
                                     </h5>
                                     <div class="table-responsive">
                                         <form method="post" action="login.php">
+                                            <?php include('errors.php'); ?>
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1" class="form-label"
                                                     style="margin-bottom:-1.1px;padding-left:6px;padding-right:6px;background-color: #d3d6f2;color:black;">Email
                                                     Address</label>
                                                 <input type="email" name="email" class="form-control"
                                                     id="exampleInputEmail1" aria-describedby="emailHelp"
-                                                    placeholder="Enter your email" required>
+                                                    placeholder="Enter your email">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInputPassword1" class="form-label"
                                                     style="margin-bottom:-1.1px;padding-left:6px;padding-right:6px;background-color: #d3d6f2;color:black;">Password</label>
                                                 <input type="password" name="password" class="form-control"
-                                                    id="exampleInputPassword1" placeholder="Enter your password" required>
+                                                    id="exampleInputPassword1" placeholder="Enter your password">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox"
                                                         id="showPasswordCheck">

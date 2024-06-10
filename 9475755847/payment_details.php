@@ -34,47 +34,8 @@ if ($user['numberVerify'] == 0) {
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap">
+    <!-- <link rel="stylesheet" href="../Assets/css/payment_details.css"> -->
   <title>Payment Details</title>
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-    }
-
-    .verified-icon {
-      width: 24px;
-    }
-
-    .status-verified {
-      color: green;
-    }
-
-    .status-pending {
-      color: orange;
-    }
-
-    .total-row th,
-    .total-row td {
-      font-weight: bold;
-    }
-
-    .jumbotron-custom {
-      background-color: #f8f9fa;
-      border-bottom: 2px solid #e9ecef;
-    }
-
-    .button-container {
-      display: flex;
-      justify-content: center;
-      /* Centers the button horizontally */
-      margin-top: 20px;
-      /* Adds some space between the table and the button */
-    }
-    /* Custom CSS */
-.custom-disabled-color {
-  color: black !important;
-}
-
-  </style>
 </head>
 
 <body>
@@ -106,7 +67,7 @@ if ($user['numberVerify'] == 0) {
           <td>Rs.100</td>
           <td>
             <?php if ($user['institution_fees_payment_done'] == 1): ?>
-            <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
+            <img src="../../Assets/images/verified.svg" alt="Verified" class="verified-icon">
             <?php else: ?>
             Pending
             <?php endif; ?>
@@ -125,7 +86,7 @@ if ($user['numberVerify'] == 0) {
           <td>Rs.10</td>
           <td>
             <?php if ($user['portal_fees_payment_done'] == 1): ?>
-            <img src="Assets/verified.svg" alt="Verified" class="verified-icon">
+            <img src="../../Assets/images/verified.svg" alt="Verified" class="verified-icon">
             <?php else: ?>
             Pending
             <?php endif; ?>

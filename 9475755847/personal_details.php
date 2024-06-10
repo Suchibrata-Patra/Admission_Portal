@@ -33,65 +33,7 @@ if ($user['issubmitted'] == 1) {
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 0;
-    }
-
-    .header {
-      background-color: white;
-      color: black;
-      text-align: right;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .container {
-      margin: 20px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .row {
-      margin-left: -15px;
-      margin-right: -15px;
-    }
-
-    .col-xs-6 {
-      width: 50%;
-      float: left;
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-
-    .tab-content {
-      padding: 20px;
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      margin-top: 20px;
-    }
-
-    .logout {
-      color: white;
-      background-color: red;
-      padding: 7px;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-
-    .logout:hover {
-      background-color: yellow;
-      color: black;
-    }
-  </style>
+    <link rel="stylesheet" href="../Assets/css/personal_details.css">
 </head>
 
 <body>
