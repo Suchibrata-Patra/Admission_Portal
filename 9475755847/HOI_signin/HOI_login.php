@@ -58,64 +58,8 @@ if (isset($_POST['HOI_Login'])) {
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="/../../../../Assets/css/Generalised_HOI_Stylesheet.css">
     <title>Login</title>
-    <style>
-        body {
-            background-color: #f6f6f6; /* Light grey background */
-            font-family: Arial, sans-serif; /* Standard font */
-        }
-        .login-container {
-            margin-top: 50px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
-            border-radius: 10px; /* Rounded corners */
-            padding: 30px; /* Padding for spacing */
-            background-color: #fff; /* White background */
-        }
-        h3 {
-            color: #484848; /* Dark grey text color */
-            text-align: center;
-            margin-bottom: 30px; /* Margin at the bottom of the heading */
-        }
-        hr {
-            border-top: 1px solid #ddd;
-            margin-bottom: 20px; /* Margin at the bottom of the horizontal line */
-        }
-        .form-control {
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-        .btn-primary {
-            background-color: #FC4100; /* Airbnb's red color */
-            border: none;
-            border-radius: 8px;
-            width: 100%; /* Full width button */
-            margin-top: 20px; /* Margin at the top */
-        }
-        .btn-primary:hover {
-            background-color: #eb4248; /* Lighter red on hover */
-        }
-        .signup-link {
-            text-align: center; /* Center the signup link */
-            margin-top: 20px; /* Space between button and link */
-        }
-        a {
-            color: #fd5c63; /* Red color for links */
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .form-label{
-            background-color: #FFEC9E;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            padding-left:7px;
-            padding-right: 7px;
-            margin-bottom: -2px;
-            margin-left: 10px;;
-        }
-    </style>
 </head>
 <body>
     <div class="container">

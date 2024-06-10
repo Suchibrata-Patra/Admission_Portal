@@ -15,78 +15,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./Assets/css/style.css">
-  <title>Sign Up</title>
+
+  <link rel="stylesheet" href="../Assets/css/Generalised_Stylesheet.css">
   <style>
-    .alert {
-      border-radius: 10px;
-    }
-
-    h3 {
-      color: #484848;
-      text-align: center;
-    }
-
-    hr {
-      border-top: 1px solid #ddd;
-    }
- 
-    .form-label {
-      color: black;
-      font-weight: 500;
-      background-color: #e3e4f1;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-      padding-left: 10px;
-      padding-right: 10px;
-      margin-bottom: -2px;
-      font-size: 15px;
-      margin-left: 1%;
-
-    }
-
-    .form-control {
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      font-size: 15px;
-    }
-
-    .btn-primary:hover {
-      background-color: #eb4248;
-    }
-
-    .form-check-input {
-      margin-top: 8px;
-    }
-
-    .form-check-label {
-      color: #484848;
-    }
-
-    .form-check-input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-    }
-
-    .form-check-input[type="checkbox"]:focus {
-      box-shadow: none;
-    }
-
-    .form-check-input[type="checkbox"]:checked {
-      background-color: #fd5c63;
-    }
-
-    .form-check-input[type="checkbox"]:checked:after {
-      content: "";
-      display: block;
-      width: 6px;
-      height: 11px;
-      border: solid white;
-      border-width: 0 3px 3px 0;
-      transform: rotate(45deg);
-      margin-left: 6px;
-    }
+  
   </style>
+  <title>Sign Up</title>
 </head>
 
 <body>
@@ -110,15 +44,15 @@
         <form method="post" action="controller.php">
           <div class="mb-3">
             <label for="fname" class="form-label">First Name</label>
-            <input type="text" name="fname" class="form-control" id="fname" required />
+            <input type="text" name="fname" class="form-control" id="fname" oninput="restrictSpecialChars(this);limitLength(this, 50);" required />
           </div>
           <div class="mb-3">
             <label for="lname" class="form-label">Last Name</label>
-            <input type="text" name="lname" class="form-control" id="lname" required />
+            <input type="text" name="lname" class="form-control" id="lname" oninput="restrictSpecialChars(this);limitLength(this, 50);" required />
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" name="email" class="form-control" id="email" required />
+            <input type="email" name="email" class="form-control" oninput="limitLength(this, 250);" id="email" required />
           </div>
           <div class="mb-3">
             <label for="phoneNumber" class="form-label">Phone Number</label>
@@ -130,28 +64,28 @@
                 <!-- Add more options for other countries here -->
               </select>
               <input type="tel" name="phoneNumber" class="form-control" id="phoneNumber" aria-describedby="emailHelp"
-                placeholder="Enter your number here..." required />
+                placeholder="Enter your number here..." oninput="restrictSpecialChars(this);limitLength(this, 10);" required />
             </div>
           </div>
           <div class="mb-3">
             <label for="dob" class="form-label">Date of Birth</label>
-            <input type="date" name="dob" class="form-control" id="dob" required />
+            <input type="date" name="dob" class="form-control" id="dob"  oninput="limitLength(this, 10);" required />
           </div>
           <div class="mb-3">
             <label for="reg_no" class="form-label">Registration Number</label>
-            <input type="text" name="reg_no" class="form-control" id="reg_no" required />
+            <input type="text" name="reg_no" class="form-control" id="reg_no" oninput="restrictSpecialChars(this);limitLength(this, 20);" required />
           </div>
 
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" name="password" id="password" required />
+            <p class="password_guidelines"><a href="../password_guidelines.php" target="_blank">Password Guidelines</a></p>
           </div>
           <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" name="terms" id="terms" required />
             <label class="form-check-label" for="terms">Accepting Platform's Terms & Conditions</label>
           </div>
-          <button type="submit" name="reg_user"
-            style="background-color:#fd5c63;margin:19px;padding-left:4%;padding-right:4%;;padding-top:5px;padding-bottom:5px;color: white;border-radius:3px;">
+          <button type="submit" name="reg_user" class="btn btn-primary">
             <b>Submit</b>
           </button>
           <a href="admission.php" style="color: #8b8181; text-decoration: none; display: inline-block;">
@@ -203,7 +137,26 @@ style="background-image: url('./assets/images/newsletter-bg.jpg')">
     <ion-icon name="arrow-up"></ion-icon>
   </a>
   <script src="./Assets/js/script.js" defer></script>
+  <script>
+  // Function to restrict special characters
+  function restrictSpecialChars(inputField) {
+    // Regular expression to match special characters
+    var regex = /[!@#$%^&*(),.?":{}|<>]/g;
 
+    // Check if the input contains any special characters
+    if (regex.test(inputField.value)) {
+      // If special characters are found, replace them with an empty string
+      inputField.value = inputField.value.replace(regex, '');
+    }
+  }
+</script>
+<script>
+  function limitLength(element, maxLength) {
+    if (element.value.length > maxLength) {
+      element.value = element.value.slice(0, maxLength);
+    }
+  }
+</script>
   <!-- Optional JavaScript; choose one of the two! -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"

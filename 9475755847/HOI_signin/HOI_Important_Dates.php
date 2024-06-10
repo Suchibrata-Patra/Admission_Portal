@@ -94,8 +94,8 @@ mysqli_close($db);
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="style.css">
-    <title style="font-family: 'Roboto', Times, serif;">Haggle</title>
+        <link rel="stylesheet" href="/../../../../Assets/css/Generalised_HOI_Stylesheet.css">
+        <title style="font-family: 'Roboto', Times, serif;">Haggle</title>
 </head>
 
 <body style="font-family: 'Roboto', sans-serif;">

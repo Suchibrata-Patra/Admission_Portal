@@ -54,7 +54,7 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
     <link rel="preload" as="image" href="../assets/images/hero-banner.png">
     <link rel="preload" as="image" href="../assets/images/hero-abs-1.png" media="min-width(768px)">
     <link rel="preload" as="image" href="../assets/images/hero-abs-2.png" media="min-width(768px)">
-    <link rel="stylesheet" href="./Assets/css/style.css">
+    <link rel="stylesheet" href="../Assets/css/Generalised_Stylesheet.css">
 
     <style>
         .login-container {
@@ -313,20 +313,19 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
                                     </h5>
                                     <div class="table-responsive">
                                         <form method="post" action="login.php">
-                                            <?php include('errors.php'); ?>
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1" class="form-label"
                                                     style="margin-bottom:-1.1px;padding-left:6px;padding-right:6px;background-color: #d3d6f2;color:black;">Email
                                                     Address</label>
                                                 <input type="email" name="email" class="form-control"
                                                     id="exampleInputEmail1" aria-describedby="emailHelp"
-                                                    placeholder="Enter your email">
+                                                    placeholder="Enter your email" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInputPassword1" class="form-label"
                                                     style="margin-bottom:-1.1px;padding-left:6px;padding-right:6px;background-color: #d3d6f2;color:black;">Password</label>
                                                 <input type="password" name="password" class="form-control"
-                                                    id="exampleInputPassword1" placeholder="Enter your password">
+                                                    id="exampleInputPassword1" placeholder="Enter your password" required>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox"
                                                         id="showPasswordCheck">

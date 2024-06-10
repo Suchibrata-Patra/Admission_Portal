@@ -265,9 +265,8 @@ for ($i = 1; $i <= 5; $i++) {
                                 ?>
                                     </td>
 
-                                    <td class="align-middle text-center <?php if (isset($_FILES[$fileKey]) && $_FILES[$fileKey]["
-                                        size"] <=$maxFileSize): ?> fade-in
-                                        <?php endif; ?>">
+                                    <td class="align-middle text-center <?php if (isset($_FILES[$fileKey]) && $_FILES[$fileKey]["size"] <= $maxFileSize): ?> fade-in <?php endif; ?>">
+
                                         <div class="d-flex flex-column align-items-center">
                                             <form action="" method="post" enctype="multipart/form-data">
                                                 <div class="mb-3">

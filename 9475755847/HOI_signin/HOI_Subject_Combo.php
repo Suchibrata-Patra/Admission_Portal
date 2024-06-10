@@ -95,8 +95,7 @@ $Avialable_Subjects = mysqli_query($db, $Subjects);
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- My CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="/../../../../Assets/css/Generalised_HOI_Stylesheet.css">
     <title style="font-family: 'Roboto', Times, serif;">Haggle</title>
 </head>
 

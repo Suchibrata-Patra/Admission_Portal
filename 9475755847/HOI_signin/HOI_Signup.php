@@ -19,74 +19,12 @@ include 'database.php';
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/../../../../Assets/css/Generalised_HOI_Stylesheet.css">
+
     <script>
   window.history.forward();
 </script>
     <title>Sign Up</title>
-    <style>
-      body {
-        background-color: #f6f6f6;
-        font-family: Arial, sans-serif;
-      }
-      .container {
-        margin-top: 50px;
-        width: 95%;
-      }
-      .alert {
-        border-radius: 10px;
-      }
-      h3 {
-        color: #484848;
-        text-align: center;
-      }
-      hr {
-        border-top: 1px solid #ddd;
-      }
-      .form-label {
-        color: #484848;
-        font-weight: bold;
-      }
-      .form-control {
-        border-radius: 8px;
-        border: 1px solid #ddd;
-      }
-      .btn-primary {
-        background-color: #fd5c63;
-        border: none;
-        border-radius: 8px;
-        width: 100%;
-        margin-top: 20px;
-      }
-      .btn-primary:hover {
-        background-color: #eb4248;
-      }
-      .form-check-input {
-        margin-top: 8px;
-      }
-      .form-check-label {
-        color: #484848;
-      }
-      .form-check-input[type="checkbox"] {
-        width: 20px;
-        height: 20px;
-      }
-      .form-check-input[type="checkbox"]:focus {
-        box-shadow: none;
-      }
-      .form-check-input[type="checkbox"]:checked {
-        background-color: #fd5c63;
-      }
-      .form-check-input[type="checkbox"]:checked:after {
-        content: "";
-        display: block;
-        width: 6px;
-        height: 11px;
-        border: solid white;
-        border-width: 0 3px 3px 0;
-        transform: rotate(45deg);
-        margin-left: 6px;
-      }
-    </style>
   </head>
   <body>
     <!-- <h2><Center>Head Of the Instituion Signup</Center></h2> -->

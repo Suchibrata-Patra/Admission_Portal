@@ -76,71 +76,7 @@ $current_files = scandir($upload_dir);
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="style.css">
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .btn-danger {
-            color: #fff;
-            background-color: #dc3545;
-            border-color: #dc3545;
-        }
-
-        .btn-danger:hover {
-            background-color: #c82333;
-            border-color: #bd2130;
-        }
-      
-        .upload-form {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .jumbotron {
-            background: #2f3c4a;
-            color: white;
-            border-radius: 8px;
-            padding: 30px 20px;
-        }
-        .btn-primary {
-            background-color: #0056b3;
-            border-color: #004085;
-        }
-        .btn-danger {
-            background-color: #dc3545;
-            border-color: #bd2130;
-        }
-        .files-title {
-            margin-top: 40px;
-        }
-        .table {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+        
     </style>
     <title style="font-family: 'Roboto', Times, serif;">Haggle</title>
 </head>
@@ -183,7 +119,7 @@ $current_files = scandir($upload_dir);
     
                         <div class="jumbotron jumbotron-fluid">
                             <div class="container">
-                                <h3 class="display-4">Upload Merit List</h3>
+                                <h3 class="display-4 jumbotron-header">Upload Merit List</h3>
                                 <div class="form-group">
                                     <label for="merit_list_pdf" class="file-label">Select PDF:</label>
                                     <input type="file" name="merit_list_pdf" id="merit_list_pdf" class="form-control-file" required>
