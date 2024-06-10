@@ -96,16 +96,48 @@ if (isset($_POST['reg_user'])) {
 } 
 // echo $number = $countryCode.$phoneNumber;
   // Finally, register user if there are no errors in the form
-  if (empty($errors)) {
-    $passwordHash = password_hash($password, PASSWORD_DEFAULT); // Hashing the password
-    $query = "INSERT INTO $table_name (reg_no, fname, lname, email, phoneNumber, dob, terms, password) 
-    VALUES ('$reg_no', '$fname', '$lname', '$email', '$phoneNumber', '$dob', '$terms', '$passwordHash')";
-    mysqli_query($db, $query);
+  // if (empty($errors)) {
+  //   $passwordHash = password_hash($password, PASSWORD_DEFAULT); // Hashing the password
+  //   $query = "INSERT INTO $table_name (reg_no, fname, lname, email, phoneNumber, dob, terms, password) 
+  //   VALUES ('$reg_no', '$fname', '$lname', '$email', '$phoneNumber', '$dob', '$terms', '$passwordHash')";
+  //   mysqli_query($db, $query);
 
-    $_SESSION['email'] = $email;
-    $_SESSION['success'] = "You are now logged in";
-    header('location: welcome.php');
-    exit();
-  }
+  //   $_SESSION['email'] = $email;
+  //   $_SESSION['success'] = "You are now logged in";
+  //   header('location: welcome.php');
+  //   exit();
+  // }
+  if (empty($errors)) {
+    // Hash the password
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+    // Prepare the SQL statement
+    $query = "INSERT INTO $table_name (reg_no, fname, lname, email, phoneNumber, dob, terms, password) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+    // Bind parameters
+    $stmt = mysqli_prepare($db, $query);
+    mysqli_stmt_bind_param($stmt, "ssssssss", $reg_no, $fname, $lname, $email, $phoneNumber, $dob, $terms, $passwordHash);
+
+    // Execute the statement
+    mysqli_stmt_execute($stmt);
+
+    // Check if the query was successful
+    if (mysqli_stmt_affected_rows($stmt) > 0) {
+        // Set session variables
+        $_SESSION['email'] = $email;
+        $_SESSION['success'] = "You are now logged in";
+        mysqli_stmt_close($stmt); // Close the statement
+        mysqli_close($db); // Close the database connection
+        header('location: welcome.php'); // Redirect to welcome page
+        exit();
+    } else {
+        // Handle unsuccessful query
+        $errors['db_error'] = "Database error: Unable to register user.";
+    }
+} 
+
+
+
 }
 ?>

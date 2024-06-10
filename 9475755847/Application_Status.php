@@ -43,8 +43,76 @@ $encryptedTimestamp = bin2hex($timestamp);
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../Assets/css/Application_Status.css">
     <title>Application Status</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .verified-icon {
+            width: 24px;
+        }
+
+        .status-verified {
+            color: green;
+        }
+
+        .status-pending {
+            color: orange;
+        }
+
+        .total-row th,
+        .total-row td {
+            font-weight: bold;
+        }
+
+        .jumbotron-custom {
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            /* Centers the button horizontally */
+            margin-top: 20px;
+            /* Adds some space between the table and the button */
+        }
+
+        /* Custom CSS */
+        .custom-disabled-color {
+            color: black !important;
+        }
+
+        .profile-image {
+            width: 90px;
+            height: 90px;
+            object-fit:scale-down;
+            border-radius: 100%;
+            position: absolute;
+            top: 60%;
+            right: 10%;
+            border: 1px solid BLAck;
+        }
+
+        .card {
+            font-family: "Roboto Mono", monospace;
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: rgb(249, 249, 249);
+            border-radius: 20px;
+            color: rgb(0, 0, 0);
+        }
+
+        .jumbotron-custom {
+            background-color: #f0f0f0;
+            padding-top: 100px;
+            /* Adjust this value to your liking */
+            padding-bottom: 100px;
+            /* Adjust this value to your liking */
+        }
+
+    </style>
 </head>
 
 <body>

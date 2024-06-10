@@ -22,7 +22,6 @@ if ($is_Application_live != 1) {
     header('Location: closed.php');
     exit;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

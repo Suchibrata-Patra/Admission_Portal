@@ -1,6 +1,6 @@
 <?php include('../favicon.php') ?>
 <?php
-session_start();
+// session_start();
 require 'session.php';
 require 'super_admin.php';
 $table_name = $udise_code . '_student_details';

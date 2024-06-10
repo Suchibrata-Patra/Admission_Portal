@@ -2,27 +2,25 @@
 <?php 
 require 'session.php';
 require 'super_admin.php';
- $table_name = $udise_code . '_student_details';
- echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
- echo 'Table name: ' . $table_name . '<br>';
-// echo $user['fname'];
 
-    // if ($user['numberVerify'] == 0) {
-    //   header('location: verify.php');
-    // } 
+$table_name = $udise_code . '_student_details';
+echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+echo 'Table name: ' . $table_name . '<br>';
 
 if ($user['issubmitted'] == 1) {
-  header('location: payment_details.php');
-  exit(); // Add exit to stop further execution
+    header('location: payment_details.php');
+    exit(); // Add exit to stop further execution
 } 
- $query = "SELECT * FROM $table_name WHERE email='$email'";
- $results = mysqli_query($db, $query);
- $user = mysqli_fetch_assoc($results);
- echo '  Session Registration ID - '.$user['reg_no'];
 
- //  echo $user['lname']; 
- ?>
+$query = "SELECT * FROM $table_name WHERE email=?";
+$stmt = mysqli_prepare($db, $query);
+mysqli_stmt_bind_param($stmt, "s", $email);
+mysqli_stmt_execute($stmt);
+$results = mysqli_stmt_get_result($stmt);
 
+$user = mysqli_fetch_assoc($results);
+echo '  Session Registration ID - '.$user['reg_no'];
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Check if user is logged in
-if (!isset($_SESSION['reg_no']) || !isset($_SESSION['email'])) {
+if (!isset($_SESSION['reg_no']) || !isset($_SESSION['email']) || !is_numeric($_SESSION['reg_no'])) {
     header('Location: login.php');
     exit(); // Stop further execution
 }
@@ -18,8 +18,12 @@ if (!isset($_SESSION['reg_no']) || !isset($_SESSION['email'])) {
 $reg_no = $_SESSION['reg_no'];
 $email = $_SESSION['email'];
 
-$query = "SELECT * FROM $table_name WHERE email='$email'";
-$results = mysqli_query($db, $query);
+$query = "SELECT * FROM $table_name WHERE email=?";
+$stmt = mysqli_prepare($db, $query);
+mysqli_stmt_bind_param($stmt, "s", $email);
+mysqli_stmt_execute($stmt);
+$results = mysqli_stmt_get_result($stmt);
+
 $user = mysqli_fetch_assoc($results);
 $registration_no = $user['reg_no'];
 
