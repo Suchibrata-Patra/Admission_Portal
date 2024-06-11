@@ -1504,3 +1504,17 @@
                   margin-top: 20%;
               }
           }
+
+          .button-container {
+            text-align: center;
+            margin-bottom: 10px; /* Adjust as needed */
+        }
+        
+        .signup-link {
+            text-align: center;
+        }
+        
+        .signup-link a {
+            margin-right: 10px; /* Adjust as needed */
+        }
+        

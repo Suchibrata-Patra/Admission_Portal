@@ -171,9 +171,11 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
 
                                             <button type="submit" class="btn btn-primary" name="login_user"
                                                 style=" ">Login</button>
-                                            <div class="signup-link">
-                                                <a href="signup.php">New Here? Sign Up</a>
-                                            </div>
+                                                <div class="signup-link" style="text-align: center;">
+    <a href="signup.php" style="display: inline-block; margin-right: 10px;color:rgb(222, 47, 47)">Sign Up</a>  
+    <a href="#" style="display: inline-block; margin-right: 10px;color:rgb(222, 47, 47)" disabled>|</a>  
+    <a href="forgot_password.php" style="display: inline-block;color:rgb(226, 48, 48);"> Forgot Password ?</a>
+</div>
                                         </form>
                                     </div>
                                 </div>

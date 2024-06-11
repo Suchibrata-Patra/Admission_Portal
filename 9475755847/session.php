@@ -1,8 +1,16 @@
 <?php
-session_start();
+session_start([
+    'cookie_lifetime' => 3600, // 1 Hour
+    'cookie_secure' => true,    // Only send the cookie over HTTPS
+    'cookie_httponly' => true,  // Accessible only through the HTTP protocol
+    'cookie_samesite' => 'Strict', // CSRF protection
+    'use_strict_mode' => true,  // Prevent session fixation
+    'use_only_cookies' => true, // Force sessions to only use cookies
+]);
 
 require_once "database.php"; // Ensure this file contains the database connection
 require "super_admin.php";
+
 // Check if the user is not logged in
 if (!isset($_SESSION['email'])) {
     $_SESSION['msg'] = "You must log in first";
@@ -17,8 +25,37 @@ if (isset($_GET['logout'])) {
     header("location: login.php");
     exit();
 }
+
+// Regenerate session ID after login to prevent session fixation
+if (!isset($_SESSION['initiated'])) {
+    session_regenerate_id(true);
+    $_SESSION['initiated'] = true;
+}
+
+// Optionally, you can regenerate the session ID periodically
+if (!isset($_SESSION['last_regenerate'])) {
+    $_SESSION['last_regenerate'] = time();
+} elseif (time() - $_SESSION['last_regenerate'] > 600) { // Regenerate every 10 minutes
+    session_regenerate_id(true);
+    $_SESSION['last_regenerate'] = time();
+}
+
+// Validate the session to prevent hijacking
+if (!isset($_SESSION['IPaddress'])) {
+    $_SESSION['IPaddress'] = $_SERVER['REMOTE_ADDR'];
+}
+if (!isset($_SESSION['userAgent'])) {
+    $_SESSION['userAgent'] = $_SERVER['HTTP_USER_AGENT'];
+}
+
+if ($_SESSION['IPaddress'] != $_SERVER['REMOTE_ADDR'] || $_SESSION['userAgent'] != $_SERVER['HTTP_USER_AGENT']) {
+    session_unset();
+    session_destroy();
+    header('location: login.php');
+    exit();
+}
+
 $table_name = $udise_code . '_student_details';
-// echo $table_name;
 
 // Fetch user details from the database using a safer approach
 $email = $_SESSION['email']; // Assuming email is already sanitized when saved in session
@@ -46,6 +83,4 @@ if ($stmt = $db->prepare($query)) {
     // Error in preparing the statement
     echo "Database query failed: " . $db->error;
 }
-
-// Proceed with further processing, if needed
 ?>

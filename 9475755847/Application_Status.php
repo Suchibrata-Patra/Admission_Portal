@@ -117,7 +117,7 @@ $encryptedTimestamp = bin2hex($timestamp);
 
 <body>
     <!--PageLoader-->
-    <?php require ('../Secure_Pageloader.php') ?>
+    <?php //require ('../Secure_Pageloader.php') ?>
 
     <!--PageLoader-->
     <?php
