@@ -1,8 +1,7 @@
-<?php include('../favicon.php') ?>
 <?php
 require 'session.php';
 require 'super_admin.php';
- $table_name = $udise_code . '_student_details';
+ $table_name = $udise_code . '_Student_Details';
 //  echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
 //  echo 'Table name: ' . $table_name . '<br>';
 $query = "SELECT * FROM $table_name WHERE email='$email'";
@@ -12,12 +11,12 @@ $registration_no = $user['reg_no'];
 // echo $registration_no;
 if ($user['is_finally_submitted'] == 0) {
     if($user['issubmitted'] == 0){
-        header('location: welcome.php');
+        echo '<script>window.location.href="welcome.php";</script>';
         exit(); // Add exit to stop further execution
     }
 }
 if ($user['numberVerify'] == 0) {
-  header('location: verify.php');
+    echo '<script>window.location.href="verify.php";</script>';
   exit(); // Add exit to stop further execution
 } 
 

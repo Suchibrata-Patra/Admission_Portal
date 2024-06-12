@@ -5,7 +5,7 @@ require "HOI_super_admin.php";
 // Check if the user is not logged in
 if (!isset($_SESSION['udiseid'])) {
     $_SESSION['msg'] = "You must log in first";
-    echo '<script>window.location.href="HOI_login.php";</script>';
+    echo '<script>window.location.href="HOI_Login.php";</script>';
     exit(); // It's important to call exit() after header redirection
 }
 
@@ -13,7 +13,7 @@ if (!isset($_SESSION['udiseid'])) {
 if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['udiseid']);
-    echo '<script>window.location.href="HOI_login.php";</script>';
+    echo '<script>window.location.href="HOI_Login.php";</script>';
     exit();
 }
 $table_name = $udise_code . '_HOI_Login_Credentials';

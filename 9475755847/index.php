@@ -966,15 +966,6 @@
   -->
  <?php include('site_footer.php') ?>
 
-  <!-- 
-    - #BACK TO TOP
-  -->
-
-  <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
-    <ion-icon name="arrow-up"></ion-icon>
-  </a>
-
-
 
 
 

@@ -2,7 +2,7 @@
     <div class="container">
 
       <h1>
-        <img src="assets/images/School_logo.png" alt="Diamond Harbour Bharat Sevasram Sangha Pranab Vidyapith" style="height: 50%;">
+        <img src="Assets/images/School_logo.png" alt="Diamond Harbour Bharat Sevasram Sangha Pranab Vidyapith" style="height: 50%;">
       </h1>
 
       <nav class="navbar" data-navbar>

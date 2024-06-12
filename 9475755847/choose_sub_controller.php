@@ -14,7 +14,7 @@ $errors = array();
 // Check if user is logged in
 if (!isset($_SESSION['reg_no']) || !isset($_SESSION['email'])) {
     // Redirect user to login page or handle authentication error
-    header('Location: login.php');
+    echo '<script>window.location.href="login.php";</script>';
     exit(); // Stop further execution
 }
 // Initialize session variables
@@ -48,10 +48,10 @@ if (isset($_POST['submit_documents'])) {
     
     if ($update_result) {
         $_SESSION['success'] = "Marks updated successfully";
-        header('Location: final_preview.php');
+        echo '<script>window.location.href="final_preview.php";</script>';
         exit(); // Stop further execution
     } else {
-        header('Location: error.php');
+        echo '<script>window.location.href="error.php";</script>';
         exit(); // Stop further execution
     }
 }

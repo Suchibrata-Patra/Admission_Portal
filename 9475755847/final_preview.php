@@ -1,9 +1,8 @@
-<?php include('../favicon.php') ?>
 <?php
 require 'session.php';
 require 'super_admin.php';
 
-$table_name = $udise_code . '_student_details';
+$table_name = $udise_code . '_Student_Details';
 $school_table = $udise_code . '_HOI_Login_Credentials';
 
 // Fetch user details from the database
@@ -13,7 +12,7 @@ $user = mysqli_fetch_assoc($results);
 
 // Check if user's number is verified, if not, redirect to verify.php
 if ($user['issubmitted'] == 1) {
-    header('location: payment_details.php');
+    echo '<script>window.location.href="payment_details.php";</script>';
     exit; // Add exit to stop further execution
 } 
 
@@ -29,10 +28,10 @@ if (isset($_POST['submit'])) {
 
     if ($update_result) {
         $_SESSION['success'] = "Marks updated successfully";
-        header('Location: payment_details.php');
+        echo '<script>window.location.href="payment_details.php";</script>';
         exit;
     } else {
-        header('Location: error.php');
+        echo '<script>window.location.href="error.php";</script>';
         exit;
     }
 }

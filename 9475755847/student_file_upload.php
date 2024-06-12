@@ -1,9 +1,8 @@
-<?php include('../favicon.php') ?>
 <?php
 // session_start();
 require 'session.php';
 require 'super_admin.php';
-$table_name = $udise_code . '_student_details';
+$table_name = $udise_code . '_Student_Details';
 echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
 echo 'Table name: ' . $table_name . '<br>';
 $query = "SELECT * FROM $table_name WHERE email='$email'";
@@ -12,7 +11,7 @@ $user = mysqli_fetch_assoc($results);
 $registration_no = $user['reg_no'];
 
 if ($user['issubmitted'] == 1) {
-    header('location: payment_details.php');
+    echo '<script>window.location.href="payment_details.php";</script>';
     exit; // Add exit to stop further execution
 } 
 

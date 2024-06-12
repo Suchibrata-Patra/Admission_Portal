@@ -1,6 +1,7 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+require 'database.php';
 require 'HOI_session.php';
 require 'HOI_super_admin.php';
 

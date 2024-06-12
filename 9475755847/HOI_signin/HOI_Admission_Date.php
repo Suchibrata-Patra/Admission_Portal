@@ -140,7 +140,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
             <ul class="box-info">
     <li>
         <?php if ($admission_dates['Formfillup_Last_Date'] < $current_date) : ?>
-            <i class='bx'><img src="../../../../../Assets/stopped_admission.png" alt="Application is Stopped" style="width:80px;height: auto; background-color: #f9f9f9;"></i>
+            <i class='bx'><img src="../../../../../Assets/images/stopped_admission.png" alt="Application is Stopped" style="width:80px;height: auto; background-color: #f9f9f9;"></i>
             <span class="text">
                 <h3><?php echo $application_status; ?></h3>
                 <p>Students Can No Longer Submit their Forms Details</p>

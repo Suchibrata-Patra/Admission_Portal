@@ -1,19 +1,12 @@
 <?php 
 require 'session.php';
 require 'super_admin.php';
-ob_start();  // Start buffering the output
 
-$table_name = $udise_code . '_student_details';
+$table_name = $udise_code . '_Student_Details';
 echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
 echo 'Table name: ' . $table_name . '<br>';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-// Check if user is logged in
-if (!isset($_SESSION['reg_no']) || !isset($_SESSION['email']) || !is_numeric($_SESSION['reg_no'])) {
-    header('Location: login.php');
-    exit(); // Stop further execution
-}
 
 $reg_no = $_SESSION['reg_no'];
 $email = $_SESSION['email'];
@@ -132,12 +125,11 @@ if (empty($geography_full_marks)) {
 
    if ($update_result) {
         $_SESSION['success'] = "Marks updated successfully";
-        header('Location: personal_details.php');
+        echo '<script>window.location.href="personal_details.php";</script>';
         exit();
     } else {
-        header('Location:marks_details.php');
+        echo '<script>window.location.href="marks_details.php";</script>';
     }
 }
 
-ob_end_flush();  // Send the buffered output
 ?>
