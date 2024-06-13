@@ -10,9 +10,9 @@ $student_table_name = $udise_code . '_Student_Details';
 // Default values
 $stream = isset($_GET['stream']) ? $_GET['stream'] : 'all';
 $num_students = isset($_GET['num_students']) ? intval($_GET['num_students']) : 10;
-$num_students = max($num_students, 1);
+$num_students = max($num_students, 10000);
 
-$whereClause = "WHERE issubmitted = 1"; // Always include this condition
+$whereClause = "WHERE is_finally_submitted = 1"; // Always include this condition
 
 if ($stream !== "all") {
     // Append the stream condition to the where clause
@@ -46,6 +46,8 @@ $filteredResults = mysqli_query($db, $filteredQuery);
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -131,7 +133,8 @@ $filteredResults = mysqli_query($db, $filteredQuery);
                 <!-- Filter options -->
                 <div class="filter-options text-center">
                     <h4 style="margin-top:-3%;">Filter Students</h4>
-                    <p style="font-size:15px;color:rgb(32, 142, 122);margin-top:0%;">Showing Those Students Who have Submitted their Applications and Paid their fees.</p>
+                    <p style="font-size:15px;color:rgb(32, 142, 122);margin-top:0%;">Showing Those Students Who have
+                        Submitted their Applications and Paid their fees.</p>
                     <form action="#" method="GET">
                         <div class="form-row align-items-end justify-content-center">
                             <div class="col-md-4">
@@ -155,14 +158,28 @@ $filteredResults = mysqli_query($db, $filteredQuery);
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <input type="number" name="num_students" id="num_students" class="form-control"
-                                        placeholder="No. of Students" min="1" required>
+                                        placeholder="No. of Students" min="1">
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block">Apply Filter</button>
+                                    <select name="Merit_List_No" id="Merit_List_No" class="form-control" required>
+                                        <option value="all">Admission Round</option>
+                                        <option value="1">Round 1</option>
+                                        <option value="2">Round 2</option>
+                                    </select>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block d-flex align-items-center justify-content-center">
+                                        <span class="material-symbols-outlined mr-2">filter_alt</span> Filter
+                                    </button>
                                 </div>
                             </div>
+                            
                         </div>
                     </form>
                 </div>
@@ -186,8 +203,8 @@ if (isset($filteredResults) && mysqli_num_rows($filteredResults) > 0) {
                     <tr>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Stream</th>
-                        <th>Marks</th>
+                        <th>Stream <span class='material-symbols-outlined'>swap_vert</span></th>
+                        <th>Marks <span class='material-symbols-outlined'>filter_list</span></th>
                         <th>Admission Status</th> <!-- Updated column header -->
                         <th>Select</th>
                     </tr>
@@ -233,7 +250,7 @@ if (isset($filteredResults) && mysqli_num_rows($filteredResults) > 0) {
 }
 ?>
 
-                    
+
 
                 </div>
                 <!-- End Filtered students display -->
@@ -254,30 +271,30 @@ if (isset($filteredResults) && mysqli_num_rows($filteredResults) > 0) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-    function toggleAdmissionButton() {
-        var admissionButtonAllow = document.querySelector('.btn.btn-primary[name=\"allow_admission\"]');
-        var admissionButtonDisable = document.querySelector('.btn.btn-danger[name=\"disable_admission\"]');
-        
-        // Check if any checkbox is checked
-        var checkboxes = document.querySelectorAll('.form-check-input');
-        var anyChecked = false;
-        for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-                anyChecked = true;
-                break;
+        function toggleAdmissionButton() {
+            var admissionButtonAllow = document.querySelector('.btn.btn-primary[name=\"allow_admission\"]');
+            var admissionButtonDisable = document.querySelector('.btn.btn-danger[name=\"disable_admission\"]');
+
+            // Check if any checkbox is checked
+            var checkboxes = document.querySelectorAll('.form-check-input');
+            var anyChecked = false;
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    anyChecked = true;
+                    break;
+                }
+            }
+
+            // Show both buttons if any checkbox is checked
+            if (anyChecked) {
+                admissionButtonAllow.style.display = 'inline-block';
+                admissionButtonDisable.style.display = 'inline-block';
+            } else {
+                admissionButtonAllow.style.display = 'none';
+                admissionButtonDisable.style.display = 'none';
             }
         }
-        
-        // Show both buttons if any checkbox is checked
-        if (anyChecked) {
-            admissionButtonAllow.style.display = 'inline-block';
-            admissionButtonDisable.style.display = 'inline-block';
-        } else {
-            admissionButtonAllow.style.display = 'none';
-            admissionButtonDisable.style.display = 'none';
-        }
-    }
-</script>
+    </script>
 
     <!-- Your custom script.js if needed -->
     <script src="script.js"></script>
