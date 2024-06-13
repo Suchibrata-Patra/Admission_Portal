@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Realistic SQL Query Generator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    textarea {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 14px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <h2>Realistic SQL Query Generator</h2>
+    <textarea id="sqlStructure" placeholder="Paste your SQL data structure here..."></textarea>
+    <button onclick="generateQueries()">Generate Queries</button>
+    <hr>
+    <h3>Generated Queries</h3>
+    <textarea id="generatedQueries" readonly></textarea>
+
+</body>
+<script>
+function generateQueries() {
+    // Get SQL structure from textarea
+    var sqlStructure = document.getElementById('sqlStructure').value.trim();
+    
+    // Split SQL structure by semicolons to handle each statement
+    var statements = sqlStructure.split(';');
+    
+    var generatedQueries = [];
+    
+    // Process each statement
+    statements.forEach(function(statement) {
+        statement = statement.trim();
+        
+        if (statement !== '') {
+            // Determine type of SQL statement
+            var statementType = getStatementType(statement);
+            
+            if (statementType === 'CREATE TABLE') {
+                // Generate INSERT INTO statements with realistic dummy data
+                var insertQuery = generateInsertQuery(statement);
+                generatedQueries.push(insertQuery);
+            } else {
+                // Handle other SQL statements (optional)
+                generatedQueries.push(statement + ';');
+            }
+        }
+    });
+    
+    // Display generated queries in textarea
+    document.getElementById('generatedQueries').value = generatedQueries.join('\n');
+}
+
+function getStatementType(statement) {
+    // Extract the first word to determine statement type
+    var firstWord = statement.split(/\s+/)[0].toUpperCase();
+    
+    switch (firstWord) {
+        case 'CREATE':
+            return 'CREATE TABLE';
+        // Add more cases for other SQL statement types as needed
+        default:
+            return 'OTHER';
+    }
+}
+
+function generateInsertQuery(createStatement) {
+    // Extract table name
+    var tableName = createStatement.match(/CREATE TABLE\s+(\S+)/i)[1];
+    
+    // Extract columns
+    var columns = createStatement.match(/\((.*)\)/s)[1].split(',').map(function(column) {
+        return column.trim().split(/\s+/)[0];
+    });
+    
+    // Generate dummy data
+    var dummyValues = [];
+    for (var i = 0; i < 5000; i++) { // Generating 500 dummy rows
+        var values = [];
+        columns.forEach(function(column) {
+            if (column !== '') {
+                values.push(generateDummyValue(column, i)); // Pass index i for uniqueness
+            }
+        });
+        dummyValues.push(`(${values.join(', ')})`);
+    }
+    
+    // Construct INSERT INTO statement
+    var insertQuery = `INSERT INTO ${tableName} (${columns.join(', ')}) VALUES `;
+    insertQuery += dummyValues.join(', ') + ';';
+    
+    return insertQuery;
+}
+
+function generateDummyValue(columnName, index) {
+    // Generate dummy data based on column name or type
+    switch (columnName.toLowerCase()) {
+        case 'id':
+            return index + 1; // Ensure each ID is unique
+        case 'name':
+            return `'Dummy Name ${index + 1}'`;
+        case 'email':
+            return `'dummy${index + 1}@example.com'`;
+        case 'birthdate':
+            return `'${randomDate(new Date(1950, 0, 1), new Date())}'`;
+        default:
+            return `'Dummy ${columnName} ${index + 1}'`;
+    }
+}
+
+function randomDate(start, end) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toISOString().slice(0, 10);
+}
+
+</script>
+</html>

@@ -4,31 +4,24 @@ error_reporting(E_ALL);
 require 'HOI_session.php';
 require 'HOI_super_admin.php';
 
+// Ensure $student_table_name is properly defined (assuming $udise_code is set elsewhere)
 $student_table_name = $udise_code . '_Student_Details';
 
-// Check if the form is submitted
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    // Check if stream is selected
-    if (isset($_GET['stream'])) {
-        $stream = $_GET['stream'];
-        
-        // Construct the WHERE clause for filtering
-        if ($stream === "all") {
-            $whereClause = ""; // Empty WHERE clause to fetch all students
-        } else {
-            $whereClause = "select_stream = '$stream'";
-        }
-        
-        // Query to fetch filtered students
-        $filteredQuery = "SELECT * FROM $student_table_name";
-        if (!empty($whereClause)) {
-            $filteredQuery .= " WHERE $whereClause";
-        }
-        $filteredResults = mysqli_query($db, $filteredQuery);
-    }
+// Default values
+$stream = isset($_GET['stream']) ? $_GET['stream'] : 'all';
+$num_students = isset($_GET['num_students']) ? intval($_GET['num_students']) : 10;
+$num_students = max($num_students, 1);
+
+$whereClause = "WHERE issubmitted = 1"; // Always include this condition
+
+if ($stream !== "all") {
+    // Append the stream condition to the where clause
+    $whereClause .= " AND select_stream = '$stream'";
 }
 
+// Query to fetch students with limit
+$filteredQuery = "SELECT * FROM $student_table_name $whereClause ORDER BY obtained_marks DESC LIMIT $num_students";
+$filteredResults = mysqli_query($db, $filteredQuery);
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-            <form action="#">
+            <form action="#" method="POST">
                 <div class="form-input">
                     <input type="search" placeholder="Search...">
                     <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
@@ -136,21 +129,33 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 </div>
 
                 <!-- Filter options -->
-                <div class="filter-options text-center"> <!-- Add 'text-center' class to center align -->
-                    <h3>Filter Students</h3>
+                <div class="filter-options text-center">
+                    <h4 style="margin-top:-3%;">Filter Students</h4>
+                    <p style="font-size:15px;color:rgb(32, 142, 122);margin-top:0%;">Showing Those Students Who have Submitted their Applications and Paid their fees.</p>
                     <form action="#" method="GET">
                         <div class="form-row align-items-end justify-content-center">
-                            <!-- Add 'justify-content-center' class to center align -->
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <select name="stream" id="stream" class="form-control">
-                                        <option value="">Select Stream</option>
-                                        <option value="all">All Students</option>
-                                        <option value="Science">Science</option>
-                                        <option value="Arts">Arts</option>
-                                        <option value="Commerce">Commerce</option>
-                                        <!-- Add more options as needed -->
+                                    <select name="stream" id="stream" class="form-control" required>
+                                        <option value="" <?php if ($stream==='' ) echo 'selected' ; ?>>Select Stream
+                                        </option>
+                                        <option value="all" <?php if ($stream==='all' ) echo 'selected' ; ?>>All
+                                            Students</option>
+                                        <option value="Science" <?php if ($stream==='Science' ) echo 'selected' ; ?>
+                                            >Science</option>
+                                        <option value="Arts" <?php if ($stream==='Arts' ) echo 'selected' ; ?>>Arts
+                                        </option>
+                                        <option value="Commerce" <?php if ($stream==='Commerce' ) echo 'selected' ; ?>
+                                            >Commerce</option>
                                     </select>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <input type="number" name="num_students" id="num_students" class="form-control"
+                                        placeholder="No. of Students" min="1" required>
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -161,44 +166,75 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                         </div>
                     </form>
                 </div>
+
                 <!-- End Filter options -->
 
 
                 <!-- Filtered students display -->
                 <div class="filtered-students">
                     <?php
-            // Check if $filteredResults is set
-            if (isset($filteredResults) && mysqli_num_rows($filteredResults) > 0) {
-                echo "<div class='table-responsive'>";
-                echo "<table class='table'>";
-                echo "<thead>";
-                echo "<tr>";
-                echo "<th>First Name</th>";
-                echo "<th>Last Name</th>";
-                echo "<th>Stream</th>";
-                echo "<th>Marks</th>";
-                echo "</tr>";
-                echo "</thead>";
-                echo "<tbody>";
-                    while ($row = mysqli_fetch_assoc($filteredResults)) {
-                        $obtained_marks = ($row['bengali_marks'] + $row['english_marks'] + $row['mathematics_marks'] + $row['physical_science_marks'] + $row['life_science_marks'] + $row['history_marks'] + $row['geography_marks']);
-                        $total_marks = ($row['bengali_full_marks'] + $row['english_full_marks'] + $row['mathematics_full_marks'] + $row['physical_science_full_marks'] + $row['life_science_full_marks'] + $row['history_full_marks'] + $row['geography_full_marks']);
-                        echo "<tr>";
-                        echo "<td>" . $row['fname'] . "</td>";
-                        echo "<td>" . $row['lname'] . "</td>";
-                        echo "<td>" . $row['select_stream'] . "</td>";
-                        echo "<td>" . $obtained_marks . " / " . $total_marks . "</td>";
-                        echo "<td><button class='btn btn-primary btn-sm'>Allow Admission</button></td>"; // Add button here with btn-sm class
-                        echo "</tr>";
-                    }
-                             
-                echo "</tbody>";
-                echo "</table>";
-                echo "</div>";
-            } else {
-                echo "<p>No students found matching the selected criteria.</p>";
-            }
-            ?>
+if (isset($filteredResults) && mysqli_num_rows($filteredResults) > 0) {
+    echo "
+    <div class='table-responsive'>
+        <form action='HOI_process_admission.php' method='POST'>
+           <div class='mb-3'>
+    <button type='submit' class='btn btn-primary' name='allow_admission' style='display:none;'>Allow Admission</button>
+</div>
+
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Stream</th>
+                        <th>Marks</th>
+                        <th>Admission Status</th> <!-- Updated column header -->
+                        <th>Select</th>
+                    </tr>
+                </thead>
+                <tbody>
+    ";
+
+    while ($row = mysqli_fetch_assoc($filteredResults)) {
+        $obtained_marks = ($row['bengali_marks'] + $row['english_marks'] + $row['mathematics_marks'] + $row['physical_science_marks'] + $row['life_science_marks'] + $row['history_marks'] + $row['geography_marks']);
+        $total_marks = ($row['bengali_full_marks'] + $row['english_full_marks'] + $row['mathematics_full_marks'] + $row['physical_science_full_marks'] + $row['life_science_full_marks'] + $row['history_full_marks'] + $row['geography_full_marks']);
+
+        // Conditional block for admission status
+        $admission_status = ($row['is_Admission_Allowed'] == 1) ? "<span class='badge rounded-pill bg-success' style='font-weight:500;color: white;'>Allowed</span>" : "<span class='badge rounded-pill bg-warning' style='font-weight:500;'>Waiting</span>";
+
+        echo "
+        <tr>
+            <td>{$row['fname']}</td>
+            <td>{$row['lname']}</td>
+            <td>{$row['select_stream']}</td>
+            <td>{$obtained_marks} / {$total_marks}</td>
+            <td> <!-- Start of the new column for admission status -->
+                <p>{$admission_status}</p>
+            </td> <!-- End of the new column -->
+            <td> <!-- Start of the new column for checkbox and action button -->
+                <div class='form-check form-check-inline'>
+<input class='form-check-input' type='checkbox' id='checkbox_{$row['reg_no']}' name='admission_allow[]' value='{$row['reg_no']}' onchange='toggleAdmissionButton();'>
+                    <label class='form-check-label' for='checkbox_{$row['reg_no']}'></label>
+                </div>
+            </td> <!-- End of the new column -->
+        </tr>
+        ";
+    }
+
+    echo "
+        </tbody>
+    </table>
+    </form>
+    </div>
+    ";
+
+} else {
+    echo "<p>No students found matching the selected criteria.</p>";
+}
+?>
+
+                    
+
                 </div>
                 <!-- End Filtered students display -->
                 <!-- 
@@ -216,6 +252,32 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+    function toggleAdmissionButton() {
+        var admissionButtonAllow = document.querySelector('.btn.btn-primary[name=\"allow_admission\"]');
+        var admissionButtonDisable = document.querySelector('.btn.btn-danger[name=\"disable_admission\"]');
+        
+        // Check if any checkbox is checked
+        var checkboxes = document.querySelectorAll('.form-check-input');
+        var anyChecked = false;
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                anyChecked = true;
+                break;
+            }
+        }
+        
+        // Show both buttons if any checkbox is checked
+        if (anyChecked) {
+            admissionButtonAllow.style.display = 'inline-block';
+            admissionButtonDisable.style.display = 'inline-block';
+        } else {
+            admissionButtonAllow.style.display = 'none';
+            admissionButtonDisable.style.display = 'none';
+        }
+    }
+</script>
 
     <!-- Your custom script.js if needed -->
     <script src="script.js"></script>

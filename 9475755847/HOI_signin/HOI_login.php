@@ -59,6 +59,18 @@ if (isset($_POST['HOI_Login'])) {
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/../../../../Assets/css/Generalised_HOI_Stylesheet.css">
+    <style>
+      body {
+        background-image: url("../../Assets/images/login_Background.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 0; /* Ensure no margin around the body */
+        height: 100vh; /* Ensure the body height is 100% of the viewport height */
+      }
+    </style>
+    
+
     <title>Login</title>
 </head>
 <body>
@@ -76,6 +88,12 @@ if (isset($_POST['HOI_Login'])) {
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input type="password" name="this_is_HOI_Password_input" class="form-control" id="exampleInputPassword1" placeholder="Enter HOI password">
                     </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="showPasswordCheck">
+                      <label class="form-check-label" for="showPasswordCheck">
+                          Show Password
+                      </label>
+                  </div>
                     <button type="submit" class="btn btn-primary" name="HOI_Login">Login</button>
                     <div class="signup-link">
                         <a href="HOI_signup.php">New Here? Sign Up</a>
@@ -84,7 +102,16 @@ if (isset($_POST['HOI_Login'])) {
             </div>
         </div>
     </div>
-    
+        <script>
+         document.getElementById('showPasswordCheck').addEventListener('click', function() {
+            var passwordInput = document.getElementById('exampleInputPassword1');
+            if (this.checked) {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

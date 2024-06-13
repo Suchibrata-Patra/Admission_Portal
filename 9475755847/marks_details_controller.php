@@ -37,7 +37,7 @@ if (isset($_POST['submit_marks'])) {
     $history_full_marks = mysqli_real_escape_string($db, $_POST['History_full_marks']);
     $geography_marks = mysqli_real_escape_string($db, $_POST['geography_marks']);
     $geography_full_marks = mysqli_real_escape_string($db, $_POST['geography_full_marks']);
-
+    $obtained_marks = $bengali_marks+$english_marks+$mathematics_marks+$physical_science_marks+$physical_science_marks+$life_science_marks+$history_marks+$geography_mark;
     // Validation: Check if obtained marks are less than or equal to full marks
     if ($bengali_marks > $bengali_full_marks || $english_marks > $english_full_marks || $mathematics_marks > $mathematics_full_marks || $physical_science_marks > $physical_science_full_marks || $life_science_marks > $life_science_full_marks || $history_marks > $history_full_marks || $geography_marks > $geography_full_marks) {
         // Redirect with error message if validation fails
@@ -119,7 +119,8 @@ if (empty($geography_full_marks)) {
                          history_marks = '$history_marks', 
                          history_full_marks = '$history_full_marks', 
                          geography_marks = '$geography_marks', 
-                         geography_full_marks = '$geography_full_marks' 
+                         geography_full_marks = '$geography_full_marks',
+                         obtained_marks = '$obtained_marks'
                      WHERE reg_no = '$registration_no'";
     $update_result = mysqli_query($db, $update_query);
 

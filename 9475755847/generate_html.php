@@ -15,7 +15,7 @@ $user = mysqli_fetch_assoc($results);
 $registration_no = $user['reg_no'];
 // Calculate total and obtained marks
 $total_marks = ($user['bengali_full_marks'] + $user['english_full_marks'] + $user['mathematics_full_marks'] + $user['physical_science_full_marks'] + $user['life_science_full_marks'] + $user['history_full_marks'] + $user['geography_full_marks']);
-$obtained_marks = ($user['bengali_marks'] + $user['english_marks'] + $user['mathematics_marks'] + $user['physical_science_marks'] + $user['life_science_marks'] + $user['history_marks'] + $user['geography_marks']);
+// $obtained_marks = ($user['bengali_marks'] + $user['english_marks'] + $user['mathematics_marks'] + $user['physical_science_marks'] + $user['life_science_marks'] + $user['history_marks'] + $user['geography_marks']);
 
 $school_query = "SELECT `HOI_Mobile_No`,`HOI_Mobile_No`, `HOI_Whatsapp_No`, `Institution_Name`, `HOI_Name`, `Institution_Address`, `Formfillup_Start_Date`, `Formfillup_Last_Date`, `First_merit_list_date`, `Admission_Beginning_for_First_List`, `Admission_Closes_For_First_List`, `Second_List` from $school_table;";
 $info = mysqli_query($db, $school_query);
@@ -294,7 +294,7 @@ $encryptedTimestamp = bin2hex($timestamp);
                             <?php echo $user['geography_marks']?>
                         </td>
                         <td>
-                            <?php echo $obtained_marks ?>
+                            <?php echo $user['obtained_marks'] ?>
                         </td>
 
                     </tr>
