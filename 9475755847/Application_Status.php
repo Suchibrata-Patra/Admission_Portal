@@ -18,8 +18,7 @@ if ($user['is_finally_submitted'] == 0) {
 if ($user['numberVerify'] == 0) {
     echo '<script>window.location.href="verify.php";</script>';
   exit(); // Add exit to stop further execution
-} 
-
+}
 // echo $registration_no;
 // Debugging statement
 // echo $user['institution_fees_payment_done'];
@@ -219,10 +218,10 @@ foreach ($allowedExtensions as $extension) {
                         <?php endif; ?>
                     </td>
                     <td>
-                        <?php if ($user['institution_fees_payment_done'] == 1 & $user['portal_fees_payment_done'] == 1 ): ?>
+                        <?php if ($user['institution_fees_payment_done'] == 1 & $user['is_finally_submitted'] == 1 ): ?>
                         <button id="inst-fee-button" type="button" class="btn btn-light" disabled>Submitted</button>
                         <?php else: ?>
-                        <button id="inst-fee-button" type="button" class="btn btn-info"><a href="payment_details.php" style="color: white; text-decoration: none;">Submit</a></button>
+                        <button id="inst-fee-button" type="button" class="btn btn-info"><a href="payment_details.php" style="color: white; text-decoration: none;">Pending</a></button>
                         <?php endif; ?>
                     </td>
                 </tr>
@@ -239,7 +238,7 @@ foreach ($allowedExtensions as $extension) {
                         <?php if ($user['institution_fees_payment_done'] == 1 & $user['portal_fees_payment_done'] == 1 ): ?>
                         <button id="inst-fee-button" type="button" class="btn btn-light" ><a href="receipt_download.php">Download</a></button>
                         <?php else: ?>
-                        <button id="inst-fee-button" type="button" class="btn btn-light" disabled></a></button>
+                        <button id="inst-fee-button" type="button" class="btn btn-light" disabled>Applied</button>
                         <?php endif; ?>
                     </td>
                 </tr>

@@ -13,11 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['allow_admission']) && 
     if (!empty($allowedStudents)) {
         // Construct SQL update query
         $allowedStudentsList = implode(',', $allowedStudents);
-        $updateQuery = "UPDATE $student_table_name SET is_Admission_Allowed = 1,Merit_List_No='1' WHERE reg_no IN ($allowedStudentsList)";
+        $updateQuery = "UPDATE $student_table_name SET is_Admission_Allowed = 0,Merit_List_No='1' WHERE reg_no IN ($allowedStudentsList)";
 
         // Execute query
         if (mysqli_query($db, $updateQuery)) {
-            header("Location: HOI_Admit_Students.php");
+            header("Location: HOI_Final_List.php");
             exit; // Ensure that code execution stops after redirection
         } else {
             echo "Error updating admission status: " . mysqli_error($db);

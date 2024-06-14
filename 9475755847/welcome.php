@@ -18,7 +18,7 @@ if ($user['issubmitted'] == 1) {
     header('Location:Application_Status.php');
     exit;
 }
-if ($is_Application_live != 1) {
+if ($is_Application_live == 0 || $is_Admission_live==0) {
     header('Location: closed.php');
     exit;
 }
