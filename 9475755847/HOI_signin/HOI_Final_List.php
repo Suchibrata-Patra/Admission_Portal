@@ -52,6 +52,7 @@ $filteredResults = mysqli_query($db, $filteredQuery);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -82,6 +83,42 @@ $filteredResults = mysqli_query($db, $filteredQuery);
         .btn-primary:hover {
             background-color: #b12b65;
             color: #fff;
+        }
+        .circle-checkbox {
+            /* Hide default checkbox */
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -o-appearance: none;
+            -ms-appearance: none;
+            position: relative;
+            /* Ensure the checkbox is visible and clickable */
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            /* Set styles for the custom checkbox */
+            background-color: #fff;
+            border: 2px solid #999;
+            border-radius: 50%;
+            /* Make it a circle */
+            cursor: pointer;
+            outline: none;
+            /* Remove default focus outline */
+        }
+
+        /* Style for when the checkbox is checked */
+        .circle-checkbox:checked {
+            background-color: #2196F3;
+            border-color: #2196F3;
+        }
+
+        /* Label style (optional, adjust as needed) */
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            vertical-align: middle;
+            margin-left: 5px;
+            cursor: pointer;
         }
 
         /* Optional: Add more styles as needed */
@@ -182,8 +219,8 @@ $filteredResults = mysqli_query($db, $filteredQuery);
                 <!-- End Filter options -->
 
 
-                <!-- Filtered students display -->
-                <div class="filtered-students">
+                 <!-- Filtered students display -->
+                 <div class="filtered-students">
                     <?php
 if (isset($filteredResults) && mysqli_num_rows($filteredResults) > 0) {
     echo "
@@ -193,16 +230,17 @@ if (isset($filteredResults) && mysqli_num_rows($filteredResults) > 0) {
                 <button type='submit' class='btn btn-primary' name='allow_admission' style='display:none;'>Revoke Admission</button>
             </div>
             <table class='table'>
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Stream <span class='material-symbols-outlined'>swap_vert</span></th>
-                        <th>Marks <span class='material-symbols-outlined'>filter_list</span></th>
-                        <th>Status</th>
-                        <th>Round</th>
-                        <th> <input type='checkbox' id='select-all-checkbox' onchange='toggleAllCheckboxes(this)'>
-                                    <label for='select-all-checkbox'>Select All</label></th>
+        <thead class='text-xs text-gray-700 uppercase dark:text-gray-400'>
+                    <tr class='bg-gray-200'>
+                        <th class='px-4 py-2 text-center'>Profile</th>
+                        <th class='px-4 py-2 text-center'>Stream <span class='material-symbols-outlined'>swap_vert</span></th>
+                        <th class='px-4 py-2 text-center'>Marks <span class='material-symbols-outlined'>filter_list</span></th>
+                        <th class='px-4 py-2 text-center'>Status</th>
+                        <th class='px-4 py-2 text-center'>Round</th>
+                        <th class='px-4 py-2 text-center'>
+                            <input type='checkbox' class='circle-checkbox' id='select-all-checkbox' onchange='toggleAllCheckboxes(this)'>
+                            <label for='select-all-checkbox'>Select All</label>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -216,22 +254,21 @@ if (isset($filteredResults) && mysqli_num_rows($filteredResults) > 0) {
         $admission_status = ($row['is_Admission_Allowed'] == 1) ? "<span class='badge rounded-pill bg-success' style='font-weight:500;color: white;'>Allowed</span>" : "<span class='badge rounded-pill bg-warning' style='font-weight:500;'>Waiting</span>";
 
         echo "
-        <tr>
-            <td>{$row['fname']}</td>
-            <td>{$row['lname']}</td>
-            <td>{$row['select_stream']}</td>
-            <td>{$obtained_marks} / {$total_marks}</td>
-            <td> 
-                <p>{$admission_status}</p>
-            </td> 
-            <td>{$row['Merit_List_No']}</td>
-
-            <td> <!-- Start of the new column for checkbox and action button -->
-                <div class='form-check form-check-inline'>
-<input class='form-check-input' type='checkbox' id='checkbox_{$row['reg_no']}' name='admission_allow[]' name='remove_admission[]' value='{$row['reg_no']}' onchange='toggleAdmissionButton();'>
-                    <label class='form-check-label' for='checkbox_{$row['reg_no']}'></label>
+        <tr class='border-b border-gray-200'>
+            <td class='px-4 py-2 flex items-center'>
+                <img class='w-10 h-10 rounded-full mr-4' src='http://localhost:8888/9475755847/uploads/{$row['reg_no']}_passportsizephoto.png' alt='Passport Size Photo'>
+                <div>
+                    <div class='text-base font-nedium'>{$row['fname']} {$row['lname']}</div>
+                    <div class='text-gray-500'>{$row['email']}</div>
                 </div>
-            </td> <!-- End of the new column -->
+            </td>
+            <td class='px-4 py-2 text-center text-emerland-500'>{$row['select_stream']}</td>
+            <td class='px-4 py-2 text-center'>{$obtained_marks} / {$total_marks}</td>
+            <td class='px-4 py-2 text-center'>{$admission_status}</td>
+            <td class='px-4 py-2 text-center'>{$row['Merit_List_No']}</td>
+            <td class='px-4 py-2 text-center'>
+                <input class='form-check-input circle-checkbox' type='checkbox' id='checkbox_{$row['reg_no']}' name='admission_allow[]' value='{$row['reg_no']}' onchange='toggleAdmissionButton();'>
+            </td>
         </tr>
         ";
     }
@@ -244,30 +281,10 @@ if (isset($filteredResults) && mysqli_num_rows($filteredResults) > 0) {
     ";
 
 } else {
-    echo "<table class='table'>
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Stream <span class='material-symbols-outlined'>swap_vert</span></th>
-            <th>Marks <span class='material-symbols-outlined'>filter_list</span></th>
-            <th>Status</th>
-            <th>Round</th>
-            <th>
-                <input type='checkbox' id='select-all-checkbox' onchange='toggleAllCheckboxes(this)'>
-                <label for='select-all-checkbox'>Select All</label>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td colspan='7' style='text-align: center;'>No Student is Currently Allowed for Admission</td>
-        </tr>
-    </tbody>
-</table>";
+    echo "<p class='text-gray-500'>No students found matching the selected criteria.</p>";
 }
 ?>
-
+ </div>
 
 
                 </div>
@@ -325,6 +342,8 @@ function toggleAllCheckboxes(source) {
 </script>
 
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 </body>
 
 </html>

@@ -114,7 +114,7 @@
         <center><span class="material-symbols-outlined" style="padding-top:10px;">
             lock
             </span></center>
-        <h2>Retrace Fingerprint ID</h2>
+        <h2>Decode Fingerprint ID</h2>
         <input type="password" id="password" placeholder="Passcode" onkeydown="if(event.keyCode==13) checkPassword()">
         <button id="submitButton" onclick="checkPassword()">Authenticate</button>
         <div id="passwordError" style="margin-top: 10px;"></div>

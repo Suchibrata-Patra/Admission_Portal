@@ -24,7 +24,7 @@ if ($user['numberVerify'] != 1 || $user['emailVerify'] != 1) {
     echo "<script>window.location.href = 'HOI_verify.php';</script>"; 
 }
 if (!$user) {
-    die("User not found");
+    die("User not found");S
 }
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
