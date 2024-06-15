@@ -6,7 +6,6 @@ require 'HOI_super_admin.php';
 
 // Ensure $student_table_name is properly defined (assuming $udise_code is set elsewhere)
 $student_table_name = $udise_code . '_Student_Details';
-
 $stream = isset($_GET['stream']) ? $_GET['stream'] : 'all';
 $num_students = isset($_GET['num_students']) ? intval($_GET['num_students']) : ''; // Initialize as empty string
 
@@ -27,7 +26,6 @@ if ($stream !== "all") {
 $filteredQuery = "SELECT * FROM $student_table_name $whereClause ORDER BY obtained_marks DESC LIMIT $num_students";
 $filteredResults = mysqli_query($db, $filteredQuery);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +50,7 @@ $filteredResults = mysqli_query($db, $filteredQuery);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -84,6 +82,7 @@ $filteredResults = mysqli_query($db, $filteredQuery);
             background-color: #b12b65;
             color: #fff;
         }
+
         .circle-checkbox {
             /* Hide default checkbox */
             appearance: none;
@@ -162,7 +161,7 @@ $filteredResults = mysqli_query($db, $filteredQuery);
                         <ul class="breadcrumb">
                             <li><a href="#">Dashboard</a></li>
                             <li><i class='bx bx-chevron-right'></i></li>
-                            <li><a class="active" href="HOI_Short_Listing.php">Short List</a></li>
+                            <li><a class="active" href="HOI_Final_List.php">Revoke Admission</a></li>
                         </ul>
                     </div>
                     <a href="HOI_CSV_Data_Download.php" class="btn-download">
@@ -174,7 +173,8 @@ $filteredResults = mysqli_query($db, $filteredQuery);
                 <!-- Filter options -->
                 <div class="filter-options text-center">
                     <h4 style="margin-top:-3%;">Revoke Admission</h4>
-                    <p style="font-size:15px;color:rgb(32, 142, 122);margin-top:0%;">Revoke The Admission of the Students</p>
+                    <p style="font-size:15px;color:rgb(32, 142, 122);margin-top:0%;">Revoke The Admission of the
+                        Students</p>
                     <form action="#" method="GET">
                         <div class="form-row align-items-end justify-content-center">
                             <div class="col-md-4">
@@ -192,12 +192,17 @@ $filteredResults = mysqli_query($db, $filteredQuery);
                                             >Commerce</option>
                                     </select>
                                 </div>
-    </div>
-                                <div class="col-md-4">
-                            <div class="form-group">
-    <label for="num_students" style="font-weight: normal; color: #333; font-size: 14px; display: inline-block; width: 120px; margin-bottom: 5px;">No of Students</label>
-    <input type="number" name="num_students" id="num_students" class="form-control" style="border: 1px solid #ccc; border-radius: 4px; padding: 8px; margin-bottom: 5px; display: inline-block; width: calc(100% - 130px);" placeholder="No. of Students" min="1" value="<?php echo htmlspecialchars($num_students); ?>">
-</div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="num_students"
+                                        style="font-weight: normal; color: #333; font-size: 14px; display: inline-block; width: 120px; margin-bottom: 5px;">No
+                                        of Students</label>
+                                    <input type="number" name="num_students" id="num_students" class="form-control"
+                                        style="border: 1px solid #ccc; border-radius: 4px; padding: 8px; margin-bottom: 5px; display: inline-block; width: calc(100% - 130px);"
+                                        placeholder="No. of Students" min="1"
+                                        value="<?php echo htmlspecialchars($num_students); ?>">
+                                </div>
 
                             </div>
 
@@ -216,11 +221,11 @@ $filteredResults = mysqli_query($db, $filteredQuery);
                     </form>
                 </div>
 
-                <!-- End Filter options --> 
+                <!-- End Filter options -->
 
 
-                 <!-- Filtered students display -->
-                 <div class="filtered-students">
+                <!-- Filtered students display -->
+                <div class="filtered-students">
                     <?php
 if (isset($filteredResults) && mysqli_num_rows($filteredResults) > 0) {
     echo "
@@ -284,66 +289,56 @@ if (isset($filteredResults) && mysqli_num_rows($filteredResults) > 0) {
     echo "<p class='text-gray-500'>No students found matching the selected criteria.</p>";
 }
 ?>
- </div>
-
-
                 </div>
-                <!-- End Filtered students display -->
-                <!-- 
+            </div>
+            <!-- End Filtered students Display 
                 <span class="institution-name">
                     <?php echo $row['Institution_Name']; ?>
                 </span> -->
             </div>
         </main>
-
-
     </section>
     <!-- CONTENT -->
-
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <script>
-function toggleAdmissionButton() {
-    var admissionButtonAllow = document.querySelector('.btn.btn-primary[name="allow_admission"]');
-    var admissionButtonRemove = document.querySelector('.btn.btn-danger[name="remove_admission"]');
+        function toggleAdmissionButton() {
+            var admissionButtonAllow = document.querySelector('.btn.btn-primary[name="allow_admission"]');
+            var admissionButtonRemove = document.querySelector('.btn.btn-danger[name="remove_admission"]');
 
-    // Check if any checkbox is checked
-    var checkboxes = document.querySelectorAll('.form-check-input');
-    var anyChecked = false;
-    for (var i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i].checked) {
-            anyChecked = true;
-            break;
+            // Check if any checkbox is checked
+            var checkboxes = document.querySelectorAll('.form-check-input');
+            var anyChecked = false;
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    anyChecked = true;
+                    break;
+                }
+            }
+
+            // Show both buttons if any checkbox is checked
+            if (anyChecked) {
+                admissionButtonAllow.style.display = 'inline-block';
+                admissionButtonRemove.style.display = 'inline-block';
+            } else {
+                admissionButtonAllow.style.display = 'none';
+                admissionButtonRemove.style.display = 'none';
+            }
         }
-    }
-
-    // Show both buttons if any checkbox is checked
-    if (anyChecked) {
-        admissionButtonAllow.style.display = 'inline-block';
-        admissionButtonRemove.style.display = 'inline-block';
-    } else {
-        admissionButtonAllow.style.display = 'none';
-        admissionButtonRemove.style.display = 'none';
-    }
-}
-
     </script>
     <script>
-function toggleAllCheckboxes(source) {
-    var checkboxes = document.querySelectorAll('.form-check-input');
-    checkboxes.forEach(checkbox => {
-        checkbox.checked = source.checked;
-    });
-    toggleAdmissionButton(); // Optional: Update button visibility based on checkboxes
-}
-</script>
-
+        function toggleAllCheckboxes(source) {
+            var checkboxes = document.querySelectorAll('.form-check-input');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = source.checked;
+            });
+            toggleAdmissionButton(); // Optional: Update button visibility based on checkboxes
+        }
+    </script>
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-
 </body>
 
 </html>

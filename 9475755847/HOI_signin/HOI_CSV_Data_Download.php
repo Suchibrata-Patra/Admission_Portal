@@ -22,24 +22,23 @@ $filteredQuery = "
         physical_science_full_marks, life_science_marks, life_science_full_marks,
         history_marks, history_full_marks, geography_marks, geography_full_marks,
         obtained_marks, language_1, language_2, select_stream, sub_comb,
-        bank_name, bank_account_no, bank_ifsc_code, institution_fees_payment_done,
-        institution_fees_payments_ID, portal_fees_payment_done, portal_payment_id,
-        CONCAT('http://$domain/udise_code/uploads/', reg_no, '_passport_sizephoto.',
+        bank_name, bank_account_no, bank_ifsc_code,portal_payment_id,
+        CONCAT('http://$domain/udise_code/uploads/', reg_no, '_passportsizephoto.',
             IF(passport_size_photo_uploaded = 1, 
                 IF(LOCATE('.png', reg_no) > 0, 'png', 
                     IF(LOCATE('.jpeg', reg_no) > 0, 'jpeg', 
                         IF(LOCATE('.jpg', reg_no) > 0, 'jpg', ''))), '')) AS passport_photo_url,
-        CONCAT('http://$domain/udise_code/uploads/', reg_no, '_aadhar_card.',
+        CONCAT('http://$domain/udise_code/uploads/', reg_no, '_aadharcard.',
             IF(aadhar_card_uploaded = 1, 
                 IF(LOCATE('.png', reg_no) > 0, 'png', 
                     IF(LOCATE('.jpeg', reg_no) > 0, 'jpeg', 
                         IF(LOCATE('.jpg', reg_no) > 0, 'jpg', ''))), '')) AS aadhar_card_url,
-        CONCAT('http://$domain/udise_code/uploads/', reg_no, '_madhyamik_marksheet.',
-            IF(madhyamik_marksheet_uploaded = 1, 
+        CONCAT('http://$domain/udise_code/uploads/', reg_no, '_madhyamikmarksheet.',
+            IF(madhyamik_marksheet_uploaded = 1,
                 IF(LOCATE('.png', reg_no) > 0, 'png', 
                     IF(LOCATE('.jpeg', reg_no) > 0, 'jpeg', 
                         IF(LOCATE('.jpg', reg_no) > 0, 'jpg', ''))), '')) AS madhyamik_marksheet_url,
-        CONCAT('http://$domain/udise_code/uploads/', reg_no, '_madhyamik_certificate.',
+        CONCAT('http://$domain/udise_code/uploads/', reg_no, '_madhyamikcertificate.',
             IF(madhyamik_certificate_uploaded = 1, 
                 IF(LOCATE('.png', reg_no) > 0, 'png', 
                     IF(LOCATE('.jpeg', reg_no) > 0, 'jpeg', 
@@ -49,15 +48,14 @@ $filteredQuery = "
                 IF(LOCATE('.png', reg_no) > 0, 'png', 
                     IF(LOCATE('.jpeg', reg_no) > 0, 'jpeg', 
                         IF(LOCATE('.jpg', reg_no) > 0, 'jpg', ''))), '')) AS signature_url,
-        Registration_Time_Stamp,
-        is_Admission_Allowed, Merit_List_No
+        Registration_Time_Stamp
     FROM $student_table_name
     ORDER BY obtained_marks DESC";
 
 $filteredResults = mysqli_query($db, $filteredQuery);
 
 header('Content-Type: text/csv');
-header('Content-Disposition: attachment; filename="filtered_student_details.csv"');
+header('Content-Disposition: attachment; filename="Student_Details.csv"');
 
 // Open output stream
 $output = fopen('php://output', 'w');
@@ -70,7 +68,6 @@ $headers = array(
     'Email',
     'Phone No.',
     'Date Of Birth',
-    'Terms',
     'Previous School Name',
     'Father Name',
     'Mother Name',
@@ -105,21 +102,16 @@ $headers = array(
     'Second Language',
     'Select Stream',
     'Cubject Combination',
-    'bank_name',
-    'bank_account_no',
-    'bank_ifsc_code',
-    'institution_fees_payment_done',
-    'institution_fees_payments_ID',
-    'portal_fees_payment_done',
+    'Bank Name',
+    'Bank Acc. No',
+    'Bank IFSC',
     'portal_payment_id',
-    'passport_photo_url',
-    'aadhar_card_url',
-    'madhyamik_marksheet_url',
-    'madhyamik_certificate_url',
-    'signature_url',
-    'Registration_Time_Stamp',
-    'is_Admission_Allowed',
-    'Merit_List_No'
+    'Photo',
+    'Aadhar Card',
+    'Marek Sheet',
+    'Certificate',
+    'Signature',
+    'Registration Time'
 );
 fputcsv($output, $headers);
 
