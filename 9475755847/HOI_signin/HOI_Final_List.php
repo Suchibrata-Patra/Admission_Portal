@@ -216,7 +216,7 @@ $filteredResults = mysqli_query($db, $filteredQuery);
                     </form>
                 </div>
 
-                <!-- End Filter options -->
+                <!-- End Filter options --> 
 
 
                  <!-- Filtered students display -->
