@@ -271,6 +271,9 @@ $filteredResults = mysqli_query($db, $filteredQuery);
                     break;
                 }
             }
+            if($image_src==''){
+                $image_src ="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png";
+            }
             echo "
             <tr class='border-b border-gray-200'>
                 <td class='px-4 py-2 flex items-center'>
