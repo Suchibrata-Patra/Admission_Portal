@@ -224,72 +224,85 @@ $filteredResults = mysqli_query($db, $filteredQuery);
                 <!-- End Filter options -->
 
 
-                <!-- Filtered students display -->
-                <div class="filtered-students">
-                    <?php
-if (isset($filteredResults) && mysqli_num_rows($filteredResults) > 0) {
-    echo "
-    <div class='table-responsive'>
-        <form action='HOI_Revoke_admission.php' method='POST'>
-            <div class='mb-3'>
-                <button type='submit' class='btn btn-primary' name='allow_admission' style='display:none;'>Revoke Admission</button>
-            </div>
-            <table class='table'>
-        <thead class='text-xs text-gray-700 uppercase dark:text-gray-400'>
-                    <tr class='bg-gray-200'>
-                        <th class='px-4 py-2 text-center'>Profile</th>
-                        <th class='px-4 py-2 text-center'>Stream <span class='material-symbols-outlined'>swap_vert</span></th>
-                        <th class='px-4 py-2 text-center'>Marks <span class='material-symbols-outlined'>filter_list</span></th>
-                        <th class='px-4 py-2 text-center'>Status</th>
-                        <th class='px-4 py-2 text-center'>Round</th>
-                        <th class='px-4 py-2 text-center'>
-                            <input type='checkbox' class='circle-checkbox' id='select-all-checkbox' onchange='toggleAllCheckboxes(this)'>
-                            <label for='select-all-checkbox'>Select All</label>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-    ";
+             <!-- End Filter options -->
 
-    while ($row = mysqli_fetch_assoc($filteredResults)) {
-        $obtained_marks = ($row['bengali_marks'] + $row['english_marks'] + $row['mathematics_marks'] + $row['physical_science_marks'] + $row['life_science_marks'] + $row['history_marks'] + $row['geography_marks']);
-        $total_marks = ($row['bengali_full_marks'] + $row['english_full_marks'] + $row['mathematics_full_marks'] + $row['physical_science_full_marks'] + $row['life_science_full_marks'] + $row['history_full_marks'] + $row['geography_full_marks']);
 
-        // Conditional block for admission status
-        $admission_status = ($row['is_Admission_Allowed'] == 1) ? "<span class='badge rounded-pill bg-success' style='font-weight:500;color: white;'>Allowed</span>" : "<span class='badge rounded-pill bg-warning' style='font-weight:500;'>Waiting</span>";
+             <div class="filtered-students">
+    <?php
+    if (isset($filteredResults) && mysqli_num_rows($filteredResults) > 0) {
+        echo "
+        <div class='table-responsive'>
+            <form action='HOI_Revoke_admission.php' method='POST'>
+                <div class='mb-3'>
+                    <button type='submit' class='btn btn-primary' name='allow_admission' style='display:none;'>Allow Admission</button>
+                </div>
+                <table class='table'>
+                    <thead class='text-xs text-gray-700 uppercase dark:text-gray-400'>
+                        <tr class='bg-gray-200'>
+                            <th class='px-4 py-2 text-center'>Profile</th>
+                            <th class='px-4 py-2 text-center'>Stream <span class='material-symbols-outlined'>swap_vert</span></th>
+                            <th class='px-4 py-2 text-center'>Marks <span class='material-symbols-outlined'>filter_list</span></th>
+                            <th class='px-4 py-2 text-center'>Status</th>
+                            <th class='px-4 py-2 text-center'>Round</th>
+                            <th class='px-4 py-2 text-center'>
+                                <input type='checkbox' class='circle-checkbox' id='select-all-checkbox' onchange='toggleAllCheckboxes(this)'>
+                                <label for='select-all-checkbox'>Select All</label>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        ";
+
+        while ($row = mysqli_fetch_assoc($filteredResults)) {
+            $obtained_marks = ($row['bengali_marks'] + $row['english_marks'] + $row['mathematics_marks'] + $row['physical_science_marks'] + $row['life_science_marks'] + $row['history_marks'] + $row['geography_marks']);
+            $total_marks = ($row['bengali_full_marks'] + $row['english_full_marks'] + $row['mathematics_full_marks'] + $row['physical_science_full_marks'] + $row['life_science_full_marks'] + $row['history_full_marks'] + $row['geography_full_marks']);
+
+            // Conditional block for admission status
+            $admission_status = ($row['is_Admission_Allowed'] == 1) ? "<span class='badge rounded-pill bg-success' style='font-weight:500;color: white;'>Allowed</span>" : "<span class='badge rounded-pill bg-warning' style='font-weight:500;'>Waiting</span>";
+
+            // Determine the image file extension based on availability
+            $image_extensions = ['png', 'jpg', 'jpeg'];
+            $image_src = '';
+            foreach ($image_extensions as $ext) {
+                if (file_exists("../uploads/{$row['reg_no']}_passportsizephoto.{$ext}")) {
+                    $image_src = "../uploads/{$row['reg_no']}_passportsizephoto.{$ext}";
+                    break;
+                }
+            }
+            echo "
+            <tr class='border-b border-gray-200'>
+                <td class='px-4 py-2 flex items-center'>
+                    <img class='w-10 h-10 rounded-full mr-4' src='{$image_src}' alt='Passport Size Photo'>
+                    <div>
+                        <div class='text-base font-semibold'>{$row['fname']} {$row['lname']}</div>
+                        <div class='text-yellow-400 font-thin'>{$row['reg_no']}</div>
+                        <div class='text-blue-500 font-thin'>{$row['email']}</div>
+                    </div>
+                </td>
+                <td class='px-4 py-2 text-center text-emerland-500'>{$row['select_stream']}</td>
+                <td class='px-4 py-2 text-center'>{$obtained_marks} / {$total_marks}</td>
+                <td class='px-4 py-2 text-center'>{$admission_status}</td>
+                <td class='px-4 py-2 text-center'>{$row['Merit_List_No']}</td>
+                <td class='px-4 py-2 text-center'>
+                    <input class='form-check-input circle-checkbox' type='checkbox' id='checkbox_{$row['reg_no']}' name='admission_allow[]' value='{$row['reg_no']}' onchange='toggleAdmissionButton();'>
+                </td>
+            </tr>
+            ";
+        }
 
         echo "
-        <tr class='border-b border-gray-200'>
-            <td class='px-4 py-2 flex items-center'>
-                <img class='w-10 h-10 rounded-full mr-4' src='http://localhost:8888/9475755847/uploads/{$row['reg_no']}_passportsizephoto.png' alt='Passport Size Photo'>
-                <div>
-                    <div class='text-base font-nedium'>{$row['fname']} {$row['lname']}</div>
-                    <div class='text-gray-500'>{$row['email']}</div>
-                </div>
-            </td>
-            <td class='px-4 py-2 text-center text-emerland-500'>{$row['select_stream']}</td>
-            <td class='px-4 py-2 text-center'>{$obtained_marks} / {$total_marks}</td>
-            <td class='px-4 py-2 text-center'>{$admission_status}</td>
-            <td class='px-4 py-2 text-center'>{$row['Merit_List_No']}</td>
-            <td class='px-4 py-2 text-center'>
-                <input class='form-check-input circle-checkbox' type='checkbox' id='checkbox_{$row['reg_no']}' name='admission_allow[]' value='{$row['reg_no']}' onchange='toggleAdmissionButton();'>
-            </td>
-        </tr>
+            </tbody>
+        </table>
+        </form>
+        </div>
         ";
+
+    } else {
+        echo "<p class='text-gray-500'>No students found matching the selected criteria.</p>";
     }
+    ?>
+</div>
 
-    echo "
-        </tbody>
-    </table>
-    </form>
-    </div>
-    ";
-
-} else {
-    echo "<p class='text-gray-500'>No students found matching the selected criteria.</p>";
-}
-?>
-                </div>
             </div>
             <!-- End Filtered students Display 
                 <span class="institution-name">
