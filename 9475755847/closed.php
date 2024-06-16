@@ -20,7 +20,7 @@ $user = mysqli_fetch_assoc($results);
     <?php if($is_Application_live==0){
         echo "<h2>Application Deadline is Over</h2>";
     }elseif($is_Admission_live==0 && $user['is_Admission_Allowed']==0){
-            echo "<h2>Admissino is Closed, Please Contact With the Administration for Further Details And Resumption of Admission</h2>";
+            // echo "<h2>Admission is Closed, Please Contact With the Administration for Further Details And Resumption of Admission</h2>";
     }
     ?>
 </body>

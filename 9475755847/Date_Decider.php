@@ -15,19 +15,19 @@ if ($info) {
     $school_info = mysqli_fetch_assoc($info);
     $current_date = date('Y-m-d'); 
     echo "Programme Debug Info";
-    echo "<br>";
+    // echo "<br>";
     echo "Current Date - ".$current_date;
-    echo "<br>";
+    // echo "<br>";
     echo "Formfillup State Date - ".$school_info['Formfillup_Start_Date'];
-    echo "<br>";
+    // echo "<br>";
     echo "Formfillup Last Date - ".$school_info['Formfillup_Last_Date'];
-    echo "<br>";
+    // echo "<br>";
     echo "First Merit List Date - ".$school_info['First_merit_list_date'];
-    echo "<br>";
+    // echo "<br>";
     echo "Admission Begins for First List - ".$school_info['Admission_Beginning_for_First_List'];
-    echo "<br>";
+    // echo "<br>";
     echo "Admission Closes For Last Date Date - ".$school_info['Admission_Closes_For_First_List'];
-    echo "<br>";
+    // echo "<br>";
 
 
     if ($current_date >= $school_info['Formfillup_Start_Date'] && $current_date <= $school_info['Formfillup_Last_Date']) {
@@ -47,5 +47,5 @@ if ($info) {
 echo "Application Status ".$is_Application_live;
 echo "<br>";
 echo "Admission Status ".$is_Admission_live;
-
+echo "<br>";
 ?>

@@ -56,6 +56,6 @@
     setTimeout(function () {
       var preloader = document.getElementById('preloader');
       preloader.style.display = 'none';
-    }, 222000); // 3000 milliseconds = 3 seconds
+    }, 1000); // 3000 milliseconds = 3 seconds
   </script>
 </html>

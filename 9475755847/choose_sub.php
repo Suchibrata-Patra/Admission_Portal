@@ -112,7 +112,7 @@ $subject_combinations_json = json_encode($subject_combinations); // Encode fetch
 <!-- This is the End of Card Body -->
 
                         <div style="margin-left: 30%; padding-bottom: 2%">
-                            <a href="marks_details.php" style="color: black; text-decoration: none">
+                            <a href="student_file_upload.php" style="color: black; text-decoration: none">
                                 <button type="button" class="btn btn-primary" style="
         margin-right: 2%;
         background-color: rgb(255, 255, 255);
@@ -136,7 +136,7 @@ $subject_combinations_json = json_encode($subject_combinations); // Encode fetch
                     border: none;
                   "
                 >
-                  Save & Next
+                  Save & Preview
                 </button></a
               >
                         </div>
@@ -144,12 +144,12 @@ $subject_combinations_json = json_encode($subject_combinations); // Encode fetch
                         <!-- Link to file optimization website -->
                         <div class="mt-4">
                             <p>If you're facing any Issue with uploading the documents, then Before uploading, you can
-                                optimize your files using <a href="https://www.example.com" target="_blank">this
+                                optimize your files using <a href="https://imagecompressor.com/" target="_blank">this
                                     website</a>.</p>
                         </div>
-                        <div class="mt-4" style="display:block; text-align: left;">
-                            <h3>T&C for this Page</h3>
-                            <ol>
+                        <div class="mt-4" style="display:block; text-align:left; padding:30px; ">
+                            <h3 style="color:#DC5F00;">T&C for this Page</h3>
+                            <ol style="color:#153448;">
                                 <li>By using our platform, you agree to comply with all applicable laws and regulations.
                                 </li>
                                 <li>You are solely responsible for ensuring the accuracy and legality of any information

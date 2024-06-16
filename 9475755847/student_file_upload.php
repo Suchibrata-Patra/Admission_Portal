@@ -161,7 +161,7 @@ for ($i = 1; $i <= 5; $i++) {
                         </table>
                     </div>
                     <div style="padding-bottom: 2%; text-align: center;">
-                        <a href="marks_details.php" style="text-decoration: none;">
+                        <a href="personal_details.php" style="text-decoration: none;">
                             <button type="button" class="btn btn-info" style="margin-right: 2%;">
                                 Back
                             </button>

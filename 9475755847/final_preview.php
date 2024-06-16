@@ -90,7 +90,7 @@ foreach ($allowedExtensions as $extension) {
     // Check if the file exists
     if (file_exists($photoPath)) {
         // Display the image with the detected file format
-        echo "<img src='{$photoPath}' class='img-fluid' alt='Passport Size Photo' style='width: 120px; height: auto;'>";
+        echo "<img src='{$photoPath}' class='img-fluid' alt='Passport Size Photo' style='width: 120px; height: auto;border:1px solid grey;'>";
         break; // Exit the loop once the image is found
     }
 }
@@ -419,7 +419,7 @@ foreach ($allowedExtensions as $extension) {
             <h5>Confirmation</h5>
             <div style="display: flex; align-items: center;">
                 <div style="flex: 1;">
-                    <p>I hereby confirm that all information provided herein is accurate and complete. My signature
+                    <p>I hereby confirm that all information provided herein is accurate and complete.<br> My signature
                         serves as an attestation to the veracity of the aforementioned details.</p>
                 </div>
                 <?php
@@ -434,7 +434,7 @@ foreach ($allowedExtensions as $extension) {
         // Check if the file exists
         if (file_exists($photoPath)) {
             // Display the image with the detected file format
-            echo "<img src='{$photoPath}' class='img-fluid' alt='Signature' style='width: 120px; height: auto;'>";
+            echo "<img src='{$photoPath}' class='img-fluid' alt='Signature' style='max-width: 200px;height: auto; border:1px solid grey;margin-right:8%;'>";
             break; // Exit the loop once the image is found
         }
     }
@@ -466,6 +466,7 @@ foreach ($allowedExtensions as $extension) {
 
             <!-- Add more fields if necessary -->
         </form>
+        <br>
 
     </div>
     <script>
