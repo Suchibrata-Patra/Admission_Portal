@@ -39,7 +39,6 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -364,18 +363,13 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
     - #FOOTER
     -->
     <?php include('site_footer.php') ?>
-
     <!-- 
     - #BACK TO TOP
     -->
-
     <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
         <ion-icon name="arrow-up"></ion-icon>
     </a>
-
     <script src="./Assets/js/script.js" defer></script>
-
-
     <!-- 
     - ionicon link
     -->
@@ -384,7 +378,6 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
         crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
     <script>
         // Show or hide the back-to-top button based on scroll position
         window.addEventListener('scroll', function () {
@@ -406,8 +399,5 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
             }
         });
     </script>
-
-
 </body>
-
 </html>
