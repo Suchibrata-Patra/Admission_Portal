@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 13, 2024 at 10:31 AM
+-- Generation Time: Jun 18, 2024 at 01:49 PM
 -- Server version: 5.7.39
 -- PHP Version: 8.2.0
 
@@ -37,7 +37,7 @@ CREATE TABLE `9475755847_HOI_Login_Credentials` (
   `emailVerify` varchar(10) NOT NULL DEFAULT '0',
   `numberVerify` varchar(10) NOT NULL DEFAULT '0',
   `Institution_Name` varchar(255) DEFAULT NULL,
-  `HOI_Name` varchar(50) DEFAULT NULL,
+  `HOI_Name` varchar(50) DEFAULT 'NULL',
   `Institution_Address` varchar(255) DEFAULT NULL,
   `Coed_Or_Not` varchar(10) DEFAULT 'Coed',
   `Application_Fees` int(5) DEFAULT '200',
@@ -57,7 +57,7 @@ CREATE TABLE `9475755847_HOI_Login_Credentials` (
 --
 
 INSERT INTO `9475755847_HOI_Login_Credentials` (`HOI_UDISE_ID`, `HOI_Password`, `HOI_Email_ID`, `HOI_Mobile_No`, `HOI_Whatsapp_No`, `is_HOI_Account_Verified`, `emailVerify`, `numberVerify`, `Institution_Name`, `HOI_Name`, `Institution_Address`, `Coed_Or_Not`, `Application_Fees`, `Bank_Account_No`, `Bank_IFSC_Code`, `Bank_Branch_Name`, `Formfillup_Start_Date`, `Formfillup_Last_Date`, `First_merit_list_date`, `Admission_Beginning_for_First_List`, `Admission_Closes_For_First_List`, `Second_List`) VALUES
-('9475755847', '$2y$10$6Eti/Lyqpxd8l/.Zhn1oTO4TeDiY9GRxt1i32jrmrCCe0wsctpfke', 'suchibratapatr2003@gmail.com', '9475755847', '9734396754', 0, '1', '1', 'Diamond Harbour Bharat Sevasram Sangha Pranab Vidyapith', 'Kamal Kumar Patra', '221B Baker Street.', 'Boys Only', 200, 'UBIN053384756', '320873240676', 'Diamond Harbour', '2024-06-13', '2024-06-14', '2024-05-25', '2024-06-25', '2024-06-15', '2024-06-26');
+('9475755847', '$2y$10$u.jGAQC6auap1ZkBbdC4cOdAEtHOdF.HR69r74eytithNUQme/BLG', 'kamalkumarpatra1972@gmail.com', '9475755847', '9734396754', 0, '1', '1', 'D.H Bharat Sevasram Sangha Pranab Vidyapith (H.S)', 'Kamal Kumar Patra', 'Madhabpur, Diamond Harbour , 743331, South 24 Pgs , West Bengal, India .', 'Boys Only', 3546, 'Bank Account No', 'Bank IFSC ', 'Bank Branch Name', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -70,8 +70,8 @@ CREATE TABLE `9475755847_Student_Details` (
   `fname` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lname` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phoneNumber` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dob` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phoneNumber` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dob` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `terms` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `emailVerify` int(255) NOT NULL DEFAULT '0',
@@ -126,6 +126,8 @@ CREATE TABLE `9475755847_Student_Details` (
   `signature_uploaded` int(11) DEFAULT '0',
   `Registration_Time_Stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `is_Admission_Allowed` int(1) DEFAULT '0',
+  `Admitted_Or_Not` int(1) NOT NULL DEFAULT '0',
+  `Reminder_Email_Sent` int(2) NOT NULL DEFAULT '0',
   `Merit_List_No` int(2) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -133,11 +135,13 @@ CREATE TABLE `9475755847_Student_Details` (
 -- Dumping data for table `9475755847_Student_Details`
 --
 
-INSERT INTO `9475755847_Student_Details` (`reg_no`, `fname`, `lname`, `email`, `phoneNumber`, `dob`, `terms`, `password`, `emailVerify`, `numberVerify`, `is_finally_submitted`, `issubmitted`, `previous_school_name`, `fathers_name`, `mothers_name`, `current_whatsapp_no`, `aadhar_card_no`, `student_religion`, `student_caste`, `is_student_PWD`, `is_student_EWS`, `student_village_town`, `student_city`, `student_pin_code`, `student_police_station`, `student_district`, `student_state`, `bengali_marks`, `bengali_full_marks`, `english_marks`, `english_full_marks`, `mathematics_marks`, `mathematics_full_marks`, `physical_science_marks`, `physical_science_full_marks`, `life_science_marks`, `life_science_full_marks`, `history_marks`, `history_full_marks`, `geography_marks`, `geography_full_marks`, `obtained_marks`, `language_1`, `language_2`, `select_stream`, `sub_comb`, `bank_name`, `bank_account_no`, `bank_ifsc_code`, `institution_fees_payment_done`, `institution_fees_payments_ID`, `portal_fees_payment_done`, `portal_payment_id`, `passport_size_photo_uploaded`, `aadhar_card_uploaded`, `madhyamik_marksheet_uploaded`, `madhyamik_certificate_uploaded`, `signature_uploaded`, `Registration_Time_Stamp`, `is_Admission_Allowed`, `Merit_List_No`) VALUES
-('5646465165416', 'Suchibrata', '1', 'patrasuchi2003@gmail.com', '9475755812', '2003-01-01', 'on', '$2y$10$5clz77n6BK1R2r.vbY5nseNyg.vg5ZkZAsuuvz.luW9mVNv72a6Gu', 1, '1', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, 90, 100, 91, 100, 92, 100, 93, 100, 94, 100, 95, 100, 95, 100, 650, NULL, NULL, 'Science', 'Maths + Coms+Phys+CS', NULL, NULL, NULL, 0, NULL, 0, NULL, 0, 0, 0, 0, 0, '2024-06-10 21:13:10', 1, 1),
-('8292', 'Rohit', 'Purkait', 'sxccal@edu', '9475754903', '2003-01-01', 'on', '$2y$10$4nX1k8sjtZSkqgYyAtXR3.G9qN9Jv3DWK.DSzYGSnvWHsoPiLvqMW', 1, '1', 0, 0, 'DHBSSPV', 'This is Papa_3', 'This is Mummy_3', '94757553432sd', '3208732406763ew', 'Muslim', 'SC/ST', 'Yes', 'Yes', 'Diamond Harbour23232', 'Diamond Harbour2323', '74333131313', 'Diamond Harbours', 'South 24 Pgs2323', 'Uttar Pradesh', 95, 100, 91, 100, 92, 100, 93, 100, 45, 100, 95, 100, 20, 100, 531, 'Bengali', 'English', 'Arts', 'Pol Sc. + Hist + Geography + Sanskrit', 'asdsasas', 'assasas', 'aassaasasas', 1, 'pay_OD3uLT6bnoRSvg', 1, 'pay_ODUzL8vsNTLOmU', 0, 0, 0, 0, 0, '2024-05-23 07:52:31', 1, 1),
-('982763498543', 'Suchibrata', '2', 'papa@gmail.com', '8145302423', '2003-01-01', 'on', '$2y$10$ayRCiFROs1.1BU3Tk8f2SO4B8EwtYa6ZXKhvA9l3a35cAA6S/I2Ke', 1, '1', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, 90, 100, 91, 100, 92, 100, 93, 100, 94, 100, 95, 100, 96, 100, 651, NULL, NULL, 'Science', 'Math +Physics+Chem+Bio', NULL, NULL, NULL, 0, NULL, 0, NULL, 0, 0, 0, 0, 0, '2024-06-11 07:05:24', 0, 0),
-('Regn_2003', 'Suchibrata', '3', 'suchibratapatra2003@gmail.com', '9475755846', '2003-01-01', 'on', '$2y$10$4nX1k8sjtZSkqgYyAtXR3.G9qN9Jv3DWK.DSzYGSnvWHsoPiLvqMW', 1, '1', 0, 1, 'SRKMS', 'kamal Kumar Patra', 'hsdh', 'saoiuhga', 'dsas', 'Hindu', 'General', 'No', 'No', 'SOUTH TWENTY FOUR PARGANAS', 'SOUTH TWENTY FOUR PARGANAS', '743331', 'sfs', 'sfsf', 'West Bengal', 92, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 692, 'Bengali', 'English', 'Science', 'Phy + Maths + coms + Stat', 'sfsf', 'sfsf', 'sff', 1, 'pay_OMCTyGlgGQofnW', 1, 'pay_OMCUGW3z3WqGih', 0, 0, 0, 0, 0, '2024-06-11 20:41:40', 0, 0);
+INSERT INTO `9475755847_Student_Details` (`reg_no`, `fname`, `lname`, `email`, `phoneNumber`, `dob`, `terms`, `password`, `emailVerify`, `numberVerify`, `is_finally_submitted`, `issubmitted`, `previous_school_name`, `fathers_name`, `mothers_name`, `current_whatsapp_no`, `aadhar_card_no`, `student_religion`, `student_caste`, `is_student_PWD`, `is_student_EWS`, `student_village_town`, `student_city`, `student_pin_code`, `student_police_station`, `student_district`, `student_state`, `bengali_marks`, `bengali_full_marks`, `english_marks`, `english_full_marks`, `mathematics_marks`, `mathematics_full_marks`, `physical_science_marks`, `physical_science_full_marks`, `life_science_marks`, `life_science_full_marks`, `history_marks`, `history_full_marks`, `geography_marks`, `geography_full_marks`, `obtained_marks`, `language_1`, `language_2`, `select_stream`, `sub_comb`, `bank_name`, `bank_account_no`, `bank_ifsc_code`, `institution_fees_payment_done`, `institution_fees_payments_ID`, `portal_fees_payment_done`, `portal_payment_id`, `passport_size_photo_uploaded`, `aadhar_card_uploaded`, `madhyamik_marksheet_uploaded`, `madhyamik_certificate_uploaded`, `signature_uploaded`, `Registration_Time_Stamp`, `is_Admission_Allowed`, `Admitted_Or_Not`, `Reminder_Email_Sent`, `Merit_List_No`) VALUES
+('1234', 'Lorem', 'Epsum', 'apple@icoud.com\'', '9475755812', '2003-01-01', 'on', '$2y$10$5clz77n6BK1R2r.vbY5nseNyg.vg5ZkZAsuuvz.luW9mVNv72a6Gu', 1, '1', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'No', '0', NULL, NULL, NULL, NULL, NULL, NULL, 90, 100, 91, 100, 92, 100, 93, 100, 94, 100, 95, 100, 95, 100, 650, NULL, NULL, 'Science', 'Maths + Coms+Phys+CS', NULL, NULL, NULL, 0, NULL, 0, NULL, 0, 0, 0, 0, 0, '2024-06-10 21:13:10', 1, 0, 0, 1),
+('2003', 'Suchibrata', 'Patra', 'suchibratapatra2003@gmail.com', '9475755847', '2003-01-01', 'on', '$2y$10$T1vnSWqdXwDH6DcaUT4WNue/w4aPOX2M2w9.lUud5IhmnEp2OseRa', 1, '1', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100, NULL, 100, NULL, 100, NULL, 100, NULL, 100, NULL, 100, NULL, 100, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 0, NULL, 0, 0, 0, 0, 0, '2024-06-16 09:56:40', 0, 0, 0, 0),
+('3208', 'Lorem', 'Epsum', 'google@gmail.com', '8145302423', '2003-01-01', 'on', '$2y$10$ayRCiFROs1.1BU3Tk8f2SO4B8EwtYa6ZXKhvA9l3a35cAA6S/I2Ke', 1, '1', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'No', '0', NULL, NULL, NULL, NULL, NULL, NULL, 90, 100, 91, 100, 92, 100, 93, 100, 94, 100, 95, 100, 96, 100, 651, NULL, NULL, 'Science', 'Math +Physics+Chem+Bio', NULL, NULL, NULL, 0, NULL, 0, NULL, 0, 0, 0, 0, 0, '2024-06-11 07:05:24', 1, 0, 0, 1),
+('6542', 'Lorem', 'Epsum', '', '', '', '', '', 0, '0', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100, NULL, 100, NULL, 100, NULL, 100, NULL, 100, NULL, 100, NULL, 100, 652, NULL, NULL, 'Commerce', 'Acc+Eco+Maths+Geo', NULL, NULL, NULL, 0, NULL, 0, NULL, 0, 0, 0, 0, 0, '2024-06-15 10:58:48', 1, 0, 0, 1),
+('7324', 'Lorem', 'Epsum', 'microsoft@office.com', '9475755846', '2003-01-01', 'on', '$2y$10$nDHxbdQaf48wXKu2tD5MweyNQI73Hg.QCe4INps8hM6eiJKH1KMy2', 1, '1', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100, NULL, 100, NULL, 100, NULL, 100, NULL, 100, NULL, 100, NULL, 100, 623, NULL, NULL, 'Commerce', NULL, NULL, NULL, NULL, 0, NULL, 0, NULL, 0, 0, 0, 0, 0, '2024-06-14 16:26:05', 1, 0, 0, 1),
+('8292', 'Lorem', 'Epsum', 'linux@debian.com', '9475754903', '2003-01-01', 'on', '$2y$10$4nX1k8sjtZSkqgYyAtXR3.G9qN9Jv3DWK.DSzYGSnvWHsoPiLvqMW', 1, '1', 1, 1, 'DHBSSPV', 'This is Papa_3', 'This is Mummy_3', '94757553432sd', '3208732406763ew', 'Muslim', 'SC/ST', 'Yes', 'Yes', 'Diamond Harbour23232', 'Diamond Harbour2323', '74333131313', 'Diamond Harbours', 'South 24 Pgs2323', 'Uttar Pradesh', 95, 100, 91, 100, 92, 100, 93, 100, 45, 100, 95, 100, 20, 100, 531, 'Bengali', 'English', 'Arts', 'Pol Sc. + Hist + Geography + Sanskrit', 'asdsasas', 'assasas', 'aassaasasas', 1, 'pay_OD3uLT6bnoRSvg', 1, 'pay_ODUzL8vsNTLOmU', 0, 0, 0, 0, 0, '2024-05-23 07:52:31', 1, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -176,7 +180,7 @@ CREATE TABLE `edu_org_records` (
 --
 
 INSERT INTO `edu_org_records` (`udise_id`, `school_name`) VALUES
-('9475755847', 'Diamond Harbour Bharat Sevasram Sangha Pranab Vidyapith');
+('9475755847', 'Institution_Name');
 
 -- --------------------------------------------------------
 

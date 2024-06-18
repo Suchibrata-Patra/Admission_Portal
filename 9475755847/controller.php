@@ -64,7 +64,7 @@ if (isset($_POST['reg_user'])) {
     header("location: signup.php?error=terms is required");
 }
 
-  // first check the database to make sure 
+  // first check the database to make sure
   // a user does not already exist with the same username and/or email
   $user_check_query = "SELECT * FROM $table_name WHERE email='$email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
@@ -78,7 +78,7 @@ if (isset($_POST['reg_user'])) {
   }
   
   if ($user) { // if user exists
-    if ($user['reg_np'] === $reg_no) {
+    if ($user['reg_no'] === $reg_no) {
       array_push($errors, "Registration No is already Registered.");
       header("location: signup.php?error=Registration No is already Registered.");
     }

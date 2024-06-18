@@ -114,9 +114,18 @@ if (isset($_POST['edit'])) {
     <div class="container">
         <h2>Email Verification</h2>
         <div class="card-body">
-            <?php if (isset($_SESSION['udiseid'])): ?>
-                <p>Welcome, <strong><?php echo htmlspecialchars($first_name); ?></strong> | <a href="HOI_Login.php?logout='1'" style="color: #FF5A5F; text-decoration: none;">Logout</a></p>
-            <?php endif ?>
+        <?php if (isset($_SESSION['udiseid'])): ?>
+    <p>Welcome, <strong>
+    <?php 
+    if (isset($row) && isset($row['HOI_Name']) && !is_null($row['HOI_Name'])) {
+        echo htmlspecialchars($row['HOI_Name']);
+    } else {
+        echo 'User'; // Or some other default value
+    }
+    ?>
+    </strong> | <a href="HOI_Login.php?logout='1'" style="color: #FF5A5F; text-decoration: none;">Logout</a></p>
+   <?php endif ?>
+
 
             <?php if (isset($error_message)): ?>
                 <div class="alert alert-danger">

@@ -56,13 +56,14 @@ require_once 'HOI_session.php';
                 <span class="text">Merit List</span>
             </a>
         </li>
-
-        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Teacher_Profiles.php') ? 'class="active"' : ''; ?>>
-            <a href="HOI_Teacher_Profiles.php">
-                <i class='bx bxs-group'></i>
-                <span class="text">Stuents_Profile</span>
+        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Mail_to_Students.php') ? 'class="active"' : ''; ?>>
+            <a href="HOI_Mail_to_Students.php">
+                <i class='bx'><span class="material-symbols-outlined">mail</span></i>
+                <span class="text">Send Mail</span>
             </a>
         </li>
+
+
     </ul>
     <ul class="side-menu">
         <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_School_Preferences.php') ? 'class="active"' : ''; ?>>

@@ -8,7 +8,7 @@ if (!isset($udise_code) || !isset($udiseid)) {
     die("UDISE code and ID must be set");
 }
 
-$student_table_name = $udise_code . '_Student_Details';
+$table_name = $udise_code . '_HOI_Login_Credentials';
 
 $udiseid = mysqli_real_escape_string($db, $udiseid);
 
@@ -74,6 +74,9 @@ if ($result && mysqli_num_rows($result) > 0) {
     // Handle errors or set default values for profile data
     $profile_data = array();
 }
+$school_name_updation_query = "UPDATE edu_org_records SET school_name ='Institution_Name' WHERE udise_id = '$udiseid'";
+$result_updation = mysqli_query($db, $school_name_updation_query);
+$row = mysqli_fetch_assoc($result_updation);
 // Close the database connection
 mysqli_close($db);
 ?>
