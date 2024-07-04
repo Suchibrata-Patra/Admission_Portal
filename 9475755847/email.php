@@ -4,6 +4,7 @@ error_reporting(E_ALL);
 require 'session.php';
 require 'database.php';
 require 'super_admin.php';
+require '../Assets/Mail_Login_Credentials.php';
 
 $table_name = $udise_code . '_student_details';
 echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
@@ -31,8 +32,11 @@ try {
     $mail->SMTPAuth = true;
     
     // Provide username and password
-    $mail->Username = 'otpverifier.2023@gmail.com';
-    $mail->Password = 'cymp mmut sqzu vzim';  // Use the correct password
+    $mail->Username = $mailid;
+    $mail->Password = $mailid_login_password;  // Use the correct password
+    // // Provide username and password
+    // $mail->Username = 'otpverifier.2023@gmail.com';
+    // $mail->Password = 'cymp mmut sqzu vzim';  // Use the correct password
     
     // If SMTP requires TLS encryption then set it
     $mail->SMTPSecure = 'ssl';
@@ -40,7 +44,7 @@ try {
     // Set TCP port to connect to
     $mail->Port = 465;
     
-    $mail->From = 'otpverifier.2023@gmail.com';
+    $mail->From = $mailid;
     $mail->FromName = 'Patra Inc.';
     
     $mail->addAddress($user['email'], $user['fname']);

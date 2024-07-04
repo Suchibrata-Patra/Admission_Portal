@@ -3,6 +3,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 require 'HOI_session.php';
 require 'HOI_super_admin.php';
+require '.../../../../Assets/Mail_Login_Credentials.php';
 
 // Ensure $student_table_name is properly defined (assuming $udise_code is set elsewhere)
 $student_table_name = $udise_code . '_Student_Details';
@@ -147,10 +148,10 @@ $filteredResults = mysqli_query($db, $filteredQuery);
             </form>
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
+ 
+
+            	<!-- HOI_Notification_Icon -->
+   <?php include 'HOI_Notification_Icon.php'; ?>
             <a href="#" class="profile">
                 <img src="img/people.png">
             </a>
@@ -178,6 +179,9 @@ $filteredResults = mysqli_query($db, $filteredQuery);
                     <h4 style="margin-top:-3%;">Filter Students</h4>
                     <p style="font-size:15px;color:rgb(32, 142, 122);margin-top:0%;">Showing Those Students Who have
                         Submitted their Applications and Paid their fees.</p>
+                        <?php echo $mailid; ?>
+                        <?php echo'<br>' ?>
+                        <?php echo $mailid_login_password; ?>
                     <form action="#" method="GET">
                         <div class="form-row align-items-end justify-content-center">
                             <div class="col-md-4">

@@ -68,7 +68,6 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 	<!-- My CSS -->
 	<link rel="stylesheet" href="/../../../../Assets/css/Generalised_HOI_Stylesheet.css">
 
-
 	<title style="font-family: 'Roboto', Times, serif;">Haggle</title>
 </head>
 
@@ -83,24 +82,25 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav>
-			<i class='bx bx-menu'></i>
-			<!-- <a href="#" class="nav-link">Categories</a> -->
-			<form action="#">
-				<div class="form-input">
-					<input type="search" placeholder="Search...">
-					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
-				</div>
-			</form>
-			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
-			<a href="#" class="notification">
-				<i class='bx bxs-bell'></i>
-				<span class="num">8</span>
-			</a>
-			<a href="#" class="profile">
-				<img src="img/people.png">
-			</a>
-		</nav>
+    <i class='bx bx-menu'></i>
+    <!-- <a href="#" class="nav-link">Categories</a> -->
+    <form action="#">
+        <div class="form-input">
+            <input type="search" placeholder="Search...">
+            <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+        </div>
+    </form>
+    <input type="checkbox" id="switch-mode" hidden>
+    <label for="switch-mode" class="switch-mode"></label>
+
+	<!-- HOI_Notification_Icon -->
+   <?php include 'HOI_Notification_Icon.php'; ?>
+    
+    <a href="#" class="profile">
+        <img src="img/people.png" alt="Profile">
+    </a>
+</nav>
+
 		<!-- NAVBAR -->
 
 		<!-- MAIN -->
@@ -118,10 +118,10 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 						</li>
 					</ul>
 				</div>
-				<a href="#" class="btn-download">
-					<i class='bx'><span class="material-symbols-outlined">download</span></i>
-					<!-- <span class="text"></span> -->
-				</a>
+				<a href="HOI_CSV_Data_Download.php" class="btn-download">
+                        <i class='bx'><span class="material-symbols-outlined">download</span></i>Download
+                        <!-- <span class="text"></span> -->
+                    </a>
 			</div>
 			<span class="institution-name">
 				<?php echo $user['Institution_Name'] ?>

@@ -50,18 +50,21 @@ require_once 'HOI_session.php';
                 <span class="text">Revoke</span>
             </a>
         </li>
+
+        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Mail_to_Students.php' || basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Bunch_Mail_Sender.php') ? 'class="active"' : ''; ?>>
+    <a href="HOI_Mail_to_Students.php">
+        <i class='bx'><span class="material-symbols-outlined">mail</span></i>
+        <span class="text">Send Mail</span>
+    </a>
+</li>
         <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Admission_Merit_list.php') ? 'class="active"' : ''; ?>>
             <a href="HOI_Admission_Merit_list.php">
                 <i class='bx'><span class="material-symbols-outlined">id_card</span></i>
                 <span class="text">Merit List</span>
             </a>
         </li>
-        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_Mail_to_Students.php') ? 'class="active"' : ''; ?>>
-            <a href="HOI_Mail_to_Students.php">
-                <i class='bx'><span class="material-symbols-outlined">mail</span></i>
-                <span class="text">Send Mail</span>
-            </a>
-        </li>
+
+
 
 
     </ul>

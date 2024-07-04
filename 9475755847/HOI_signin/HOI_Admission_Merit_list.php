@@ -108,10 +108,10 @@ $current_files = scandir($upload_dir);
             </form>
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
+
+
+            	<!-- HOI_Notification_Icon -->
+   <?php include 'HOI_Notification_Icon.php'; ?>
             <a href="#" class="profile">
                 <img src="img/people.png">
             </a>
@@ -120,8 +120,21 @@ $current_files = scandir($upload_dir);
 
         <!-- MAIN -->
         <main>
-<?php echo $udise_code ?>
+            
             <div class="container">
+            <div class="head-title">
+                    <div class="left">
+                        <ul class="breadcrumb">
+                            <li><a href="#">Dashboard</a></li>
+                            <li><i class='bx bx-chevron-right'></i></li>
+                            <li><a class="active" href="HOI_Final_List.php">Merit List</a></li>
+                        </ul>
+                    </div>
+                    <a href="HOI_CSV_Data_Download.php" class="btn-download">
+                        <i class='bx'><span class="material-symbols-outlined">download</span></i>Download Student Info
+                        <!-- <span class="text"></span> -->
+                    </a>
+                </div>
                 <div class="content-section">
                    <form action="" method="POST" enctype="multipart/form-data" class="upload-form">
     <div class="jumbotron jumbotron-fluid">

@@ -76,7 +76,6 @@ if ($result && mysqli_num_rows($result) > 0) {
 }
 $school_name_updation_query = "UPDATE edu_org_records SET school_name ='Institution_Name' WHERE udise_id = '$udiseid'";
 $result_updation = mysqli_query($db, $school_name_updation_query);
-$row = mysqli_fetch_assoc($result_updation);
 // Close the database connection
 mysqli_close($db);
 ?>
@@ -130,10 +129,10 @@ mysqli_close($db);
             </form>
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
+
+
+            	<!-- HOI_Notification_Icon -->
+   <?php include 'HOI_Notification_Icon.php'; ?>
             <a href="#" class="profile">
                 <img src="img/people.png">
             </a>
@@ -162,13 +161,13 @@ mysqli_close($db);
             <div class="form-group">
                 <label for="Institution_Name">School Name</label>
                 <input type="text" class="form-control" id="Institution_Name" name="Institution_Name"
-                    value="<?php echo isset($profile_data['Institution_Name']) ? $profile_data['Institution_Name'] : ''; ?>">
+                    value="<?php echo isset($profile_data['Institution_Name']) ? $profile_data['Institution_Name'] : ''; ?>" required>
             </div>
         </div>
         <div class="col-md-4">
     <div class="form-group">
         <label for="Institution_Address">School Address</label>
-        <textarea class="form-control" id="Institution_Address" name="Institution_Address" rows="2"><?php echo isset($profile_data['Institution_Address']) ? $profile_data['Institution_Address'] : ''; ?></textarea>
+        <textarea class="form-control" id="Institution_Address" name="Institution_Address" rows="2" required><?php echo isset($profile_data['Institution_Address']) ? $profile_data['Institution_Address'] : ''; ?></textarea>
     </div>
 </div>
 
@@ -178,21 +177,21 @@ mysqli_close($db);
             <div class="form-group">
                 <label for="HOI_Name">H.M Name</label>
                 <input type="text" class="form-control" id="HOI_Name" name="HOI_Name"
-                    value="<?php echo isset($profile_data['HOI_Name']) ? $profile_data['HOI_Name'] : ''; ?>">
+                    value="<?php echo isset($profile_data['HOI_Name']) ? $profile_data['HOI_Name'] : ''; ?>" required>
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
                 <label for="HOI_Whatsapp_No">H.M Whatsapp No</label>
                 <input type="text" class="form-control" id="HOI_Whatsapp_No" name="HOI_Whatsapp_No"
-                    value="<?php echo isset($profile_data['HOI_Whatsapp_No']) ? $profile_data['HOI_Whatsapp_No'] : ''; ?>">
+                    value="<?php echo isset($profile_data['HOI_Whatsapp_No']) ? $profile_data['HOI_Whatsapp_No'] : ''; ?>" required>
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
                 <label for="HOI_Mobile_No">School Contact No</label>
                 <input type="text" class="form-control" id="HOI_Mobile_No" name="HOI_Mobile_No"
-                    value="<?php echo isset($profile_data['HOI_Mobile_No']) ? $profile_data['HOI_Mobile_No'] : ''; ?>">
+                    value="<?php echo isset($profile_data['HOI_Mobile_No']) ? $profile_data['HOI_Mobile_No'] : ''; ?>" required>
             </div>
         </div>
     </div>
@@ -201,7 +200,7 @@ mysqli_close($db);
             <div class="form-group">
                 <label for="Application_Fees">Application Fees (Rs.)</label>
                 <input type="text" class="form-control" id="Application_Fees" name="Application_Fees"
-                    value="<?php echo isset($profile_data['Application_Fees']) ? $profile_data['Application_Fees'] : ''; ?>">
+                    value="<?php echo isset($profile_data['Application_Fees']) ? $profile_data['Application_Fees'] : ''; ?>" required>
             </div>
         </div>
 

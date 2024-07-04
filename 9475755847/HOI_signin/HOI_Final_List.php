@@ -144,10 +144,10 @@ $filteredResults = mysqli_query($db, $filteredQuery);
             </form>
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
+ 
+
+            	<!-- HOI_Notification_Icon -->
+   <?php include 'HOI_Notification_Icon.php'; ?>
             <a href="#" class="profile">
                 <img src="img/people.png">
             </a>
@@ -218,6 +218,7 @@ $filteredResults = mysqli_query($db, $filteredQuery);
                             </div>
 
                         </div>
+                        </div>
                     </form>
                 </div>
 
@@ -234,7 +235,7 @@ $filteredResults = mysqli_query($db, $filteredQuery);
         <div class='table-responsive'>
             <form action='HOI_Revoke_admission.php' method='POST'>
                 <div class='mb-3'>
-                    <button type='submit' class='btn btn-primary' name='allow_admission' style='display:none;'>Allow Admission</button>
+                    <button type='submit' class='btn btn-primary' name='allow_admission' style='display:none;'>Revoke Admission</button>
                 </div>
                 <table class='table'>
                     <thead class='text-xs text-gray-700 uppercase dark:text-gray-400'>

@@ -108,10 +108,10 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
             </form>
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
+
+            	<!-- HOI_Notification_Icon -->
+   <?php include 'HOI_Notification_Icon.php'; ?>
+
             <a href="#" class="profile">
                 <img src="img/people.png">
             </a>

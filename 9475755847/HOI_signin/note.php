@@ -5,17 +5,18 @@ error_reporting(E_ALL);
 require 'database.php';
 require 'HOI_session.php';
 require 'HOI_super_admin.php';
-require '../../vendor/autoload.php';
-require '.../../../../Assets/Mail_Login_Credentials.php';
 
 // Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+require '../../vendor/autoload.php';
 
 $student_table_name = $udise_code . '_Student_Details';
+echo '<h2><center>Mails will be sent one by one to the students. wait a bit while they are sent</center></h2>';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['allow_admission']) && isset($_POST['admission_allow']) && is_array($_POST['admission_allow'])) {
+    // Sanitize and validate $_POST['admission_allow'] to prevent SQL injection
     $allowedStudents = array_map(function($value) use ($db) {
         return "'" . mysqli_real_escape_string($db, $value) . "'";
     }, $_POST['admission_allow']);
@@ -49,66 +50,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['allow_admission']) && 
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- FAVICON -->
-    <link rel="shortcut icon" href="../../../Assets/images/favicon.png" type="image/svg+xml">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- FAVICON -->
+	<link rel="shortcut icon" href="../../../Assets/images/favicon.png" type="image/svg+xml">
 
-    <!-- Boxicons -->
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- My CSS -->
-    <link rel="stylesheet" href="../..//../../../../Assets/css/Generalised_HOI_Stylesheet.css">
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- My CSS -->
+	<link rel="stylesheet" href="../..//../../../../Assets/css/Generalised_HOI_Stylesheet.css">
 
 
-    <title style="font-family: 'Roboto', Times, serif;">Haggle</title>
+	<title style="font-family: 'Roboto', Times, serif;">Haggle</title>
 </head>
 
 <body style="font-family: 'Roboto', sans-serif;">
 
 
-    <!-- SIDEBAR -->
-    <?php include('HOI_Sidebar.php') ?>
-    <!-- SIDEBAR -->
+	<!-- SIDEBAR -->
+	<?php include('HOI_Sidebar.php') ?>
+	<!-- SIDEBAR -->
 
-    <!-- CONTENT -->
-    <section id="content">
-        <!-- NAVBAR -->
-        <nav>
-            <i class='bx bx-menu'></i>
-            <!-- <a href="#" class="nav-link">Categories</a> -->
-            <form action="#">
-                <div class="form-input">
-                    <input type="search" placeholder="Search...">
-                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
-                </div>
-            </form>
-            <input type="checkbox" id="switch-mode" hidden>
-            <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
-            <a href="#" class="profile">
-                <img src="img/people.png">
-            </a>
-        </nav>
-        <!-- NAVBAR -->
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu'></i>
+			<!-- <a href="#" class="nav-link">Categories</a> -->
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+				<i class='bx bxs-bell'></i>
+				<span class="num">8</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="img/people.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
 
-        <!-- MAIN -->
-        <main>
-            <?php 
-                            echo '<center>';
-                            echo '<table class="table table-bordered">';
-                            echo '<tr><th>Email </th> <th>Status </th></tr>';
+		<!-- MAIN -->
+		<main>
+		<?php 
 		$rand = generateRandomString();  // Generate the OTP
 		foreach ($emails as $index => $email) {
 			$mail = new PHPMailer(true);
@@ -126,8 +124,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['allow_admission']) && 
 				$mail->SMTPAuth = true;
 				
 				// Provide username and password
-				$mail->Username = $mailid; // This is Fetched from the 'Mail_Login_Credentials.php' File
-				$mail->Password = $mailid_login_password ;  // Use the correct password or app-specific password
+				$mail->Username = 'otpverifier.2023@gmail.com';
+				$mail->Password = 'cfbu phba ywgh ufkf';  // Use the correct password or app-specific password
 				
 				// If SMTP requires TLS encryption then set it
 				$mail->SMTPSecure = 'ssl';
@@ -135,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['allow_admission']) && 
 				// Set TCP port to connect to
 				$mail->Port = 465;
 				
-				$mail->From = $mailid;
+				$mail->From = 'otpverifier.2023@gmail.com';
 				$mail->FromName = 'Patra Inc.';
 				
 				$mail->addAddress($email);  // Add the student's email address
@@ -206,13 +204,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['allow_admission']) && 
 				$mail->send();
 
 				// Update the Reminder_Email_Sent field after successfully sending the email
-                $updateQuery = "UPDATE $student_table_name SET Reminder_Email_Sent = 1 WHERE reg_no = '" . $reg_nos[$index] . "'";
-                mysqli_query($db, $updateQuery);
-                
-				// Print the email address immediately after sending the email
-                echo '<tr><td> ' . $email . '</td><td>Sent</td></tr>';
+				$updateQuery = "UPDATE $student_table_name SET Reminder_Email_Sent = 1 WHERE reg_no = '" . $reg_nos[$index] . "'";
+				mysqli_query($db, $updateQuery);
 
-                
+				// Print the email address immediately after sending the email
+				echo '<center>';
+				echo 'Email sent to: ' . $email . '<br>';
+				echo '<center>';
 				ob_flush(); // Flush the output buffer to ensure the message is displayed immediately
 				flush(); // Ensure the buffer is sent to the browser
 			} catch (Exception $e) {
@@ -234,22 +232,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['allow_admission']) && 
 } else {
 echo "Invalid request.";
 }
-echo '</table>';
-echo '</center>';
+
 $table_name = $udise_code . '_HOI_Login_Credentials';
-// echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
-// echo 'Table name: ' . $table_name . '<br>';
-ob_flush(); 
-flush();
+echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+echo 'Table name: ' . $table_name . '<br>';
 ?>
 
-        </main>
-        <!-- MAIN -->
-    </section>
-    <!-- CONTENT -->
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
 
-    <script> document.getElementById('currentYear').textContent = new Date().getFullYear(); </script>
-    <script src="script.js"></script>
+<script> document.getElementById('currentYear').textContent = new Date().getFullYear(); </script>
+	<script src="script.js"></script>
 </body>
-
 </html>
