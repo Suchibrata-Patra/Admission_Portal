@@ -71,17 +71,24 @@ require_once 'HOI_session.php';
     <ul class="side-menu">
         <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_School_Preferences.php') ? 'class="active"' : ''; ?>>
             <a href="HOI_School_Preferences.php">
-                <i class='bx bxs-cog'></i>
-                <span class="text">School Preferences</span>
+            <i class='bx'> <span class="material-symbols-outlined">settings</span> </i>
+            <span class="text">School Preferences</span>
             </a>
         </li>
         <li>
             <a href="HOI_Logout.php" class="logout">
-                <i class='bx bxs-log-out-circle'></i>
-                <span class="text">Logout</span>
+            <i class='bx'><span class="material-symbols-outlined">Logout</span></i>
+            <span class="text">Logout</span>
             </a>
         </li>
+        <li>
+        <a href="../../../../about_us.php">
+        <i class='bx'><span class="material-symbols-outlined">group</span></i>
+                <span class="text">About Us</span>
+        </a>
+        </li>
     </ul>
+
 </section>
 <?php
 // End PHP code
