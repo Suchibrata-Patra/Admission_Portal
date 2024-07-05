@@ -127,7 +127,7 @@ $current_files = scandir($upload_dir);
                         <ul class="breadcrumb">
                             <li><a href="#">Dashboard</a></li>
                             <li><i class='bx bx-chevron-right'></i></li>
-                            <li><a class="active" href="HOI_Final_List.php">Merit List</a></li>
+                            <li><a class="active" href="HOI_Admission_Merit_List.php">Merit List</a></li>
                         </ul>
                     </div>
                     <a href="HOI_CSV_Data_Download.php" class="btn-download">

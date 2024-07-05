@@ -12,7 +12,6 @@ require '.../../../../Assets/Mail_Login_Credentials.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-
 $student_table_name = $udise_code . '_Student_Details';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['allow_admission']) && isset($_POST['admission_allow']) && is_array($_POST['admission_allow'])) {
@@ -242,14 +241,11 @@ $table_name = $udise_code . '_HOI_Login_Credentials';
 ob_flush(); 
 flush();
 ?>
-
-        </main>
+</main>
         <!-- MAIN -->
     </section>
     <!-- CONTENT -->
-
     <script> document.getElementById('currentYear').textContent = new Date().getFullYear(); </script>
     <script src="script.js"></script>
 </body>
-
 </html>

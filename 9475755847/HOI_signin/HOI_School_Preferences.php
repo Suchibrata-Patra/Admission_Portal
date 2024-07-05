@@ -147,7 +147,7 @@ mysqli_close($db);
                         <ul class="breadcrumb">
                             <li><a href="#">Dashboard</a></li>
                             <li><i class='bx bx-chevron-right'></i></li>
-                            <li><a class="active" href="HOI_Bank_Details.php">School Preferences</a></li>
+                            <li><a class="active" href="HOI_School_Preferences.php">School Preferences</a></li>
                         </ul>
                     </div>
                     <!-- <a href="#" class="btn-download">
@@ -157,11 +157,18 @@ mysqli_close($db);
         <h2>School Preferences</h2>
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="Institution_Name">School Name</label>
-                <input type="text" class="form-control" id="Institution_Name" name="Institution_Name"
-                    value="<?php echo isset($profile_data['Institution_Name']) ? $profile_data['Institution_Name'] : ''; ?>" required>
+                <input type="text" class="form-control" id="Institution_Name" name="Institution_Name" placeholder="Enter School Name Here"
+                    value="<?php echo isset($profile_data['Institution_Name']) ? $profile_data['Institution_Name'] : ''; ?>" disabled >
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="HOI_UDISE_ID">Udise Id</label>
+                <input type="text" class="form-control" id="HOI_UDISE_ID" name="HOI_UDISE_ID" placeholder="Enter School Name Here"
+                    value="<?php echo isset($profile_data['HOI_UDISE_ID']) ? $profile_data['HOI_UDISE_ID'] : ''; ?>" disabled >
             </div>
         </div>
         <div class="col-md-4">
@@ -176,7 +183,7 @@ mysqli_close($db);
         <div class="col-md-4">
             <div class="form-group">
                 <label for="HOI_Name">H.M Name</label>
-                <input type="text" class="form-control" id="HOI_Name" name="HOI_Name"
+                <input type="text" class="form-control" id="HOI_Name" name="HOI_Name" placeholder="Enter H.M Name"
                     value="<?php echo isset($profile_data['HOI_Name']) ? $profile_data['HOI_Name'] : ''; ?>" required>
             </div>
         </div>
@@ -199,8 +206,10 @@ mysqli_close($db);
         <div class="col-md-6">
             <div class="form-group">
                 <label for="Application_Fees">Application Fees (Rs.)</label>
-                <input type="text" class="form-control" id="Application_Fees" name="Application_Fees"
-                    value="<?php echo isset($profile_data['Application_Fees']) ? $profile_data['Application_Fees'] : ''; ?>" required>
+                <input type="number" class="form-control" id="Application_Fees" name="Application_Fees" Placeholder="Modify Application Fees"
+       value="<?php echo isset($profile_data['Application_Fees']) ? $profile_data['Application_Fees'] : ''; ?>"
+       min="0" max="10000" step="any" required>
+
             </div>
         </div>
 
@@ -237,6 +246,32 @@ mysqli_close($db);
     </div>
 </main>
     </section>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var applicationFeesInput = document.getElementById('Application_Fees');
+    
+    applicationFeesInput.oninput = function() {
+        var value = parseFloat(applicationFeesInput.value);
+        if (value > 10000) {
+            applicationFeesInput.setCustomValidity('Maximum Application Fees Allowed is Rs.10,000');
+        } else {
+            applicationFeesInput.setCustomValidity('');
+        }
+    };
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var applicationFeesInput = document.getElementById('Application_Fees');
+    
+    applicationFeesInput.addEventListener('input', function() {
+        // Remove non-numeric characters using regular expression
+        this.value = this.value.replace(/[^0-9.]/g, '');
+    });
+});
+</script>
+
+
     <script src="script.js"></script>
 
 </body>
