@@ -175,7 +175,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 						<!-- <i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i> -->
 					</div>
-					<table>
+					<table> 
 						<thead>
 							<tr>
 								<th>Sl No.</th>
@@ -234,7 +234,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 				</div>
 				<div class="todo">
 					<div class="head">
-						<h3>To - dos</h3>
+						<h3>Payment Details</h3>
 						<i class='bx bx-plus'></i>
 						<i class='bx bx-filter'></i>
 					</div>
@@ -262,6 +262,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 					</ul>
 				</div>
 			</div>
+
 
 		</main>
 		<!-- MAIN -->
