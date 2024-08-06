@@ -40,7 +40,7 @@ if (isset($_POST['login_user'])) {
           header('location: welcome.php');
           exit(); // Ensure that no further code is executed after the redirect
        } else {
-          array_push($errors, "Wrong password");
+          array_push($errors, "Wrong Password,Try Fogot Password.");
        }
     } else {
       array_push($errors, "Email not found");
@@ -65,6 +65,8 @@ if (isset($_POST['login_user'])) {
     <script>
         window.history.forward();
     </script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <style>
         body {
             background-color: #f6f6f6; /* Light grey background */
@@ -88,8 +90,9 @@ if (isset($_POST['login_user'])) {
             margin-bottom: 20px; /* Margin at the bottom of the horizontal line */
         }
         .form-control {
-            border-radius: 8px;
+            border-radius: 4px;
             border: 1px solid #ddd;
+            padding:8px;
         }
         .btn-primary {
             background-color: #fd5c63; /* Airbnb's red color */
@@ -120,16 +123,23 @@ if (isset($_POST['login_user'])) {
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 login-container">
-                <h3>Welcome Back!</h3>
+            <div style="display: flex; align-items: center; justify-content: center;">
+        <span class="material-icons" style="font-size: 48px; margin-right: 10px; color: black;">
+            lock
+        </span>
+        <h2 style="margin: 0; font-size: 24px; color: black;">
+            Login
+        </h2>
+    </div>
                 <hr>
                 <form method="post" action="login.php">
                     <?php include('errors.php'); ?>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                        <label for="exampleInputEmail1" class="form-label" style="color:Black;">Email Address</label>
                         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <label for="exampleInputPassword1" class="form-label" style="color:Black;">Password</label>
                         <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
                         <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" id="showPasswordCheck">
@@ -139,8 +149,14 @@ if (isset($_POST['login_user'])) {
                                                 </div>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary" name="login_user">Login</button>
-                    <div class="signup-link" style="text-align: center;">
+                    <button 
+        type="submit" 
+        name="login_user" 
+        style="background-color:#f2f0f0; color:black; font-weight:300; border:none; padding:10px 20px; cursor:pointer;border-radius:4px;" 
+        onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+        onmouseout="this.style.backgroundColor='#f2f0f0'; this.style.color='black';">
+        Login
+    </button>                    <div class="signup-link" style="text-align: center;">
     <a href="signup.php" style="display: inline-block; margin-right: 10px;color:rgb(222, 47, 47)">Sign Up</a>  
     <a href="#" style="display: inline-block; margin-right: 10px;color:rgb(222, 47, 47)" disabled>|</a>  
     <a href="forgot_password.php" style="display: inline-block;color:rgb(226, 48, 48);"> Forgot Password ?</a>

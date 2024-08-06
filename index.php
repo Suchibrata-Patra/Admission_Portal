@@ -451,10 +451,10 @@
 
           <p class="section-subtitle">Photo Gallery</p>
 
-          <h2 class="h2 section-title">Institutions Images</h2>
+          <h2 class="h2 section-title">Image Gallery</h2>
 
           <p class="section-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dicta voluptate, totam magnam natus sit!
+            Explore the Both Classic Images crafted beautifully by students who came here !
           </p>
 
           <ul class="gallery-list">
@@ -462,40 +462,40 @@
             <li class="gallery-item">
               <figure class="gallery-image">
                 <img
-                  src="https://images.unsplash.com/photo-1515859005217-8a1f08870f59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8SXRhbHl8ZW58MHx8MHx8fDA%3D"
-                  alt="Gallery image">
+                  src="https://images.unsplash.com/photo-1705417217953-6f6a7afb6ab9?q=80&w=1498&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Gallery image" style="height:400px;border-radius:20px;">
               </figure>
             </li>
 
             <li class="gallery-item">
               <figure class="gallery-image">
                 <img
-                  src="https://images.unsplash.com/photo-1515859005217-8a1f08870f59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8SXRhbHl8ZW58MHx8MHx8fDA%3D"
-                  alt="Gallery image">
+                  src="https://plus.unsplash.com/premium_photo-1674489157833-587c0e7f8518?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDh8fHxlbnwwfHx8fHw%3D"
+                  alt="Gallery image" style="height:400px;border-radius:20px;">
               </figure>
             </li>
 
             <li class="gallery-item">
               <figure class="gallery-image">
                 <img
-                  src="https://images.unsplash.com/photo-1515859005217-8a1f08870f59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8SXRhbHl8ZW58MHx8MHx8fDA%3D"
-                  alt="Gallery image">
+                  src="https://images.unsplash.com/photo-1683340503896-afdcd70f38c8?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Gallery image" style="height:800px;border-radius:20px;">
               </figure>
             </li>
 
             <li class="gallery-item">
               <figure class="gallery-image">
                 <img
-                  src="https://images.unsplash.com/photo-1707753911009-99d073f04fed?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fFBhcmlzaHxlbnwwfHwwfHx8MA%3D%3D"
-                  alt="Gallery image">
+                  src="https://images.unsplash.com/photo-1705420292539-ac64810ef8a1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D"
+                  alt="Gallery image" style="height:400px;border-radius:20px;">
               </figure>
             </li>
 
             <li class="gallery-item">
               <figure class="gallery-image">
                 <img
-                  src="https://images.unsplash.com/photo-1515859005217-8a1f08870f59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8SXRhbHl8ZW58MHx8MHx8fDA%3D"
-                  alt="Gallery image">
+                  src="https://images.unsplash.com/photo-1704786574827-f4dfa47ad4f4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8"
+                  alt="Gallery image" style="height:400px;border-radius:20px;">
               </figure>
             </li>
 

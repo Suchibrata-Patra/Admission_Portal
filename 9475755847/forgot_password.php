@@ -13,8 +13,7 @@ $results = mysqli_query($db, $sql);
 if (!$results) {
     die("Query failed: " . mysqli_error($db)); // Error handling
 }
-
-$school_name = mysqli_fetch_assoc($results);
+$school_info = mysqli_fetch_assoc($results);
 // if ($school_name) {
 //     echo $school_name['School_Name']; // Access the specific key
 // } else {
@@ -70,7 +69,7 @@ function sendEmail($to, $subject, $message)
 
     // Provide username and password
     $mail->Username = 'otpverifier.2023@gmail.com';
-    $mail->Password = 'cymp mmut sqzu vzim';  // Use the correct password
+    $mail->Password = 'iigd kldu ttwv wsug';  // Use the correct password
 
     // Enable TLS encryption
     $mail->SMTPSecure = 'tls';
@@ -190,7 +189,7 @@ if (isset($_POST['forgot_password'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Forgot Password Page</title>
+    <title>Forgot Password</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Optional: Include the Material Icons CDN for the lock icon -->
@@ -230,7 +229,7 @@ if (isset($_POST['forgot_password'])) {
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand mx-auto" href="#">
-                <?php echo htmlspecialchars($school_name['School_Name']); ?>
+                <?php echo htmlspecialchars($school_info['School_Name']); ?>
             </a>
         </div>
     </nav>
@@ -246,9 +245,8 @@ if (isset($_POST['forgot_password'])) {
                         </span>
                     </center>
                 <h2 class="text-center">Forgot Password</h2>
-                <p class="text-center" style="color: grey;">
-                    Once you've successfully reset your password, you'll be redirected to the login page.
-                    Use the password sent to your email to log in for future access.
+                <p class="text-center" style="color: grey;font-size:13px;">
+                    After rest, use the password sent to your email to log in for future access. And from the next time onwards use that Password to Login to Your Application.
                 </p>
                 <form method="post" action="forgot_password.php">
                     <div class="form-group">
@@ -256,13 +254,13 @@ if (isset($_POST['forgot_password'])) {
                         <input type="email" class="form-control" name="email" id="email" placeholder="Enter Registered Email Only" required>
                     </div>
                     <div class="form-group text-center">
-                        <button type="submit" class="submit_button" name="forgot_password" id="submitBtn">Submit</button>
+                        <button type="submit" class="submit_button" name="forgot_password" id="submitBtn">Reset Password</button>
                     </div>
                 </form>
+                <h4 style="color:grey;font-size:13px;font-weight:200;"><center>Build Version <u>1.1.24</u> [ Wait for next few Updates for the Stable Build ] Developed by Patra Inc.</center></h4>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 </html>

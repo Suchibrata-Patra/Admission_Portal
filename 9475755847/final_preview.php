@@ -56,6 +56,9 @@ $school_info = mysqli_fetch_assoc($info);
 <body>
     <div class="container mt-5">
         <div class="school-info-container">
+        <h5>
+            <center>Pre-Submission Preview</center>
+        </h5>
             <center><h2 class="school-name"><?php echo $school_info['Institution_Name'] ?></h2></center>
             <div class="school-details">
                 <h6 class="school-detail">Address: <span><?php echo $school_info['Institution_Address'] ?></span></h6> |
@@ -64,9 +67,7 @@ $school_info = mysqli_fetch_assoc($info);
             </div>
         </div>
         <br>
-        <h5>
-            <center>Pre-Submission Preview</center>
-        </h5>
+       
         <p style="font-size:14px;color:grey;">Kindly Recheck All the details Before Submitting the Details. Once
             Submitted, You can't No Longer Modify them.</p>
         <form method="post" action="final_preview.php">
