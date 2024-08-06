@@ -125,7 +125,10 @@ if (isset($_POST['login_user'])) {
             <div class="col-md-6 login-container">
             <div style="display: flex; align-items: center; justify-content: center;">
         <span class="material-icons" style="font-size: 48px; margin-right: 10px; color: black;">
-            lock
+        <span class="material-symbols-outlined">
+supervisor_account
+</span>
+</span>
         </span>
         <h2 style="margin: 0; font-size: 24px; color: black;">
             Login
@@ -135,11 +138,11 @@ if (isset($_POST['login_user'])) {
                 <form method="post" action="login.php">
                     <?php include('errors.php'); ?>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label" style="color:Black;">Email Address</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
+                        <label for="exampleInputEmail1" class="form-label" style="color:Black;font-weight:bold;">Email Address</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email" style="color:black;font-weight:300;">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label" style="color:Black;">Password</label>
+                        <label for="exampleInputPassword1" class="form-label" style="color:Black;font-weight:bold;">Password</label>
                         <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
                         <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" id="showPasswordCheck">
@@ -156,10 +159,11 @@ if (isset($_POST['login_user'])) {
         onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
         onmouseout="this.style.backgroundColor='#f2f0f0'; this.style.color='black';">
         Login
-    </button>                    <div class="signup-link" style="text-align: center;">
-    <a href="signup.php" style="display: inline-block; margin-right: 10px;color:rgb(222, 47, 47)">Sign Up</a>  
+    </button>                   
+     <div class="signup-link" style="text-align: center;">
+    <a href="signup.php" style="display: inline-block; margin-right: 10px;color:grey;">Sign Up</a>  
     <a href="#" style="display: inline-block; margin-right: 10px;color:rgb(222, 47, 47)" disabled>|</a>  
-    <a href="forgot_password.php" style="display: inline-block;color:rgb(226, 48, 48);"> Forgot Password ?</a>
+    <a href="forgot_password.php" style="display: inline-block;color:grey;"> Forgot Password ?</a>
 </div>
 
 

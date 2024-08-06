@@ -231,7 +231,7 @@ body {
     min-height: 60px;
     max-width: max-content;
     font-size: var(--fs-5);
-    font-weight: var(--fw-700);
+    font-weight:300;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1626,20 +1626,18 @@ hr {
     /* Margin at the bottom of the horizontal line */
 }
 
-.form-control {
-    border-radius: 2px;
-    border: 1px solid #ddd;
-    font-size: 15px;
-}
-
 .btn-primary {
-    background-color: #fd5c63;
+    background-color: #f2f0f0;
+    color: black;
     border: none;
     border-radius: 5px;
+    font-weight:normal;
 }
 
+
 .btn-primary:hover {
-    background-color: #eb4248;
+    background-color: #000000;
+    color: white;
     /* Lighter red on hover */
 }
 
@@ -1736,16 +1734,23 @@ a:hover {
         margin-top: 20%;
     }
 }
-
+.form-select{
+    font-weight:350;
+    font-size:14px;
+    padding-left:10px;
+}
+.form-control{
+    font-weight:350;
+}
 .form-label {
     color: black;
-    font-weight: 500;
-    background-color: #f3f3f3;
+    font-weight: 350;
+    background-color: #ededed;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     padding-left: 10px;
     padding-right: 10px;
-    margin-bottom: -2px;
+    margin-bottom: -0.5px;
     font-size: 15px;
     margin-left: 1%;
 
@@ -1773,10 +1778,10 @@ hr {
 }
 
 .password_guidelines {
-
     font-size: 12px;
     padding-left: 70%;
-    color: #eb4248;
+    color: grey;
+    font-weight: 300;
 }
 
 
@@ -1795,23 +1800,13 @@ hr {
 }
 
 .form-control {
-    border-radius: 2px;
+    border-radius: 5px;
     border: 1px solid #ddd;
     font-size: 15px;
+    padding: 6px;
 }
 
-.btn-primary {
-    background-color: #fd5c63;
-    /* Airbnb's red color */
-    border: none;
-    border-radius: 5px;
-    margin-top: 20px;
-}
 
-.btn-primary:hover {
-    background-color: #eb4248;
-    /* Lighter red on hover */
-}
 
 .signup-link {
     text-align: center;
@@ -1948,25 +1943,6 @@ hr {
     /* Margin at the bottom of the horizontal line */
 }
 
-.form-control {
-    border-radius: 2px;
-    border: 1px solid #ddd;
-    font-size: 15px;
-}
-
-.btn-primary {
-    background-color: #fd5c63;
-    /* Airbnb's red color */
-    border: none;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-
-.btn-primary:hover {
-    background-color: #eb4248;
-    /* Lighter red on hover */
-}
-
 .signup-link {
     text-align: center;
     /* Center the signup link */
@@ -1977,8 +1953,6 @@ hr {
 a:hover {
     text-decoration: underline;
 }
-
-
 
 .section-title {
     font-size: 2em;

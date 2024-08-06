@@ -141,14 +141,14 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <center>Applicant Login</center>
+                                        <center style="color:#1F2544;font-weight:500;">Applicant Login</center>
                                     </h5>
                                     <div class="table-responsive">
                                         <form method="post" action="login.php">
                                             <?php include('errors.php'); ?>
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1" class="form-label"
-                                                    style="margin-bottom:-1.1px;padding-left:6px;padding-right:6px;background-color: #d3d6f2;color:black;">Email
+                                                    style="margin-bottom:-1.1px;padding-left:6px;padding-right:6px;background-color: #ededf4;color:black;">Email
                                                     Address</label>
                                                 <input type="email" name="email" class="form-control"
                                                     id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -156,7 +156,7 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInputPassword1" class="form-label"
-                                                    style="margin-bottom:-1.1px;padding-left:6px;padding-right:6px;background-color: #d3d6f2;color:black;">Password</label>
+                                                    style="margin-bottom:-1.1px;padding-left:6px;padding-right:6px;background-color: #ededf4;color:black;">Password</label>
                                                 <input type="password" name="password" class="form-control"
                                                     id="exampleInputPassword1" placeholder="Enter your password">
                                                 <div class="form-check">
@@ -168,12 +168,12 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
                                                 </div>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary" name="login_user"
-                                                style=" ">Login</button>
+                                            <button type="submit" class="btn btn-primary" name="login_user" style="background-color:#f2f0f0;color:black;"
+                                            >Login</button>
                                                 <div class="signup-link" style="text-align: center;">
-    <a href="signup.php" style="display: inline-block; margin-right: 10px;color:rgb(222, 47, 47)">Sign Up</a>  
-    <a href="#" style="display: inline-block; margin-right: 10px;color:rgb(222, 47, 47)" disabled>|</a>  
-    <a href="forgot_password.php" style="display: inline-block;color:rgb(226, 48, 48);"> Forgot Password ?</a>
+    <a href="signup.php" style="display: inline-block; margin-right: 10px;color:rgb(222, 47, 47);font-weight:300;"><i>Sign Up</i></a>  
+    <a href="#" style="display: inline-block; margin-right: 10px;color:rgb(222, 47, 47);font-weight:300;" disabled>|</a>  
+    <a href="forgot_password.php" style="display: inline-block;color:rgb(226, 48, 48);font-weight:300;"><u> Forgot Password ? </u></a>
 </div>
                                         </form>
                                     </div>
@@ -271,7 +271,7 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
                                 <div class="card-body">
                                     <h5 class="card-title" style="display: flex; align-items: center;">
                                         <div
-                                            style="background-color: #EADFB4; border-radius: 3px;padding-top:7.3px;padding-bottom: 7.3px;padding-left: 6px;">
+                                            style="background-color: #FFEFEF; border-radius: 3px;padding-top:7.3px;padding-bottom: 7.3px;padding-left: 6px;">
                                             <ion-icon name="list-outline" style="margin-right: 8px;"></ion-icon>
                                         </div>
                                         <div style="margin-left: 5px;">Merit List</div>
@@ -319,24 +319,24 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
                                     <h3>Eligibility Criteria</h3>
                                     <ul style="list-style-type: none; padding: 0;">
                                         <li
-                                            style="background-color: #eff0f1; margin-bottom: 8px; padding: 10px; padding-left: 20px; border-radius: 5px; box-shadow: inset 0 0 5px rgba(0,0,0,0.03); position: relative;">
+                                            style="background-color: #F6F5F2; margin-bottom: 8px; padding: 10px; padding-left: 20px; border-radius: 5px; box-shadow: inset 0 0 5px rgba(0,0,0,0.03); position: relative;">
                                             <span style="position: absolute; left: 10px;">•</span>You must pass all the
                                             papers in the 10th level board exams.
                                         </li>
                                         <li
-                                            style="background-color: #eff0f1; margin-bottom: 8px; padding: 10px; padding-left: 20px; border-radius: 5px; box-shadow: inset 0 0 5px rgba(0,0,0,0.03); position: relative;">
+                                            style="background-color: #F6F5F2; margin-bottom: 8px; padding: 10px; padding-left: 20px; border-radius: 5px; box-shadow: inset 0 0 5px rgba(0,0,0,0.03); position: relative;">
                                             <span style="position: absolute; left: 10px;">•</span> Successful completion
                                             of the 10th grade board exams with passing grades in all subjects is a
                                             prerequisite for admission to Class XI.
                                         </li>
                                         <li
-                                            style="background-color: #eff0f1; margin-bottom: 8px; padding: 10px; padding-left: 20px; border-radius: 5px; box-shadow: inset 0 0 5px rgba(0,0,0,0.03); position: relative;">
+                                            style="background-color: #F6F5F2; margin-bottom: 8px; padding: 10px; padding-left: 20px; border-radius: 5px; box-shadow: inset 0 0 5px rgba(0,0,0,0.03); position: relative;">
                                             <span style="position: absolute; left: 10px;">•</span> Candidates should
                                             maintain continuous academic engagement and should not have a gap in studies
                                             exceeding two years prior to seeking admission.
                                         </li>
                                         <li
-                                            style="background-color: #eff0f1; margin-bottom: 8px; padding: 10px; padding-left: 20px; border-radius: 5px; box-shadow: inset 0 0 5px rgba(0,0,0,0.03); position: relative;">
+                                            style="background-color: #F6F5F2; margin-bottom: 8px; padding: 10px; padding-left: 20px; border-radius: 5px; box-shadow: inset 0 0 5px rgba(0,0,0,0.03); position: relative;">
                                             <span style="position: absolute; left: 10px;">•</span> Prospective students
                                             are expected to continue their formal education beyond the 10th grade in
                                             order to be eligible for admission to Class XI.

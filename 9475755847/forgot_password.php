@@ -257,7 +257,7 @@ if (isset($_POST['forgot_password'])) {
                         <button type="submit" class="submit_button" name="forgot_password" id="submitBtn">Reset Password</button>
                     </div>
                 </form>
-                <h4 style="color:grey;font-size:13px;font-weight:200;"><center>Build Version <u>1.1.24</u> [ Wait for next few Updates for the Stable Build ] Developed by Patra Inc.</center></h4>
+                <h4 style="color:grey;font-size:13px;font-weight:200;"><center>Build Version <u>1.1.24</u> [ Expect forthcomming updates for an Optimized stable Release. ] Developed by Patra Inc.</center></h4>
                 </div>
             </div>
         </div>

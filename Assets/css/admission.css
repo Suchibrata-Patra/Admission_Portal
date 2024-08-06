@@ -196,24 +196,19 @@
   }
   
   .btn {
-    min-height: 60px;
+    min-height: 40px;
     max-width: max-content;
     font-size: var(--fs-5);
     font-weight: var(--fw-700);
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 30px;
+    padding: 10px 10px;
     border-radius: var(--radius-6);
     transition: var(--transition-1);
   }
   
-  .btn-primary {
-    background-color: var(--ultramarine-blue);
-    color: var(--white);
-  }
   
-  .btn-primary:is(:hover, :focus) { background-color: var(--space-cadet-2); }
   
   .btn-secondary {
     background-color: var(--white);
@@ -1407,15 +1402,7 @@
               border: 1px solid #ddd;
               font-size: 15px;
           }
-          .btn-primary {
-              background-color: #fd5c63; /* Airbnb's red color */
-              border: none;
-              border-radius: 5px;
-              margin-top: 20px;
-          }
-          .btn-primary:hover {
-              background-color: #eb4248; /* Lighter red on hover */
-          }
+
           .signup-link {
               text-align: center; /* Center the signup link */
               margin-top: 20px; /* Space between button and link */
@@ -1444,7 +1431,6 @@
   
           .card-title {
               font-size: 2em; /* Increased font size */
-              font-weight: 600;
               margin-bottom: 15px;
               padding-left: 1.5%;
           }

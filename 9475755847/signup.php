@@ -29,6 +29,7 @@
   <script>
     window.history.forward();
   </script>
+  <br>
   <div class="container"
     style="margin-top:9%;padding-bottom:9%;background-color: white;border: 2px solid rgb(221, 221, 221);border-radius: 20px;">
     <div class="row justify-content-center">
@@ -39,16 +40,16 @@
           <?php echo $error = $_GET['error']; ?>
         </div>
         <?php } ?>
-        <h3 style="font-size: 25px;">Sign Up Form</h3>
+        <h3 style="font-size: 25px;color:BLACK;">Sign Up Form</h3>
         <hr />
         <form method="post" action="controller.php">
           <div class="mb-3">
             <label for="fname" class="form-label">First Name</label>
-            <input type="text" name="fname" class="form-control" id="fname" oninput="restrictSpecialChars(this);limitLength(this, 50);" required />
+            <input type="text" name="fname" class="form-control" id="fname" oninput="restrictSpecialChars(this);limitLength(this, 50);" placeholder="Enter First Name here" required />
           </div>
           <div class="mb-3">
             <label for="lname" class="form-label">Last Name</label>
-            <input type="text" name="lname" class="form-control" id="lname" oninput="restrictSpecialChars(this);limitLength(this, 50);" required />
+            <input type="text" name="lname" class="form-control" id="lname" oninput="restrictSpecialChars(this);limitLength(this, 50);" placeholder="Enter Last Name here" required />
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
@@ -79,16 +80,23 @@
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" name="password" id="password" required />
-            <p class="password_guidelines"><a href="../password_guidelines.php" target="_blank">Password Guidelines</a></p>
+            <!-- <p class="password_guidelines"><a href="../password_guidelines.php" target="_blank"><u>See Password Guidelines </u></a></p> -->
+          </div>
+          <div class="mb-3">
+            <label for="confim_password" class="form-label">Confirm Password</label>
+            <input type="confim_password" class="form-control" name="confim_password" id="confim_password" required />
+            <p class="password_guidelines"><a href="../password_guidelines.php" target="_blank"><u>See Password Guidelines </u></a></p>
           </div>
           <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" name="terms" id="terms" required />
-            <label class="form-check-label" for="terms">Accepting Platform's Terms & Conditions</label>
+            <label class="form-check-label" for="terms" style="">Accepting Platform's Terms & Conditions</label>
           </div>
+          <center>
           <button type="submit" name="reg_user" class="btn btn-primary">
-            <b>Submit</b>
+            Submit Your Application Form
           </button>
-          <a href="admission.php" style="color: #8b8181; text-decoration: none; display: inline-block;">
+          </center>
+          <a href="admission.php" style="color: #8b8181; text-decoration: none; display: inline-block;font-weight:300;">
             Already Registered?<b style="color: #fd5c63; text-decoration: underline;"> Login</b>
           </a>
            <br>
