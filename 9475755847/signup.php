@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../Assets/css/Generalised_Stylesheet.css">
+  <link rel="stylesheet" href="../Assets/css/signup.css">
   <style>
   
   </style>
@@ -24,23 +24,24 @@
 </head>
 
 <body>
-  <?php include('site_header.php') ?>
+  <?php //include('site_header.php') ?>
 
   <script>
     window.history.forward();
   </script>
   <br>
   <div class="container"
-    style="margin-top:9%;padding-bottom:9%;background-color: white;border: 2px solid rgb(221, 221, 221);border-radius: 20px;">
+    style="margin-top:14%;padding-bottom:9%;background-color: white;border: 0px solid #eaeaea; border-radius: 20px;">
     <div class="row justify-content-center">
-      <div class="col-md-6">
+
+      <div class="col-md-6" style="padding-left:3%;padding-right:3%;border-right:2px solid #eaeaea;margin-top:5%;">
         <br />
         <?php if(isset($_GET['error'])) { ?>
         <div class="alert alert-danger">
           <?php echo $error = $_GET['error']; ?>
         </div>
         <?php } ?>
-        <h3 style="font-size: 25px;color:BLACK;">Sign Up Form</h3>
+        <h3 style="font-size: 25px;color:BLACK;">Registration</h3>
         <hr />
         <form method="post" action="controller.php">
           <div class="mb-3">
@@ -93,7 +94,7 @@
           </div>
           <center>
           <button type="submit" name="reg_user" class="btn btn-primary">
-            Submit Your Application Form
+            Register 
           </button>
           </center>
           <a href="admission.php" style="color: #8b8181; text-decoration: none; display: inline-block;font-weight:300;">
@@ -102,7 +103,16 @@
            <br>
         </form>
       </div>
+
+        <!-- Beginning of Background Images -->
+            <div class="col-md-6"> 
+        <p style="padding:10%;font-weight:200;"></p>
+      </div>
+        <!-- End of Background Images-->
+
+
     </div>
+   
   </div>
   <!-- 
   - #NEWSLETTER
