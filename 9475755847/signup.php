@@ -103,12 +103,20 @@
            <br>
         </form>
       </div>
-
-        <!-- Beginning of Background Images -->
-            <div class="col-md-6"> 
-        <p style="padding:10%;font-weight:200;"></p>
-      </div>
-        <!-- End of Background Images-->
+      <div class="col-md-6" style="
+      position: relative; 
+      padding: 2%; /* Padding around the content */
+      padding-left: 10%; /* Additional padding on the left side */
+      background-image: url('https://images.unsplash.com/photo-1722545331003-bc5507a8bdf8?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-size: cover; /* Adjust to cover the container */
+      background-position: left; /* Position the image to the left side */
+      border-radius: 20px; 
+      overflow: hidden; 
+      margin-top: 5%;
+  ">
+      <p style="font-weight:200; color: white; margin: 0;font-size:40px;font-weight:bold;">Your text goes here</p>
+  </div>
+  
 
 
     </div>
