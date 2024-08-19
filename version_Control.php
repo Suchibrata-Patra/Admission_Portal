@@ -1,0 +1,1 @@
+$system_version = "Build Version 1.1.24 [ Expect forthcomming updates for an Optimized stable Release. ] Developed by Patra Inc.";

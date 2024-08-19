@@ -1,12 +1,11 @@
+
 /*-----------------------------------*\
   #style.css
 \*-----------------------------------*/
 
 /**
- * copyright 2022 codewithsadee
+ * copyright 2024 Patra Suchibrata 
  */
-
-
 
 
 
@@ -196,30 +195,28 @@
   }
   
   .btn {
-    min-height: 40px;
+    /* min-height: 20px;
     max-width: max-content;
-    font-size: var(--fs-5);
-    font-weight: var(--fw-700);
+    font-size: var(--fs-5);*/
     display: flex;
+    background-color:#f2f0f0;
+    border: none;
+    color: black;
     align-items: center;
     gap: 10px;
-    padding: 10px 10px;
-    border-radius: var(--radius-6);
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 0.5px solid grey;
+    border-radius:4px;
     transition: var(--transition-1);
   }
-  
-  
-  
-  .btn-secondary {
-    background-color: var(--white);
-    color: var(--ultramarine-blue);
+  .btn:hover{
+    background-color: black;
+    color: white;
+    border: 0.5px solid black;
   }
-  
-  .btn-secondary:is(:hover, :focus) {
-    background-color: var(--pumpkin);
-    color: var(--white);
-  }
-  
+
   .w-100 { width: 100%; }
   
   .section { padding-block: var(--section-padding); }

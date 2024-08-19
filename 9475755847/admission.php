@@ -168,8 +168,7 @@ $HOI_Whatsapp_No = $user['HOI_Whatsapp_No'];
                                                 </div>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary" name="login_user" style="background-color:#f2f0f0;color:black;"
-                                            >Login</button>
+                                            <button type="submit" class="btn btn-primary" name="login_user" >Login</button>
                                                 <div class="signup-link" style="text-align: center;">
     <a href="signup.php" style="display: inline-block; margin-right: 10px;color:rgb(222, 47, 47);font-weight:300;"><i>Sign Up</i></a>  
     <a href="#" style="display: inline-block; margin-right: 10px;color:rgb(222, 47, 47);font-weight:300;" disabled>|</a>  

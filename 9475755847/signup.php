@@ -24,7 +24,7 @@
 </head>
 
 <body>
-  <?php //include('site_header.php') ?>
+  <?php include('site_header.php') ?>
 
   <script>
     window.history.forward();
@@ -42,6 +42,8 @@
         </div>
         <?php } ?>
         <h3 style="font-size: 25px;color:BLACK;">Registration</h3>
+        <p id="registration_form_info">
+          If you're new here, please start by registering yourself for the first time. Once you've completed your registration, you can proceed with the application process.        </p>
         <hr />
         <form method="post" action="controller.php">
           <div class="mb-3">
@@ -89,8 +91,9 @@
             <p class="password_guidelines"><a href="../password_guidelines.php" target="_blank"><u>See Password Guidelines </u></a></p>
           </div>
           <div class="mb-3 form-check">
+            Accepting Platform's
             <input type="checkbox" class="form-check-input" name="terms" id="terms" required />
-            <label class="form-check-label" for="terms" style="">Accepting Platform's Terms & Conditions</label>
+            <label class="form-check-label" for="terms" ><a href="/terms_and_conditions.php">Terms & Conditions</a></label>
           </div>
           <center>
           <button type="submit" name="reg_user" class="btn btn-primary">
@@ -102,20 +105,40 @@
           </a>
            <br>
         </form>
+      
+      
+      
       </div>
-      <div class="col-md-6" style="
-      position: relative; 
-      padding: 2%; /* Padding around the content */
+      <div class="col-md-5" style="
+      position: relative; /* Changed from 'center' to 'relative' to allow positioning of the caption */
+      padding: 10%; /* Padding around the content */
       padding-left: 10%; /* Additional padding on the left side */
-      background-image: url('https://images.unsplash.com/photo-1722545331003-bc5507a8bdf8?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-image: url('https://plus.unsplash.com/premium_photo-1682787494953-33e83bc527d1?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
       background-size: cover; /* Adjust to cover the container */
       background-position: left; /* Position the image to the left side */
-      border-radius: 20px; 
+      border-radius: 10px; 
       overflow: hidden; 
-      margin-top: 5%;
-  ">
-      <p style="font-weight:200; color: white; margin: 0;font-size:40px;font-weight:bold;">Your text goes here</p>
+      margin-top: 8%;
+      margin-left: 2.5%;">
+      
+      <!-- Caption container -->
+      <div style="
+          position: absolute;
+          top: 20px; /* Adjust the distance from the top */
+          left: 0px; /* Adjust the distance from the left */
+          color: black; /* Text color */
+          background:#00ff00; /* Semi-transparent background for better readability */
+          padding: 10px 20px; /* Padding around the text */
+          font-size: 30px; /* Font size */
+          font-weight:400;
+          max-width: calc(100% - 20px); /* Ensure caption does not overflow */
+      ">
+          RSPV
+      </div>
+     
+      
   </div>
+  
   
 
 
