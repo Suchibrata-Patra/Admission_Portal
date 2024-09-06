@@ -264,7 +264,7 @@ if (isset($_GET['table'])) {
                 $previewRows = getTableRows($db, $table);
                 if ($previewRows): ?>
                     <table>
-                        <thead>
+                        <thead> 
                             <tr>
                                 <?php
                                 $first_row = reset($previewRows);
