@@ -255,7 +255,7 @@ if (isset($_GET['table'])) {
                 </tbody>
             </table>
         <?php endif; ?>
-
+ 
         <!-- Table previews (collapsed by default) -->
         <?php foreach ($tables as $table): ?>
             <div id="preview-<?php echo htmlspecialchars($table); ?>" class="table-preview">
