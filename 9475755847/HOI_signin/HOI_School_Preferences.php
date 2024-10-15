@@ -190,14 +190,14 @@ mysqli_close($db);
         <div class="col-md-4">
             <div class="form-group">
                 <label for="HOI_Whatsapp_No">H.M Whatsapp No</label>
-                <input type="text" class="form-control" id="HOI_Whatsapp_No" name="HOI_Whatsapp_No"
+                <input type="number" class="form-control" id="HOI_Whatsapp_No" name="HOI_Whatsapp_No"
                     value="<?php echo isset($profile_data['HOI_Whatsapp_No']) ? $profile_data['HOI_Whatsapp_No'] : ''; ?>" required>
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
                 <label for="HOI_Mobile_No">School Contact No</label>
-                <input type="text" class="form-control" id="HOI_Mobile_No" name="HOI_Mobile_No"
+                <input type="number" class="form-control" id="HOI_Mobile_No" name="HOI_Mobile_No"
                     value="<?php echo isset($profile_data['HOI_Mobile_No']) ? $profile_data['HOI_Mobile_No'] : ''; ?>" required>
             </div>
         </div>

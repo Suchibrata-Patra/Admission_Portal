@@ -33,7 +33,7 @@ $rand = rand(100000, 999999);  // Ensure the OTP is a 6-digit number
 // Function to generate a random password
 function generateRandomPassword($length = 10)
 {
-    $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    $characters = '@#$%ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     $password = '';
     for ($i = 0; $i < $length; $i++) {
         $password .= $characters[rand(0, strlen($characters) - 1)];
@@ -149,7 +149,8 @@ if (isset($_POST['forgot_password'])) {
               border: none;
               border-radius: 5px;
               text-decoration: none;
-              font-size: 16px;
+              font-size.com 
+              : 16px;
               transition: background-color 0.3s ease;
             }
             .btn:hover {
@@ -160,10 +161,20 @@ if (isset($_POST['forgot_password'])) {
         <body>
           <div class='container'>
             <h2>New Password</h2>
-            <p>Your new password is: <strong>$newPassword</strong></p>
+            <p>Your temporary Password is : <br>
+            <center>
+                <strong style='color:#FF5A5F;font-size:26px;font-weight: 200px;'>$newPassword</strong>
+            </center>
+            </p>
             <p>Please login using this new password and consider changing it to a more secure one.</p>
             <p>If you did not request this change, please contact us immediately.</p>
-            <p>Best regards,<br>Your Company Name</p>
+            <p>Best regards,<br>
+              <center>
+                <button style='background-color: #eaeaea;padding: 10px 20px;border: none;border-radius: 5px;color: black;font-size: 16px;font-weight: 300;cursor: pointer;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            '>
+                theapply.in
+            </button></center>
+                        </p>
           </div>
         </body>
         </html>
@@ -186,6 +197,7 @@ if (isset($_POST['forgot_password'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -195,38 +207,41 @@ if (isset($_POST['forgot_password'])) {
     <!-- Optional: Include the Material Icons CDN for the lock icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        body{
+        body {
             background-color: #eaeaea;
         }
-        .formbox{
+
+        .formbox {
             background-color: white;
             border-radius: 20px;
-            padding-left:12%;
-            padding-right:12%;
-            padding-top:5%;
-            padding-bottom:5%;
+            padding-left: 12%;
+            padding-right: 12%;
+            padding-top: 5%;
+            padding-bottom: 5%;
         }
-    p {
-    text-align: justify;
-}
-#submitBtn {
-    background-color: rgb(242, 240, 240);
-    color: black;
-    border: none;
-    padding: 10px 80px;
-    border-radius: 5px;
-}
 
-#submitBtn:hover {
-    color: #ffffff;
-    background-color: black;
-}
+        p {
+            text-align: justify;
+        }
 
+        #submitBtn {
+            background-color: rgb(242, 240, 240);
+            color: black;
+            border: none;
+            padding: 10px 80px;
+            border-radius: 5px;
+        }
+
+        #submitBtn:hover {
+            color: #ffffff;
+            background-color: black;
+        }
     </style>
 </head>
+
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand mx-auto" href="#">
                 <?php echo htmlspecialchars($school_info['School_Name']); ?>
@@ -240,27 +255,36 @@ if (isset($_POST['forgot_password'])) {
             <div class="col-md-6">
                 <div class="formbox">
                     <center>
-                        <span class="material-icons" style="font-size: 48px; padding-top: 10px;">
+                        <span class="material-icons rotating-dashed-border"
+                            style="font-size: 38px; padding-top: 10px;color:#686D76;border: 1px dashed #686D76;border-radius: 90px;padding:5px;">
                             lock
                         </span>
                     </center>
-                <h2 class="text-center">Forgot Password</h2>
-                <p class="text-center" style="color: grey;font-size:13px;">
-                    After rest, use the password sent to your email to log in for future access. And from the next time onwards use that Password to Login to Your Application.
-                </p>
-                <form method="post" action="forgot_password.php">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter Registered Email Only" required>
-                    </div>
-                    <div class="form-group text-center">
-                        <button type="submit" class="submit_button" name="forgot_password" id="submitBtn">Reset Password</button>
-                    </div>
-                </form>
-                <h4 style="color:grey;font-size:13px;font-weight:200;"><center>Build Version <u>1.1.24</u> [ Expect forthcomming updates for an Optimized stable Release. ] Developed by Patra Inc.</center></h4>
+                    <h2 class="text-center">Forgot Password</h2>
+                    <p class="text-center" style="color: grey;font-size:13px;">
+                        After rest, use the password sent to your email to log in for future access. And from the next
+                        time onwards use that Password to Login to Your Application.
+                    </p>
+                    <form method="post" action="forgot_password.php">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" id="email"
+                                placeholder="Enter Registered Email Only" required>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="submit_button" name="forgot_password" id="submitBtn">Reset
+                                Password</button>
+                        </div>
+                    </form>
+                    <h4 style="color:grey;font-size:13px;font-weight:200;">
+                        <center>Build Version <u>1.1.24</u> [ Expect forthcomming updates for an Optimized stable
+                            Release. ] Developed by Patra Inc.</center>
+                    </h4>
+
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
