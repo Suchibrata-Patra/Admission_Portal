@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Applications/MAMP/htdocs/9475755847",
-      "program": "/Applications/MAMP/htdocs/9475755847/build/Debug/outDebug"
+      "cwd": "/Applications/MAMP/htdocs/Centralised_Admin_Dashboard",
+      "program": "/Applications/MAMP/htdocs/Centralised_Admin_Dashboard/build/Debug/outDebug"
     }
   ]
 }
