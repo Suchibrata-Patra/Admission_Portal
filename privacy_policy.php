@@ -11,7 +11,7 @@
     <meta name="keywords"
         content="Educational Institution, Online Admission Portal, Class 11 Admissions, Admission Process, Top Ranking, SEO Ranking, School Admissions, College Admissions, University Admissions, Online Application, Admission Form, Entrance Exams, Academic Programs, Student Enrollment, Registration Process, Admission Requirements, Application Deadline, Admission Fees, Admission Criteria, Admission Notifications">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haggle</title>
+    <title>The Application - Centralised Admission Portal</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

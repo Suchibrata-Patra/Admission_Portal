@@ -2,7 +2,7 @@
 require 'session.php';
 require 'super_admin.php';
 require 'Date_Decider.php';
-$table_name = $udise_code . '_student_details';
+$table_name = $udise_code . '_Student_Details';
 echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
 echo 'Table name: ' . $table_name . '<br>';
 $query = "SELECT * FROM $table_name WHERE email='$email'";

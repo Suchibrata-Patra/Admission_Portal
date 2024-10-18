@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 require 'database.php';
 require 'super_admin.php';
 
-$table_name = $udise_code . '_student_details';
+$table_name = $udise_code . '_Student_Details';
 
 $sql = "SELECT School_Name FROM edu_org_records WHERE udise_id='$udise_code'"; // Use quotes around $udise_code
 $results = mysqli_query($db, $sql);

@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $errors = array();
-$table_name = $udise_code . '_student_details';
+$table_name = $udise_code . '_Student_Details';
 
 // LOGIN USER
 if (isset($_POST['login_user'])) {

@@ -6,7 +6,7 @@ session_start();  // Initiate session at the very top to avoid 'headers already 
 require_once 'database.php';  // Include database connection
 require 'super_admin.php';    // Assuming this sets $udise_code
 
-$table_name = $udise_code . '_student_details';
+$table_name = $udise_code . '_Student_Details';
 ob_start();
 
 echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';

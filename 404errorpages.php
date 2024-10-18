@@ -7,7 +7,7 @@
     <meta name="description" content="Discover how Haggle offers top-notch online admission portal development services for schools, including Class XII admissions. Our solutions feature robust security measures and seamless integration, ensuring data confidentiality and integrity. Get in touch with us for tailored admission portal solutions. Haggle, online admission portal, school admission, Class XII, security measures, integration, data confidentiality, data integrity, tailored solutions">
     <meta name="keywords" content="Educational Institution, Online Admission Portal, Class 11 Admissions, Admission Process, Top Ranking, SEO Ranking, School Admissions, College Admissions, University Admissions, Online Application, Admission Form, Entrance Exams, Academic Programs, Student Enrollment, Registration Process, Admission Requirements, Application Deadline, Admission Fees, Admission Criteria, Admission Notifications">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haggle</title>
+    <title>The Application - Centralised Admission Portal</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

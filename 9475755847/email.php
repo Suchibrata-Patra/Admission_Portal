@@ -6,7 +6,7 @@ require 'database.php';
 require 'super_admin.php';
 require '../Assets/Mail_Login_Credentials.php';
 
-$table_name = $udise_code . '_student_details';
+$table_name = $udise_code . '_Student_Details';
 echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
 echo 'Table name: ' . $table_name . '<br>';
 
