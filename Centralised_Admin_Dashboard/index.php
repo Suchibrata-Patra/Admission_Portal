@@ -11,6 +11,8 @@ require 'Admin_Session.php';
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex, nofollow">
+
 	<!-- FAVICON -->
 	<link rel="shortcut icon" href="../../../Assets/images/favicon.png" type="image/svg+xml">
 

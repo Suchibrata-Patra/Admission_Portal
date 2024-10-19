@@ -62,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Copy Folder</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -151,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-        <h1>Copy Folder</h1>
+        <h1>Clone Directory</h1>
 
         <!-- Display a message if exists -->
         <?php if (!empty($message)): ?>
@@ -166,6 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="text" id="udise_id" name="udise_id" required>
             <button type="submit">Copy Folder</button>
         </form>
+       
     </div>
 </body>
 </html>

@@ -71,7 +71,8 @@ if (isset($_POST['Admin_Signup'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <meta name="robots" content="noindex, nofollow">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/../../../../Assets/css/Generalised_HOI_Stylesheet.css">
     <style>
