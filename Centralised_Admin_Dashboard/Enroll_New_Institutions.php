@@ -2,6 +2,20 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 require 'Admin_Session.php';
+require '../database.php';
+// Fetch UDISE IDs from edu_org_records
+$udise_ids = [];
+$sql = "SELECT udise_id FROM edu_org_records WHERE profile_lock_or_not =0;"; // Adjust this SQL query according to your table structure
+$result = $db->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $udise_ids[] = $row['udise_id'];
+    }
+} else {
+    echo "No UDISE IDs found.";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +75,7 @@ require 'Admin_Session.php';
 
         <!-- MAIN -->
         <main>
-    <form action="Enroll_New_Institutions.php">
+    <form action="Enroll_New_Institutions_Controller.php">
 	<div class="container">
         <div class="head-title">
             <div class="left">
@@ -82,20 +96,27 @@ require 'Admin_Session.php';
         <div class="admission-date-form">
             <h3>Register New Institution</h3>
             <form action="#" method="POST" id="admission-form">
-                <div class="row">
-                    <div class="col-md-6">
-					<div class="form-group">
-                        <label for="udise_id"><strong>UDISE ID</strong></label>
-                        <input type="text" class="form-control" placeholder="Enter UDISE ID" id="udise_id" required>
-                    </div>
-                    </div>
-					<div class="col-md-6">
-					<div class="form-group">
-                        <label for="confirm_udise_id"><strong>Confirm UDISE ID</strong></label>
-                        <input type="text" class="form-control" placeholder="Enter UDISE ID" id="confirm_udise_id" required>
-                    </div>
-                    </div>
-                </div>
+            <div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="udise_id">
+                <strong>UDISE ID <p style="color:coral;font-weight:200;">The Udise Will be Selected for Those which Profile is not Locked.</p>
+            </strong>
+        </label>
+            
+            <select class="form-control" id="udise_id" name="udise_id" required>
+                <option value="">Select UDISE ID</option>
+                <?php
+                // Populate the dropdown with fetched UDISE IDs
+                foreach ($udise_ids as $id) {
+                    echo "<option value='$id'>$id</option>";
+                }
+                ?>
+            </select>
+        </div>
+    </div>
+</div>
+
                 <div class="row">
                     <div class="col-md-6">
 					<div class="form-group">
@@ -113,45 +134,14 @@ require 'Admin_Session.php';
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="start_date">Contact No.</label>
-                            <input type="number" id="start_date" placeholder="Enter Contact Number" name="start_date" class="form-control" required>
+                            <label for="contact_number">Contact No.</label>
+                            <input type="number" id="contact_number" placeholder="Enter Contact Number" name="contact_number" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="end_date">Confirm Contact No.</label>
-                            <input type="number" id="end_date" name="end_date" placeholder="Confirm Contact Number" class="form-control" required>
-                        </div>
-                    </div>
-
-                </div>
-
-				<div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="start_date">Whatsapp No.</label>
-                            <input type="number" id="start_date" name="start_date" placeholder="Enter Whatsapp Number." class="form-control" required>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="end_date">Confirm Whatsapp No.</label>
-                            <input type="number" id="end_date" name="end_date" placeholder="Confirm Whatsapp Number." class="form-control" required>
-                        </div>
-                    </div>
-
-                </div>
-				<div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="start_date">Email ID</label>
-                            <input type="number" id="start_date" name="start_date" placeholder="Email ID" class="form-control" required>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="end_date">Confirm Email Id</label>
-                            <input type="number" id="end_date" name="end_date" placeholder="Confirm Email ID" class="form-control" required>
+                            <label for="confirm_contact_number">Confirm Contact No.</label>
+                            <input type="number" id="confirm_contact_number" name="confirm_contact_number" placeholder="Confirm Contact Number" class="form-control" required>
                         </div>
                     </div>
 
@@ -160,14 +150,29 @@ require 'Admin_Session.php';
 				<div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="start_date">Bank Account No</label>
-                            <input type="number" id="start_date" name="start_date" placeholder="Bank Account Number" class="form-control" required>
+                            <label for="whatsapp_number">Whatsapp No.</label>
+                            <input type="number" id="whatsapp_number" name="whatsapp_number" placeholder="Enter Whatsapp Number." class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="end_date">Confirm Bank Account No</label>
-                            <input type="number" id="end_date" name="end_date" placeholder="Confirm Bank Account Number" class="form-control" required>
+                            <label for="confirm_whatsapp_number">Confirm Whatsapp No.</label>
+                            <input type="number" id="confirm_whatsapp_number" name="confirm_whatsapp_number" placeholder="Confirm Whatsapp Number." class="form-control" required>
+                        </div>
+                    </div>
+
+                </div>
+				<div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email_id">Email ID</label>
+                            <input type="email" id="email_id" name="email_id" placeholder="Email ID" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="confirm_email_id">Confirm Email Id</label>
+                            <input type="email" id="confirm_email_id" name="confirm_email_id" placeholder="Confirm Email ID" class="form-control" required>
                         </div>
                     </div>
 
@@ -176,14 +181,30 @@ require 'Admin_Session.php';
 				<div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="start_date">Bank IFSC</label>
-                            <input type="number" id="start_date" name="start_date" placeholder="Bank IFSC" class="form-control" required>
+                            <label for="bank_account_number">Bank Account No</label>
+                            <input type="text" id="bank_account_number" name="bank_account_number" placeholder="Bank Account Number" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="end_date">Confirm Bank IFSC</label>
-                            <input type="number" id="end_date" name="end_date" placeholder="Confirm Bank IFSC" class="form-control" required>
+                            <label for="confirm_bank_account_number">Confirm Bank Account No</label>
+                            <input type="text" id="confirm_bank_account_number" name="confirm_bank_account_number" placeholder="Confirm Bank Account Number" class="form-control" required>
+                        </div>
+                    </div>
+
+                </div>
+
+				<div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="bank_ifsc">Bank IFSC</label>
+                            <input type="text" id="bank_ifsc" name="bank_ifsc" placeholder="Bank IFSC" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="confirm_bank_ifsc">Confirm Bank IFSC</label>
+                            <input type="text" id="confirm_bank_ifsc" name="confirm_bank_ifsc" placeholder="Confirm Bank IFSC" class="form-control" required>
                         </div>
                     </div>
 
@@ -191,14 +212,14 @@ require 'Admin_Session.php';
 				<div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="start_date">Bank Branch</label>
-                            <input type="number" id="start_date" name="start_date" placeholder="Enter Bank Branch" class="form-control" required>
+                            <label for="bank_branch">Bank Branch</label>
+                            <input type="text" id="bank_branch" name="bank_branch" placeholder="Enter Bank Branch" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="end_date">Confirm Bank Banch</label>
-                            <input type="number" id="end_date" name="end_date" placeholder="Confirm Bank Branch" class="form-control" required>
+                            <label for="confirm_bank_branch">Confirm Bank Banch</label>
+                            <input type="text" id="confirm_bank_branch" name="confirm_bank_branch" placeholder="Confirm Bank Branch" class="form-control" required>
                         </div>
                     </div>
 
@@ -233,8 +254,8 @@ require 'Admin_Session.php';
 	<script>
 function setupConfirmation(inputId, mainId) {
     document.getElementById(inputId).addEventListener('input', function() {
-        const mainValue = document.getElementById(mainId).value;
-        const confirmValue = this.value;
+        const mainValue = document.getElementById(mainId).value.toLowerCase(); // Convert to lowercase
+        const confirmValue = this.value.toLowerCase(); // Convert to lowercase
 
         if (mainValue !== confirmValue) {
             this.style.borderColor = 'red';
@@ -248,15 +269,22 @@ function setupConfirmation(inputId, mainId) {
             document.getElementById(mainId).style.borderColor = 'green';
             this.style.fontWeight = 'normal';
             document.getElementById(mainId).style.fontWeight = 'normal';
-            this.style.color = 'black';  // Reset to default color
+            this.style.color = 'green';  // Reset to default color
             document.getElementById(mainId).style.color = 'black';  // Reset to default color
         }
     });
 }
 
+
 // Call the function for each pair of inputs
 setupConfirmation('confirm_udise_id', 'udise_id');
 setupConfirmation('confirm_institution_name', 'institution_name');
+setupConfirmation('confirm_contact_number', 'contact_number');
+setupConfirmation('confirm_whatsapp_number', 'whatsapp_number');
+setupConfirmation('confirm_email_id', 'email_id');
+setupConfirmation('confirm_bank_account_number', 'bank_account_number');
+setupConfirmation('confirm_bank_ifsc', 'bank_ifsc');
+setupConfirmation('confirm_bank_branch', 'bank_branch');
 
     document.getElementById('submit').addEventListener('click', function() {
         const mainId = document.getElementById('udise_id').value;

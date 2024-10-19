@@ -10,19 +10,19 @@
                 <span class="text">Dashboard</span>
             </a>
         </li>
-        
-        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'Enroll_New_Institutions.php') ? 'class="active"' : ''; ?>>
-            <a href="Enroll_New_Institutions.php">
+        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'Enroll_New_School.php') ? 'class="active"' : ''; ?>>
+            <a href="Enroll_New_School.php">
                 <i class='bx'><span class="material-symbols-outlined">how_to_reg</span></i>
                 <span class="text">Register</span>
             </a>
         </li>
+        <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'Enroll_New_Institutions.php') ? 'class="active"' : ''; ?>>
+            <a href="Enroll_New_Institutions.php">
+                <i class='bx'><span class="material-symbols-outlined">edit</span></i>
+                <span class="text">Enroll</span>
+            </a>
+        </li>
         
-        
-
-
-
-
     </ul>
     <ul class="side-menu">
         <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'HOI_School_Preferences.php') ? 'class="active"' : ''; ?>>
