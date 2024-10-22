@@ -96,7 +96,7 @@ if (isset($_POST['HOI_Login'])) {
                   </div>
                     <button type="submit" class="btn btn-primary" name="HOI_Login">Login</button>
                     <div class="signup-link">
-                        <a href="HOI_signup.php">New Here? Sign Up</a>
+                        <a href="HOI_Signup.php">New Here? Sign Up</a>
                     </div>
                 </form>
             </div>
