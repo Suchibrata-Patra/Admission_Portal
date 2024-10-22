@@ -1,1 +1,0 @@
-<a href="receipt_download.php">Download</a>

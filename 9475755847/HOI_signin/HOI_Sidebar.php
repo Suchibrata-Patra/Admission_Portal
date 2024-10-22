@@ -3,8 +3,8 @@ require_once 'HOI_Session.php';
 ?>
 <section id="sidebar">
     <a href="#" class="brand">
-        <i class='bx bxs-smile'></i>
-        <span class="text">Haggle</span>
+        <span class="text"><img src="../../../../Assets/images/Brand Icons/the_application.in_logo_1.png" alt="theapplication.in logo" srcset="" style="width:70%;height:auto;padding-left:8%;padding-top:15%;">
+    </span>
     </a>
     <ul class="side-menu top">
         <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'index.php') ? 'class="active"' : ''; ?>>
