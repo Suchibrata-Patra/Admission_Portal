@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once "database.php"; // Ensure this file contains the database connection
-require "HOI_super_admin.php";
+require "HOI_Super_Admin.php";
 // Check if the user is not logged in
 if (!isset($_SESSION['udiseid'])) {
     $_SESSION['msg'] = "You must log in first";

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'database.php';
-include 'HOI_super_admin.php';
+include 'HOI_Super_Admin.php';
 
 // Enable error reporting for debugging
 error_reporting(E_ALL);
