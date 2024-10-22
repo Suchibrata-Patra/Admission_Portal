@@ -37,14 +37,21 @@ function sanitizeUdiseId($id) {
     return preg_replace('/[^a-zA-Z0-9_]/', '', $id); // Allow only alphanumeric characters and underscores
 }
 
-// Database connection details
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$database = "user";
+// // Database connection details
+// $servername = "localhost";
+// $username = "root";
+// $password = "root";
+// $database = "user";
+
+// // Create a connection
+// $db = new mysqli($servername, $username, $password, $database);
+$servername = getenv('DB_HOST') ?: 'localhost'; // Use 'localhost' as default if not set
+$username = getenv('DB_USER') ?: 'root';        // Use 'root' as default if not set
+$password = getenv('DB_PASS') ?: 'root';        // Use 'root' as default if not set
+$database = getenv('DB_NAME') ?: 'user';        // Use 'user' as default if not set
 
 // Create a connection
-$db = new mysqli($servername, $username, $password, $database);
+$db = mysqli_connect($servername, $username, $password, $database);
 
 // Check connection
 if ($db->connect_error) {
