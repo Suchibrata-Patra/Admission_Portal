@@ -10,19 +10,27 @@
 ?>
 
 <?php
-    // Fetch database credentials from environment variables, with fallback values for local development
-    $servername = getenv('DB_HOST') ?: 'localhost'; // Use 'localhost' as default if not set
-    $username = getenv('DB_USER') ?: 'root';        // Use 'root' as default if not set
-    $password = getenv('DB_PASS') ?: 'root';        // Use 'root' as default if not set
-    $database = getenv('DB_NAME') ?: 'user';        // Use 'user' as default if not set
+// Include the function to load environment variables
+require 'load_env.php';
 
-    // Create a connection
-    $db = mysqli_connect($servername, $username, $password, $database);
+// Load the environment variables from the .env file
+load_env('.env');
 
-    // Check connection
-    if (!$db) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+// Fetch database credentials from environment variables
+$servername = getenv('DB_HOST') ?: 'localhost'; // Fallback for local development
+$username = getenv('DB_USER') ?: 'root';        // Fallback for local development
+$password = getenv('DB_PASS') ?: 'root';        // Fallback for local development
+$database = getenv('DB_NAME') ?: 'user';        // Fallback for local development
 
-    echo "Server Connected Successfully.";
+// Create a connection
+$db = mysqli_connect($servername, $username, $password, $database);
+
+// Check connection
+if (!$db) {
+    error_log("Connection failed: " . mysqli_connect_error()); // Log error to server logs
+    die("Connection failed: Unable to connect to the database.");
+}
+
+// If the connection is successful
+echo "Server Connected Successfully.";
 ?>
