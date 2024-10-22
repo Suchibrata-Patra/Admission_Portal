@@ -11,7 +11,7 @@
 
 <?php
 // Include the function to load environment variables
-require __DIR__ . '../../../../load_env.php';
+require __DIR__ . 'load_env.php';
 
 // Load the environment variables from the .env file
 load_env('.env');
