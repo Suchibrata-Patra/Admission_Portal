@@ -26,7 +26,7 @@ $school_info = mysqli_fetch_assoc($results);
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '../../Assets/vendor/autoload.php';
 
 $rand = rand(100000, 999999);  // Ensure the OTP is a 6-digit number
 
