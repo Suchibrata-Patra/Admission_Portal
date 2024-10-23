@@ -113,14 +113,14 @@
     <div class="footer-bottom">
       <div class="container">
         <p class="copyright">
-          &copy; 2024 <a href="">Patra Inc.</a> All rights reserved
+          &copy; 2024 <a href="">Theapplication.in</a> All rights reserved
         </p>
         <ul class="footer-bottom-list">
           <li>
-            <a href="#" class="footer-bottom-link">Privacy Policy</a>
+            <a href="privacy_policy.php" class="footer-bottom-link">Privacy Policy</a>
           </li>
           <li>
-            <a href="sitemap.php" class="footer-bottom-link">Sitemap</a>
+            <a href="sitemap_index.xml" class="footer-bottom-link">Sitemap</a>
           </li>
           <li>
             <a href="terms_and_conditions.php" class="footer-bottom-link">T&C</a>
@@ -142,7 +142,7 @@
             <ion-icon name="logo-facebook"></ion-icon>
           </li>
           <li class="footer-items">
-            <ion-icon name="logo-twitter"></ion-icon>
+          <a href="https://x.com/@the_application" style="text-decoration:none;"><ion-icon name="logo-twitter"></ion-icon></a>  
           </li>
           <li class="footer-items">
             <ion-icon name="logo-instagram"></ion-icon>
