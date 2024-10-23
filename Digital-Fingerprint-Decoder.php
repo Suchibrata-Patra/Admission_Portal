@@ -125,7 +125,7 @@
             </div>
         <p><b>Attention</b><br><p>This system is for authorized personnel only. Unauthorized access is strictly forbidden and will be met with consequences.</p></p>
     </div>
-
+    <?php include 'footer.php' ?>
     <script>
         function checkPassword() {
             var password = document.getElementById('password').value;

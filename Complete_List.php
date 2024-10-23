@@ -404,7 +404,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         - #CTA
       -->
 
-            <section class="cta" id="contact">
+            <!-- <section class="cta" id="contact">
                 <div class="container">
 
                     <div class="cta-content">
@@ -422,7 +422,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <button class="btn btn-secondary">Contact Us !</button>
 
                 </div>
-            </section>
+            </section> -->
 
         </article>
     </main>
@@ -449,7 +449,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 
     - custom js link
   -->
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
 
     <!-- 
     - ionicon link

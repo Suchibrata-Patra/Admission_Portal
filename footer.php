@@ -94,6 +94,9 @@
             <li class="contact-item">
               <a href="../../Digital-Fingerprint-Decoder.php" class="contact-link">Fingerprint Decoder</a>
             </li>
+            <li class="contact-item">
+              <a href="../../password_guidelines.php" class="contact-link">Password Guidelines</a>
+            </li>
           </ul>
         </div>
         <div class="footer-form">

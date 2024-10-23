@@ -82,5 +82,6 @@
         
         <p>By following these guidelines and implementing additional security measures, you can help protect your accounts and personal information from unauthorized access.</p>
     </div>
+    <?php include 'footer.php' ?>
 </body>
 </html>
