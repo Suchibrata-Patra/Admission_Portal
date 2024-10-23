@@ -47,7 +47,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Password Guidelines</h1>
+        <h2>Password Guidelines</h2>
+        <h5>Created by <u>theapplication.in</u></h5>
         <p>Creating strong passwords is essential for protecting your accounts and personal information. Follow these guidelines to ensure your passwords are secure:</p>
         
         <h2>General Guidelines</h2>
@@ -82,6 +83,5 @@
         
         <p>By following these guidelines and implementing additional security measures, you can help protect your accounts and personal information from unauthorized access.</p>
     </div>
-    <?php include 'footer.php' ?>
 </body>
 </html>
