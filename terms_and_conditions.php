@@ -192,7 +192,7 @@
                 <p style="margin-left: 4%; margin-right:4%;">The institution reserves the right to commence the
                     admission process
                     at their discretion and
-                    convenience. <a href="https://theapplication.in">theapplication.in</a> shall not interfere with the institution's admission schedule or process.
+                    convenience. <a href="https://theapplication.in"><u>theapplication.in<u></a> shall not interfere with the institution's admission schedule or process.
                 </p>
                 <br>
                 <h3>6. <u>Portal Appearance and Design</u></h3>
@@ -207,7 +207,7 @@
                     activities.</p>
                 <br>
                 <h3>7. <u>Significant Changes</u></h3>
-                <p style="margin-left: 4%; margin-right:4%;"> <a href="https://theapplication.in">theapplication.in</a> agrees not to make any significant changes or
+                <p style="margin-left: 4%; margin-right:4%;"> <a href="https://theapplication.in"><u>theapplication.in<u></a> agrees not to make any significant changes or
                     updates to the admission portal during
                     active admission periods to avoid disruption or interference with the institution's admission
                     process.</p>
