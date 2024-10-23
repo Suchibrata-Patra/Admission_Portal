@@ -9,9 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Application - Centralised Admission Portal</title>
 
-  <!-- 
-    - favicon
-  -->
+  <!-- favicon -->
   <!-- <link rel="shortcut icon" href="Assets/images/favicon.png" type="image/svg+xml"> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,24 +17,18 @@
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/Assets/css/style_listing_page.css">
-  
 </head>
 
 <body id="top">
-
-  <!-- 
-    - #HEADER
-  -->
-
-  
-
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSV7GPM5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <!-- #HEADER -->
   <main>
     <article>
 
-      <!-- 
-        - #HERO
-      -->
-
+      <!-- #HERO -->
       <section class="hero" id="home">
         <div class="container">
 
