@@ -48,7 +48,7 @@
 <body>
     <div class="container">
         <h2>Password Guidelines</h2>
-        <h5 style="color:grey;">Created by <u>theapplication.in</u></h5>
+        <p style="color:grey;">Created by <u>theapplication.in</u></p>
         <p>Creating strong passwords is essential for protecting your accounts and personal information. Follow these guidelines to ensure your passwords are secure:</p>
         
         <h2>General Guidelines</h2>
