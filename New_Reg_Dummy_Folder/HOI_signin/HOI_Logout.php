@@ -22,6 +22,6 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
 // Redirect to the login page
-header("location:HOI_login.php");
+header("location:HOI_Login.php");
 exit; // Stop further execution of the script
 ?>

@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 session_start();
 
 require_once 'database.php';
-require 'HOI_super_admin.php';
+require 'HOI_Super_Admin.php';
 
 $table_name = $udise_code . '_HOI_Login_Credentials';
 ob_start();

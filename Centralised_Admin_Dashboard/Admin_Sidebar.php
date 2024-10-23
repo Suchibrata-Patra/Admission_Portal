@@ -13,13 +13,13 @@
         <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'Enroll_New_School.php') ? 'class="active"' : ''; ?>>
             <a href="Enroll_New_School.php">
                 <i class='bx'><span class="material-symbols-outlined">how_to_reg</span></i>
-                <span class="text">Register</span>
+                <span class="text">Register Inst.</span>
             </a>
         </li>
         <li <?php echo (basename(htmlspecialchars($_SERVER['PHP_SELF'])) === 'Enroll_New_Institutions.php') ? 'class="active"' : ''; ?>>
             <a href="Enroll_New_Institutions.php">
                 <i class='bx'><span class="material-symbols-outlined">edit</span></i>
-                <span class="text">Enroll</span>
+                <span class="text">Inst. Record</span>
             </a>
         </li>
         
@@ -38,7 +38,7 @@
             </a>
         </li>
         <li>
-        <a href="../../../../about_us.php">
+        <a href="../../../../About_Us.php">
         <i class='bx'><span class="material-symbols-outlined">group</span></i>
                 <span class="text">About Us</span>
         </a>

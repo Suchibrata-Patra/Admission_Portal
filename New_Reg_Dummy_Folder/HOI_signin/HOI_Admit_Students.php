@@ -1,8 +1,8 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-require 'HOI_session.php';
-require 'HOI_super_admin.php';
+require 'HOI_Session.php';
+require 'HOI_Super_Admin.php';
 
 // Ensure $student_table_name is properly defined (assuming $udise_code is set elsewhere)
 $student_table_name = $udise_code . '_Student_Details';

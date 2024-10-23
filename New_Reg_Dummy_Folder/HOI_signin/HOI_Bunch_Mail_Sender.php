@@ -3,9 +3,9 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 require 'database.php';
-require 'HOI_session.php';
+require 'HOI_Session.php';
 require 'HOI_super_admin.php';
-require '../../vendor/autoload.php';
+require __DIR__ . '../../../Assets/vendor/autoload.php';
 require '.../../../../Assets/Mail_Login_Credentials.php';
 
 // Import PHPMailer classes into the global namespace

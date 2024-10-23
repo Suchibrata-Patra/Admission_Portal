@@ -68,11 +68,10 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 	<!-- My CSS -->
 	<link rel="stylesheet" href="/../../../../Assets/css/Generalised_HOI_Stylesheet.css">
 
-	<title style="font-family: 'Roboto', Times, serif;">Haggle</title>
+	<title style="font-family: 'Roboto', Times, serif;">The Application - Centralised Admission Portal</title>
 </head>
 
 <body style="font-family: 'Roboto', sans-serif;">
-
 
 	<!-- SIDEBAR -->
 	<?php include('HOI_Sidebar.php') ?>
@@ -171,7 +170,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Recent Applications</h3>
+						<h3>10 Most Recent Applications</h3>
 						<!-- <i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i> -->
 					</div>

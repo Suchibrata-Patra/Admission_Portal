@@ -1,6 +1,6 @@
 <?php
-require 'HOI_session.php';
-require 'HOI_super_admin.php';
+require 'HOI_Session.php';
+require 'HOI_Super_Admin.php';
 $table_name = $udise_code . '_HOI_Login_Credentials';
 echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
 echo 'Table name: ' . $table_name . '<br>';

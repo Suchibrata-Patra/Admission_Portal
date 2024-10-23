@@ -11,6 +11,29 @@ require 'Admin_Session.php';
 session_regenerate_id(true);
 
 // Function to copy a directory recursively
+// function copyDirectory($source, $destination) {
+//     if (!is_dir($destination)) {
+//         mkdir($destination, 0755, true); // Create destination folder if it doesn't exist
+//     }
+//     $files = scandir($source); // Get files and directories in the source folder
+//     foreach ($files as $file) {
+//         if ($file !== '.' && $file !== '..') {
+//             $sourceFile = $source . '/' . $file;
+//             $destinationFile = $destination . '/' . $file;
+//             if (is_dir($sourceFile)) {
+//                 copyDirectory($sourceFile, $destinationFile); // Recursively copy subdirectories
+//             } else {
+//                 if (!is_readable($sourceFile) || !is_writable($destination)) {
+//                     throw new Exception("Permission denied for file operation.");
+//                 }
+//                 copy($sourceFile, $destinationFile); // Copy individual files
+//             }
+//         }
+//     }
+// }
+
+
+
 function copyDirectory($source, $destination) {
     if (!is_dir($destination)) {
         mkdir($destination, 0755, true); // Create destination folder if it doesn't exist
@@ -27,10 +50,45 @@ function copyDirectory($source, $destination) {
                     throw new Exception("Permission denied for file operation.");
                 }
                 copy($sourceFile, $destinationFile); // Copy individual files
+
+                // Check if the file is HOI_Super_Admin.php and modify $udise_code
+                if ($file === 'HOI_Super_Admin.php') {
+                    modifyUdiseCode($destinationFile, $destination);
+                }
             }
         }
     }
 }
+
+// Function to modify the $udise_code in HOI_Super_Admin.php
+function modifyUdiseCode($filePath, $newUdiseCode) {
+    $fileContent = file_get_contents($filePath); // Read the file content
+    $pattern = '/\$udise_code\s*=\s*\d+;/'; // Match the $udise_code assignment
+
+    // Replace the $udise_code value with the new folder name (destination folder name)
+    $newContent = preg_replace($pattern, "\$udise_code = $newUdiseCode;", $fileContent);
+
+    // Write the modified content back to the file
+    file_put_contents($filePath, $newContent);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Function to sanitize UDISE ID
 function sanitizeUdiseId($id) {
@@ -184,7 +242,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           `Subject_Combinations` varchar(255) NOT NULL
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         
-          INSERT INTO edu_org_records (udise_id, school_name) VALUES ($udise_id, NULL);
+          INSERT INTO edu_org_records (udise_id, school_name,profile_lock_or_not) VALUES ($udise_id, NULL,0);
         ";
         // Execute the SQL
         if ($db->multi_query($sql)) {
