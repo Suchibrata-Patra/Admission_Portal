@@ -192,7 +192,7 @@
                 <p style="margin-left: 4%; margin-right:4%;">The institution reserves the right to commence the
                     admission process
                     at their discretion and
-                    convenience.<u><b>theapplication.in</b></u>shall not interfere with the institution's admission schedule or process.
+                    convenience.<u><b>theapplication.in</b></u> shall not interfere with the institution's admission schedule or process.
                 </p>
                 <br>
                 <h3>6. <u>Portal Appearance and Design</u></h3>
