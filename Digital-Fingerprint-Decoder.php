@@ -13,6 +13,7 @@
     <style>
         body {
             font-family: "Roboto Mono", monospace;
+            font-weight: normal;
             margin: 0;
             padding: 0;
             background-color: #f9f9f9;
