@@ -76,7 +76,7 @@
 
         button {
             padding: 12px 20px;
-            background-color: #f8f3f3;
+            background-color: #f6f6f6;
             border: none;
             color:black;
             font-size: 16px;
@@ -88,7 +88,7 @@
         }
 
         button:hover {
-            background-color: #f6f6f6;
+            background-color: #ededed;
             border: none;
         }
 
