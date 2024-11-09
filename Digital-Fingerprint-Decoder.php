@@ -13,7 +13,6 @@
     <style>
         body {
             font-family: "Roboto Mono", monospace;
-            font-weight: normal;
             margin: 0;
             padding: 0;
             background-color: #f9f9f9;
@@ -38,6 +37,7 @@
             padding-left:2%;
             padding-right:2%;
             color:grey;
+            font-weight: 400;
         }  
         label {
             font-size: 16px;
