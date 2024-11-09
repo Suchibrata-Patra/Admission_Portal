@@ -707,7 +707,7 @@ nav h3 {
             </nav>
             <div id="center">
                 <div id="left">
-                    <h3>Haggle is a multi-disciplinary Software-studio focused on creating unique, end-to-end User Applications.
+                    <h3>TheApplication is a multi-disciplinary Software-studio focused on creating unique, end-to-end User Applications.
                     </h3>
                 </div>
                 <div id="right">
