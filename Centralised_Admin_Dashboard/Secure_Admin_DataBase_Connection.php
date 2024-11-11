@@ -8,7 +8,6 @@
 
     // echo "Server Connected Succesfully.";
 ?>
-
 <?php
     $servername = "localhost"; 
     $username = "root"; 
