@@ -1,7 +1,6 @@
 <?php
 // Start the session and include the session management script
 require 'Admin_Session.php';
-
 $servername = "localhost"; 
 $username = "root"; 
 $password = "root"; 
