@@ -41,7 +41,7 @@
         </thead>
         <tbody>
             <?php
-            $logFile = 'error.log'; // Path to your error log file
+            $logFile = 'error.json'; // Path to your error log file
 
             if (file_exists($logFile)) {
                 $logContent = file_get_contents($logFile);
