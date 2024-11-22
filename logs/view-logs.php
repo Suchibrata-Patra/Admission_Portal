@@ -1,5 +1,5 @@
 <?php
-$allowedIps = ['192.168.31.134','::1']; // Replace with authorized IPs
+$allowedIps = ['117.231.224.49','::1']; // Replace with authorized IPs
 if (!in_array($_SERVER['REMOTE_ADDR'], $allowedIps)) {
     http_response_code(403); // Forbidden
     echo "Access Denied. Your IP address is: " . $_SERVER['REMOTE_ADDR'];
