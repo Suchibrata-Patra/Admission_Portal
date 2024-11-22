@@ -3,7 +3,7 @@
 $baseDir = '/home/u955994755/domains/theapplication.in'; // Change this to your actual base directory
 
 // Define the log file location
-$logFile = __DIR__ . '/logs/error.log';
+$logFile = __DIR__ . '/logs/error.json';
 
 // Ensure the logs directory exists
 $logDir = dirname($logFile);
@@ -17,7 +17,7 @@ function trimFilePath($filePath, $baseDir)
     return str_replace($baseDir, '', $filePath);
 }
 
-// Function to log error details in structured format (JSON)
+// Function to log error details in structured format (JSON array)
 function logError($data)
 {
     global $logFile, $baseDir;
@@ -25,14 +25,14 @@ function logError($data)
     // Add timestamp
     $data['timestamp'] = date('Y-m-d H:i:s');
 
-    // Additional environment/contextual info (e.g., request URI, user agent, etc.)
-    $data['request_method'] = $_SERVER['REQUEST_METHOD']; // HTTP method (GET, POST, etc.)
-    $data['request_uri'] = $_SERVER['REQUEST_URI']; // Full requested URI
-    $data['remote_addr'] = $_SERVER['REMOTE_ADDR']; // Client's IP address
-    $data['user_agent'] = $_SERVER['HTTP_USER_AGENT']; // Client's browser info
+    // Additional environment/contextual info
+    $data['request_method'] = $_SERVER['REQUEST_METHOD'] ?? 'UNKNOWN'; // HTTP method (GET, POST, etc.)
+    $data['request_uri'] = $_SERVER['REQUEST_URI'] ?? 'UNKNOWN'; // Full requested URI
+    $data['remote_addr'] = $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN'; // Client's IP address
+    $data['user_agent'] = $_SERVER['HTTP_USER_AGENT'] ?? 'UNKNOWN'; // Client's browser info
 
     // If PHP session is active, log session data
-    if (session_status() == PHP_SESSION_ACTIVE) {
+    if (session_status() === PHP_SESSION_ACTIVE) {
         $data['session'] = $_SESSION;
     }
 
@@ -50,8 +50,18 @@ function logError($data)
         }
     }
 
-    // Log the error data (complete details) in the file
-    file_put_contents($logFile, json_encode($data, JSON_PRETTY_PRINT) . PHP_EOL, FILE_APPEND);
+    // Read existing logs
+    $logs = [];
+    if (file_exists($logFile)) {
+        $currentLogs = file_get_contents($logFile);
+        $logs = json_decode($currentLogs, true) ?: []; // Decode existing logs as array
+    }
+
+    // Append the new log
+    $logs[] = $data;
+
+    // Re-encode and save logs
+    file_put_contents($logFile, json_encode($logs, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 }
 
 // Custom Exception Handler
