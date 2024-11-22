@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/Assets/images/favicon.png" type="image/svg+xml">
-  <?php include('header.php'); ?>
   <title>TheApplication - Centralised Admission Portal</title>
 
     <!-- SEO Meta Description -->
@@ -17,7 +16,7 @@
 </head>
 
 <body id="top">
-
+<?php include('header.php'); ?>
 
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSV7GPM5"
