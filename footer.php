@@ -1,3 +1,4 @@
+
 <style>
    .footer-items{
     color: rgb(255, 255, 255);
@@ -22,6 +23,8 @@
 
         </div>
       </section>
+  <meta name="description"
+    content="Welcome to the Class XII Admission Portal, your gateway to streamlined admissions in West Bengal. Discover top-rated higher secondary schools, simplify your application process, and secure your spot in the best institutions. Explore our user-friendly platform for hassle-free admissions today.">
   <footer class="footer">
     <div class="footer-top">
       <div class="container">
