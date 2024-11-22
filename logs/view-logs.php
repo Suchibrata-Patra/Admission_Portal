@@ -1,3 +1,23 @@
+<?php
+// Path to the error log file
+$logFile = 'error.log';
+
+// Check if the log file exists
+if (!file_exists($logFile)) {
+    echo "<p>Error log file not found.</p>";
+    exit;
+}
+
+// Read and decode the JSON log file
+$logs = json_decode(file_get_contents($logFile), true);
+
+// Check if the logs are in valid JSON format
+if (!$logs || !is_array($logs)) {
+    echo "<p>Error log file is not in valid JSON format.</p>";
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,75 +28,61 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
         }
         table {
-            border-collapse: collapse;
             width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
         }
-        table th, table td {
-            border: 1px solid #ccc;
-            padding: 8px;
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
             text-align: left;
         }
-        table th {
+        th {
             background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
         }
     </style>
 </head>
 <body>
     <h1>Error Logs</h1>
+
     <table>
         <thead>
             <tr>
+                <th>#</th>
                 <th>Type</th>
                 <th>Message</th>
                 <th>File</th>
                 <th>Line</th>
-                <th>Trace</th>
                 <th>Timestamp</th>
+                <th>Request Method</th>
                 <th>Request URI</th>
-                <th>Remote Addr</th>
+                <th>Remote Address</th>
                 <th>User Agent</th>
             </tr>
         </thead>
         <tbody>
-            <?php
-            $logFile = 'error.json'; // Path to your error log file
-
-            if (file_exists($logFile)) {
-                $logContent = file_get_contents($logFile);
-                $logData = json_decode($logContent, true);
-
-                if ($logData) {
-                    echo '<tr>';
-                    echo '<td>' . htmlspecialchars($logData['type']) . '</td>';
-                    echo '<td>' . htmlspecialchars($logData['message']) . '</td>';
-                    echo '<td>' . htmlspecialchars($logData['file']) . '</td>';
-                    echo '<td>' . htmlspecialchars($logData['line']) . '</td>';
-                    echo '<td>';
-                    if (!empty($logData['trace_details'])) {
-                        foreach ($logData['trace_details'] as $trace) {
-                            echo 'File: ' . htmlspecialchars($trace['file']) . '<br>';
-                            echo 'Line: ' . htmlspecialchars($trace['line']) . '<br>';
-                            echo 'Function: ' . htmlspecialchars($trace['function']) . '<br>';
-                            echo '<hr>';
-                        }
-                    } else {
-                        echo 'No Trace Available';
-                    }
-                    echo '</td>';
-                    echo '<td>' . htmlspecialchars($logData['timestamp']) . '</td>';
-                    echo '<td>' . htmlspecialchars($logData['request_uri']) . '</td>';
-                    echo '<td>' . htmlspecialchars($logData['remote_addr']) . '</td>';
-                    echo '<td>' . htmlspecialchars($logData['user_agent']) . '</td>';
-                    echo '</tr>';
-                } else {
-                    echo '<tr><td colspan="9">Invalid log data format</td></tr>';
-                }
-            } else {
-                echo '<tr><td colspan="9">Log file not found</td></tr>';
-            }
-            ?>
+            <?php foreach ($logs as $index => $log): ?>
+                <tr>
+                    <td><?= $index + 1 ?></td>
+                    <td><?= htmlspecialchars($log['type']) ?></td>
+                    <td><?= htmlspecialchars($log['message']) ?></td>
+                    <td><?= htmlspecialchars($log['file']) ?></td>
+                    <td><?= htmlspecialchars($log['line']) ?></td>
+                    <td><?= htmlspecialchars($log['timestamp']) ?></td>
+                    <td><?= htmlspecialchars($log['request_method']) ?></td>
+                    <td><?= htmlspecialchars($log['request_uri']) ?></td>
+                    <td><?= htmlspecialchars($log['remote_addr']) ?></td>
+                    <td><?= htmlspecialchars($log['user_agent']) ?></td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </body>

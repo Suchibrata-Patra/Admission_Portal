@@ -1,9 +1,6 @@
 <?php
-// Define the base directory (this should be the root path of your application)
-$baseDir = '/home/u955994755/domains/theapplication.in'; // Change this to your actual base directory
-
 // Define the log file location
-$logFile = __DIR__ . '/logs/error.json';
+$logFile = __DIR__ . '/logs/error.log';
 
 // Ensure the logs directory exists
 $logDir = dirname($logFile);
@@ -11,57 +8,42 @@ if (!is_dir($logDir)) {
     mkdir($logDir, 0777, true);
 }
 
-// Function to trim file paths from the base directory
-function trimFilePath($filePath, $baseDir)
-{
-    return str_replace($baseDir, '', $filePath);
-}
-
-// Function to log error details in structured format (JSON array)
+// Function to log error details in structured format (JSON)
 function logError($data)
 {
-    global $logFile, $baseDir;
+    global $logFile;
 
     // Add timestamp
     $data['timestamp'] = date('Y-m-d H:i:s');
 
     // Additional environment/contextual info
-    $data['request_method'] = $_SERVER['REQUEST_METHOD'] ?? 'UNKNOWN'; // HTTP method (GET, POST, etc.)
-    $data['request_uri'] = $_SERVER['REQUEST_URI'] ?? 'UNKNOWN'; // Full requested URI
-    $data['remote_addr'] = $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN'; // Client's IP address
-    $data['user_agent'] = $_SERVER['HTTP_USER_AGENT'] ?? 'UNKNOWN'; // Client's browser info
+    $data['request_method'] = $_SERVER['REQUEST_METHOD'];
+    $data['request_uri'] = $_SERVER['REQUEST_URI'];
+    $data['remote_addr'] = $_SERVER['REMOTE_ADDR'];
+    $data['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 
     // If PHP session is active, log session data
-    if (session_status() === PHP_SESSION_ACTIVE) {
+    if (session_status() == PHP_SESSION_ACTIVE) {
         $data['session'] = $_SESSION;
     }
 
-    // Modify the file path to be relative
-    if (isset($data['file'])) {
-        $data['file'] = trimFilePath($data['file'], $baseDir);
-    }
-
-    // Trim file paths in the trace
-    if (isset($data['trace_details']) && is_array($data['trace_details'])) {
-        foreach ($data['trace_details'] as &$trace) {
-            if (isset($trace['file'])) {
-                $trace['file'] = trimFilePath($trace['file'], $baseDir);
+    // Initialize or load the existing log entries
+    $logEntries = [];
+    if (file_exists($logFile)) {
+        $existingContent = file_get_contents($logFile);
+        if (!empty($existingContent)) {
+            $logEntries = json_decode($existingContent, true);
+            if ($logEntries === null) {
+                $logEntries = []; // Reset if decoding fails
             }
         }
     }
 
-    // Read existing logs
-    $logs = [];
-    if (file_exists($logFile)) {
-        $currentLogs = file_get_contents($logFile);
-        $logs = json_decode($currentLogs, true) ?: []; // Decode existing logs as array
-    }
+    // Add the new log entry
+    $logEntries[] = $data;
 
-    // Append the new log
-    $logs[] = $data;
-
-    // Re-encode and save logs
-    file_put_contents($logFile, json_encode($logs, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    // Save the updated log entries back to the file
+    file_put_contents($logFile, json_encode($logEntries, JSON_PRETTY_PRINT));
 }
 
 // Custom Exception Handler
@@ -69,14 +51,20 @@ function exceptionHandler(Throwable $exception)
 {
     logError([
         'type' => 'Exception',
-        'message' => $exception->getMessage(),
-        'file' => $exception->getFile(),
-        'line' => $exception->getLine(),
-        'trace' => $exception->getTraceAsString(),
-        'trace_details' => $exception->getTrace()
+        'message' => $exception->getMessage(), // The error message
+        'file' => $exception->getFile(), // The file where the exception occurred
+        'line' => $exception->getLine(), // The line where the exception occurred
+        'trace' => $exception->getTraceAsString(), // Full stack trace
+        'trace_details' => $exception->getTrace() // Stack trace as an array (detailed info)
     ]);
 
-    // Redirect to a generic sorry page
+    // Show the error details on the screen in development mode (for debugging purposes)
+    echo "<h2>Exception Occurred:</h2>";
+    echo "<strong>Message:</strong> " . htmlspecialchars($exception->getMessage()) . "<br>";
+    echo "<strong>File:</strong> " . htmlspecialchars($exception->getFile()) . " <strong>Line:</strong> " . $exception->getLine() . "<br>";
+    echo "<pre><strong>Trace:</strong><br>" . htmlspecialchars($exception->getTraceAsString()) . "</pre>";
+
+    // Send HTTP response code 500 and include a generic error page
     http_response_code(500);
     include __DIR__ . '/sorry.php';
     exit;
@@ -87,13 +75,18 @@ function errorHandler($errno, $errstr, $errfile, $errline)
 {
     logError([
         'type' => 'Error',
-        'message' => $errstr,
-        'file' => $errfile,
-        'line' => $errline,
-        'error_code' => $errno,
+        'message' => $errstr, // The error message
+        'file' => $errfile, // The file where the error occurred
+        'line' => $errline, // The line where the error occurred
+        'error_code' => $errno, // The error number
     ]);
 
-    // Convert PHP errors to exceptions for better logging and handling
+    // Show the error details on the screen in development mode (for debugging purposes)
+    echo "<h2>Error Occurred:</h2>";
+    echo "<strong>Message:</strong> " . htmlspecialchars($errstr) . "<br>";
+    echo "<strong>File:</strong> " . htmlspecialchars($errfile) . " <strong>Line:</strong> " . $errline . "<br>";
+
+    // Convert PHP errors to exceptions for better logging
     throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
 }
 
@@ -104,13 +97,18 @@ function shutdownHandler()
     if ($error && in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR, E_USER_ERROR])) {
         logError([
             'type' => 'Fatal Error',
-            'message' => $error['message'],
-            'file' => $error['file'],
-            'line' => $error['line'],
-            'error_code' => $error['type'],
-        ]);
+            'message' => $error['message'], // The fatal error message
+            'file' => $error['file'], // The file where the fatal error occurred
+            'line' => $error['line'], // The line where the fatal error occurred
+            'error_code' => $error['type'], // The error type (e.g., E_ERROR, E_PARSE)
+        ],);
 
-        // Redirect to a generic sorry page for fatal errors
+        // Show the fatal error details on the screen in development mode
+        echo "<h2>Fatal Error Occurred:</h2>";
+        echo "<strong>Message:</strong> " . htmlspecialchars($error['message']) . "<br>";
+        echo "<strong>File:</strong> " . htmlspecialchars($error['file']) . " <strong>Line:</strong> " . $error['line'] . "<br>";
+
+        // Send HTTP response code 500 and include a generic error page
         http_response_code(500);
         include __DIR__ . '/sorry.php';
         exit;
@@ -121,13 +119,3 @@ function shutdownHandler()
 set_exception_handler('exceptionHandler');
 set_error_handler('errorHandler');
 register_shutdown_function('shutdownHandler');
-
-// Disable error display to the browser (production environment behavior)
-ini_set('display_errors', '0');
-ini_set('log_errors', '1');
-ini_set('error_log', $logFile);
-
-// Example to test the error handling
-// Uncomment the next line to test the error handling
-// trigger_error("This is a test error", E_USER_ERROR);
-?>
