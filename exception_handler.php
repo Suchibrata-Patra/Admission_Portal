@@ -1,6 +1,6 @@
 <?php
-// Define the log file location
-$logFile = __DIR__ . '/logs/error.log';
+// Define the log file location using relative paths
+$logFile = __DIR__ . '/logs/error.log'; // This is relative to the current directory
 
 // Ensure the logs directory exists
 $logDir = dirname($logFile);
@@ -51,16 +51,16 @@ function exceptionHandler(Throwable $exception)
 {
     logError([
         'type' => 'Exception',
-        'message' => $exception->getMessage(), // The error message
-        'file' => $exception->getFile(), // The file where the exception occurred
-        'line' => $exception->getLine(), // The line where the exception occurred
-        'trace' => $exception->getTraceAsString(), // Full stack trace
-        'trace_details' => $exception->getTrace() // Stack trace as an array (detailed info)
+        'message' => $exception->getMessage(),
+        'file' => $exception->getFile(),
+        'line' => $exception->getLine(),
+        'trace' => $exception->getTraceAsString(),
+        'trace_details' => $exception->getTrace(),
     ]);
 
-    // Send HTTP response code 500 and include a generic error page
+    // Send HTTP response code 500 and include the generic error page
     http_response_code(500);
-    include __DIR__ . '/sorry.php';
+    include __DIR__ . '/sorry.php'; // Relative path
     exit;
 }
 
@@ -69,18 +69,13 @@ function errorHandler($errno, $errstr, $errfile, $errline)
 {
     logError([
         'type' => 'Error',
-        'message' => $errstr, // The error message
-        'file' => $errfile, // The file where the error occurred
-        'line' => $errline, // The line where the error occurred
-        'error_code' => $errno, // The error number
+        'message' => $errstr,
+        'file' => $errfile,
+        'line' => $errline,
+        'error_code' => $errno,
     ]);
 
-    // Show the error details on the screen in development mode (for debugging purposes)
-    echo "<h2>Error Occurred:</h2>";
-    echo "<strong>Message:</strong> " . htmlspecialchars($errstr) . "<br>";
-    echo "<strong>File:</strong> " . htmlspecialchars($errfile) . " <strong>Line:</strong> " . $errline . "<br>";
-
-    // Convert PHP errors to exceptions for better logging
+    // Convert PHP errors to exceptions for unified handling
     throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
 }
 
@@ -91,20 +86,15 @@ function shutdownHandler()
     if ($error && in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR, E_USER_ERROR])) {
         logError([
             'type' => 'Fatal Error',
-            'message' => $error['message'], // The fatal error message
-            'file' => $error['file'], // The file where the fatal error occurred
-            'line' => $error['line'], // The line where the fatal error occurred
-            'error_code' => $error['type'], // The error type (e.g., E_ERROR, E_PARSE)
-        ],);
+            'message' => $error['message'],
+            'file' => $error['file'],
+            'line' => $error['line'],
+            'error_code' => $error['type'],
+        ]);
 
-        // Show the fatal error details on the screen in development mode
-        echo "<h2>Fatal Error Occurred:</h2>";
-        echo "<strong>Message:</strong> " . htmlspecialchars($error['message']) . "<br>";
-        echo "<strong>File:</strong> " . htmlspecialchars($error['file']) . " <strong>Line:</strong> " . $error['line'] . "<br>";
-
-        // Send HTTP response code 500 and include a generic error page
+        // Send HTTP response code 500 and include the generic error page
         http_response_code(500);
-        include __DIR__ . '/sorry.php';
+        include __DIR__ . '/sorry.php'; // Relative path
         exit;
     }
 }
