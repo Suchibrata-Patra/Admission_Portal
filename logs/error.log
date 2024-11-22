@@ -23,5 +23,167 @@
         "request_uri": "\/Complete_List.php?search=a",
         "remote_addr": "::1",
         "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Access denied for user 'root'@'localhost' (using password: YES)",
+        "file": "public_html\/admission\/database.php",
+        "line": 18,
+        "trace": "#0 \/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php(18): mysqli_connect()\n#1 \/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/Complete_List.php(5): include('\/home\/u95599475...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php",
+                "line": 18,
+                "function": "mysqli_connect"
+            },
+            {
+                "file": "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-23 04:41:04",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=A",
+        "remote_addr": "2001:4490:882:cc97:240e:6285:ec34:34b8",
+        "user_agent": "Mozilla\/5.0 (Linux; Android 10; K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Mobile Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Access denied for user 'root'@'localhost' (using password: YES)",
+        "file": "public_html\/admission\/database.php",
+        "line": 18,
+        "trace": "#0 \/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php(18): mysqli_connect()\n#1 \/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/Complete_List.php(5): include('\/home\/u95599475...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php",
+                "line": 18,
+                "function": "mysqli_connect"
+            },
+            {
+                "file": "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-23 04:41:06",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=A",
+        "remote_addr": "2001:4490:882:cc97:240e:6285:ec34:34b8",
+        "user_agent": "Mozilla\/5.0 (Linux; Android 10; K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Mobile Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Access denied for user 'root'@'localhost' (using password: YES)",
+        "file": "public_html\/admission\/database.php",
+        "line": 18,
+        "trace": "#0 \/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php(18): mysqli_connect()\n#1 \/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/Complete_List.php(5): include('\/home\/u95599475...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php",
+                "line": 18,
+                "function": "mysqli_connect"
+            },
+            {
+                "file": "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-23 04:41:08",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=A",
+        "remote_addr": "2001:4490:882:cc97:240e:6285:ec34:34b8",
+        "user_agent": "Mozilla\/5.0 (Linux; Android 10; K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Mobile Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Access denied for user 'root'@'localhost' (using password: YES)",
+        "file": "public_html\/admission\/database.php",
+        "line": 18,
+        "trace": "#0 \/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php(18): mysqli_connect()\n#1 \/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/Complete_List.php(5): include('\/home\/u95599475...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php",
+                "line": 18,
+                "function": "mysqli_connect"
+            },
+            {
+                "file": "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-23 04:41:09",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=A",
+        "remote_addr": "2001:4490:882:cc97:240e:6285:ec34:34b8",
+        "user_agent": "Mozilla\/5.0 (Linux; Android 10; K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Mobile Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Access denied for user 'root'@'localhost' (using password: YES)",
+        "file": "public_html\/admission\/database.php",
+        "line": 18,
+        "trace": "#0 \/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php(18): mysqli_connect()\n#1 \/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/Complete_List.php(5): include('\/home\/u95599475...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php",
+                "line": 18,
+                "function": "mysqli_connect"
+            },
+            {
+                "file": "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-23 04:41:40",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "2001:4490:882:cc97:240e:6285:ec34:34b8",
+        "user_agent": "Mozilla\/5.0 (Linux; Android 10; K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Mobile Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Access denied for user 'root'@'localhost' (using password: YES)",
+        "file": "public_html\/admission\/database.php",
+        "line": 18,
+        "trace": "#0 \/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php(18): mysqli_connect()\n#1 \/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/Complete_List.php(5): include('\/home\/u95599475...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php",
+                "line": 18,
+                "function": "mysqli_connect"
+            },
+            {
+                "file": "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/home\/u955994755\/domains\/theapplication.in\/public_html\/admission\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-23 04:41:42",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "2001:4490:882:cc97:240e:6285:ec34:34b8",
+        "user_agent": "Mozilla\/5.0 (Linux; Android 10; K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Mobile Safari\/537.36"
     }
 ]
