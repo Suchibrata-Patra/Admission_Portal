@@ -91,6 +91,11 @@
       flex: 1;
     }
 
+    #navbar_icon{
+        width:90%;
+        height:auto;
+    }
+
     .powered-by {
       position: fixed;
       top: 10px;
@@ -155,11 +160,8 @@
 <body>
   <!-- Icon Section -->
   <div class="powered-by">
-    Powered By <br>
-    <a href="/">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/The_application.in_navbara_icon.png/220px-The_application.in_navbara_icon.png" 
-           alt="Site Icon" style="height:auto;width:90%">
-    </a>
+    <p>Powered By</p>
+   <strong style="font-size:1.62em;font-weight:400;"><a href="https://theapplication.in" style="color:black;">TheApplication.in</a></strong>
   </div>
 
   <div class="container">
