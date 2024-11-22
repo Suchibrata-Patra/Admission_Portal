@@ -147,7 +147,7 @@
       }
 
       img {
-        max-width: 30%;
+        max-width: 90%;
       }
     }
   </style>
@@ -158,7 +158,7 @@
     Powered By <br>
     <a href="/">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/The_application.in_navbara_icon.png/220px-The_application.in_navbara_icon.png" 
-           alt="Site Icon" style="height:auto;width:100%;">
+           alt="Site Icon" style="height:auto;width:90%">
     </a>
   </div>
 
