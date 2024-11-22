@@ -1,8 +1,25 @@
-{"type":"Error","message":"include(log.phps): Failed to open stream: No such file or directory","file":"\/Applications\/MAMP\/htdocs\/Complete_List.php","line":3,"timestamp":"2024-11-22 16:45:01"}
-{"type":"Exception","message":"include(log.phps): Failed to open stream: No such file or directory","file":"\/Applications\/MAMP\/htdocs\/Complete_List.php","line":3,"trace":"#0 \/Applications\/MAMP\/htdocs\/Complete_List.php(3): errorHandler(2, 'include(log.php...', '\/Applications\/M...', 3)\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(3): include()\n#2 {main}","timestamp":"2024-11-22 16:45:01"}
-{"type":"Error","message":"include(log.phps): Failed to open stream: No such file or directory","file":"\/Applications\/MAMP\/htdocs\/Complete_List.php","line":3,"timestamp":"2024-11-22 16:58:19"}
-{"type":"Exception","message":"include(log.phps): Failed to open stream: No such file or directory","file":"\/Applications\/MAMP\/htdocs\/Complete_List.php","line":3,"trace":"#0 \/Applications\/MAMP\/htdocs\/Complete_List.php(3): errorHandler(2, 'include(log.php...', '\/Applications\/M...', 3)\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(3): include()\n#2 {main}","timestamp":"2024-11-22 16:58:19"}
-{"type":"Error","message":"include(log.phps): Failed to open stream: No such file or directory","file":"\/Applications\/MAMP\/htdocs\/Complete_List.php","line":3,"timestamp":"2024-11-22 16:58:19"}
-{"type":"Exception","message":"include(log.phps): Failed to open stream: No such file or directory","file":"\/Applications\/MAMP\/htdocs\/Complete_List.php","line":3,"trace":"#0 \/Applications\/MAMP\/htdocs\/Complete_List.php(3): errorHandler(2, 'include(log.php...', '\/Applications\/M...', 3)\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(3): include()\n#2 {main}","timestamp":"2024-11-22 16:58:19"}
-{"type":"Error","message":"include(log.phps): Failed to open stream: No such file or directory","file":"\/Applications\/MAMP\/htdocs\/Complete_List.php","line":3,"timestamp":"2024-11-22 16:58:20"}
-{"type":"Exception","message":"include(log.phps): Failed to open stream: No such file or directory","file":"\/Applications\/MAMP\/htdocs\/Complete_List.php","line":3,"trace":"#0 \/Applications\/MAMP\/htdocs\/Complete_List.php(3): errorHandler(2, 'include(log.php...', '\/Applications\/M...', 3)\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(3): include()\n#2 {main}","timestamp":"2024-11-22 16:58:20"}
+{
+    "type": "Exception",
+    "message": "Call to undefined function secureLogger()",
+    "file": "/Applications/MAMP/htdocs/Complete_List.php",
+    "line": 10,
+    "trace": "#0 /Applications/MAMP/htdocs/Complete_List.php(28): customErrorHandler(2, 'Undefined varia...', '/Applications/MAMP/htdocs/Complete_List.php', 28)\n#1 {main}",
+    "trace_details": [
+        {
+            "file": "/Applications/MAMP/htdocs/Complete_List.php",
+            "line": 28,
+            "function": "customErrorHandler",
+            "args": [
+                2,
+                "Undefined variable $db",
+                "/Applications/MAMP/htdocs/Complete_List.php",
+                28
+            ]
+        }
+    ],
+    "timestamp": "2024-11-23 00:24:44",
+    "request_method": "GET",
+    "request_uri": "/Complete_List.php?search=a",
+    "remote_addr": "::1",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+}
