@@ -16,7 +16,8 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
+<link rel="preload" href="/Assets/images/Hero_Section_Background_Image.webp" as="image" type="image/webp">
+
   <link rel="stylesheet" href="/Assets/css/style_listing_page.css">
 </head>
 
