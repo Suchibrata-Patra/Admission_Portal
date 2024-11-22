@@ -1,4 +1,7 @@
 <?php
+// Define the base directory (this should be the root path of your application)
+$baseDir = '/home/u955994755/domains/theapplication.in'; // Change this to your actual base directory
+
 // Define the log file location
 $logFile = __DIR__ . '/logs/error.log';
 
@@ -11,7 +14,7 @@ if (!is_dir($logDir)) {
 // Function to log error details in structured format (JSON)
 function logError($data)
 {
-    global $logFile;
+    global $logFile, $baseDir;
 
     // Add timestamp
     $data['timestamp'] = date('Y-m-d H:i:s');
@@ -25,6 +28,12 @@ function logError($data)
     // If PHP session is active, log session data
     if (session_status() == PHP_SESSION_ACTIVE) {
         $data['session'] = $_SESSION;
+    }
+
+    // Modify the file path to be relative
+    if (isset($data['file'])) {
+        // Remove the base directory path from the file path
+        $data['file'] = str_replace($baseDir, '', $data['file']);
     }
 
     // Log the error data (complete details) in the file
@@ -97,3 +106,4 @@ ini_set('error_log', $logFile);   // Define the log file location for PHP errors
 // Example to test the error handling
 // Uncomment the next line to test the error handling
 // trigger_error("This is a test error", E_USER_ERROR);
+?>
