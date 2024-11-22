@@ -103,9 +103,9 @@
           &copy; 2024 <a href="">Theapplication.in</a> All rights reserved
         </p>
         <ul class="footer-bottom-list">
-          <li>
+          <!-- <li>
             <a href="privacy_policy.php" class="footer-bottom-link">Privacy Policy</a>
-          </li>
+          </li> -->
           <li>
             <a href="sitemap_index.xml" class="footer-bottom-link">Sitemap</a>
           </li>
