@@ -15,6 +15,14 @@
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
 
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="/Assets/images/Hero_Section_Background_Image.webp" as="image" type="image/webp">
+
+  <link rel="stylesheet" href="/Assets/css/style_listing_page.css">
+
+  <!-- Custom Styles -->
   <style>
     html, body {
       height: 100%;
@@ -25,44 +33,48 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 0 15px;
     }
 
     .container {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 20px;
+      justify-content: center;
+      gap: 20px; /* Space between image and text */
       text-align: left;
       max-width: 100%;
       padding: 20px;
-      flex-direction: column; /* Stack content vertically for mobile */
     }
 
     .error-container {
-      max-width: 100%;
-      text-align: center; /* Center-align text for mobile readability */
+      max-width: 600px;
+      text-align: center;
+      flex: 1;
     }
 
     .error-title {
-      font-size: 35px;
+      font-size: 40px;
       font-weight: 500;
-      margin: 10px 0;
+      margin: 0;
     }
 
     .error-message {
-      font-size: 1rem;
+      font-size: 1.2rem;
       color: #a8a8a8;
-      margin: 15px 0;
+      margin: 20px 0;
     }
 
     .primary-btn {
       display: inline-block;
       background-color: #000;
       color: #fff;
-      font-size: 1rem;
-      padding: 10px 25px;
+      font-size: 1.1rem;
+      padding: 12px 30px;
       border-radius: 50px;
       text-decoration: none;
       transition: background-color 0.3s, transform 0.2s;
+      font-weight: 400;
     }
 
     .primary-btn:hover {
@@ -74,8 +86,9 @@
     }
 
     img {
-      max-width: 150px; /* Adjust image size for smaller screens */
+      max-width: 30%;
       height: auto;
+      flex: 1;
     }
 
     .powered-by {
@@ -87,31 +100,41 @@
     }
 
     .powered-by img {
-      height: 40px;
+      height: 50px;
       width: auto;
     }
 
-    /* Yellow Circle Styling */
-    .yellow-circle {
-      width: 100px;
-      height: 100px;
-      background-color: yellow;
-      border-radius: 50%;
-      margin-top: 10px;
-    }
-
-    /* Responsive Design for Smaller Screens */
-    @media (max-width: 600px) {
-      html, body {
-        padding: 10px;
-      }
-
+    @media (max-width: 768px) {
       .container {
-        gap: 15px;
+        flex-direction: column;
+        padding: 15px;
       }
 
       .error-title {
-        font-size: 28px;
+        font-size: 36px;
+      }
+
+      .error-message {
+        font-size: 1rem;
+      }
+
+      .primary-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+
+      img {
+        width: 30%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px;
+      }
+
+      .error-title {
+        font-size: 30px;
       }
 
       .error-message {
@@ -119,17 +142,12 @@
       }
 
       .primary-btn {
-        padding: 8px 20px;
-        font-size: 0.9rem;
+        font-size: 1rem;
+        padding: 10px 15px;
       }
 
       img {
-        max-width: 120px;
-      }
-
-      .yellow-circle {
-        width: 80px;
-        height: 80px;
+        max-width: 30%;
       }
     }
   </style>
@@ -146,17 +164,14 @@
 
   <div class="container">
     <!-- Image Section -->
-    <div class="image-section">
-      <img src="https://static.vecteezy.com/system/resources/previews/006/241/035/non_2x/cute-cartoon-puppy-outline-funny-dog-illustration-for-kids-illustration-with-black-outline-happy-cartoon-puppy-sits-portrait-of-a-cute-dog-a-dog-friend-on-white-background-free-vector.jpg" 
-           alt="Cute Cartoon Puppy">
-      <div class="yellow-circle"></div>
-    </div>
+    <img src="https://static.vecteezy.com/system/resources/previews/006/241/035/non_2x/cute-cartoon-puppy-outline-funny-dog-illustration-for-kids-illustration-with-black-outline-happy-cartoon-puppy-sits-portrait-of-a-cute-dog-a-dog-friend-on-white-background-free-vector.jpg" 
+         alt="Cute Cartoon Puppy">
 
     <!-- Error Content Section -->
     <div class="error-container">
-      <h1 style="font-size:70px;">400</h1>
+      <h1 style="font-size:100px;">400</h1>
       <h1 class="error-title">It's Not You, It's Us</h1>
-      <p class="error-message">
+      <p class="error-message" style="font-weight:300;font-size:25px;">
         Please bear with us while we resolve the issue. If the problem persists, let us know.  
       </p>
       <a href="/" class="primary-btn">Go Back Home</a>
