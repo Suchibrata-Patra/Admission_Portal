@@ -58,12 +58,6 @@ function exceptionHandler(Throwable $exception)
         'trace_details' => $exception->getTrace() // Stack trace as an array (detailed info)
     ]);
 
-    // Show the error details on the screen in development mode (for debugging purposes)
-    echo "<h2>Exception Occurred:</h2>";
-    echo "<strong>Message:</strong> " . htmlspecialchars($exception->getMessage()) . "<br>";
-    echo "<strong>File:</strong> " . htmlspecialchars($exception->getFile()) . " <strong>Line:</strong> " . $exception->getLine() . "<br>";
-    echo "<pre><strong>Trace:</strong><br>" . htmlspecialchars($exception->getTraceAsString()) . "</pre>";
-
     // Send HTTP response code 500 and include a generic error page
     http_response_code(500);
     include __DIR__ . '/sorry.php';
