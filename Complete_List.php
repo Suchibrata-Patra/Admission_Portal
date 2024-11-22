@@ -89,36 +89,32 @@ if (isset($db) && $db) {
 <html lang="en">
 
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KSV7GPM5');</script>
-<!-- End Google Tag Manager -->
-  
-   <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Application - Centralised Admission Portal</title>
+    <link rel="shortcut icon" href="/Assets/images/favicon.png" type="image/svg+xml">
+    <title>TheApplication - Centralised Admission Portal</title>
 
-    <!-- 
-    - favicon
-  -->
-    <link rel="shortcut icon" href="Assets/images/favicon.png" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- SEO Meta Description -->
+    <meta name="description"
+        content="TheApplication is a centralized admission portal that simplifies the application process for students applying to various educational institutions. Access important information, application deadlines, and required documentation all in one place.">
+
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preload" href="/Assets/images/Hero_Section_Background_Image.webp" as="image" type="image/webp">
     <link rel="stylesheet" href="/Assets/css/style.css">
 </head>
 
 <body id="top">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSV7GPM5"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSV7GPM5" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
 
     <header class="header" data-header>
@@ -258,7 +254,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <section class="package" id="package">
                 <div class="container" style="margin-top: -10%;">
                     <p class="section-subtitle">Search Results for -
-                        <b><?php echo htmlspecialchars($search); ?></b>
+                        <b>
+                            <?php echo htmlspecialchars($search); ?>
+                        </b>
                     </p>
 
                     <div style="width: 100%; max-width: 100%; text-align: center;">
@@ -266,10 +264,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             style="padding-top: 1.5%; padding-bottom: 2%; display: flex; justify-content: center; align-items: center;">
                             <input type="text" name="search" id="search"
                                 style="padding: 16px; font-size: 18px; border-radius: 30px; border: 1.5px solid #588cd0; background-color: #fafafa; width: calc(100% - 160px); max-width: 600px; box-shadow: 0px 2px 5px rgba(118, 174, 224, 0.1); margin-right: 10px;"
-                                placeholder="Search Schools. . . "
-                                value="<?php echo htmlspecialchars($search); ?>">
-                                <button type="submit"
-              style="margin-left:-10%; padding: 18px 34px; font-size: 18px;border-top-right-radius: 30px;border-bottom-right-radius: 30px; background-color: #FF5A5F; color: #fff; display: inline-block; cursor: pointer; transition: background-color 0.3s ease;">Search</button>
+                                placeholder="Search Schools. . . " value="<?php echo htmlspecialchars($search); ?>"
+                                pattern="^[a-zA-Z0-9.\- ]*$"
+                                title="Only letters, numbers, spaces, dots, and hyphens are allowed.">
+
+                            <button type="submit"
+                                style="margin-left:-10%; padding: 18px 34px; font-size: 18px;border-top-right-radius: 30px;border-bottom-right-radius: 30px; background-color: #FF5A5F; color: #fff; display: inline-block; cursor: pointer; transition: background-color 0.3s ease;">Search</button>
                         </form>
                     </div>
 
@@ -288,7 +288,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </figure>
                                 <!-- School details -->
                                 <div class="card-content">
-                                    <p class="section-subtitle">UDISE CODE - <?php echo $school['udise_id']; ?> </p>
+                                    <p class="section-subtitle">UDISE CODE -
+                                        <?php echo $school['udise_id']; ?>
+                                    </p>
                                     <h3 class="h3 card-title">
                                         <?php echo $school['school_name']; ?>
                                     </h3>
@@ -330,109 +332,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </ul>
                     <?php endif; ?>
                     <!-- View all packages button -->
-                    <button class="btn btn-primary">View All Packages</button>
+                    <!-- <button class="btn btn-primary">View All Institutions</button> -->
+                    <a href="Available_Institutions.php">
+                        <button class="btn btn-primary">View All Institutions</button>
+                    </a>
+                    
                 </div>
             </section>
-
-
-
-
-
-            <!-- 
-        - #GALLERY
-      -->
-
-            <section class="gallery" id="gallery">
-                <div class="container">
-
-                    <p class="section-subtitle">Photo Gallery</p>
-
-                    <h2 class="h2 section-title">Institutions Images</h2>
-
-                    <p class="section-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dicta voluptate, totam
-                        magnam natus sit!
-                    </p>
-
-                    <ul class="gallery-list">
-
-                        <li class="gallery-item">
-                            <figure class="gallery-image">
-                                <img src="https://images.unsplash.com/photo-1515859005217-8a1f08870f59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8SXRhbHl8ZW58MHx8MHx8fDA%3D"
-                                    alt="Gallery image">
-                            </figure>
-                        </li>
-
-                        <li class="gallery-item">
-                            <figure class="gallery-image">
-                                <img src="https://images.unsplash.com/photo-1515859005217-8a1f08870f59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8SXRhbHl8ZW58MHx8MHx8fDA%3D"
-                                    alt="Gallery image">
-                            </figure>
-                        </li>
-
-                        <li class="gallery-item">
-                            <figure class="gallery-image">
-                                <img src="https://images.unsplash.com/photo-1515859005217-8a1f08870f59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8SXRhbHl8ZW58MHx8MHx8fDA%3D"
-                                    alt="Gallery image">
-                            </figure>
-                        </li>
-
-                        <li class="gallery-item">
-                            <figure class="gallery-image">
-                                <img src="https://images.unsplash.com/photo-1707753911009-99d073f04fed?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fFBhcmlzaHxlbnwwfHwwfHx8MA%3D%3D"
-                                    alt="Gallery image">
-                            </figure>
-                        </li>
-
-                        <li class="gallery-item">
-                            <figure class="gallery-image">
-                                <img src="https://images.unsplash.com/photo-1515859005217-8a1f08870f59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8SXRhbHl8ZW58MHx8MHx8fDA%3D"
-                                    alt="Gallery image">
-                            </figure>
-                        </li>
-
-                    </ul>
-
-                </div>
-            </section>
-
-
-
-
-
-            <!-- 
-        - #CTA
-      -->
-
-            <!-- <section class="cta" id="contact">
-                <div class="container">
-
-                    <div class="cta-content">
-                        <p class="section-subtitle">Connect With Us</p>
-
-                        <h3 class="h2 section-title">Any Issues Needs to be resolved Soon ?</h3>
-
-                        <p class="section-text">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam eius obcaecati nulla
-                            suscipit temporibus
-                            a mollitia deserunt eum rem iste!
-                        </p>
-                    </div>
-
-                    <button class="btn btn-secondary">Contact Us !</button>
-
-                </div>
-            </section> -->
-
         </article>
     </main>
-
-
-
-
-
-
-
 
     <!-- 
     - #GO TO TOP
@@ -442,14 +350,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <ion-icon name="chevron-up-outline"></ion-icon>
     </a>
 
-
-
-
-
-    <!-- 
-    - custom js link
-  -->
-    <!-- <script src="script.js"></script> -->
 
     <!-- 
     - ionicon link
