@@ -23,7 +23,10 @@ if (!$logs || !is_array($logs)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error Logs</title>
+    <link rel="shortcut icon" href="/Assets/images/favicon.png" type="image/svg+xml">
+    <title>Server Log File</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -48,7 +51,7 @@ if (!$logs || !is_array($logs)) {
             background-color: #ffffff;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            padding: 1px;
             margin-bottom: 30px;
         }
         table {
@@ -61,12 +64,12 @@ if (!$logs || !is_array($logs)) {
             border-bottom: 1px solid #ddd;
         }
         th {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
             cursor: pointer;
         }
         th:hover {
-            background-color: #45a049;
+            background-color: #eeeeee;
         }
         tr:nth-child(even) {
             background-color: #f9f9f9;
@@ -75,7 +78,8 @@ if (!$logs || !is_array($logs)) {
             background-color: #f1f1f1;
         }
         td {
-            word-wrap: break-word;
+            word-wrap:break-word;
+            border-right: 1px solid rgb(218, 218, 218);
         }
         .table-wrapper {
             overflow-x: auto;
@@ -85,7 +89,7 @@ if (!$logs || !is_array($logs)) {
 <body>
 
     <div class="container">
-        <h1>Error Logs</h1>
+        <h1>Server Log Files</h1>
         
         <div class="card">
             <div class="table-wrapper">
@@ -108,7 +112,7 @@ if (!$logs || !is_array($logs)) {
                         <?php foreach ($logs as $index => $log): ?>
                             <tr>
                                 <td><?= $index + 1 ?></td>
-                                <td><?= htmlspecialchars($log['type']) ?></td>
+                                <td><button type="button" class="btn btn-light"><?= htmlspecialchars($log['type']) ?></button></td>
                                 <td><?= htmlspecialchars($log['message']) ?></td>
                                 <td><?= htmlspecialchars($log['file']) ?></td>
                                 <td><?= htmlspecialchars($log['line']) ?></td>
