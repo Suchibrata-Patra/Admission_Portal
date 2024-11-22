@@ -19,8 +19,7 @@
 * typography
 */
 
-  --ff-poppins: "Poppins", sans-serif;
-  --ff-montserrat: "Montserrat", sans-serif;
+ --ff-roboto: "Roboto", sans-serif;
 
   --fs-1: calc(20px + 3.5vw);
   --fs-2: calc(18px + 1.6vw);
@@ -111,12 +110,13 @@ ion-icon {
 }
 
 html {
-  font-family: var(--ff-poppins);
+  font-family: var(--ff-roboto);
   scroll-behavior: smooth;
 }
 
 body {
   background: var(--white);
+  font-family: var(--ff-roboto);
 }
 
 
@@ -163,7 +163,7 @@ body {
 .h2,
 .h3 {
   font-weight: var(--fw-800);
-  font-family: var(--ff-montserrat);
+  font-family: var(--ff-roboto);
   text-transform: uppercase;
 }
 
@@ -190,7 +190,7 @@ body {
   color: var(--bright-navy-blue);
   font-size: var(--fs-5);
   text-transform: uppercase;
-  font-family: var(--ff-montserrat);
+  font-family: var(--ff-roboto);
   margin-bottom: 8px;
 }
 
@@ -692,7 +692,7 @@ body {
 
 .package-card .price {
   font-size: var(--fs-2);
-  font-family: var(--ff-montserrat);
+  font-family: var(--ff-roboto);
   font-weight: var(--fw-800);
   margin-bottom: 20px;
 }
@@ -799,7 +799,7 @@ body {
 
 .contact-title {
   position: relative;
-  font-family: var(--ff-montserrat);
+  font-family: var(--ff-roboto);
   font-weight: var(--fw-500);
   margin-bottom: 30px;
 }
