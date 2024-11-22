@@ -158,7 +158,7 @@
     Powered By <br>
     <a href="/">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/The_application.in_navbara_icon.png/220px-The_application.in_navbara_icon.png" 
-           alt="Site Icon">
+           alt="Site Icon" style="height:20px;width:auto;">
     </a>
   </div>
 
