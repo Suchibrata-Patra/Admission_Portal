@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/Assets/images/favicon.png" type="image/svg+xml">
   <title>TheApplication - Centralised Admission Portal</title>
 
-    <!-- SEO Meta Description -->
-    <meta name="description" content="TheApplication is a centralized admission portal that simplifies the application process for students applying to various educational institutions. Access important information, application deadlines, and required documentation all in one place.">
+  <!-- SEO Meta Description -->
+  <meta name="description"
+    content="TheApplication is a centralized admission portal that simplifies the application process for students applying to various educational institutions. Access important information, application deadlines, and required documentation all in one place.">
 
   <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="/Assets/images/Hero_Section_Background_Image.webp" as="image" type="image/webp">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="/Assets/images/Hero_Section_Background_Image.webp" as="image" type="image/webp">
 
   <link rel="stylesheet" href="/Assets/css/style_listing_page.css">
 </head>
 
 <body id="top">
-<?php include('header.php'); ?>
+  <?php include('header.php'); ?>
 
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSV7GPM5"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSV7GPM5" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
 
   <!-- #HEADER -->
