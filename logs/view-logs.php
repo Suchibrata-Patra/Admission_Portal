@@ -23,143 +23,83 @@ if (!$logs || !is_array($logs)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/Assets/images/favicon.png" type="image/svg+xml">
-    <title>Server Log File</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Server Log Viewer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7fc;
-            color: #333;
-        }
-        .container {
-            width: 99.5%;
-            margin: 0 auto;
-            padding-top: 30px;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2.5em;
-            color: #000000;
-            margin-bottom: 10px;
-        }
-        .card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 1px;
-            margin-bottom: 30px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #ffffff;
-            color: rgb(0, 0, 0);
-            cursor: pointer;
-        }
-        th:hover {
-            background-color: #eeeeee;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-        td {
-            word-wrap:break-word;
-            border-right: 1px solid rgb(218, 218, 218);
-        }
-        .table-wrapper {
-            overflow-x: auto;
-        }
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .filter-buttons { margin-bottom: 20px; }
+        .filter-buttons input, .filter-buttons select, .filter-buttons button { margin-right: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #f4f4f4; cursor: pointer; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
     </style>
 </head>
 <body>
-        
+    <h1>Server Log Viewer</h1>
+    <div class="filter-buttons">
+        <label for="filterDate">Filter by Date:</label>
+        <input type="date" id="filterDate">
+        <label for="filterType">Filter by Type:</label>
+        <select id="filterType">
+            <option value="">All Types</option>
+            <?php
+            $types = array_unique(array_column($logs, 'type'));
+            foreach ($types as $type) {
+                echo "<option value='" . htmlspecialchars($type) . "'>" . htmlspecialchars($type) . "</option>";
+            }
+            ?>
+        </select>
+        <button onclick="applyFilters()">Apply Filters</button>
+        <button onclick="clearFilters()">Clear Filters</button>
     </div>
-
-    <div class="container">
-        <h1>Server Log Files</h1>
-        
-        <div class="card">
-            <div class="table-wrapper">
-                <table id="logTable">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Type</th>
-                            <th>Message</th>
-                            <th>File</th>
-                            <th>Line</th>
-                            <th>Timestamp</th>
-                            <th>Request Method</th>
-                            <th>Request URI</th>
-                            <th>Remote Address</th>
-                            <th>User Agent</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($logs as $index => $log): ?>
-                            <tr>
-                                <td><?= $index + 1 ?></td>
-                                <td><button type="button" class="btn btn-light"><?= htmlspecialchars($log['type']) ?></button></td>
-                                <td><?= htmlspecialchars($log['message']) ?></td>
-                                <td><?= htmlspecialchars($log['file']) ?></td>
-                                <td><?= htmlspecialchars($log['line']) ?></td>
-                                <td><?= htmlspecialchars($log['timestamp']) ?></td>
-                                <td><?= htmlspecialchars($log['request_method']) ?></td>
-                                <td><?= htmlspecialchars($log['request_uri']) ?></td>
-                                <td><?= htmlspecialchars($log['remote_addr']) ?></td>
-                                <td><?= htmlspecialchars($log['user_agent']) ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    <table id="logTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Type</th>
+                <th>Message</th>
+                <th>Timestamp</th>
+                <th>File</th>
+                <th>Line</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($logs as $index => $log): ?>
+            <tr>
+                <td><?= $index + 1 ?></td>
+                <td><?= htmlspecialchars($log['type']) ?></td>
+                <td><?= htmlspecialchars($log['message']) ?></td>
+                <td><?= htmlspecialchars($log['timestamp']) ?></td>
+                <td><?= htmlspecialchars($log['file']) ?></td>
+                <td><?= htmlspecialchars($log['line']) ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 
     <script>
-        // Sorting functionality for columns
-        const headers = document.querySelectorAll('th');
-        headers.forEach((header, index) => {
-            header.addEventListener('click', () => {
-                sortTable(index);
+        function applyFilters() {
+            const dateInput = document.getElementById('filterDate').value;
+            const typeInput = document.getElementById('filterType').value;
+            const rows = document.querySelectorAll('#logTable tbody tr');
+
+            rows.forEach(row => {
+                const date = row.cells[3].textContent.split(' ')[0]; // Extract date from timestamp
+                const type = row.cells[1].textContent;
+
+                const matchesDate = !dateInput || date === dateInput;
+                const matchesType = !typeInput || type === typeInput;
+
+                row.style.display = matchesDate && matchesType ? '' : 'none';
             });
-        });
+        }
 
-        function sortTable(columnIndex) {
-            const table = document.getElementById('logTable');
-            const rows = Array.from(table.rows).slice(1); // Skip header row
-            const sortedRows = rows.sort((rowA, rowB) => {
-                const cellA = rowA.cells[columnIndex].innerText;
-                const cellB = rowB.cells[columnIndex].innerText;
-
-                // Compare based on type of content (numeric or string)
-                const isNumeric = !isNaN(cellA) && !isNaN(cellB);
-                if (isNumeric) {
-                    return parseFloat(cellA) - parseFloat(cellB);
-                } else {
-                    return cellA.localeCompare(cellB);
-                }
-            });
-
-            // Rebuild the table with sorted rows
-            sortedRows.forEach(row => table.appendChild(row));
+        function clearFilters() {
+            document.getElementById('filterDate').value = '';
+            document.getElementById('filterType').value = '';
+            applyFilters();
         }
     </script>
-
 </body>
 </html>

@@ -50,6 +50,12 @@
         <priority>0.5</priority>
     </url>
     <url>
+        <loc>http://localhost:8888/exception_handler.php</loc>
+        <lastmod>2024-11-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>http://localhost:8888/note.php</loc>
         <lastmod>2024-10-19</lastmod>
         <changefreq>monthly</changefreq>
@@ -57,7 +63,13 @@
     </url>
     <url>
         <loc>http://localhost:8888/index.php</loc>
-        <lastmod>2024-10-23</lastmod>
+        <lastmod>2024-11-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>http://localhost:8888/system_health.php</loc>
+        <lastmod>2024-11-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -87,25 +99,25 @@
     </url>
     <url>
         <loc>http://localhost:8888/Admin_Create_Database.php</loc>
-        <lastmod>2024-10-19</lastmod>
+        <lastmod>2024-11-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>http://localhost:8888/Logout.php</loc>
-        <lastmod>2024-10-19</lastmod>
+        <lastmod>2024-11-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>http://localhost:8888/Admin_Sidebar.php</loc>
-        <lastmod>2024-10-22</lastmod>
+        <lastmod>2024-11-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>http://localhost:8888/Enroll_New_School.php</loc>
-        <lastmod>2024-10-22</lastmod>
+        <lastmod>2024-11-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -129,7 +141,7 @@
     </url>
     <url>
         <loc>http://localhost:8888/Secure_Admin_DataBase_Connection.php</loc>
-        <lastmod>2024-10-22</lastmod>
+        <lastmod>2024-11-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -537,7 +549,7 @@
     </url>
     <url>
         <loc>http://localhost:8888/terms_and_conditions.php</loc>
-        <lastmod>2024-10-22</lastmod>
+        <lastmod>2024-10-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -548,8 +560,14 @@
         <priority>0.6</priority>
     </url>
     <url>
+        <loc>http://localhost:8888/sorry.php</loc>
+        <lastmod>2024-11-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>http://localhost:8888/About_Us.php</loc>
-        <lastmod>2024-10-22</lastmod>
+        <lastmod>2024-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -561,13 +579,13 @@
     </url>
     <url>
         <loc>http://localhost:8888/Complete_List.php</loc>
-        <lastmod>2024-10-23</lastmod>
+        <lastmod>2024-11-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>http://localhost:8888/favicon.php</loc>
-        <lastmod>2024-10-19</lastmod>
+        <lastmod>2024-11-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -584,8 +602,14 @@
         <priority>0.6</priority>
     </url>
     <url>
+        <loc>http://localhost:8888/view-logs.php</loc>
+        <lastmod>2024-11-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>http://localhost:8888/privacy_policy.php</loc>
-        <lastmod>2024-10-19</lastmod>
+        <lastmod>2024-10-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -597,7 +621,7 @@
     </url>
     <url>
         <loc>http://localhost:8888/footer.php</loc>
-        <lastmod>2024-10-19</lastmod>
+        <lastmod>2024-11-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -998,6 +1022,12 @@
         <priority>0.6</priority>
     </url>
     <url>
+        <loc>http://localhost:8888/Available_Institutions.php</loc>
+        <lastmod>2024-11-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>http://localhost:8888/log.php</loc>
         <lastmod>2024-10-19</lastmod>
         <changefreq>monthly</changefreq>
@@ -1011,13 +1041,13 @@
     </url>
     <url>
         <loc>http://localhost:8888/password_guidelines.php</loc>
-        <lastmod>2024-10-19</lastmod>
+        <lastmod>2024-10-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>http://localhost:8888/Digital-Fingerprint-Decoder.php</loc>
-        <lastmod>2024-10-19</lastmod>
+        <lastmod>2024-11-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
