@@ -70,7 +70,7 @@
       background-color: #000;
       color: #fff;
       font-size: 1.1rem;
-      padding: 12px 30px;
+      padding: 16px 30px;
       border-radius: 50px;
       text-decoration: none;
       transition: background-color 0.3s, transform 0.2s;
