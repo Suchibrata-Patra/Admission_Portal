@@ -3,7 +3,7 @@
 $baseDir = '/home/u955994755/domains/theapplication.in'; // Change this to your actual base directory
 
 // Define the log file location
-$logFile = __DIR__ . '/logs/error.json';
+$logFile = __DIR__ . '/logs/error.log';
 
 // Ensure the logs directory exists
 $logDir = dirname($logFile);
