@@ -456,7 +456,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             Explore the Both Classic Images crafted beautifully by students who came here !
           </p>
 
-          <ul class="gallery-list">
+          <!-- <ul class="gallery-list">
 
             <li class="gallery-item">
               <figure class="gallery-image">
@@ -498,7 +498,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </figure>
             </li>
 
-          </ul>
+          </ul> -->
 
         </div>
       </section>
