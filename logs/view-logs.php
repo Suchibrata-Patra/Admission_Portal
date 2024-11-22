@@ -84,8 +84,15 @@ if ($handle) {
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($logs as $log): ?>
+            <?php 
+// Initialize line_counter before the loop if not already initialized
+$line_counter = $line_counter ?? 1;
+
+foreach ($logs as $log): ?>
             <tr>
+                <td>
+                    <?= htmlspecialchars($line_counter, ENT_QUOTES, 'UTF-8') ?>
+                </td>
                 <td>
                     <?= htmlspecialchars($log['timestamp'] ?? 'N/A', ENT_QUOTES, 'UTF-8') ?>
                 </td>
@@ -105,7 +112,11 @@ if ($handle) {
                     <?= nl2br(htmlspecialchars($log['trace'] ?? 'N/A', ENT_QUOTES, 'UTF-8')) ?>
                 </td>
             </tr>
-            <?php endforeach; ?>
+            <?php 
+    $line_counter++; // Increment line_counter after each iteration
+endforeach; 
+?>
+
         </tbody>
     </table>
     <?php endif; ?>
