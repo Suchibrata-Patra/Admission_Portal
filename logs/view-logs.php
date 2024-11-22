@@ -1,10 +1,10 @@
 <?php
-$allowedIps = ['117.227.99.124','::1']; // Replace with authorized IPs
-if (!in_array($_SERVER['REMOTE_ADDR'], $allowedIps)) {
-    http_response_code(403); // Forbidden
-    echo "Access Denied. Your IP address is: " . $_SERVER['REMOTE_ADDR'];
-    exit;
-}
+// $allowedIps = ['117.227.99.124','::1']; // Replace with authorized IPs
+// if (!in_array($_SERVER['REMOTE_ADDR'], $allowedIps)) {
+//     http_response_code(403); // Forbidden
+//     echo "Access Denied. Your IP address is: " . $_SERVER['REMOTE_ADDR'];
+//     exit;
+// }
 
 $logFile = __DIR__ . '/error.log';
 
