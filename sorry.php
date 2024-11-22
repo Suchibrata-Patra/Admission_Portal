@@ -71,12 +71,25 @@
   </style>
 </head>
 <body>
+    <!-- Icon Section -->
+<div style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%);">
+  <a href="/">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/The_application.in_navbara_icon.png/220px-The_application.in_navbara_icon.png" 
+         alt="Site Icon" 
+         style="width: auto; height: 50px;">
+  </a>
+</div>
+
+
+
+
+
 
   <div class="error-container" style="margin-top:10%;margin-bottom:20%;">
     <h1 style="font-size:100px;">400</h1>
     <br>
     <h1 class="error-title">It's Not You, It's Us</h1>
-    <p class="error-message">Something went wrong on our side. We're already on it!</p>
+    <!-- <p class="error-message">Something went wrong on our side. We're already on it!</p> -->
     <p class="error-message" style="font-weight:300;">
         Wait for a while, until we fixup. If still the problem persists, kindly inform us.
     </p>
