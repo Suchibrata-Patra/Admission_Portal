@@ -11,6 +11,12 @@ if (!is_dir($logDir)) {
     mkdir($logDir, 0777, true);
 }
 
+// Function to trim file paths from the base directory
+function trimFilePath($filePath, $baseDir)
+{
+    return str_replace($baseDir, '', $filePath);
+}
+
 // Function to log error details in structured format (JSON)
 function logError($data)
 {
@@ -32,8 +38,16 @@ function logError($data)
 
     // Modify the file path to be relative
     if (isset($data['file'])) {
-        // Remove the base directory path from the file path
-        $data['file'] = str_replace($baseDir, '', $data['file']);
+        $data['file'] = trimFilePath($data['file'], $baseDir);
+    }
+
+    // Trim file paths in the trace
+    if (isset($data['trace_details']) && is_array($data['trace_details'])) {
+        foreach ($data['trace_details'] as &$trace) {
+            if (isset($trace['file'])) {
+                $trace['file'] = trimFilePath($trace['file'], $baseDir);
+            }
+        }
     }
 
     // Log the error data (complete details) in the file
@@ -45,11 +59,11 @@ function exceptionHandler(Throwable $exception)
 {
     logError([
         'type' => 'Exception',
-        'message' => $exception->getMessage(), // The error message
-        'file' => $exception->getFile(), // The file where the exception occurred
-        'line' => $exception->getLine(), // The line where the exception occurred
-        'trace' => $exception->getTraceAsString(), // Full stack trace
-        'trace_details' => $exception->getTrace() // Stack trace as an array (detailed info)
+        'message' => $exception->getMessage(),
+        'file' => $exception->getFile(),
+        'line' => $exception->getLine(),
+        'trace' => $exception->getTraceAsString(),
+        'trace_details' => $exception->getTrace()
     ]);
 
     // Redirect to a generic sorry page
@@ -63,10 +77,10 @@ function errorHandler($errno, $errstr, $errfile, $errline)
 {
     logError([
         'type' => 'Error',
-        'message' => $errstr, // The error message
-        'file' => $errfile, // The file where the error occurred
-        'line' => $errline, // The line where the error occurred
-        'error_code' => $errno, // The error number
+        'message' => $errstr,
+        'file' => $errfile,
+        'line' => $errline,
+        'error_code' => $errno,
     ]);
 
     // Convert PHP errors to exceptions for better logging and handling
@@ -80,10 +94,10 @@ function shutdownHandler()
     if ($error && in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR, E_USER_ERROR])) {
         logError([
             'type' => 'Fatal Error',
-            'message' => $error['message'], // The fatal error message
-            'file' => $error['file'], // The file where the fatal error occurred
-            'line' => $error['line'], // The line where the fatal error occurred
-            'error_code' => $error['type'], // The error type (e.g., E_ERROR, E_PARSE)
+            'message' => $error['message'],
+            'file' => $error['file'],
+            'line' => $error['line'],
+            'error_code' => $error['type'],
         ]);
 
         // Redirect to a generic sorry page for fatal errors
@@ -99,9 +113,9 @@ set_error_handler('errorHandler');
 register_shutdown_function('shutdownHandler');
 
 // Disable error display to the browser (production environment behavior)
-ini_set('display_errors', '0');  // Don't display errors on the browser
-ini_set('log_errors', '1');       // Ensure errors are logged
-ini_set('error_log', $logFile);   // Define the log file location for PHP errors
+ini_set('display_errors', '0');
+ini_set('log_errors', '1');
+ini_set('error_log', $logFile);
 
 // Example to test the error handling
 // Uncomment the next line to test the error handling
