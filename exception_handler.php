@@ -1,4 +1,7 @@
 <?php
+
+date_default_timezone_set('Asia/Kolkata');
+
 // Define the log file location
 $logFile = __DIR__ . '/logs/error.log';
 
