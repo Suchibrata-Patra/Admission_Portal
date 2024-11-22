@@ -410,7 +410,7 @@ body {
 
 .hero {
   /* background-image: url("../images/hero-banner.jpg"); */
-  background-image: url("https://d3nn873nee648n.cloudfront.net/1200x1800-new/20099/SM990079.jpg");
+  background-image: url("/Assets/images/Hero_Section_Background_Image.webp");
   /* background-image: url(hero.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
