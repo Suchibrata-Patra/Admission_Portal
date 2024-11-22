@@ -37,15 +37,15 @@ if (!$logs || !is_array($logs)) {
             color: #333;
         }
         .container {
-            width: 99%;
+            width: 99.5%;
             margin: 0 auto;
             padding-top: 30px;
         }
         h1 {
             text-align: center;
             font-size: 2.5em;
-            color: #4a4a4a;
-            margin-bottom: 20px;
+            color: #000000;
+            margin-bottom: 10px;
         }
         .card {
             background-color: #ffffff;
@@ -87,6 +87,8 @@ if (!$logs || !is_array($logs)) {
     </style>
 </head>
 <body>
+        
+    </div>
 
     <div class="container">
         <h1>Server Log Files</h1>
