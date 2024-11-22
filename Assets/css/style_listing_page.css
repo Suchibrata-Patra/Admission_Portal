@@ -1,11 +1,11 @@
 :root {
 
-  --united-nations-blue: hsl(214, 56%, 58%);
+  --united-nations-blue: hsl(0, 0%, 0%);
   --bright-navy-blue: hsl(0, 0%, 0%);
   --spanish-gray: hsl(0, 0%, 60%);
   --black-coral: hsl(225, 8%, 42%);
   --oxford-blue: hsl(208, 97%, 12%);
-  --yale-blue: hsl(0, 0%, 0%);
+  --yale-blue: hsl(214, 72%, 33%);
   --blue-ncs: hsl(0, 0%, 0%);
   --gunmetal: hsl(206, 34%, 20%);
   --gainsboro: hsl(0, 0%, 88%);
