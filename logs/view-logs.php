@@ -35,7 +35,6 @@ if (!$logs || !is_array($logs)) {
         }
         .container {
             width: 99%;
-            max-width: 1200px;
             margin: 0 auto;
             padding-top: 30px;
         }
