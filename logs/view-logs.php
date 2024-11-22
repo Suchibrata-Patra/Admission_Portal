@@ -34,7 +34,7 @@ if (!$logs || !is_array($logs)) {
             color: #333;
         }
         .container {
-            width: 90%;
+            width: 99%;
             max-width: 1200px;
             margin: 0 auto;
             padding-top: 30px;
