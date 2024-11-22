@@ -73,6 +73,7 @@
 <body>
     <!-- Icon Section -->
 <div style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%);">
+    Powered By <br>
   <a href="/">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/The_application.in_navbara_icon.png/220px-The_application.in_navbara_icon.png" 
          alt="Site Icon" 
@@ -80,22 +81,25 @@
   </a>
 </div>
 
+<div class="container">
+
+<img src="https://static.vecteezy.com/system/resources/previews/006/241/035/non_2x/cute-cartoon-puppy-outline-funny-dog-illustration-for-kids-illustration-with-black-outline-happy-cartoon-puppy-sits-portrait-of-a-cute-dog-a-dog-friend-on-white-background-free-vector.jpg" alt="" srcset="" style="width:20%;height:auto;">
 
 
 
+<div class="error-container" style="margin-top:10%;margin-bottom:20%;">
+  <h1 style="font-size:100px;">400</h1>
+  <br>
+  <h1 class="error-title">It's Not You, It's Us</h1>
+  <!-- <p class="error-message">Something went wrong on our side. We're already on it!</p> -->
+  <p class="error-message" style="font-weight:300;font-size:25px;">
+  Please bear with us while we resolve the issue. If the problem persists, Let us Know.  
+  </p>
+  <a href="/" class="primary-btn">Go Back Home</a>
 
+</div>
+</div>
 
-  <div class="error-container" style="margin-top:10%;margin-bottom:20%;">
-    <h1 style="font-size:100px;">400</h1>
-    <br>
-    <h1 class="error-title">It's Not You, It's Us</h1>
-    <!-- <p class="error-message">Something went wrong on our side. We're already on it!</p> -->
-    <p class="error-message" style="font-weight:300;">
-        Wait for a while, until we fixup. If still the problem persists, kindly inform us.
-    </p>
-    <a href="/" class="primary-btn">Go Back Home</a>
-
-  </div>
 
 
 </body>
