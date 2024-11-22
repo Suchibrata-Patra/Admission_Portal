@@ -1,8 +1,8 @@
 <?php
+include 'exception_handler.php';
 include 'log.php'; // Include the secureLogger function
 include 'favicon.php';
 include 'database.php'; // Include database connection details securely
-include 'exception_handler.php';
 
 // Custom error handler function to convert PHP errors into exceptions
 function customErrorHandler($errno, $errstr, $errfile, $errline) {
