@@ -1,11 +1,21 @@
 <?php
-// Define the log file location using relative paths
-$logFile = __DIR__ . '/logs/error.log'; // This is relative to the current directory
+// Define the log file location
+$logFile = __DIR__ . '/logs/error.log';
 
 // Ensure the logs directory exists
 $logDir = dirname($logFile);
 if (!is_dir($logDir)) {
     mkdir($logDir, 0777, true);
+}
+
+// Base directory to strip from full paths
+$baseDir = '/home/u955994755/domains/theapplication.in/';
+
+// Function to remove base directory and keep the relative file path
+function getRelativePath($fullPath)
+{
+    global $baseDir;
+    return str_replace($baseDir, '', $fullPath);
 }
 
 // Function to log error details in structured format (JSON)
@@ -39,6 +49,11 @@ function logError($data)
         }
     }
 
+    // Add the file path to log (with relative path)
+    if (isset($data['file'])) {
+        $data['file'] = getRelativePath($data['file']);
+    }
+
     // Add the new log entry
     $logEntries[] = $data;
 
@@ -55,12 +70,12 @@ function exceptionHandler(Throwable $exception)
         'file' => $exception->getFile(),
         'line' => $exception->getLine(),
         'trace' => $exception->getTraceAsString(),
-        'trace_details' => $exception->getTrace(),
+        'trace_details' => $exception->getTrace()
     ]);
 
-    // Send HTTP response code 500 and include the generic error page
+    // Show only the sorry.php page and no error details on screen
     http_response_code(500);
-    include __DIR__ . '/sorry.php'; // Relative path
+    include __DIR__ . '/sorry.php';
     exit;
 }
 
@@ -75,7 +90,7 @@ function errorHandler($errno, $errstr, $errfile, $errline)
         'error_code' => $errno,
     ]);
 
-    // Convert PHP errors to exceptions for unified handling
+    // Convert PHP errors to exceptions for better logging
     throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
 }
 
@@ -92,9 +107,9 @@ function shutdownHandler()
             'error_code' => $error['type'],
         ]);
 
-        // Send HTTP response code 500 and include the generic error page
+        // Show only the sorry.php page and no fatal error details on screen
         http_response_code(500);
-        include __DIR__ . '/sorry.php'; // Relative path
+        include __DIR__ . '/sorry.php';
         exit;
     }
 }

@@ -1,0 +1,27 @@
+[
+    {
+        "type": "Exception",
+        "message": "Call to undefined function secureLogger()",
+        "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+        "line": 10,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/Complete_List.php(28): customErrorHandler(2, 'Undefined varia...', '\/Applications\/M...', 28)\n#1 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 28,
+                "function": "customErrorHandler",
+                "args": [
+                    2,
+                    "Undefined variable $db",
+                    "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                    28
+                ]
+            }
+        ],
+        "timestamp": "2024-11-23 01:39:46",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    }
+]
