@@ -1,5 +1,6 @@
-<?php 
-include 'log.php'; // Include the secureLogger function
+<?php
+include 'exception_handler.php';
+include 'log.phps'; // Include the secureLogger function
 include 'favicon.php';
 include 'database.php'; // Include database connection details securely
 

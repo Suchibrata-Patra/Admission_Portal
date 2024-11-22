@@ -1,0 +1,6 @@
+Exception: include(log.phps): Failed to open stream: No such file or directory
+File: /Applications/MAMP/htdocs/Complete_List.php on Line: 3
+Trace: #0 /Applications/MAMP/htdocs/Complete_List.php(3): errorHandler(2, 'include(log.php...', '/Applications/M...', 3)
+#1 /Applications/MAMP/htdocs/Complete_List.php(3): include()
+#2 {main}
+================================================================================
