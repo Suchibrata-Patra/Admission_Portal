@@ -72,7 +72,7 @@ echo "<!DOCTYPE html>
         .status-item {
             display: flex;
             align-items: center;
-            padding: 10px;
+            padding: 15px;
             background-color: white;
             border: none;
             border-bottom: 0.5px solid rgb(226, 226, 226);
