@@ -50,39 +50,86 @@ echo "<!DOCTYPE html>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>PHP Pages Status Checker</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
-        th { background-color: #f4f4f4; }
-        tr:nth-child(even) { background-color: #f9f9f9; }
-        .status-working { color: green; font-weight: bold; }
-        .status-error { color: red; font-weight: bold; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f8fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .status-card {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 20px 0;
+            padding: 20px;
+        }
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e1e4e8;
+            padding: 15px 0;
+        }
+        .status-row:last-child {
+            border-bottom: none;
+        }
+        .url {
+            font-size: 14px;
+            color: #0366d6;
+            text-decoration: none;
+        }
+        .status-indicator {
+            display: flex;
+            align-items: center;
+        }
+        .status-indicator span {
+            margin-left: 8px;
+            font-weight: bold;
+        }
+        .status-working {
+            color: #2da44e;
+        }
+        .status-error {
+            color: #d73a49;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #6a737d;
+        }
     </style>
 </head>
 <body>
-    <h1>PHP Pages Status Checker</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>URL</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>";
+    <div class='container'>
+        <h1>PHP Pages Status Checker</h1>
+        <div class='status-card'>";
 
 foreach ($phpUrls as $index => $url) {
-    $status = checkUrlStatus($url) 
-        ? "<span class='status-working'>&#x2714; Working</span>" 
-        : "<span class='status-error'>&#x2022; Error</span>";
-    echo "<tr>
-            <td>" . ($index + 1) . "</td>
-            <td><a href='$url' target='_blank'>$url</a></td>
-            <td>$status</td>
-          </tr>";
+    $status = checkUrlStatus($url);
+    $statusClass = $status ? "status-working" : "status-error";
+    $statusText = $status ? "Working" : "Error";
+    echo "<div class='status-row'>
+            <a href='$url' class='url' target='_blank'>$url</a>
+            <div class='status-indicator'>
+                <div class='$statusClass'>&#x25CF;</div>
+                <span class='$statusClass'>$statusText</span>
+            </div>
+          </div>";
 }
 
-echo "    </tbody>
-    </table>
+echo "    </div>
+        <footer>For more details, refer to the system log or contact support.</footer>
+    </div>
 </body>
 </html>";
+?>
