@@ -67,15 +67,15 @@ echo "<!DOCTYPE html>
         h1 {
             text-align: center;
             font-size: 24px;
-            margin-bottom: 20px;
             grid-column: span 2;
         }
         .status-item {
             display: flex;
             align-items: center;
+            padding: 10px;
             background-color: white;
             border: 1px solid #e1e4e8;
-            border-radius: 10px;
+            border-radius: 5px;
         }
         .file-name {
             flex-grow: 1;
