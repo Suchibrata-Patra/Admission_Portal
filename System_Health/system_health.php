@@ -7,7 +7,7 @@
     <title>System Health Checker</title>
 </head>
 <body>
-    
+<h1><center>Server Logs <p style="font-size:15px;font-weight:300;">Powered by TheApplication.in</p></center> </h1>
 </body>
 </html>
 
