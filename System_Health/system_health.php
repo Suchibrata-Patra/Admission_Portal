@@ -49,6 +49,7 @@ echo "<!DOCTYPE html>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>PHP Pages Status Checker</title>
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,38 +66,31 @@ echo "<!DOCTYPE html>
             font-size: 24px;
             margin-bottom: 20px;
         }
-        .status-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
-        .status-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            padding: 15px 20px;
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #e1e4e8;
         }
-        .file-name {
-            font-size: 14px;
-            color: #24292f;
+        th {
+            background-color: #f6f8fa;
             font-weight: bold;
+        }
+        .status-working {
+            color: green;
+            font-size: 32px;
+        }
+        .status-error {
+            color: red;
+            font-size: 32px;
         }
         .status-indicator {
             display: flex;
             align-items: center;
-        }
-        .status-indicator span {
-            margin-left: 8px;
-            font-weight: bold;
-        }
-        .status-working {
-            color: #2da44e;
-        }
-        .status-error {
-            color: #d73a49;
         }
         footer {
             text-align: center;
@@ -109,23 +103,35 @@ echo "<!DOCTYPE html>
 <body>
     <div class='container'>
         <h1>PHP Pages Status Checker</h1>
-        <div class='status-grid'>";
+        <table>
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>";
 
 foreach ($phpUrls as $url) {
     $fileName = basename($url);
     $status = checkUrlStatus($url);
     $statusClass = $status ? "status-working" : "status-error";
+    $statusIcon = $status ? "check_circle" : "cancel";
     $statusText = $status ? "Working" : "Error";
-    echo "<div class='status-item'>
-            <div class='file-name'>$fileName</div>
-            <div class='status-indicator'>
-                <div class='$statusClass'>&#x25CF;</div>
-                <span class='$statusClass'>$statusText</span>
-            </div>
-          </div>";
+
+    echo "<tr>
+            <td>$fileName</td>
+            <td>
+                <div class='status-indicator'>
+                    <span class='material-icons $statusClass'>$statusIcon</span>
+                    <span>$statusText</span>
+                </div>
+            </td>
+          </tr>";
 }
 
-echo "    </div>
+echo "    </tbody>
+        </table>
         <footer>For more details, refer to the system log or contact support.</footer>
     </div>
 </body>
