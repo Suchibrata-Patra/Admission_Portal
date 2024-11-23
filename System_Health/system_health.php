@@ -106,17 +106,29 @@ echo "<!DOCTYPE html>
 </head>
 <body>
     <div class='container'>
-        <h1>PHP Pages Status Checker</h1>";
+        <h1>PHP Pages Status Checker</h1>
 
+        <?php
         foreach ($phpUrls as $url) {
             // Get the file name from the URL
             $fileName = basename($url);
             
             // Fetch the HTML content of the URL
-            $htmlContent = file_get_contents($url);
+            $htmlContent = @file_get_contents($url); // Suppress errors and handle them manually
             
+            // Check if content was fetched
+            if ($htmlContent === FALSE) {
+                echo "<div class='status-item'>
+                        <div class='file-name'>$fileName (Unable to fetch content)</div>
+                        <div class='status-indicator'>
+                            <span class='material-icons status-error'>cancel</span>
+                        </div>
+                      </div>";
+                continue; // Skip to the next URL if the content couldn't be fetched
+            }
+
             // Extract the title from the HTML content using regex
-            preg_match('/<title>(.*?)<\/title>/', $htmlContent, $matches);
+            preg_match('/<title>(.*?)<\/title>/is', $htmlContent, $matches);
             $titleName = isset($matches[1]) ? $matches[1] : 'Untitled'; // Default to 'Untitled' if no title is found
             
             // Check the URL status (assuming checkUrlStatus is defined elsewhere)
@@ -128,17 +140,17 @@ echo "<!DOCTYPE html>
             
             // Output the HTML
             echo "<div class='status-item'>
-                    <div class='file-name'>$fileName <br>
-                    $titleName</div>
+                    <div class='file-name'>$titleName <br>$fileName</div>
                     <div class='status-indicator'>
                         <span class='material-icons $statusClass'>$statusIcon</span>
                     </div>
                   </div>";
         }
+        ?>
         
-echo "    </div>
-        <footer>For more details, refer to the system log or contact support.</footer>
     </div>
+    <footer>For more details, refer to the system log or contact support.</footer>
 </body>
+
 </html>";
 ?>
