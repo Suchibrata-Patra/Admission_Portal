@@ -128,8 +128,8 @@ echo "<!DOCTYPE html>
             
             // Output the HTML
             echo "<div class='status-item'>
-                    <div class='file-name'>$fileName</div>
-                    <div class='file-title'>$titleName</div>
+                    <div class='file-name'>$fileName <br>
+                    $titleName</div>
                     <div class='status-indicator'>
                         <span class='material-icons $statusClass'>$statusIcon</span>
                     </div>
