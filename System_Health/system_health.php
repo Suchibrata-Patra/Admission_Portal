@@ -110,13 +110,10 @@ echo "<!DOCTYPE html>
 
         <?php
         foreach ($phpUrls as $url) {
-            // Get the file name from the URL
             $fileName = basename($url);
             
-            // Fetch the HTML content of the URL
-            $htmlContent = @file_get_contents($url); // Suppress errors and handle them manually
+            $htmlContent = @file_get_contents($url);
             
-            // Check if content was fetched
             if ($htmlContent === FALSE) {
                 echo '<div class='status-item'>
                         <div class='file-name'>$fileName (Unable to fetch content)</div>
@@ -124,12 +121,12 @@ echo "<!DOCTYPE html>
                             <span class='material-icons status-error'>cancel</span>
                         </div>
                       </div>';
-                continue; // Skip to the next URL if the content couldn't be fetched
+                continue;
             }
 
             // Extract the title from the HTML content using regex
             preg_match('/<title>(.*?)<\/title>/is', $htmlContent, $matches);
-            $titleName = isset($matches[1]) ? $matches[1] : 'Untitled'; // Default to 'Untitled' if no title is found
+            $titleName = isset($matches[1]) ? $matches[1] : 'Untitled';
             
             // Check the URL status (assuming checkUrlStatus is defined elsewhere)
             $status = checkUrlStatus($url);
