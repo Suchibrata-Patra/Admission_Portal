@@ -118,12 +118,12 @@ echo "<!DOCTYPE html>
             
             // Check if content was fetched
             if ($htmlContent === FALSE) {
-                echo "<div class='status-item'>
+                echo '<div class='status-item'>
                         <div class='file-name'>$fileName (Unable to fetch content)</div>
                         <div class='status-indicator'>
                             <span class='material-icons status-error'>cancel</span>
                         </div>
-                      </div>";
+                      </div>';
                 continue; // Skip to the next URL if the content couldn't be fetched
             }
 
@@ -139,12 +139,12 @@ echo "<!DOCTYPE html>
             $statusIcon = $status ? "check_circle" : "cancel";
             
             // Output the HTML
-            echo "<div class='status-item'>
+            echo '<div class='status-item'>
                     <div class='file-name'>$titleName <br>$fileName</div>
                     <div class='status-indicator'>
                         <span class='material-icons $statusClass'>$statusIcon</span>
                     </div>
-                  </div>";
+                  </div>';
         }
         ?>
         
