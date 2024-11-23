@@ -5,14 +5,14 @@ function getPhpPagesFromSitemap($sitemapUrl) {
     $sitemapContent = @file_get_contents($sitemapUrl);
 
     if ($sitemapContent === false) {
-        echo "<p>Unable to fetch the sitemap.</p>";
+        echo '<p>Unable to fetch the sitemap.</p>';
         return [];
     }
 
     $xml = simplexml_load_string($sitemapContent);
 
     if ($xml === false) {
-        echo "<p>Invalid sitemap format.</p>";
+        echo '<p>Invalid sitemap format.</p>';
         return [];
     }
 
@@ -40,7 +40,7 @@ $sitemapUrl = 'https://admission.theapplication.in/sitemap.xml';
 $phpUrls = getPhpPagesFromSitemap($sitemapUrl);
 
 if (empty($phpUrls)) {
-    echo "<p>No .php pages found in the sitemap or sitemap unavailable.</p>";
+    echo '<p>No .php pages found in the sitemap or sitemap unavailable.</p>';
     exit;
 }
 
@@ -135,8 +135,8 @@ echo "<!DOCTYPE html>
             $status = checkUrlStatus($url);
             
             // Determine the status classes and icons
-            $statusClass = $status ? "status-working" : "status-error";
-            $statusIcon = $status ? "check_circle" : "cancel";
+            $statusClass = $status ? 'status-working' : 'status-error';
+            $statusIcon = $status ? 'check_circle' : 'cancel';
             
             // Output the HTML
             echo '<div class='status-item'>
