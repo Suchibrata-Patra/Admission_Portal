@@ -58,6 +58,9 @@ echo "<!DOCTYPE html>
             padding: 20px;
         }
         .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -65,11 +68,19 @@ echo "<!DOCTYPE html>
             text-align: center;
             font-size: 24px;
             margin-bottom: 20px;
+            width: 100%;
+        }
+        .left-column, .right-column {
+            width: 48%;
+            padding: 10px;
+            box-sizing: border-box;
         }
         table {
             width: 100%;
             border-collapse: collapse;
+            background-color: white;
             margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         th, td {
             padding: 10px;
@@ -97,20 +108,22 @@ echo "<!DOCTYPE html>
             margin-top: 20px;
             font-size: 12px;
             color: #6a737d;
+            width: 100%;
         }
     </style>
 </head>
 <body>
     <div class='container'>
         <h1>PHP Pages Status Checker</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>File Name</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>";
+        <div class='left-column'>
+            <table>
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>";
 
 foreach ($phpUrls as $url) {
     $fileName = basename($url);
@@ -132,7 +145,10 @@ foreach ($phpUrls as $url) {
 
 echo "    </tbody>
         </table>
-        <footer>For more details, refer to the system log or contact support.</footer>
+        </div>
+        <div class='right-column'>
+            <footer>For more details, refer to the system log or contact support.</footer>
+        </div>
     </div>
 </body>
 </html>";
