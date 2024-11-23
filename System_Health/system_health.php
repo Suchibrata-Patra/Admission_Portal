@@ -77,6 +77,7 @@ echo "<!DOCTYPE html>
             border-radius: 5px;
         }
         .file-name {
+            flex-grow: 1;
             font-weight:100;
             font-size:20px;
         }
