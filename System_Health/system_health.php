@@ -58,9 +58,9 @@ echo "<!DOCTYPE html>
             padding: 20px;
         }
         .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -68,28 +68,24 @@ echo "<!DOCTYPE html>
             text-align: center;
             font-size: 24px;
             margin-bottom: 20px;
-            width: 100%;
+            grid-column: span 2;
         }
-        .left-column, .right-column {
-            width: 48%;
+        .status-item {
+            display: flex;
+            align-items: center;
             padding: 10px;
-            box-sizing: border-box;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
             background-color: white;
-            margin-top: 20px;
+            border: 1px solid #e1e4e8;
+            border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border: 1px solid #e1e4e8;
-        }
-        th {
-            background-color: #f6f8fa;
+        .file-name {
+            flex-grow: 1;
             font-weight: bold;
+        }
+        .status-indicator {
+            display: flex;
+            align-items: center;
         }
         .status-working {
             color: green;
@@ -99,31 +95,18 @@ echo "<!DOCTYPE html>
             color: red;
             font-size: 32px;
         }
-        .status-indicator {
-            display: flex;
-            align-items: center;
-        }
         footer {
             text-align: center;
             margin-top: 20px;
             font-size: 12px;
             color: #6a737d;
-            width: 100%;
+            grid-column: span 2;
         }
     </style>
 </head>
 <body>
     <div class='container'>
-        <h1>PHP Pages Status Checker</h1>
-        <div class='left-column'>
-            <table>
-                <thead>
-                    <tr>
-                        <th>File Name</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>";
+        <h1>PHP Pages Status Checker</h1>";
 
 foreach ($phpUrls as $url) {
     $fileName = basename($url);
@@ -132,23 +115,17 @@ foreach ($phpUrls as $url) {
     $statusIcon = $status ? "check_circle" : "cancel";
     $statusText = $status ? "Working" : "Error";
 
-    echo "<tr>
-            <td>$fileName</td>
-            <td>
-                <div class='status-indicator'>
-                    <span class='material-icons $statusClass'>$statusIcon</span>
-                    <span>$statusText</span>
-                </div>
-            </td>
-          </tr>";
+    echo "<div class='status-item'>
+            <div class='file-name'>$fileName</div>
+            <div class='status-indicator'>
+                <span class='material-icons $statusClass'>$statusIcon</span>
+                <span>$statusText</span>
+            </div>
+          </div>";
 }
 
-echo "    </tbody>
-        </table>
-        </div>
-        <div class='right-column'>
-            <footer>For more details, refer to the system log or contact support.</footer>
-        </div>
+echo "    </div>
+        <footer>For more details, refer to the system log or contact support.</footer>
     </div>
 </body>
 </html>";
