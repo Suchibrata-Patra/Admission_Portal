@@ -110,13 +110,11 @@ foreach ($phpUrls as $url) {
     $status = checkUrlStatus($url);
     $statusClass = $status ? "status-working" : "status-error";
     $statusIcon = $status ? "check_circle" : "cancel";
-    $statusText = $status ? "Working" : "Error";
 
     echo "<div class='status-item'>
             <div class='file-name'>$fileName</div>
             <div class='status-indicator'>
                 <span class='material-icons $statusClass'>$statusIcon</span>
-                <span>$statusText</span>
             </div>
           </div>";
 }
