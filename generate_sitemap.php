@@ -1,7 +1,6 @@
 <?php
 // Base directory to scan
 $baseDir = '.';
-$imagesDir = 'Assets/Images';
 
 // Function to scan numeric directories with index.php inside
 function scanNumericDirectoriesWithIndex($dir) {
@@ -12,7 +11,7 @@ function scanNumericDirectoriesWithIndex($dir) {
         if ($file == '.' || $file == '..') continue;
         $filePath = $dir . '/' . $file;
 
-        // Check if it's a directory and has a numeric name
+        // Check if it's a directory with a numeric name
         if (is_dir($filePath) && is_numeric($file)) {
             // Check if index.php exists in the directory
             if (file_exists($filePath . '/index.php')) {
@@ -23,48 +22,25 @@ function scanNumericDirectoriesWithIndex($dir) {
     return $result;
 }
 
-// Function to scan for images under Assets > Images
-function scanImages($dir) {
+// Function to scan for .php files in the base directory, excluding the Assets folder
+function scanPhpFiles($dir) {
     $result = [];
-    $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'svg']; // Allowed image extensions
-
-    if (is_dir($dir)) {
-        $files = scandir($dir);
-
-        foreach ($files as $file) {
-            if ($file == '.' || $file == '..') continue;
-            $filePath = $dir . '/' . $file;
-
-            // Check if it's a file and has an allowed image extension
-            $fileExtension = pathinfo($filePath, PATHINFO_EXTENSION);
-            if (is_file($filePath) && in_array(strtolower($fileExtension), $allowedExtensions)) {
-                $result[] = $filePath; // Add the image file to the result
-            }
-        }
-    }
-    return $result;
-}
-
-// Function to scan all HTML files and check for robots meta tag
-function scanAllPages($dir) {
-    $result = [];
-    $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
+    $files = scandir($dir);
 
     foreach ($files as $file) {
-        if ($file->isFile() && pathinfo($file, PATHINFO_EXTENSION) === 'php') {
-            // Load the file and check for the robots meta tag
-            $content = file_get_contents($file);
-            if (strpos($content, '<meta name="robots" content="nofollow"') === false) {
-                // If "nofollow" is not present, add the file to the result
-                $result[] = $file->getPathname();
-            }
+        if ($file == '.' || $file == '..') continue;
+        $filePath = $dir . '/' . $file;
+
+        // Check if it's a file with .php extension and not in the Assets folder
+        if (is_file($filePath) && pathinfo($filePath, PATHINFO_EXTENSION) === 'php' && strpos($filePath, '/Assets/') === false) {
+            $result[] = $filePath; // Add the PHP file to the result
         }
     }
     return $result;
 }
 
 // Function to generate the sitemap XML with XSL reference
-function generateSitemap($numericDirectories, $images, $allPages) {
+function generateSitemap($numericDirectories, $phpFiles) {
     // Fetch the current domain dynamically
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? "https" : "http";
     $domain = $protocol . "://" . $_SERVER['HTTP_HOST'];
@@ -87,23 +63,10 @@ function generateSitemap($numericDirectories, $images, $allPages) {
         $sitemapContent .= '    </url>' . PHP_EOL;
     }
 
-    // Add image URLs from Assets > Images
-    foreach ($images as $image) {
-        $url = htmlspecialchars($domain . '/' . $image);
-        $lastmod = date('Y-m-d', filemtime($image));
-
-        $sitemapContent .= '    <url>' . PHP_EOL;
-        $sitemapContent .= '        <loc>' . $url . '</loc>' . PHP_EOL;
-        $sitemapContent .= '        <lastmod>' . $lastmod . '</lastmod>' . PHP_EOL;
-        $sitemapContent .= '        <changefreq>monthly</changefreq>' . PHP_EOL;
-        $sitemapContent .= '        <priority>0.5</priority>' . PHP_EOL;
-        $sitemapContent .= '    </url>' . PHP_EOL;
-    }
-
-    // Add all pages that are not set to nofollow
-    foreach ($allPages as $page) {
-        $url = htmlspecialchars($domain . '/' . basename($page));
-        $lastmod = date('Y-m-d', filemtime($page));
+    // Add PHP files in the base directory
+    foreach ($phpFiles as $file) {
+        $url = htmlspecialchars($domain . '/' . basename($file));
+        $lastmod = date('Y-m-d', filemtime($file));
 
         $sitemapContent .= '    <url>' . PHP_EOL;
         $sitemapContent .= '        <loc>' . $url . '</loc>' . PHP_EOL;
@@ -124,19 +87,16 @@ function generateSitemap($numericDirectories, $images, $allPages) {
     }
 }
 
-// If form is submitted, run the directory and image scanning process
+// If form is submitted, run the directory and file scanning process
 if (isset($_POST['scan'])) {
     // Scan numeric directories with index.php
     $numericDirectories = scanNumericDirectoriesWithIndex($baseDir);
 
-    // Scan for images under Assets > Images
-    $images = scanImages($imagesDir);
-
-    // Scan all pages under the root directory
-    $allPages = scanAllPages($baseDir);
+    // Scan PHP files in the base directory
+    $phpFiles = scanPhpFiles($baseDir);
 
     // Generate the sitemap
-    generateSitemap($numericDirectories, $images, $allPages);
+    generateSitemap($numericDirectories, $phpFiles);
 
     // Display the results
     echo "<h2>Numeric Directories with index.php:</h2><ul>";
@@ -149,23 +109,13 @@ if (isset($_POST['scan'])) {
     }
     echo "</ul>";
 
-    echo "<h2>Images under Assets > Images:</h2><ul>";
-    if (!empty($images)) {
-        foreach ($images as $image) {
-            echo "<li>" . htmlspecialchars($image) . "</li>";
+    echo "<h2>PHP files in the base directory:</h2><ul>";
+    if (!empty($phpFiles)) {
+        foreach ($phpFiles as $file) {
+            echo "<li>" . htmlspecialchars($file) . "</li>";
         }
     } else {
-        echo "<li>No images found under Assets > Images.</li>";
-    }
-    echo "</ul>";
-
-    echo "<h2>All pages scanned (not nofollow):</h2><ul>";
-    if (!empty($allPages)) {
-        foreach ($allPages as $page) {
-            echo "<li>" . htmlspecialchars($page) . "</li>";
-        }
-    } else {
-        echo "<li>No pages found that allow crawling.</li>";
+        echo "<li>No PHP files found in the base directory.</li>";
     }
     echo "</ul>";
 }
@@ -176,10 +126,10 @@ if (isset($_POST['scan'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Directory and Image Scanner with Sitemap</title>
+    <title>Directory and File Scanner with Sitemap</title>
 </head>
 <body>
-    <h1>Scan Numeric Directories and Images, and Generate Sitemap</h1>
+    <h1>Scan Numeric Directories and PHP Files, and Generate Sitemap</h1>
     <form method="POST">
         <button type="submit" name="scan">Scan & Generate Sitemap</button>
     </form>

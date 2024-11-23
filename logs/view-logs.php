@@ -23,7 +23,8 @@ if (!$logs || !is_array($logs)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Log Viewer</title>
+    <title>ERROR Log</title>
+    <link rel="shortcut icon" href="/Assets/images/favicon.png" type="image/svg+xml">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=keyboard_arrow_down" />    <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
@@ -37,7 +38,8 @@ if (!$logs || !is_array($logs)) {
     </style>
 </head>
 <body>
-    <h1>Server Logs</h1>
+    <h1><center>Server Logs <p style="font-size:15px;font-weight:300;">Powered by TheApplication.in</p></center> </h1>
+    
     <div class="filter-buttons">
         <label for="filterDate" style="font-weight:300;font-size:15px;">Date:</label>
         <input type="date" id="filterDate" style="border:2px solid black; padding:5px; border-radius:4px;">
