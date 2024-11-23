@@ -8,7 +8,7 @@
     <title>System Health Checker</title>
 </head>
 <body>
-<h1><center>Site Health Checkup <span class='material-icons $statusClass'>status-working</span><p style="font-size:15px;font-weight:300;">Powered by TheApplication.in</p></center> </h1>
+<h1><center>Site Health Checkup <span class='material-icons status-working'>check_circle</span><p style="font-size:15px;font-weight:300;">Powered by TheApplication.in</p></center> </h1>
 </body>
 </html>
 
