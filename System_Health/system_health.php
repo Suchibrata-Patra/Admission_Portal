@@ -7,7 +7,7 @@
     <title>System Health Checker</title>
 </head>
 <body>
-<h1><center>Server Logs <p style="font-size:15px;font-weight:300;">Powered by TheApplication.in</p></center> </h1>
+<h1><center>Site Health Checkup<p style="font-size:15px;font-weight:300;">Powered by TheApplication.in</p></center> </h1>
 </body>
 </html>
 
@@ -61,7 +61,6 @@ echo "<!DOCTYPE html>
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>PHP Pages Status Checker</title>
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
     <style>
         body {
@@ -118,7 +117,7 @@ echo "<!DOCTYPE html>
 </head>
 <body>
     <div class='container'>
-        <h1>PHP Pages Status Checker</h1>";
+        ";
 
 foreach ($phpUrls as $url) {
     $fileName = basename($url);
