@@ -73,7 +73,7 @@ echo "<!DOCTYPE html>
             align-items: center;
             padding: 10px;
             background-color: white;
-            border: 1px solid #e1e4e8;
+            border: none;
             border-radius: 5px;
         }
         .file-name {
