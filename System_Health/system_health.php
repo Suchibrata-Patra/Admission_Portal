@@ -78,7 +78,7 @@ echo "<!DOCTYPE html>
         }
         .file-name {
             flex-grow: 1;
-            font-weight: 500;
+            font-weight: 400;
             font-size:20px;
         }
         .status-indicator {
