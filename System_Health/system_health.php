@@ -81,7 +81,7 @@ echo "<!DOCTYPE html>
         .file-name {
             flex-grow: 1;
             font-weight:200px;
-            font-size:20px;
+            font-size:15px;
         }
         .status-indicator {
             display: flex;
