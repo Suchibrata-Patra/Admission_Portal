@@ -60,7 +60,6 @@ echo "<!DOCTYPE html>
         .container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
             max-width: 900px;
             margin: 0 auto;
         }
