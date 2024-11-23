@@ -75,7 +75,7 @@ echo "<!DOCTYPE html>
             align-items: center;
             background-color: white;
             border: 1px solid #e1e4e8;
-            border-radius: 0px;
+            border-radius: 10px;
         }
         .file-name {
             flex-grow: 1;
