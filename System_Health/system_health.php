@@ -60,7 +60,7 @@ echo "<!DOCTYPE html>
         .container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         h1 {
