@@ -65,27 +65,24 @@ echo "<!DOCTYPE html>
             font-size: 24px;
             margin-bottom: 20px;
         }
-        .status-card {
-            background: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin: 20px 0;
-            padding: 20px;
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
-        .status-row {
+        .status-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #e1e4e8;
-            padding: 15px 0;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 15px 20px;
         }
-        .status-row:last-child {
-            border-bottom: none;
-        }
-        .url {
+        .file-name {
             font-size: 14px;
-            color: #0366d6;
-            text-decoration: none;
+            color: #24292f;
+            font-weight: bold;
         }
         .status-indicator {
             display: flex;
@@ -112,14 +109,15 @@ echo "<!DOCTYPE html>
 <body>
     <div class='container'>
         <h1>PHP Pages Status Checker</h1>
-        <div class='status-card'>";
+        <div class='status-grid'>";
 
-foreach ($phpUrls as $index => $url) {
+foreach ($phpUrls as $url) {
+    $fileName = basename($url);
     $status = checkUrlStatus($url);
     $statusClass = $status ? "status-working" : "status-error";
     $statusText = $status ? "Working" : "Error";
-    echo "<div class='status-row'>
-            <a href='$url' class='url' target='_blank'>$url</a>
+    echo "<div class='status-item'>
+            <div class='file-name'>$fileName</div>
             <div class='status-indicator'>
                 <div class='$statusClass'>&#x25CF;</div>
                 <span class='$statusClass'>$statusText</span>
