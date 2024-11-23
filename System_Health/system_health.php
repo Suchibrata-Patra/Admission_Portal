@@ -1,4 +1,16 @@
-<?php include('favicon.php') ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/Assets/images/favicon.png" type="image/svg+xml">
+    <title>System Health Checker</title>
+</head>
+<body>
+    
+</body>
+</html>
+
 <?php
 // Function to fetch the sitemap and extract URLs with .php extensions
 function getPhpPagesFromSitemap($sitemapUrl) {
