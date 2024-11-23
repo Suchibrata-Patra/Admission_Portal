@@ -73,11 +73,9 @@ echo "<!DOCTYPE html>
         .status-item {
             display: flex;
             align-items: center;
-            padding: 10px;
             background-color: white;
             border: 1px solid #e1e4e8;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 0px;
         }
         .file-name {
             flex-grow: 1;
