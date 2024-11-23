@@ -75,8 +75,7 @@ echo "<!DOCTYPE html>
             background-color: white;
             border: none;
             border-radius: 5px;
-            border-bottom: 0.5px solid rgb(189, 189, 189);
-            border-right: 0.5px solid rgb(186, 186, 186);
+            border-bottom: 0.5px solid rgb(226, 226, 226);
         }
         .file-name {
             flex-grow: 1;
