@@ -1,3 +1,4 @@
+<?php include('favicon.php') ?>
 <?php
 // Function to fetch the sitemap and extract URLs with .php extensions
 function getPhpPagesFromSitemap($sitemapUrl) {
@@ -74,8 +75,8 @@ echo "<!DOCTYPE html>
             padding: 10px;
             background-color: white;
             border: none;
-            border-radius: 5px;
             border-bottom: 0.5px solid rgb(226, 226, 226);
+            border-right: 0.5px solid rgb(226, 226, 226);
         }
         .file-name {
             flex-grow: 1;
