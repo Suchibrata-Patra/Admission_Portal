@@ -108,20 +108,34 @@ echo "<!DOCTYPE html>
     <div class='container'>
         <h1>PHP Pages Status Checker</h1>";
 
-foreach ($phpUrls as $url) {
-    $fileName = basename($url);
-    $status = checkUrlStatus($url);
-    $statusClass = $status ? "status-working" : "status-error";
-    $statusIcon = $status ? "check_circle" : "cancel";
-
-    echo "<div class='status-item'>
-            <div class='file-name'>$fileName</div>
-            <div class='status-indicator'>
-                <span class='material-icons $statusClass'>$statusIcon</span>
-            </div>
-          </div>";
-}
-
+        foreach ($phpUrls as $url) {
+            // Get the file name from the URL
+            $fileName = basename($url);
+            
+            // Fetch the HTML content of the URL
+            $htmlContent = file_get_contents($url);
+            
+            // Extract the title from the HTML content using regex
+            preg_match('/<title>(.*?)<\/title>/', $htmlContent, $matches);
+            $titleName = isset($matches[1]) ? $matches[1] : 'Untitled'; // Default to 'Untitled' if no title is found
+            
+            // Check the URL status (assuming checkUrlStatus is defined elsewhere)
+            $status = checkUrlStatus($url);
+            
+            // Determine the status classes and icons
+            $statusClass = $status ? "status-working" : "status-error";
+            $statusIcon = $status ? "check_circle" : "cancel";
+            
+            // Output the HTML
+            echo "<div class='status-item'>
+                    <div class='file-name'>$fileName</div>
+                    <div class='file-title'>$titleName</div>
+                    <div class='status-indicator'>
+                        <span class='material-icons $statusClass'>$statusIcon</span>
+                    </div>
+                  </div>";
+        }
+        
 echo "    </div>
         <footer>For more details, refer to the system log or contact support.</footer>
     </div>
