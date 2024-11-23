@@ -5,14 +5,14 @@ function getPhpPagesFromSitemap($sitemapUrl) {
     $sitemapContent = @file_get_contents($sitemapUrl);
 
     if ($sitemapContent === false) {
-        echo '<p>Unable to fetch the sitemap.</p>';
+        echo "<p>Unable to fetch the sitemap.</p>";
         return [];
     }
 
     $xml = simplexml_load_string($sitemapContent);
 
     if ($xml === false) {
-        echo '<p>Invalid sitemap format.</p>';
+        echo "<p>Invalid sitemap format.</p>";
         return [];
     }
 
@@ -40,7 +40,7 @@ $sitemapUrl = 'https://admission.theapplication.in/sitemap.xml';
 $phpUrls = getPhpPagesFromSitemap($sitemapUrl);
 
 if (empty($phpUrls)) {
-    echo '<p>No .php pages found in the sitemap or sitemap unavailable.</p>';
+    echo "<p>No .php pages found in the sitemap or sitemap unavailable.</p>";
     exit;
 }
 
@@ -106,48 +106,25 @@ echo "<!DOCTYPE html>
 </head>
 <body>
     <div class='container'>
-        <h1>PHP Pages Status Checker</h1>
+        <h1>PHP Pages Status Checker</h1>";
 
-        <?php
-        foreach ($phpUrls as $url) {
-            $fileName = basename($url);
-            
-            $htmlContent = @file_get_contents($url);
-            
-            if ($htmlContent === FALSE) {
-                echo '<div class='status-item'>
-                        <div class='file-name'>$fileName (Unable to fetch content)</div>
-                        <div class='status-indicator'>
-                            <span class='material-icons status-error'>cancel</span>
-                        </div>
-                      </div>';
-                continue;
-            }
+foreach ($phpUrls as $url) {
+    $fileName = basename($url);
+    $status = checkUrlStatus($url);
+    $statusClass = $status ? "status-working" : "status-error";
+    $statusIcon = $status ? "check_circle" : "cancel";
 
-            // Extract the title from the HTML content using regex
-            preg_match('/<title>(.*?)<\/title>/is', $htmlContent, $matches);
-            $titleName = isset($matches[1]) ? $matches[1] : 'Untitled';
-            
-            // Check the URL status (assuming checkUrlStatus is defined elsewhere)
-            $status = checkUrlStatus($url);
-            
-            // Determine the status classes and icons
-            $statusClass = $status ? 'status-working' : 'status-error';
-            $statusIcon = $status ? 'check_circle' : 'cancel';
-            
-            // Output the HTML
-            echo '<div class='status-item'>
-                    <div class='file-name'>$titleName <br>$fileName</div>
-                    <div class='status-indicator'>
-                        <span class='material-icons $statusClass'>$statusIcon</span>
-                    </div>
-                  </div>';
-        }
-        ?>
-        
+    echo "<div class='status-item'>
+            <div class='file-name'>$fileName</div>
+            <div class='status-indicator'>
+                <span class='material-icons $statusClass'>$statusIcon</span>
+            </div>
+          </div>";
+}
+
+echo "    </div>
+        <footer>For more details, refer to the system log or contact support.</footer>
     </div>
-    <footer>For more details, refer to the system log or contact support.</footer>
 </body>
-
 </html>";
 ?>
