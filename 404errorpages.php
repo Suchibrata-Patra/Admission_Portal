@@ -8,7 +8,6 @@
     <meta name="keywords" content="Educational Institution, Online Admission Portal, Class 11 Admissions, Admission Process, Top Ranking, SEO Ranking, School Admissions, College Admissions, University Admissions, Online Application, Admission Form, Entrance Exams, Academic Programs, Student Enrollment, Registration Process, Admission Requirements, Application Deadline, Admission Fees, Admission Criteria, Admission Notifications">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Application - Centralised Admission Portal</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -128,7 +127,6 @@
     <a href="#top" class="go-top" data-go-top>
         <ion-icon name="chevron-up-outline"></ion-icon>
     </a>
-    <script src="./assets/js/script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
