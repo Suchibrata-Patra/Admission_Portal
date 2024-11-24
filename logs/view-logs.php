@@ -1,12 +1,13 @@
+<?php include(__DIR__ . './../exception_handler.php'); ?>
 <?php
 // Path to the error log file
 $logFile = 'error.log';
 
-// Check if the log file exists
-if (!file_exists($logFile)) {
-    echo "<p>Error log file not found.</p>";
-    exit;
-}
+// // Check if the log file exists
+// if (!file_exists($logFile)) {
+//     echo "<p>Error log file not found.</p>";
+//     exit;
+// }
 
 // Read and decode the JSON log file
 $logs = json_decode(file_get_contents($logFile), true);

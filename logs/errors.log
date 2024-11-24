@@ -1,0 +1,45 @@
+[
+    {
+        "type": "Error",
+        "message": "file_get_contents(errors.log): Failed to open stream: No such file or directory",
+        "file": "\/Applications\/MAMP\/htdocs\/logs\/view-logs.php",
+        "line": 13,
+        "error_code": 2,
+        "timestamp": "2024-11-24 13:23:38",
+        "request_method": "GET",
+        "request_uri": "\/logs\/view-logs.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "file_get_contents(errors.log): Failed to open stream: No such file or directory",
+        "file": "\/Applications\/MAMP\/htdocs\/logs\/view-logs.php",
+        "line": 13,
+        "trace": "#0 [internal function]: errorHandler(2, 'file_get_conten...', '\/Applications\/M...', 13)\n#1 \/Applications\/MAMP\/htdocs\/logs\/view-logs.php(13): file_get_contents('errors.log')\n#2 {main}",
+        "trace_details": [
+            {
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "file_get_contents(errors.log): Failed to open stream: No such file or directory",
+                    "\/Applications\/MAMP\/htdocs\/logs\/view-logs.php",
+                    13
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/logs\/view-logs.php",
+                "line": 13,
+                "function": "file_get_contents",
+                "args": [
+                    "errors.log"
+                ]
+            }
+        ],
+        "timestamp": "2024-11-24 13:23:38",
+        "request_method": "GET",
+        "request_uri": "\/logs\/view-logs.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    }
+]

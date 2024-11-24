@@ -185,5 +185,368 @@
         "request_uri": "\/Complete_List.php?search=a",
         "remote_addr": "2001:4490:882:cc97:240e:6285:ec34:34b8",
         "user_agent": "Mozilla\/5.0 (Linux; Android 10; K) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Mobile Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for localshost failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 18,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(18): mysqli_connect('localshost', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 18,
+                "function": "mysqli_connect",
+                "args": [
+                    "localshost",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-24 14:23:16",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php",
+        "remote_addr": "::1",
+        "user_agent": null
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for localshost failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 18,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(18): mysqli_connect('localshost', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 18,
+                "function": "mysqli_connect",
+                "args": [
+                    "localshost",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-24 14:23:16",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php",
+        "remote_addr": "::1",
+        "user_agent": null
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for localhsost failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 18,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(18): mysqli_connect('localhsost', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 18,
+                "function": "mysqli_connect",
+                "args": [
+                    "localhsost",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-24 14:31:25",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php",
+        "remote_addr": "::1",
+        "user_agent": null
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for localhsost failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 18,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(18): mysqli_connect('localhsost', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 18,
+                "function": "mysqli_connect",
+                "args": [
+                    "localhsost",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-24 14:31:25",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php",
+        "remote_addr": "::1",
+        "user_agent": null
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for localhsost failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 18,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(18): mysqli_connect('localhsost', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 18,
+                "function": "mysqli_connect",
+                "args": [
+                    "localhsost",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-24 14:31:25",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php",
+        "remote_addr": "::1",
+        "user_agent": null
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for localhsost failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 18,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(18): mysqli_connect('localhsost', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 18,
+                "function": "mysqli_connect",
+                "args": [
+                    "localhsost",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-24 14:31:38",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php",
+        "remote_addr": "::1",
+        "user_agent": null
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for localhsost failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 18,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(18): mysqli_connect('localhsost', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 18,
+                "function": "mysqli_connect",
+                "args": [
+                    "localhsost",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-24 14:31:38",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php",
+        "remote_addr": "::1",
+        "user_agent": null
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for localhsost failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 18,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(18): mysqli_connect('localhsost', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 18,
+                "function": "mysqli_connect",
+                "args": [
+                    "localhsost",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-24 14:31:38",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php",
+        "remote_addr": "::1",
+        "user_agent": null
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for localhsost failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 18,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(18): mysqli_connect('localhsost', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 18,
+                "function": "mysqli_connect",
+                "args": [
+                    "localhsost",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-24 14:31:39",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php",
+        "remote_addr": "::1",
+        "user_agent": null
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for localhsost failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 18,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(18): mysqli_connect('localhsost', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 18,
+                "function": "mysqli_connect",
+                "args": [
+                    "localhsost",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-24 14:31:39",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php",
+        "remote_addr": "::1",
+        "user_agent": null
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for localhsost failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 18,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(18): mysqli_connect('localhsost', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 18,
+                "function": "mysqli_connect",
+                "args": [
+                    "localhsost",
+                    "root",
+                    {},
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-24 14:31:39",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php",
+        "remote_addr": "::1",
+        "user_agent": null
     }
 ]
