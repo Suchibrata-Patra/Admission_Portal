@@ -127,11 +127,18 @@ if (isset($_POST['scan'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Directory and File Scanner with Sitemap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
 </head>
 <body>
-    <h1>Scan Numeric Directories and PHP Files, and Generate Sitemap</h1>
+    <h1 style="margin-top:10%;margin-bottom:2%;"><center>
+        Generate Sitemap
+    </center></h1>
     <form method="POST">
-        <button type="submit" name="scan">Scan & Generate Sitemap</button>
+        <center>
+            <button type="submit" name="scan" style="background-color:rgb(240, 240, 240);border-radius:7px;border:none;padding:15px 30px;font-size:15px;">Scan & Generate Sitemap</button>
+        </center>
     </form>
 </body>
 </html>

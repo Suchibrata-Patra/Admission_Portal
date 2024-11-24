@@ -9,7 +9,7 @@
     </url>
     <url>
         <loc>http://localhost:8888/404errorpages.php</loc>
-        <lastmod>2024-10-19</lastmod>
+        <lastmod>2024-11-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -27,7 +27,7 @@
     </url>
     <url>
         <loc>http://localhost:8888/Complete_List.php</loc>
-        <lastmod>2024-11-22</lastmod>
+        <lastmod>2024-11-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -39,7 +39,7 @@
     </url>
     <url>
         <loc>http://localhost:8888/Secure_Pageloader.php</loc>
-        <lastmod>2024-10-19</lastmod>
+        <lastmod>2024-11-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -57,7 +57,7 @@
     </url>
     <url>
         <loc>http://localhost:8888/database.php</loc>
-        <lastmod>2024-10-23</lastmod>
+        <lastmod>2024-11-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -81,7 +81,7 @@
     </url>
     <url>
         <loc>http://localhost:8888/generate_sitemap.php</loc>
-        <lastmod>2024-11-22</lastmod>
+        <lastmod>2024-11-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -93,7 +93,7 @@
     </url>
     <url>
         <loc>http://localhost:8888/index.php</loc>
-        <lastmod>2024-11-22</lastmod>
+        <lastmod>2024-11-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -129,7 +129,7 @@
     </url>
     <url>
         <loc>http://localhost:8888/privacy_policy.php</loc>
-        <lastmod>2024-10-23</lastmod>
+        <lastmod>2024-11-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
