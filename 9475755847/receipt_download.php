@@ -1,4 +1,4 @@
-
+<?php include('_DIR_/../../exception_handler.php') ?>
 <?php
 // Start output buffering
 ob_start();

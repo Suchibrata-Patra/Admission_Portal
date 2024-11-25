@@ -789,5 +789,47 @@
         "request_uri": "\/9475755847\/generate_html.php",
         "remote_addr": "::1",
         "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Error",
+        "message": "require(session.phsp): Failed to open stream: No such file or directory",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/payment_details.php",
+        "line": 4,
+        "error_code": 2,
+        "timestamp": "2024-11-26 00:07:05",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/payment_details.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "require(session.phsp): Failed to open stream: No such file or directory",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/payment_details.php",
+        "line": 4,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/payment_details.php(4): errorHandler(2, 'require(session...', '\/Applications\/M...', 4)\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/payment_details.php(4): require()\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/payment_details.php",
+                "line": 4,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "require(session.phsp): Failed to open stream: No such file or directory",
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/payment_details.php",
+                    4
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/payment_details.php",
+                "line": 4,
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 00:07:05",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/payment_details.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
     }
 ]

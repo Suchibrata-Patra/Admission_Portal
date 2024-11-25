@@ -1,5 +1,4 @@
 <?php include('../favicon.php') ?>
-<?php include('_DIR_/../../exception_handler.php') ?>
 <?php
 require 'super_admin.php';
 include_once ('session.php');
