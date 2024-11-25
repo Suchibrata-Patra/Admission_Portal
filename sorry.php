@@ -67,9 +67,10 @@
 
     .primary-btn {
       display: inline-block;
-      background-color: #000;
+      background-color: #000000;
       color: #fff;
       font-size: 1.1rem;
+      font-weight: 200;
       padding: 16px 30px;
       border-radius: 50px;
       text-decoration: none;
@@ -78,7 +79,7 @@
     }
 
     .primary-btn:hover {
-      background-color: #333;
+      background-color: #000000;
     }
 
     .primary-btn:active {
@@ -172,7 +173,7 @@
     <div class="error-container">
       <h1 style="font-size:100px;">500</h1>
       <h1 class="error-title">It's Not You, It's Us</h1>
-      <h5  style="color:grey;font-weight:300;font-size:15px;">ORACLE_PARSING_ERROR -  U_SUCCESFUL</h5>
+      <h5  style="color:#145374;font-weight:300;font-size:15px;">ORACLE_PARSING_ERROR -  U_SUCCESFUL</h5>
       <p class="error-message" style="font-weight:300;font-size:25px;">
         Please bear with us while we resolve the issue. If the problem persists, let us know.  
       </p>
