@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php include('../favicon.php') ?>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +22,8 @@
   -->
   <link rel="preload" href="https://fonts.googleapis.com">
   <link rel="preload" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
   <!-- 
     - preload images
@@ -33,8 +35,8 @@
 
 <body id="top">
 
-<!-- # HEADER -->
-<?php include('site_header.php') ?>
+  <!-- # HEADER -->
+  <?php include('site_header.php') ?>
 
 
   <!-- 
@@ -127,7 +129,7 @@
               <div class="category-card">
 
                 <div class="card-icon">
-                <ion-icon name="logo-react"></ion-icon>
+                  <ion-icon name="logo-react"></ion-icon>
                 </div>
 
                 <div>
@@ -145,7 +147,7 @@
               <div class="category-card">
 
                 <div class="card-icon">
-                <ion-icon name="brush-outline"></ion-icon>
+                  <ion-icon name="brush-outline"></ion-icon>
                 </div>
 
                 <div>
@@ -163,7 +165,7 @@
               <div class="category-card">
 
                 <div class="card-icon">
-                <ion-icon name="bar-chart-outline"></ion-icon>
+                  <ion-icon name="bar-chart-outline"></ion-icon>
                 </div>
 
                 <div>
@@ -195,17 +197,18 @@
 
           <figure class="about-banner">
 
-            <img src="https://images.unsplash.com/photo-1630239037684-0753a96a082f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width="450" height="590" loading="lazy" alt="about banner"
-              class="w-100 about-img">
+            <img
+              src="https://images.unsplash.com/photo-1630239037684-0753a96a082f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              width="450" height="590" loading="lazy" alt="about banner" class="w-100 about-img">
             <!-- <img src="./assets/images/about-banner.jpg" width="450" height="590" loading="lazy" alt="about banner"
               class="w-100 about-img"> -->
 
             <!-- <img src="https://images.unsplash.com/photo-1529158062015-cad636e205a0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D" width="188" height="242" loading="lazy" aria-hidden="true"
               class="abs-img abs-img-1"> -->
-           
-           <img src="./assets/images/about-abs-1.jpg" width="188" height="242" loading="lazy" aria-hidden="true"
+
+            <img src="./assets/images/about-abs-1.jpg" width="188" height="242" loading="lazy" aria-hidden="true"
               class="abs-img abs-img-1">
-          
+
 
             <img src="./assets/images/about-abs-2.jpg" width="150" height="200" loading="lazy" aria-hidden="true"
               class="abs-img abs-img-2">
@@ -230,7 +233,9 @@
                   <h3 class="h3 item-title">SR and Phillanthropy</h3>
 
                   <p class="item-text">
-                  It aims at helping the distressed, nursing the sick, feeding the hungry and clothing the naked. It has always pioneered the holy task of giving necessary relief to the afflicted people during natural calamities.
+                    It aims at helping the distressed, nursing the sick, feeding the hungry and clothing the naked. It
+                    has always pioneered the holy task of giving necessary relief to the afflicted people during natural
+                    calamities.
                   </p>
                 </div>
 
@@ -246,7 +251,7 @@
                   <h3 class="h3 item-title">Best Educational Content</h3>
 
                   <p class="item-text">
-                  It also endeavours to provide educational facilities to the suffering humanity in general.
+                    It also endeavours to provide educational facilities to the suffering humanity in general.
                   </p>
                 </div>
 
@@ -262,7 +267,9 @@
                   <h3 class="h3 item-title">Biggest Student Community</h3>
 
                   <p class="item-text">
-                  It maintains, administers and assists free educational and medical institutions and other charitable societies. It considers to foster the moral, spiritual and cultural heritage of India as one of its mission.
+                    It maintains, administers and assists free educational and medical institutions and other charitable
+                    societies. It considers to foster the moral, spiritual and cultural heritage of India as one of its
+                    mission.
                   </p>
                 </div>
 
@@ -782,7 +789,7 @@
             <h2 class="h2 section-title">Join Our Free Workshops</h2>
 
             <p class="section-text">
-            It also endeavours to provide educational facilities to the suffering humanity in general.
+              It also endeavours to provide educational facilities to the suffering humanity in general.
             </p>
 
             <a href="#" class="btn btn-secondary">
@@ -963,7 +970,7 @@
   <!-- 
     - #FOOTER
   -->
- <?php include('site_footer.php') ?>
+  <?php include('site_footer.php') ?>
 
 
 
