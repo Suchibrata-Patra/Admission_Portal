@@ -2,9 +2,9 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-require 'database.php';
-require 'HOI_Session.php';
-require 'HOI_Super_Admin.php';
+// require 'database.php';
+// require 'HOI_Session.php';
+// require 'HOI_Super_Admin.php';
 
 if (!isset($udise_code) || !isset($udiseid)) {
     die("UDISE code and ID must be set");
