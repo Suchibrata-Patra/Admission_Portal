@@ -1,3 +1,4 @@
+<?php include(__DIR__ . '/../../exception_handler.php'); ?>
 <?php
 require_once 'HOI_Session.php';
 require_once __DIR__ . '../../../Update/VersionControlSystem.php';

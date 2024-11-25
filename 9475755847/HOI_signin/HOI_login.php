@@ -1,3 +1,4 @@
+<?php include(__DIR__ . '/../../exception_handler.php'); ?>
 <?php
 session_start();
 include 'database.php';

@@ -1,3 +1,4 @@
+<?php include(__DIR__ . '/../../exception_handler.php'); ?>
 <?php
 require 'HOI_Session.php';
 require 'HOI_Super_Admin.php';
