@@ -1,6 +1,5 @@
-<?php include('./favicon.php') ?>
-
 <!DOCTYPE html>
+<?php include('./favicon.php') ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
