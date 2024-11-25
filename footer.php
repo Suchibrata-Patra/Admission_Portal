@@ -42,7 +42,10 @@
         </p>
       </div>
       <div class="footer-contact">
-        <h4 class="contact-title">Contact Us</h4>
+
+        <li class="contact-item">
+          <a href="index.php" class="contact-link" style="font-size:20px;font-weight:600;">CONTACT</a>
+        </li>
         <p class="contact-text">
           Feel free to contact us for any inquiries or assistance.
         </p>
@@ -61,8 +64,9 @@
           </li>
         </ul>
         <ul>
-          <p>Quick Links</p>
-          <hr style="width: 30%; height: 2.5px; border: none; background-color:#3b79c9;">
+          <li class="contact-item">
+            <a href="index.php" class="contact-link" style="font-size:20px;font-weight:600;">Quick Links</a>
+          </li>
           <li class="contact-item">
             <a href="index.php" class="contact-link">Home</a>
           </li>
