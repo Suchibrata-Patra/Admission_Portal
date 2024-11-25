@@ -166,7 +166,7 @@
 
   <div class="container">
     <!-- Image Section -->
-    <img rel="preload" src="../../Assets/images/We_are_Sorry_Saying_Puppy.webp" alt="We are sorry - saying puppy" alt="Cute Cartoon Puppy">
+    <img rel="preload" src="/Assets/images/We_are_Sorry_Saying_Puppy.webp" alt="We are sorry - saying puppy" alt="Cute Cartoon Puppy">
   
     <!-- Error Content Section -->
     <div class="error-container">
