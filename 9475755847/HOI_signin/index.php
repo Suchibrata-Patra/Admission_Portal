@@ -82,24 +82,24 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav>
-    <i class='bx bx-menu'></i>
-    <!-- <a href="#" class="nav-link">Categories</a> -->
-    <form action="#">
-        <div class="form-input">
-            <input type="search" placeholder="Search...">
-            <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
-        </div>
-    </form>
-    <input type="checkbox" id="switch-mode" hidden>
-    <label for="switch-mode" class="switch-mode"></label>
+			<i class='bx bx-menu'></i>
+			<!-- <a href="#" class="nav-link">Categories</a> -->
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
 
-	<!-- HOI_Notification_Icon -->
-   <?php include 'HOI_Notification_Icon.php'; ?>
-    
-    <a href="#" class="profile">
-        <img src="img/people.png" alt="Profile">
-    </a>
-</nav>
+			<!-- HOI_Notification_Icon -->
+			<?php include 'HOI_Notification_Icon.php'; ?>
+
+			<a href="#" class="profile">
+				<img src="img/people.png" alt="Profile">
+			</a>
+		</nav>
 
 		<!-- NAVBAR -->
 
@@ -119,16 +119,16 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 					</ul>
 				</div>
 				<a href="HOI_CSV_Data_Download.php" class="btn-download">
-                        <i class='bx'><span class="material-symbols-outlined">download</span></i>Download
-                        <!-- <span class="text"></span> -->
-                    </a>
+					<i class='bx'><span class="material-symbols-outlined">download</span></i>Download
+					<!-- <span class="text"></span> -->
+				</a>
 			</div>
 			<span class="institution-name">
 				<?php echo $user['Institution_Name'] ?>
 			</span>
 			<div class="container" style="font-size:2rem; font-weight:normal; margin-top:1.5%;">
 				Admission Statistics [<span id="currentYear"></span>]
-			</div>			
+			</div>
 			<ul class="box-info">
 				<li>
 					<?php if ($admission_dates['Formfillup_Last_Date'] < $current_date) : ?>
@@ -149,17 +149,19 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 				</li>
 				<li style="display: flex; justify-content: space-between; align-items: center;padding-top:10%;">
 					<!-- First portion for Total Application -->
-					<span class="text" style="flex: 1; text-align: center; border-right: 2px solid #ccc; padding-right:2%;">
+					<span class="text"
+						style="flex: 1; text-align: center; border-right: 2px solid #ccc; padding-right:2%;">
 						<h3>2834</h3>
 						<p>Total <span class="badge rounded-pill bg-warning" style="font-weight:500;">Draft</span></p>
 					</span>
 					<!-- Second portion for Total Submission -->
 					<span class="text" style="flex: 1; text-align: center;padding-left:0px;margin-left:-7%;">
 						<h3>2834</h3>
-						<p>Total <span class="badge rounded-pill bg-success" style="font-weight:500;background-color:#89ff88;color:White;">Submitted</span></p>
+						<p>Total <span class="badge rounded-pill bg-success"
+								style="font-weight:500;background-color:#89ff88;color:White;">Submitted</span></p>
 					</span>
 				</li>
-								
+
 				<li>
 					<i class='bx bxs-dollar-circle'></i>
 					<span class="text">
@@ -175,7 +177,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 						<!-- <i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i> -->
 					</div>
-					<table> 
+					<table>
 						<thead>
 							<tr>
 								<th>Sl No.</th>
@@ -269,7 +271,7 @@ if ($admission_dates['Formfillup_Last_Date'] < $current_date) {
 	</section>
 	<!-- CONTENT -->
 
-<script> document.getElementById('currentYear').textContent = new Date().getFullYear(); </script>
+	<script> document.getElementById('currentYear').textContent = new Date().getFullYear(); </script>
 	<script src="script.js"></script>
 </body>
 
