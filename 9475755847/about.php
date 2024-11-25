@@ -1,4 +1,5 @@
 <?php require ('../favicon.php') ?>
+<?php include('_DIR_/../../exception_handler.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 

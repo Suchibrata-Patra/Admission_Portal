@@ -530,7 +530,7 @@
                 "args": [
                     "localhsost",
                     "root",
-                    {},
+                    [],
                     "user"
                 ]
             },
@@ -548,5 +548,246 @@
         "request_uri": "\/Complete_List.php",
         "remote_addr": "::1",
         "user_agent": null
+    },
+    {
+        "type": "Error",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/choose_sub.php",
+        "line": 10,
+        "error_code": 2,
+        "timestamp": "2024-11-25 23:32:50",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/choose_sub.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/choose_sub.php",
+        "line": 10,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/choose_sub.php(10): errorHandler(2, 'Undefined varia...', '\/Applications\/M...', 10)\n#1 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/choose_sub.php",
+                "line": 10,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "Undefined variable $user",
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/choose_sub.php",
+                    10
+                ]
+            }
+        ],
+        "timestamp": "2024-11-25 23:32:50",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/choose_sub.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Error",
+        "message": "require(super_admin.Sphp): Failed to open stream: No such file or directory",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/final_preview.php",
+        "line": 4,
+        "error_code": 2,
+        "timestamp": "2024-11-25 23:37:11",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/final_preview.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+        "session": {
+            "authenticated": true,
+            "msg": "You must log in first",
+            "email": "suchibratapatra2003@gmail.com",
+            "success": "Marks updated successfully",
+            "initiated": true,
+            "last_regenerate": 1732557924,
+            "IPaddress": "::1",
+            "userAgent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+            "reg_no": "123456789"
+        }
+    },
+    {
+        "type": "Exception",
+        "message": "require(super_admin.Sphp): Failed to open stream: No such file or directory",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/final_preview.php",
+        "line": 4,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/final_preview.php(4): errorHandler(2, 'require(super_a...', '\/Applications\/M...', 4)\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/final_preview.php(4): require()\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/final_preview.php",
+                "line": 4,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "require(super_admin.Sphp): Failed to open stream: No such file or directory",
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/final_preview.php",
+                    4
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/final_preview.php",
+                "line": 4,
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-25 23:37:11",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/final_preview.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+        "session": {
+            "authenticated": true,
+            "msg": "You must log in first",
+            "email": "suchibratapatra2003@gmail.com",
+            "success": "Marks updated successfully",
+            "initiated": true,
+            "last_regenerate": 1732557924,
+            "IPaddress": "::1",
+            "userAgent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+            "reg_no": "123456789"
+        }
+    },
+    {
+        "type": "Error",
+        "message": "require_once(\/Applications\/MAMP\/htdocs\/9475755847.\/..\/..\/..\/dompdf\/vendor\/autoload.php): Failed to open stream: No such file or directory",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/receipt_download.php",
+        "line": 12,
+        "error_code": 2,
+        "timestamp": "2024-11-25 23:43:03",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/receipt_download.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+        "session": {
+            "authenticated": true,
+            "msg": "You must log in first",
+            "email": "suchibratapatra2003@gmail.com",
+            "success": "Marks updated successfully",
+            "initiated": true,
+            "last_regenerate": 1732557924,
+            "IPaddress": "::1",
+            "userAgent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+            "reg_no": "123456789"
+        }
+    },
+    {
+        "type": "Exception",
+        "message": "require_once(\/Applications\/MAMP\/htdocs\/9475755847.\/..\/..\/..\/dompdf\/vendor\/autoload.php): Failed to open stream: No such file or directory",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/receipt_download.php",
+        "line": 12,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/receipt_download.php(12): errorHandler(2, 'require_once(\/A...', '\/Applications\/M...', 12)\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/receipt_download.php(12): require_once()\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/receipt_download.php",
+                "line": 12,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "require_once(\/Applications\/MAMP\/htdocs\/9475755847.\/..\/..\/..\/dompdf\/vendor\/autoload.php): Failed to open stream: No such file or directory",
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/receipt_download.php",
+                    12
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/receipt_download.php",
+                "line": 12,
+                "function": "require_once"
+            }
+        ],
+        "timestamp": "2024-11-25 23:43:03",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/receipt_download.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+        "session": {
+            "authenticated": true,
+            "msg": "You must log in first",
+            "email": "suchibratapatra2003@gmail.com",
+            "success": "Marks updated successfully",
+            "initiated": true,
+            "last_regenerate": 1732557924,
+            "IPaddress": "::1",
+            "userAgent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+            "reg_no": "123456789"
+        }
+    },
+    {
+        "type": "Error",
+        "message": "require_once(\/Applications\/MAMP\/htdocs\/9475755847.\/..\/..\/..\/dompdf\/vendor\/autoload.php): Failed to open stream: No such file or directory",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/receipt_download.php",
+        "line": 12,
+        "error_code": 2,
+        "timestamp": "2024-11-25 23:43:08",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/receipt_download.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+        "session": {
+            "authenticated": true,
+            "msg": "You must log in first",
+            "email": "suchibratapatra2003@gmail.com",
+            "success": "Marks updated successfully",
+            "initiated": true,
+            "last_regenerate": 1732557924,
+            "IPaddress": "::1",
+            "userAgent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+            "reg_no": "123456789"
+        }
+    },
+    {
+        "type": "Exception",
+        "message": "require_once(\/Applications\/MAMP\/htdocs\/9475755847.\/..\/..\/..\/dompdf\/vendor\/autoload.php): Failed to open stream: No such file or directory",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/receipt_download.php",
+        "line": 12,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/receipt_download.php(12): errorHandler(2, 'require_once(\/A...', '\/Applications\/M...', 12)\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/receipt_download.php(12): require_once()\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/receipt_download.php",
+                "line": 12,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "require_once(\/Applications\/MAMP\/htdocs\/9475755847.\/..\/..\/..\/dompdf\/vendor\/autoload.php): Failed to open stream: No such file or directory",
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/receipt_download.php",
+                    12
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/receipt_download.php",
+                "line": 12,
+                "function": "require_once"
+            }
+        ],
+        "timestamp": "2024-11-25 23:43:08",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/receipt_download.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+        "session": {
+            "authenticated": true,
+            "msg": "You must log in first",
+            "email": "suchibratapatra2003@gmail.com",
+            "success": "Marks updated successfully",
+            "initiated": true,
+            "last_regenerate": 1732557924,
+            "IPaddress": "::1",
+            "userAgent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+            "reg_no": "123456789"
+        }
+    },
+    {
+        "type": "Fatal Error",
+        "message": "Cannot redeclare getRelativePath() (previously declared in \/Applications\/MAMP\/htdocs\/exception_handler.php:18)",
+        "file": "\/Applications\/MAMP\/htdocs\/exception_handler.php",
+        "line": 18,
+        "error_code": 64,
+        "timestamp": "2024-11-26 00:04:51",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/generate_html.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
     }
 ]

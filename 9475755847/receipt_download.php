@@ -1,3 +1,4 @@
+
 <?php
 // Start output buffering
 ob_start();
@@ -8,8 +9,8 @@ ini_set('display_errors', 1);
 require 'database.php'; 
 require 'session.php';
 require 'super_admin.php';
-require_once __DIR__ . '/../dompdf/vendor/autoload.php';
 
+require_once __DIR__ . '/../Assets/dompdf/vendor/autoload.php';
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
@@ -153,9 +154,3 @@ exit;
 // header('Content-Disposition: attachment; filename="student_details.pdf"');
 // echo $dompdf->output();
 ?>
-
-
-
-
-
-

@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Applications/MAMP/htdocs/System_Health",
-      "program": "/Applications/MAMP/htdocs/System_Health/build/Debug/outDebug"
+      "cwd": "/Applications/MAMP/htdocs/9475755847",
+      "program": "/Applications/MAMP/htdocs/9475755847/build/Debug/outDebug"
     }
   ]
 }

@@ -1,7 +1,8 @@
 <?php include('../favicon.php') ?>
+<?php include('_DIR_/../../exception_handler.php') ?>
 <?php
-// require 'session.php';
 require 'super_admin.php';
+include_once ('session.php');
 $table_name = $udise_code . '_Student_Details';
 $school_table = $udise_code . '_HOI_Login_Credentials';
 
