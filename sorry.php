@@ -166,14 +166,13 @@
 
   <div class="container">
     <!-- Image Section -->
-    <img src="https://static.vecteezy.com/system/resources/previews/006/241/035/non_2x/cute-cartoon-puppy-outline-funny-dog-illustration-for-kids-illustration-with-black-outline-happy-cartoon-puppy-sits-portrait-of-a-cute-dog-a-dog-friend-on-white-background-free-vector.jpg" 
-         alt="Cute Cartoon Puppy">
-
+    <img rel="preload" src="../../Assets/images/We_are_Sorry_Saying_Puppy.webp" alt="We are sorry - saying puppy" alt="Cute Cartoon Puppy">
+  
     <!-- Error Content Section -->
     <div class="error-container">
       <h1 style="font-size:100px;">500</h1>
       <h1 class="error-title">It's Not You, It's Us</h1>
-      <h5  style="color:grey;font-weight:300;font-size:15px;">ORACLE_PARSING_ERROR -  LOGGING_SUCCESFUL</h5>
+      <h5  style="color:grey;font-weight:300;font-size:15px;">ORACLE_PARSING_ERROR -  U_SUCCESFUL</h5>
       <p class="error-message" style="font-weight:300;font-size:25px;">
         Please bear with us while we resolve the issue. If the problem persists, let us know.  
       </p>
