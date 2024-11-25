@@ -49,22 +49,20 @@
         <ul>
           <li class="contact-item">
             <ion-icon name="call-outline"></ion-icon>
-            <a href="tel:+919475755847" class="contact-link">+91 9475755847</a>
+            <a href="tel:+919475755847" class="contact-link">+91 9475755847 [ Whatsapp Avialable ]</a>
           </li>
           <li class="contact-item">
             <ion-icon name="mail-outline"></ion-icon>
-            <a href="mailto:suchibratapatra2003@gmail.com" class="contact-link">suchibratapatra2003@gmail.com</a>
+            <a href="mailto:the.application.in@gmail.com" class="contact-link">the.application.in@gmail.com</a>
           </li>
           <li class="contact-item">
             <ion-icon name="location-outline"></ion-icon>
-            <address>Diamond Harbour,West Bengal,INDIA</address>
+            <address>Sreenagar, Kolkata - 94</address>
           </li>
         </ul>
-        <br>
         <ul>
           <p>Quick Links</p>
           <hr style="width: 30%; height: 2.5px; border: none; background-color:#3b79c9;">
-          <br>
           <li class="contact-item">
             <a href="index.php" class="contact-link">Home</a>
           </li>
@@ -106,7 +104,7 @@
             <a href="privacy_policy.php" class="footer-bottom-link">Privacy Policy</a>
           </li> -->
         <li>
-          <a href="sitemap_index.xml" class="footer-bottom-link">Sitemap</a>
+          <a href="sitemap.xml" class="footer-bottom-link">Sitemap</a>
         </li>
         <li>
           <a href="terms_and_conditions.php" class="footer-bottom-link">T&C</a>
@@ -128,7 +126,7 @@
           <ion-icon name="logo-facebook"></ion-icon>
         </li>
         <li class="footer-items">
-          <a href="https://x.com/@the_application" style="text-decoration:none;"><ion-icon
+          <a href="https://x.com/ThApplication" style="text-decoration:none;"><ion-icon
               name="logo-twitter"></ion-icon></a>
         </li>
         <li class="footer-items">
