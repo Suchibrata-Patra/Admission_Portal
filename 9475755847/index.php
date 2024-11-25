@@ -28,9 +28,9 @@
   <!-- 
     - preload images
   -->
-  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
-  <link rel="preload" as="image" href="./assets/images/hero-abs-1.png" media="min-width(768px)">
-  <link rel="preload" as="image" href="./assets/images/hero-abs-2.png" media="min-width(768px)">
+  <link rel="preload" as="image" href="./Assets/images/hero-banner.png">
+  <link rel="preload" as="image" href="./Assets/images/hero-abs-1.png" media="min-width(768px)">
+  <link rel="preload" as="image" href="./Assets/images/hero-abs-2.png" media="min-width(768px)">
 </head>
 
 <body id="top">
@@ -72,7 +72,7 @@
         - #HERO
       -->
 
-      <section class="hero" id="home" aria-label="hero" style="background-image: url('./assets/images/hero-bg.jpg')">
+      <section class="hero" id="home" aria-label="hero" style="background-image: url('./Assets/images/hero-bg.jpg')">
         <div class="container">
 
           <div class="hero-content">
@@ -95,13 +95,13 @@
 
           <figure class="hero-banner">
 
-            <img src="./assets/images/hero-banner.png" width="500" height="500" loading="lazy" alt="hero image"
+            <img src="./Assets/images/hero-banner.png" width="500" height="500" loading="lazy" alt="hero image"
               class="w-100">
 
-            <img src="./assets/images/hero-abs-1.png" width="318" height="352" loading="lazy" aria-hidden="true"
+            <img src="./Assets/images/hero-abs-1.png" width="318" height="352" loading="lazy" aria-hidden="true"
               class="abs-img abs-img-1">
 
-            <img src="./assets/images/hero-abs-2.png" width="160" height="160" loading="lazy" aria-hidden="true"
+            <img src="./Assets/images/hero-abs-2.png" width="160" height="160" loading="lazy" aria-hidden="true"
               class="abs-img abs-img-2">
 
           </figure>
@@ -200,17 +200,17 @@
             <img
               src="https://images.unsplash.com/photo-1630239037684-0753a96a082f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               width="450" height="590" loading="lazy" alt="about banner" class="w-100 about-img">
-            <!-- <img src="./assets/images/about-banner.jpg" width="450" height="590" loading="lazy" alt="about banner"
+            <!-- <img src="./Assets/images/about-banner.jpg" width="450" height="590" loading="lazy" alt="about banner"
               class="w-100 about-img"> -->
 
             <!-- <img src="https://images.unsplash.com/photo-1529158062015-cad636e205a0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D" width="188" height="242" loading="lazy" aria-hidden="true"
               class="abs-img abs-img-1"> -->
 
-            <img src="./assets/images/about-abs-1.jpg" width="188" height="242" loading="lazy" aria-hidden="true"
+            <img src="./Assets/images/about-abs-1.jpg" width="188" height="242" loading="lazy" aria-hidden="true"
               class="abs-img abs-img-1">
 
 
-            <img src="./assets/images/about-abs-2.jpg" width="150" height="200" loading="lazy" aria-hidden="true"
+            <img src="./Assets/images/about-abs-2.jpg" width="150" height="200" loading="lazy" aria-hidden="true"
               class="abs-img abs-img-2">
 
           </figure>
@@ -226,7 +226,7 @@
               <li class="about-item">
 
                 <div class="item-icon item-icon-1">
-                  <img src="./assets/images/about-icon-1.png" width="30" height="30" loading="lazy" aria-hidden="true">
+                  <img src="./Assets/images/about-icon-1.png" width="30" height="30" loading="lazy" aria-hidden="true">
                 </div>
 
                 <div>
@@ -244,7 +244,7 @@
               <li class="about-item">
 
                 <div class="item-icon item-icon-2">
-                  <img src="./assets/images/about-icon-2.png" width="30" height="30" loading="lazy" aria-hidden="true">
+                  <img src="./Assets/images/about-icon-2.png" width="30" height="30" loading="lazy" aria-hidden="true">
                 </div>
 
                 <div>
@@ -260,7 +260,7 @@
               <li class="about-item">
 
                 <div class="item-icon item-icon-3">
-                  <img src="./assets/images/about-icon-3.png" width="30" height="30" loading="lazy" aria-hidden="true">
+                  <img src="./Assets/images/about-icon-3.png" width="30" height="30" loading="lazy" aria-hidden="true">
                 </div>
 
                 <div>
@@ -297,7 +297,7 @@
       -->
 
       <section class="section course" id="courses" aria-label="course"
-        style="background-image: url('./assets/images/course-bg.jpg')">
+        style="background-image: url('./Assets/images/course-bg.jpg')">
         <div class="container">
 
           <p class="section-subtitle">Popular Courses</p>
@@ -310,7 +310,7 @@
               <div class="course-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/course-1.jpg" width="370" height="270" loading="lazy"
+                  <img src="./Assets/images/course-1.jpg" width="370" height="270" loading="lazy"
                     alt="Competitive Strategy law for all students" class="img-cover">
                 </figure>
 
@@ -385,7 +385,7 @@
               <div class="course-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/course-2.jpg" width="370" height="270" loading="lazy"
+                  <img src="./Assets/images/course-2.jpg" width="370" height="270" loading="lazy"
                     alt="Machine Learning A-Z: Hands-On Python and java" class="img-cover">
                 </figure>
 
@@ -458,7 +458,7 @@
               <div class="course-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/course-3.jpg" width="370" height="270" loading="lazy"
+                  <img src="./Assets/images/course-3.jpg" width="370" height="270" loading="lazy"
                     alt="Achieving Advanced in Insights with Big" class="img-cover">
                 </figure>
 
@@ -534,7 +534,7 @@
               <div class="course-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/course-4.jpg" width="370" height="270" loading="lazy"
+                  <img src="./Assets/images/course-4.jpg" width="370" height="270" loading="lazy"
                     alt="Education Makes A Person A Responsible Citizen" class="img-cover">
                 </figure>
 
@@ -609,7 +609,7 @@
               <div class="course-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/course-5.jpg" width="370" height="270" loading="lazy"
+                  <img src="./Assets/images/course-5.jpg" width="370" height="270" loading="lazy"
                     alt="Building A Better World One Student At A Time" class="img-cover">
                 </figure>
 
@@ -684,7 +684,7 @@
               <div class="course-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/course-6.jpg" width="370" height="270" loading="lazy"
+                  <img src="./Assets/images/course-6.jpg" width="370" height="270" loading="lazy"
                     alt="Education is About Forming Faithful Disciples" class="img-cover">
                 </figure>
 
@@ -774,11 +774,11 @@
         - #CTA
       -->
 
-      <section class="section cta" aria-label="workshop" style="background-image: url('./assets/images/cta-bg.png')">
+      <section class="section cta" aria-label="workshop" style="background-image: url('./Assets/images/cta-bg.png')">
         <div class="container">
 
           <figure class="cta-banner">
-            <img src="./assets/images/cta-banner.jpg" width="580" height="380" loading="lazy" alt="cta banner"
+            <img src="./Assets/images/cta-banner.jpg" width="580" height="380" loading="lazy" alt="cta banner"
               class="img-cover">
           </figure>
 
@@ -824,7 +824,7 @@
               <div class="event-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/event-1.jpg" width="370" height="250" loading="lazy"
+                  <img src="./Assets/images/event-1.jpg" width="370" height="250" loading="lazy"
                     alt="Innovation & Technological Entrepreneurship Team" class="img-cover">
                 </figure>
 
@@ -857,7 +857,7 @@
               <div class="event-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/event-2.jpg" width="370" height="250" loading="lazy"
+                  <img src="./Assets/images/event-2.jpg" width="370" height="250" loading="lazy"
                     alt="Virtual Spring Part-time Jobs Fair for Student" class="img-cover">
                 </figure>
 
@@ -890,7 +890,7 @@
               <div class="event-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/event-3.jpg" width="370" height="250" loading="lazy"
+                  <img src="./Assets/images/event-3.jpg" width="370" height="250" loading="lazy"
                     alt="Explorations of Regional Chief Executive Network" class="img-cover">
                 </figure>
 
@@ -933,7 +933,7 @@
       -->
 
       <section class="section newsletter" aria-label="newsletter"
-        style="background-image: url('./assets/images/newsletter-bg.jpg')">
+        style="background-image: url('./Assets/images/newsletter-bg.jpg')">
         <div class="container">
 
           <p class="section-subtitle">Subscribe Newsletter</p>
