@@ -171,8 +171,9 @@
 
     <!-- Error Content Section -->
     <div class="error-container">
-      <h1 style="font-size:100px;">400</h1>
+      <h1 style="font-size:100px;">500</h1>
       <h1 class="error-title">It's Not You, It's Us</h1>
+      <h5  style="color:grey;font-weight:300;font-size:15px;">ORACLE_PARSING_ERROR -  LOGGING_SUCCESFUL</h5>
       <p class="error-message" style="font-weight:300;font-size:25px;">
         Please bear with us while we resolve the issue. If the problem persists, let us know.  
       </p>
