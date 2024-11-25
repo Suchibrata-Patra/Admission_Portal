@@ -831,5 +831,112 @@
         "request_uri": "\/9475755847\/payment_details.php",
         "remote_addr": "::1",
         "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Error",
+        "message": "include(__DIR__ . \/..\/favicon.php): Failed to open stream: No such file or directory",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/signup.php",
+        "line": 2,
+        "error_code": 2,
+        "timestamp": "2024-11-26 00:11:58",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/signup.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "include(__DIR__ . \/..\/favicon.php): Failed to open stream: No such file or directory",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/signup.php",
+        "line": 2,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/signup.php(2): errorHandler(2, 'include(__DIR__...', '\/Applications\/M...', 2)\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/signup.php(2): include()\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/signup.php",
+                "line": 2,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "include(__DIR__ . \/..\/favicon.php): Failed to open stream: No such file or directory",
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/signup.php",
+                    2
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/signup.php",
+                "line": 2,
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 00:11:58",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/signup.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Fatal Error",
+        "message": "Cannot redeclare getRelativePath() (previously declared in \/Applications\/MAMP\/htdocs\/exception_handler.php:18)",
+        "file": "\/Applications\/MAMP\/htdocs\/exception_handler.php",
+        "line": 18,
+        "error_code": 64,
+        "timestamp": "2024-11-26 00:13:46",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/receipt_download.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+        "session": {
+            "authenticated": true,
+            "msg": "You must log in first",
+            "email": "suchibratapatra2003@gmail.com",
+            "success": "Marks updated successfully",
+            "initiated": true,
+            "last_regenerate": 1732559787,
+            "IPaddress": "::1",
+            "userAgent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+            "reg_no": "123456789"
+        }
+    },
+    {
+        "type": "Error",
+        "message": "require(super_admins.php): Failed to open stream: No such file or directory",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/forgot_password.php",
+        "line": 7,
+        "error_code": 2,
+        "timestamp": "2024-11-26 00:42:49",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/forgot_password.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "require(super_admins.php): Failed to open stream: No such file or directory",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/forgot_password.php",
+        "line": 7,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/forgot_password.php(7): errorHandler(2, 'require(super_a...', '\/Applications\/M...', 7)\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/forgot_password.php(7): require()\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/forgot_password.php",
+                "line": 7,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "require(super_admins.php): Failed to open stream: No such file or directory",
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/forgot_password.php",
+                    7
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/forgot_password.php",
+                "line": 7,
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 00:42:49",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/forgot_password.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
     }
 ]

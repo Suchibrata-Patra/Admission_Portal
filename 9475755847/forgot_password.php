@@ -1,4 +1,5 @@
 <?php include('../favicon.php') ?>
+<?php include('_DIR_/../../exception_handler.php') ?>
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -31,9 +32,9 @@ require_once __DIR__ . '../../Assets/vendor/autoload.php';
 $rand = rand(100000, 999999);  // Ensure the OTP is a 6-digit number
 
 // Function to generate a random password
-function generateRandomPassword($length = 10)
+function generateRandomPassword($length = 6)
 {
-    $characters = '@#$%ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    $characters = 'ABCDEFGHJKMNPQRSTUVWXYZ0123456789';
     $password = '';
     for ($i = 0; $i < $length; $i++) {
         $password .= $characters[rand(0, strlen($characters) - 1)];
@@ -116,68 +117,123 @@ if (isset($_POST['forgot_password'])) {
         // Send the new password to the user via email
         $subject = "New Password";
         $message = "
-        <html>
-        <head>
-          <title>New Password</title>
-          <style>
-            body {
-              font-family: Arial, sans-serif;
-              background-color: #f4f4f4;
-              margin: 0;
-              padding: 0;
-            }
-            .container {
-              max-width: 400px;
-              margin: 50px auto;
-              background-color: #fff;
-              padding: 20px;
-              border-radius: 8px;
-              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-            h2 {
-              text-align: center;
-              margin-bottom: 20px;
-            }
-            p {
-              margin-bottom: 20px;
-            }
-            .btn {
-              display: inline-block;
-              background-color: #4caf50;
-              color: #fff;
-              padding: 10px 20px;
-              border: none;
-              border-radius: 5px;
-              text-decoration: none;
-              font-size.com 
-              : 16px;
-              transition: background-color 0.3s ease;
-            }
-            .btn:hover {
-              background-color: #45a049;
-            }
-          </style>
-        </head>
-        <body>
-          <div class='container'>
-            <h2>New Password</h2>
-            <p>Your temporary Password is : <br>
-            <center>
-                <strong style='color:#FF5A5F;font-size:26px;font-weight: 200px;'>$newPassword</strong>
-            </center>
-            </p>
-            <p>Please login using this new password and consider changing it to a more secure one.</p>
-            <p>If you did not request this change, please contact us immediately.</p>
-            <p>Best regards,<br>
-              <center>
-                <button style='background-color: #eaeaea;padding: 10px 20px;border: none;border-radius: 5px;color: black;font-size: 16px;font-weight: 300;cursor: pointer;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            '>
-                theapply.in
-            </button></center>
-                        </p>
-          </div>
-        </body>
-        </html>
+        <!DOCTYPE html>
+<html>
+  <head>
+    <title>Reset Your Password</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+      }
+
+      .email-container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        border: 1px solid #e6e6e6;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .email-header {
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      .email-header img {
+        width: 30%;
+      }
+
+      .email-body {
+        padding: 30px;
+        color: #333333;
+      }
+
+      .email-body h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #000000;
+      }
+
+      .email-body p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      .reset-button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background-color: #e50914;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 12px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      .reset-button:hover {
+        background-color: #d40813;
+      }
+
+      .email-footer {
+        padding: 20px;
+        font-size: 14px;
+        color: #666666;
+        text-align: center;
+        border-top: 1px solid #e6e6e6;
+      }
+
+      .email-footer a {
+        color: #e50914;
+        text-decoration: none;
+      }
+
+      .email-footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='email-container'>
+      <div class='email-header'>
+        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/The_application.in_navbara_icon.png/220px-The_application.in_navbara_icon.png' alt='TheApplication Logo' />
+      </div>
+      <div class='email-body'>
+        <h1>Reset your password</h1>
+        <p>Hi,</p>
+        <p>
+          Let's reset your password so you can get back to watching. Click the
+          button below to reset your password.
+        </p>
+        <a href='#' class='reset-button'>$newPassword</a>
+        <p>
+          If you did not ask to reset your password, you may want to review your
+          account for any unusual activity.
+        </p>
+        <p>We're here to help if you need it.</p>
+      </div>
+      <div class='email-footer'>
+        <p>
+          Questions? Contact Us from our official Website.<br />
+          <!-- <a href='#'>Notification Settings</a> | <a href='#'>Terms of Use</a> |
+          <a href='#'>Privacy</a> | <a href='#'>Help Centre</a> -->
+        </p>
+        <p>
+          Powered by
+          <strong>TheApplication</strong>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
+
         ";
         if (sendEmail($email, $subject, $message)) {
             $_SESSION['success'] = "A new password has been sent to your email address.";

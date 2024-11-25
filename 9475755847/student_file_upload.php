@@ -1,3 +1,4 @@
+<?php include('_DIR_/../../exception_handler.php') ?>
 <?php
 // session_start();
 require 'session.php';
