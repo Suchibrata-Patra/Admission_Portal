@@ -305,7 +305,7 @@ if (isset($_POST['forgot_password'])) {
             background-color: #e50914;
             color: white;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 400;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
@@ -349,8 +349,7 @@ if (isset($_POST['forgot_password'])) {
             </div>
         </form>
         <div class="footer">
-            <p>If you did not request a password reset, please <a href="#">contact support</a>.</p>
-            <p>Powered by <strong>TheApplication</strong></p>
+            <p>Powered by <strong>TheApplication.in</strong></p>
         </div>
     </div>
 </body>
