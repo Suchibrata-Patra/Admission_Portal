@@ -2967,5 +2967,125 @@
         "request_uri": "\/9475755847\/admission",
         "remote_addr": "::1",
         "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/index.php(3): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/index.php",
+                "line": 3,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 15:02:32",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/HOI_signin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/index.php(3): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/index.php",
+                "line": 3,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 15:02:33",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/HOI_signin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/index.php(3): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/index.php",
+                "line": 3,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 15:02:33",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/HOI_signin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/index.php(3): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/index.php",
+                "line": 3,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 15:02:33",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/HOI_signin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
     }
 ]
