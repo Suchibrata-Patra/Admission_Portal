@@ -44,7 +44,7 @@
       <div class="footer-contact">
 
         <li class="contact-item">
-          <a href="index.php" class="contact-link" style="font-size:20px;font-weight:600;">CONTACT</a>
+          <a href="/" class="contact-link" style="font-size:20px;font-weight:600;">CONTACT</a>
         </li>
         <p class="contact-text">
           Feel free to contact us for any inquiries or assistance.
@@ -65,7 +65,7 @@
         </ul>
         <ul>
           <li class="contact-item">
-            <a href="index.php" class="contact-link" style="font-size:20px;font-weight:600;">Quick Links</a>
+            <a href="/" class="contact-link" style="font-size:20px;font-weight:600;">Quick Links</a>
           </li>
           <li class="contact-item">
             <a href="/" class="contact-link">Home</a>
@@ -111,7 +111,7 @@
           <a href="sitemap.xml" class="footer-bottom-link">Sitemap</a>
         </li>
         <li>
-          <a href="terms_and_conditions.php" class="footer-bottom-link">T&C</a>
+          <a href="terms_and_conditions" class="footer-bottom-link">T&C</a>
         </li>
         <li style="color: white;">
           <div style="display: flex; align-items: center;">
