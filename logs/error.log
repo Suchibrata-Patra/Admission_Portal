@@ -2955,5 +2955,17 @@
         "request_uri": "\/9475755847\/admission.php",
         "remote_addr": "::1",
         "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Fatal Error",
+        "message": "Cannot redeclare getRelativePath() (previously declared in \/Applications\/MAMP\/htdocs\/exception_handler.php:18)",
+        "file": "\/Applications\/MAMP\/htdocs\/exception_handler.php",
+        "line": 18,
+        "error_code": 64,
+        "timestamp": "2024-11-26 14:39:09",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
     }
 ]
