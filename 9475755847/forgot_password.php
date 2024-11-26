@@ -209,8 +209,7 @@ if (isset($_POST['forgot_password'])) {
         <h1>Reset your password</h1>
         <p>Hi,</p>
         <p>
-          Let's reset your password so you can get back to watching. Click the
-          button below to reset your password.
+         Following is the OTP for resetting your Password. Login as usual using the following OTP as your password. Later On If You wish, You can change the Password as you want.
         </p>
         <a href='#' class='reset-button'>$newPassword</a>
         <p>
@@ -260,85 +259,98 @@ if (isset($_POST['forgot_password'])) {
     <title>Forgot Password</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Optional: Include the Material Icons CDN for the lock icon -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
-            background-color: #eaeaea;
+            background-color: #f3f3f3;
+            font-family: Arial, sans-serif;
         }
 
         .formbox {
             background-color: white;
-            border-radius: 20px;
-            padding-left: 12%;
-            padding-right: 12%;
-            padding-top: 5%;
-            padding-bottom: 5%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 500px;
+            margin: 50px auto;
+            text-align: center;
         }
 
-        p {
-            text-align: justify;
+        .formbox h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
         }
 
-        #submitBtn {
-            background-color: rgb(242, 240, 240);
-            color: black;
-            border: none;
-            padding: 10px 80px;
+        .formbox p {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .formbox .lock-icon {
+            font-size: 40px;
+            color: #e50914;
+            margin-bottom: 20px;
+        }
+
+        .formbox .form-control {
             border-radius: 5px;
+            height: 45px;
+            font-size: 14px;
         }
 
-        #submitBtn:hover {
-            color: #ffffff;
-            background-color: black;
+        .formbox button {
+            background-color: #e50914;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .formbox button:hover {
+            background-color: #b00710;
+        }
+
+        .footer {
+            font-size: 12px;
+            color: #888;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #e50914;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand mx-auto" href="#">
-                <?php echo htmlspecialchars($school_info['School_Name']); ?>
-            </a>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="formbox">
-                    <center>
-                        <span class="material-icons rotating-dashed-border"
-                            style="font-size: 38px; padding-top: 10px;color:#686D76;border: 1px dashed #686D76;border-radius: 90px;padding:5px;">
-                            lock
-                        </span>
-                    </center>
-                    <h2 class="text-center">Forgot Password</h2>
-                    <p class="text-center" style="color: grey;font-size:13px;">
-                        After rest, use the password sent to your email to log in for future access. And from the next
-                        time onwards use that Password to Login to Your Application.
-                    </p>
-                    <form method="post" action="forgot_password.php">
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" name="email" id="email"
-                                placeholder="Enter Registered Email Only" required>
-                        </div>
-                        <div class="form-group text-center">
-                            <button type="submit" class="submit_button" name="forgot_password" id="submitBtn">Reset
-                                Password</button>
-                        </div>
-                    </form>
-                    <h4 style="color:grey;font-size:13px;font-weight:200;">
-                        <center>Build Version <u>1.1.24</u> [ Expect forthcomming updates for an Optimized stable
-                            Release. ] Developed by Patra Inc.</center>
-                    </h4>
-
-                </div>
+    <div class="formbox">
+        <span class="material-icons lock-icon">lock</span>
+        <h2>Reset Your Password</h2>
+        <p>Let's reset your password so you can get back to accessing your account.</p>
+        <form method="post" action="forgot_password.php">
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" id="email"
+                    placeholder="Enter your registered email" required>
             </div>
+            <div class="form-group">
+                <button type="submit" name="forgot_password">Reset Password</button>
+            </div>
+        </form>
+        <div class="footer">
+            <p>If you did not request a password reset, please <a href="#">contact support</a>.</p>
+            <p>Version 1.1.24 - Developed by Patra Inc.</p>
         </div>
     </div>
 </body>
