@@ -68,22 +68,22 @@
             <a href="index.php" class="contact-link" style="font-size:20px;font-weight:600;">Quick Links</a>
           </li>
           <li class="contact-item">
-            <a href="index.php" class="contact-link">Home</a>
+            <a href="index" class="contact-link">Home</a>
           </li>
           <li class="contact-item">
-            <a href="../../privacy_policy.php" class="contact-link">Privacy Policy</a>
+            <a href="../../privacy_policy" class="contact-link">Privacy Policy</a>
           </li>
           <li class="contact-item">
-            <a href="../../Complete_List.php" class="contact-link">Search Results</a>
+            <a href="../../Complete_List" class="contact-link">Search Results</a>
           </li>
           <li class="contact-item">
             <a href="../../terms_and_conditions" class="contact-link">Terms & Conditions</a>
           </li>
           <li class="contact-item">
-            <a href="../../Digital-Fingerprint-Decoder.php" class="contact-link">Fingerprint Decoder</a>
+            <a href="../../Digital-Fingerprint-Decoder" class="contact-link">Fingerprint Decoder</a>
           </li>
           <li class="contact-item">
-            <a href="../../password_guidelines.php" class="contact-link">Password Guidelines</a>
+            <a href="../../password_guidelines" class="contact-link">Password Guidelines</a>
           </li>
         </ul>
       </div>
