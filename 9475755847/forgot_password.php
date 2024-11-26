@@ -308,7 +308,7 @@ if (isset($_POST['forgot_password'])) {
             font-weight: 400;
             border: none;
             padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 2px;
             cursor: pointer;
         }
 
