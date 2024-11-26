@@ -1872,5 +1872,758 @@
         "request_uri": "\/Complete_List.php?search=a",
         "remote_addr": "::1",
         "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:17:53",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:18:12",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:18:12",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:18:12",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:18:12",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:18:15",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:18:16",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:18:16",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:18:20",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:20:21",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:20:21",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:20:21",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:20:22",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:20:22",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:20:36",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:20:36",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/admission.php(4): require('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/admission.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/database.php"
+                ],
+                "function": "require"
+            }
+        ],
+        "timestamp": "2024-11-26 13:20:36",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "syntax error, unexpected single-quoted string \"\/..\/..\/..\/.env\", expecting \")\"",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 44,
+        "trace": "#0 {main}",
+        "trace_details": [],
+        "timestamp": "2024-11-26 13:20:52",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "syntax error, unexpected single-quoted string \"\/..\/..\/..\/.env\", expecting \")\"",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/database.php",
+        "line": 44,
+        "trace": "#0 {main}",
+        "trace_details": [],
+        "timestamp": "2024-11-26 13:20:52",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/admission.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/HOI_Login.php(4): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/HOI_Login.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 13:24:09",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/HOI_signin\/HOI_Login.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+        "session": []
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/HOI_Login.php(4): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/HOI_Login.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 13:24:48",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/HOI_signin\/HOI_Login.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+        "session": []
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/HOI_Login.php(4): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/HOI_Login.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 13:24:49",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/HOI_signin\/HOI_Login.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+        "session": []
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/HOI_Login.php(4): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/HOI_Login.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 13:24:49",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/HOI_signin\/HOI_Login.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+        "session": []
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/HOI_Login.php(4): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/HOI_Login.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 13:24:50",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/HOI_signin\/HOI_Login.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+        "session": []
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/HOI_Login.php(4): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/HOI_Login.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 13:24:50",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/HOI_signin\/HOI_Login.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+        "session": []
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+        "line": 25,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php(44): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/HOI_Login.php(4): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php",
+                "line": 44,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/..\/..\/..\/.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/HOI_Login.php",
+                "line": 4,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/9475755847\/HOI_signin\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 13:24:50",
+        "request_method": "GET",
+        "request_uri": "\/9475755847\/HOI_signin\/HOI_Login.php",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36",
+        "session": []
     }
 ]
