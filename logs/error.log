@@ -938,5 +938,795 @@
         "request_uri": "\/9475755847\/forgot_password.php",
         "remote_addr": "::1",
         "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Access denied for user ''@'localhost' (using password: NO)",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 29,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(29): mysqli->__construct('', '', Object(SensitiveParameterValue), '')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 29,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "",
+                    "",
+                    [],
+                    ""
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:41:26",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Access denied for user ''@'localhost' (using password: NO)",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 29,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(29): mysqli->__construct('', '', Object(SensitiveParameterValue), '')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 29,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "",
+                    "",
+                    [],
+                    ""
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:42:09",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Access denied for user ''@'localhost' (using password: NO)",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 29,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(29): mysqli->__construct('', '', Object(SensitiveParameterValue), '')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 29,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "",
+                    "",
+                    [],
+                    ""
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:42:10",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Access denied for user ''@'localhost' (using password: NO)",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 29,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(29): mysqli->__construct('', '', Object(SensitiveParameterValue), '')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 29,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "",
+                    "",
+                    [],
+                    ""
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:42:10",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Access denied for user ''@'localhost' (using password: NO)",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 29,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(29): mysqli->__construct('', '', Object(SensitiveParameterValue), '')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 29,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "",
+                    "",
+                    [],
+                    ""
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:42:10",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Access denied for user ''@'localhost' (using password: NO)",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 29,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(29): mysqli->__construct('', '', Object(SensitiveParameterValue), '')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 29,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "",
+                    "",
+                    [],
+                    ""
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:42:11",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Access denied for user ''@'localhost' (using password: NO)",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 29,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(29): mysqli->__construct('', '', Object(SensitiveParameterValue), '')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 29,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "",
+                    "",
+                    [],
+                    ""
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:42:11",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Failed opening required '.evnv' (include_path='.:\/Applications\/MAMP\/bin\/php\/php8.2.0\/lib\/php')",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 22,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include()\n#1 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:43:02",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Access denied for user ''@'localhost' (using password: NO)",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 29,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(29): mysqli->__construct('', '', Object(SensitiveParameterValue), '')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 29,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "",
+                    "",
+                    [],
+                    ""
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:43:34",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for 'localhost' failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 55,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(55): mysqli->__construct(''localhost'', ''root'', Object(SensitiveParameterValue), ''user'')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 55,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "'localhost'",
+                    "'root'",
+                    [],
+                    "'user'"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:47:39",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Env file not found.",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 26,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(46): loadEnv('\/Applications\/M...')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 46,
+                "function": "loadEnv",
+                "args": [
+                    "\/Applications\/MAMP\/htdocs.env"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:47:59",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for \"localhost\" failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 59,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(59): mysqli->__construct('\"localhost\"', '\"root\"', Object(SensitiveParameterValue), '\"user\"')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 59,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "\"localhost\"",
+                    "\"root\"",
+                    [],
+                    "\"user\""
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:49:33",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for \"localhost\" failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 59,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(59): mysqli->__construct('\"localhost\"', '\"root\"', Object(SensitiveParameterValue), '\"user\"')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 59,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "\"localhost\"",
+                    "\"root\"",
+                    [],
+                    "\"user\""
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:49:45",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for 'localhost' failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 59,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(59): mysqli->__construct(''localhost'', ''root'', Object(SensitiveParameterValue), ''user'')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 59,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "'localhost'",
+                    "'root'",
+                    [],
+                    "'user'"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:50:06",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined constant \"DB_HOST\"",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 48,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include()\n#1 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:51:47",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined constant \"DB_HOST\"",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 48,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include()\n#1 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:51:55",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined constant \"DB_HOST\"",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 48,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include()\n#1 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:51:56",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined constant \"DB_HOST\"",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 48,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include()\n#1 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:51:57",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for ''localhost' failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 58,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(58): mysqli->__construct('''localhost'', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 58,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "''localhost'",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:52:36",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for ''localhost' failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 58,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(58): mysqli->__construct('''localhost'', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 58,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "''localhost'",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:52:36",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for ''localhost' failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 58,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(58): mysqli->__construct('''localhost'', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 58,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "''localhost'",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:52:36",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for 'localhost' failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 58,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(58): mysqli->__construct(''localhost'', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 58,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "'localhost'",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:52:40",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for 'localhost' failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 58,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(58): mysqli->__construct(''localhost'', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 58,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "'localhost'",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:52:40",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for 'localhost' failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 58,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(58): mysqli->__construct(''localhost'', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 58,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "'localhost'",
+                    "root",
+                    [],
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:52:41",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "php_network_getaddresses: getaddrinfo for 'localhost' failed: nodename nor servname provided, or not known",
+        "file": "\/Applications\/MAMP\/htdocs\/database.php",
+        "line": 58,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/database.php(58): mysqli->__construct(''localhost'', 'root', Object(SensitiveParameterValue), 'user')\n#1 \/Applications\/MAMP\/htdocs\/Complete_List.php(5): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/database.php",
+                "line": 58,
+                "function": "__construct",
+                "class": "mysqli",
+                "type": "->",
+                "args": [
+                    "'localhost'",
+                    "root",
+                    {},
+                    "user"
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/Complete_List.php",
+                "line": 5,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/database.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-11-26 11:52:41",
+        "request_method": "GET",
+        "request_uri": "\/Complete_List.php?search=a",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
     }
 ]
