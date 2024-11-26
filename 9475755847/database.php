@@ -42,9 +42,9 @@ function loadEnv($file) {
 }
 
 loadEnv(dirname(__DIR__) . '/.env');
-$host = getenv('DB_HOST');
+$host = getenv("DB_HOST");
 $user = getenv('DB_USER');
-$password = getenv('DB_PASSWORD');
+$password = getenv("DB_PASSWORD");
 $dbname = getenv('DB_NAME');
 
 if (empty($host) || empty($user) || empty($password) || empty($dbname)) {
