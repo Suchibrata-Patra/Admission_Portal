@@ -341,7 +341,7 @@ if (isset($_POST['forgot_password'])) {
 
     <div class='formbox'>
       <div class='email-header' style='background-color: rgb(244, 244, 244);padding-top: 5%;padding-bottom: 5%;'>
-        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/The_application.in_navbara_icon.png/220px-The_application.in_navbara_icon.png' alt='TheApplication Logo' />
+        <img src='/Assets/images/School_logo.png' alt='TheApplication Logo' />
       </div>
         <div class='container' style='padding-bottom: 7%;margin-top: 10%;padding-left: 2%;padding-right: 2%;'>
           <h3 style='margin-top: 5%;'>Reset Your Password</h3>
