@@ -1,6 +1,9 @@
 <?php include(__DIR__ . '/../../exception_handler.php'); ?>
 <?php
+require 'database.php';
 require 'HOI_Session.php';
+require 'HOI_Super_Admin.php';
+
 if (!isset($udise_code) || !isset($udiseid)) {
     die("UDISE code and ID must be set");
 }
