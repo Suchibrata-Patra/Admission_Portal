@@ -29,59 +29,51 @@ function loadEnv($file) {
     $lines = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
         // Ignore comments and empty lines
-        if (strpos(trim($line), '#') === 0) {
+        if (strpos($line, '#') === 0) {
             continue;
         }
-        // Split key and value safely
-        $parts = explode('=', $line, 2);
-        if (count($parts) === 2) {
-            $key = trim($parts[0]);
-            $value = trim($parts[1]);
-
-            // Remove surrounding quotes if they exist
-            if (preg_match('/^["\'](.*)["\']$/', $value, $matches)) {
-                $value = $matches[1];
-            }
-
-            // Set environment variable
-            putenv("$key=$value");
+        // Ensure no additional whitespace around key-value pairs
+        list($key, $value) = explode('=', $line, 2);
+        if ($key && $value) {
+            // Set environment variables securely
+            putenv(trim($key) . '=' . trim($value));
         }
     }
 }
 
+loadEnv(dirname(__DIR__) . '/.env');
+$host = getenv('DB_HOST');
+$user = getenv('DB_USER');
+$password = getenv("DB_PASSWORD");
+$dbname = getenv('DB_NAME');
+
+if (empty($host) || empty($user) || empty($password) || empty($dbname)) {
+    error_log("Missing or incorrect environment variables.", 0);
+    die("An error occurred while configuring the database connection.");
+}
+
+if (!filter_var($host, FILTER_VALIDATE_URL) && !preg_match('/^[a-zA-Z0-9.-]+$/', $host)) {
+    error_log("Invalid DB_HOST value.", 0);
+    die("Invalid database host.");
+}
+
+if (!preg_match('/^[a-zA-Z0-9_]+$/', $dbname)) {
+    error_log("Invalid DB_NAME value.", 0);
+    die("Invalid database name.");
+}
+mysqli_report(MYSQLI_REPORT_STRICT);
 try {
-    // Load the .env file
-    loadEnv(__DIR__ . '/.env');
-
-    // Retrieve database credentials from the environment
-    $host = getenv('DB_HOST');
-    $user = getenv('DB_USER');
-    $password = getenv('DB_PASSWORD');
-    $dbname = getenv('DB_NAME');
-
-    // Validate environment variables
-    if (!$host || !$user || !$password || !$dbname) {
-        throw new Exception("Missing or incorrect environment variables.");
-    }
-
-    if (!filter_var($host, FILTER_VALIDATE_DOMAIN, FILTER_FLAG_HOSTNAME) && !preg_match('/^[a-zA-Z0-9.-]+$/', $host)) {
-        throw new Exception("Invalid DB_HOST value.");
-    }
-
-    if (!preg_match('/^[a-zA-Z0-9_]+$/', $dbname)) {
-        throw new Exception("Invalid DB_NAME value.");
-    }
-
-    // Enable strict error reporting for MySQLi
-    mysqli_report(MYSQLI_REPORT_STRICT);
-
-    // Establish a database connection
     $db = new mysqli($host, $user, $password, $dbname);
-
-    echo "Successfully connected!";
+    
+    // Check the connection
+    if ($db->connect_error) {
+        throw new Exception("Connection failed: " . $db->connect_error);
+    } else {
+        echo "Successfully connected!";
+    }
 } catch (Exception $e) {
-    // Log the error securely
+    // Log the error securely without exposing sensitive details
     error_log($e->getMessage(), 0);
-    die("An error occurred while connecting to the database.");
+    die("Unable to connect to the database.");
 }
 ?>
