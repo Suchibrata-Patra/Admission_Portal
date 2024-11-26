@@ -350,7 +350,7 @@ if (isset($_POST['forgot_password'])) {
         </form>
         <div class="footer">
             <p>If you did not request a password reset, please <a href="#">contact support</a>.</p>
-            <p>Version 1.1.24 - Developed by Patra Inc.</p>
+            <p>Powered by <strong>TheApplication</strong></p>
         </div>
     </div>
 </body>
