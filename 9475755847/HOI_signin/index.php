@@ -1,12 +1,11 @@
-<?php include(__DIR__ . '/../../exception_handler.php'); ?>
 <?php
-require 'database.php';
-require 'HOI_Session.php';
-require 'HOI_Super_Admin.php';
+// require 'database.php';
+// require 'HOI_Session.php';
+// require 'HOI_Super_Admin.php';
 
-if (!isset($udise_code) || !isset($udiseid)) {
-    die("UDISE code and ID must be set");
-}
+// if (!isset($udise_code) || !isset($udiseid)) {
+//     die("UDISE code and ID must be set");
+// }
 
 $table_name = $udise_code . '_HOI_Login_Credentials';
 $student_table_name = $udise_code .'_Student_Details';
