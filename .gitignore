@@ -1,9 +1,5 @@
-
-Site/eduhome/
-Site/Template_2/
-Site/Template_3/
 .DS_Store
 .DS_Store
 .env
 .DS_Store
-/Centralised_Admin_Dashboard/Secure_Admin_DataBase_Connection.php
+database.php
