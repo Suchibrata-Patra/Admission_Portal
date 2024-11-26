@@ -1,5 +1,5 @@
 <?php
-require 'database.php';
+// require 'database.php';
 require 'HOI_Session.php';
 require 'HOI_Super_Admin.php';
 
