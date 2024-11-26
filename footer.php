@@ -68,7 +68,7 @@
             <a href="index.php" class="contact-link" style="font-size:20px;font-weight:600;">Quick Links</a>
           </li>
           <li class="contact-item">
-            <a href="index" class="contact-link">Home</a>
+            <a href="/" class="contact-link">Home</a>
           </li>
           <li class="contact-item">
             <a href="../../privacy_policy" class="contact-link">Privacy Policy</a>
