@@ -41,7 +41,7 @@ function loadEnv($file) {
     }
 }
 
-loadEnv(__DIR__ . '/../../../.env');
+loadEnv(__DIR__ . '/../../.env');
 $host = getenv('DB_HOST');
 $user = getenv('DB_USER');
 $password = getenv('DB_PASSWORD');
