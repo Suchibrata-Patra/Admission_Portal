@@ -1,6 +1,4 @@
-<?php include('_DIR_/../../exception_handler.php') ?>
 <!DOCTYPE html>
-<?php include('../favicon.php') ?>
 <html lang="en">
 
 <head>
