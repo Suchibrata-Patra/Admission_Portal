@@ -336,8 +336,8 @@ if (isset($_POST['forgot_password'])) {
 
 <body>
     <div class="formbox">
-        <span class="material-icons lock-icon">lock</span>
-        <h2>Reset Your Password</h2>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/The_application.in_navbara_icon.png/220px-The_application.in_navbara_icon.png" alt="">        
+<h2>Reset Your Password</h2>
         <p>Let's reset your password so you can get back to accessing your account.</p>
         <form method="post" action="forgot_password.php">
             <div class="form-group">
