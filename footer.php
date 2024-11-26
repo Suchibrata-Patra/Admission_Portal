@@ -77,7 +77,7 @@
             <a href="../../Complete_List.php" class="contact-link">Search Results</a>
           </li>
           <li class="contact-item">
-            <a href="../../terms_and_conditions.php" class="contact-link">Terms & Conditions</a>
+            <a href="../../terms_and_conditions" class="contact-link">Terms & Conditions</a>
           </li>
           <li class="contact-item">
             <a href="../../Digital-Fingerprint-Decoder.php" class="contact-link">Fingerprint Decoder</a>
