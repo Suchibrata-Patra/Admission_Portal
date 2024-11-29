@@ -16,15 +16,11 @@ try {
 $teachersQuery = $conn->query("SELECT Teacher_ID, Teacher_Name FROM teacher_profile");
 $teachers = $teachersQuery->fetchAll(PDO::FETCH_ASSOC);
 
-// Fetch existing schedules
-$scheduleQuery = $conn->query("SELECT * FROM class_schedule WHERE weekday ='Monday'");
+// Fetch existing schedules for Monday (or any other default weekday)
+$weekday = 'Monday'; // Default to Monday, can change dynamically based on user input
+$scheduleQuery = $conn->prepare("SELECT * FROM class_schedule WHERE Weekday = :weekday");
+$scheduleQuery->execute([':weekday' => $weekday]);
 $schedules = $scheduleQuery->fetchAll(PDO::FETCH_ASSOC);
-
-// Organize schedules by teacher and period for easy access
-$scheduleData = [];
-foreach ($schedules as $schedule) {
-    $scheduleData[$schedule['Teacher_ID']][$schedule['Class_Time']] = $schedule['Subject'];
-}
 
 // Handle GET request for fetching schedules by weekday
 if (isset($_GET['weekday'])) {
@@ -49,36 +45,61 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $teacherID = $entry['teacher_id'];
         $classSection = $entry['class_section'];
         $period = $entry['period'];
-
-        // Check for existing allocation
-        $checkStmt = $conn->prepare("SELECT COUNT(*) FROM class_schedule WHERE Weekday = :weekday AND Subject = :classSection AND Class_Time = :period");
-        $checkStmt->execute([
-            ':weekday' => $weekday,
-            ':classSection' => $classSection,
-            ':period' => $period
+    
+        // Check if an entry exists for the given weekday, class section, and period
+        $stmtCheck = $conn->prepare("SELECT * FROM class_schedule WHERE Weekday = :weekday AND Class = :classSection AND Class_Time = :period");
+        $stmtCheck->execute([
+            ':weekday' => $weekday,  // Ensure this variable holds the correct value for the weekday
+            ':classSection' => $classSection,  // Correct parameter binding for classSection
+            ':period' => $period  // Correct parameter binding for period
         ]);
-        $count = $checkStmt->fetchColumn();
-
-        if ($count > 0) {
-            echo "Error: Duplicate allocation detected for $classSection during $period on $weekday.";
-            exit;
+    
+        // Debug: Check how many rows are returned
+        if ($stmtCheck->rowCount() > 0) {
+            // If the entry exists, check if it's the same teacher for the same period
+            $existingSchedule = $stmtCheck->fetch(PDO::FETCH_ASSOC);
+            
+            // If the teacher is the same, update the entry; otherwise, insert a new entry
+            if ($existingSchedule['Teacher_ID'] == $teacherID) {
+                // Update the schedule only if the teacher is the same
+                echo "Updating existing schedule for $classSection, $period with teacher ID $teacherID\n"; // Debugging line
+                $stmt = $conn->prepare("UPDATE class_schedule SET Teacher_ID = :teacherID WHERE Weekday = :weekday AND Class = :classSection AND Class_Time = :period");
+                $stmt->execute([
+                    ':teacherID' => $teacherID,
+                    ':weekday' => $weekday,
+                    ':classSection' => $classSection,
+                    ':period' => $period
+                ]);
+            } else {
+                // Insert a new schedule if the teacher is different
+                echo "Inserting new schedule for $classSection, $period with a different teacher\n"; // Debugging line
+                $stmt = $conn->prepare("INSERT INTO class_schedule (Weekday, Class, Teacher_ID, Class_Time) VALUES (:weekday, :classSection, :teacherID, :period)");
+                $stmt->execute([
+                    ':weekday' => $weekday,
+                    ':teacherID' => $teacherID,
+                    ':classSection' => $classSection,
+                    ':period' => $period
+                ]);
+            }
+        } else {
+            // If no entry exists, insert a new schedule
+            echo "Inserting new schedule for $classSection, $period\n"; // Debugging line
+            $stmt = $conn->prepare("INSERT INTO class_schedule (Weekday, Class, Teacher_ID, Class_Time) VALUES (:weekday, :classSection, :teacherID, :period)");
+            $stmt->execute([
+                ':weekday' => $weekday,
+                ':teacherID' => $teacherID,
+                ':classSection' => $classSection,
+                ':period' => $period
+            ]);
         }
-
-        // Insert the new schedule
-        $stmt = $conn->prepare("INSERT INTO class_schedule (Weekday, Teacher_ID, Subject, Class_Time) VALUES (:weekday, :teacherID, :classSection, :period)");
-        $stmt->execute([
-            ':weekday' => $weekday,
-            ':teacherID' => $teacherID,
-            ':classSection' => $classSection,
-            ':period' => $period
-        ]);
     }
+    
+    
+    
     echo "Schedule saved successfully!";
     exit;
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -97,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="mb-3">
                 <label for="weekday" class="form-label">Select Weekday</label>
                 <select class="form-select" id="weekday" name="weekday" required>
-                    <!-- <option value="" disabled selected>Choose...</option> -->
+                    <option value="" disabled selected>Choose...</option>
                     <?php
                     $weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
                     foreach ($weekdays as $day) {
@@ -128,12 +149,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><?= htmlspecialchars($teacher['Teacher_Name']) ?></td>
                                 <?php foreach ($periods as $period): ?>
                                     <td>
-                                        <input type="text" 
-                                               class="form-control class-section-input" 
-                                               placeholder=" "
-                                               value="<?= isset($scheduleData[$teacher['Teacher_ID']][$period]) ? htmlspecialchars($scheduleData[$teacher['Teacher_ID']][$period]) : '' ?>"
-                                               data-teacher-id="<?= $teacher['Teacher_ID'] ?>" 
-                                               data-period="<?= $period ?>">
+                                        <!-- Class Dropdown for each period -->
+                                        <select class="form-select class-section-dropdown" data-teacher-id="<?= $teacher['Teacher_ID'] ?>" data-period="<?= $period ?>">
+                                            <option value="" disabled selected>Select Class</option>
+                                            <!-- Predefined list of classes -->
+                                            <?php 
+                                            $classes = ['5A', '5B', '6A', '6B', '7A', '7B', '8A', '8B', '9A', '9C', '10A', '10B', '11ARTS', '11SCIENCE', '12ARTS', '12SCIENCE'];
+                                            foreach ($classes as $class) {
+                                                echo "<option value=\"$class\">$class</option>";
+                                            }
+                                            ?>
+                                        </select>
                                     </td>
                                 <?php endforeach; ?>
                             </tr>
@@ -147,10 +173,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <script>
-       $(document).ready(function () {
+      $(document).ready(function () {
     function updateTable(weekday) {
         // Clear the current table data
-        $('.class-section-input').val('');
+        $('.class-section-dropdown').val('');
 
         // Update the table header with the selected weekday
         $('#tableHeader tr').find('th').first().text('Teacher - ' + weekday);
@@ -167,10 +193,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 schedules.forEach(schedule => {
                     const teacherId = schedule.Teacher_ID;
                     const period = schedule.Class_Time;
-                    const classSection = schedule.Subject;
+                    const classSection = schedule.Class;
 
-                    // Find the corresponding input field and update its value
-                    $(`.class-section-input[data-teacher-id="${teacherId}"][data-period="${period}"]`).val(classSection);
+                    // Find the corresponding dropdown and update its value
+                    $(`.class-section-dropdown[data-teacher-id="${teacherId}"][data-period="${period}"]`).val(classSection);
                 });
             }
         });
@@ -202,7 +228,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         const entries = [];
-        $('.class-section-input').each(function () {
+        $('.class-section-dropdown').each(function () {
             const teacherId = $(this).data('teacher-id');
             const period = $(this).data('period');
             const classSection = $(this).val();
