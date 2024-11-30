@@ -93,43 +93,46 @@ $result = $conn->query($sql);
                             <div class='modal-body'>
                                 <form>
                                     <div class='form-check'>
-                                        <input class='form-check-input period-checkbox' type='checkbox' id='period1-$teacherID' data-teacher='$teacherName' data-period='1' >
+                                        <input class='form-check-input period-checkbox' type='checkbox' id='period1-$teacherID' data-teacher='$teacherName' data-period='1st' >
                                         <label class='form-check-label' for='period1-$teacherID'>1st Period</label>
                                     </div>
                                     <div class='form-check'>
-                                        <input class='form-check-input period-checkbox' type='checkbox' id='period2-$teacherID' data-teacher='$teacherName' data-period='2' >
+                                        <input class='form-check-input period-checkbox' type='checkbox' id='period2-$teacherID' data-teacher='$teacherName' data-period='2nd' >
                                         <label class='form-check-label' for='period2-$teacherID'>2nd Period</label>
                                     </div>
                                     <div class='form-check'>
-                                        <input class='form-check-input period-checkbox' type='checkbox' id='period3-$teacherID' data-teacher='$teacherName' data-period='3' >
+                                        <input class='form-check-input period-checkbox' type='checkbox' id='period3-$teacherID' data-teacher='$teacherName' data-period='3rd' >
                                         <label class='form-check-label' for='period3-$teacherID'>3rd Period</label>
                                     </div>
                                     <div class='form-check'>
-                                        <input class='form-check-input period-checkbox' type='checkbox' id='period4-$teacherID' data-teacher='$teacherName' data-period='4' >
+                                        <input class='form-check-input period-checkbox' type='checkbox' id='period4-$teacherID' data-teacher='$teacherName' data-period='4th' >
                                         <label class='form-check-label' for='period4-$teacherID'>4th Period</label>
                                     </div>
                                     <div class='form-check'>
-                                        <input class='form-check-input period-checkbox' type='checkbox' id='period5-$teacherID' data-teacher='$teacherName' data-period='5' >
+                                        <input class='form-check-input period-checkbox' type='checkbox' id='period5-$teacherID' data-teacher='$teacherName' data-period='5th' >
                                         <label class='form-check-label' for='period5-$teacherID'>5th Period</label>
                                     </div>
                                     <div class='form-check'>
-                                        <input class='form-check-input period-checkbox' type='checkbox' id='period5-$teacherID' data-teacher='$teacherName' data-period='6' >
+                                        <input class='form-check-input period-checkbox' type='checkbox' id='period5-$teacherID' data-teacher='$teacherName' data-period='6th' >
                                         <label class='form-check-label' for='period5-$teacherID'>6th Period</label>
                                     </div>
                                     <div class='form-check'>
-                                        <input class='form-check-input period-checkbox' type='checkbox' id='period5-$teacherID' data-teacher='$teacherName' data-period='7' >
+                                        <input class='form-check-input period-checkbox' type='checkbox' id='period5-$teacherID' data-teacher='$teacherName' data-period='7th' >
                                         <label class='form-check-label' for='period5-$teacherID'>7th Period</label>
                                     </div>
                                     <div class='form-check'>
-                                        <input class='form-check-input period-checkbox' type='checkbox' id='period5-$teacherID' data-teacher='$teacherName' data-period='8' >
+                                        <input class='form-check-input period-checkbox' type='checkbox' id='period5-$teacherID' data-teacher='$teacherName' data-period='8th' >
                                         <label class='form-check-label' for='period5-$teacherID'>8th Period</label>
                                     </div>
                                 </form>
                             </div>
                             <div class='modal-footer'>
-                                <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-                                <button type='button' class='btn btn-primary save-absent-data' data-teacher='$teacherName'>Save Changes</button>
+                                <button type='button' class='btn btn-light' data-bs-dismiss='modal'>Close</button>
+                                <!-- <button type='button' class='btn btn-primary save-absent-data' data-teacher='$teacherName'>Save Changes</button> -->
+                                <button type='button' class='btn btn-danger' id='erase-$teacherID'>Reset</button> <!-- Erase button -->
                             </div>
+                            
+                            
                         </div>
                     </div>
                 </div>
@@ -167,6 +170,32 @@ $result = $conn->query($sql);
     <!-- Include Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        document.querySelectorAll('.teacher-box').forEach(function (card) {
+    card.addEventListener('click', function () {
+        const teacherID = card.id.split('-')[1]; // Get teacher ID from card
+        const modal = document.getElementById('modal-' + teacherID); // Get the corresponding modal
+
+        // Select all checkboxes inside the modal and check them by default
+        const checkboxes = modal.querySelectorAll('.period-checkbox');
+        checkboxes.forEach(function (checkbox) {
+            checkbox.checked = true;
+        });
+
+        // Reset the card border to black when the modal is opened (checkboxes checked by default)
+        card.classList.add('selected');
+
+        // Handle erase button click
+        const eraseButton = document.getElementById('erase-' + teacherID);
+        eraseButton.addEventListener('click', function () {
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = false; // Uncheck all checkboxes
+            });
+            // Remove the 'selected' class from the card if all checkboxes are unchecked
+            card.classList.remove('selected');
+        });
+    });
+});
+
         // Add event listener to each card
         document.querySelectorAll('.teacher-box').forEach(function (card) {
             card.addEventListener('click', function () {
