@@ -127,7 +127,7 @@ $result = $conn->query($sql);
                                 </form>
                             </div>
                             <div class='modal-footer'>
-                                <button type='button' class='btn btn-light' data-bs-dismiss='modal'>Close</button>
+                                <button type='button' class='btn btn-light' data-bs-dismiss='modal'>Save</button>
                                 <!-- <button type='button' class='btn btn-primary save-absent-data' data-teacher='$teacherName'>Save Changes</button> -->
                                 <button type='button' class='btn btn-danger' id='erase-$teacherID'>Reset</button> <!-- Erase button -->
                             </div>
