@@ -148,7 +148,7 @@ $result = $conn->query($sql);
 
     <!-- Button to get the absent teachers list -->
     <div class="text-center mt-4">
-        <button class="btn" id="getAbsentList" style="border-radius:50px;padding:10px;background-color:black;color:white;">Generate List</button>
+        <button class="btn" id="getAbsentList" style="border-radius:50px;padding:10px;background-color:black;color:white;">Modify Database</button>
     </div>
 
     <!-- Table to display absent teachers and their periods -->
@@ -263,23 +263,6 @@ $result = $conn->query($sql);
         `;
         absentTeachersBody.appendChild(row);
     }
-
-    // Send the absent data to scheduler.php
-    fetch('scheduler.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(absentData)
-    })
-    .then(response => response.json())  // Assuming the server returns a JSON response
-    .then(data => {
-        // You can handle the server response here (e.g., show success or failure message)
-        console.log("Server response:", data);
-    })
-    .catch(error => {
-        console.error("Error sending absent data:", error);
-    });
 });
 
     </script>
