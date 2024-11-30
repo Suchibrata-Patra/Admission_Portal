@@ -148,7 +148,7 @@ $result = $conn->query($sql);
 
     <!-- Button to get the absent teachers list -->
     <div class="text-center mt-4">
-        <button class="btn btn-info" id="getAbsentList">Get List</button>
+        <button class="btn" id="getAbsentList" style="border-radius:50px;padding:10px;background-color:black;color:white;">Generate List</button>
     </div>
 
     <!-- Table to display absent teachers and their periods -->
