@@ -33,7 +33,7 @@ $result = $conn->query($sql);
         .teacher-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
+            gap:20px;
         }
 
         .teacher-box {
