@@ -31,9 +31,9 @@ try {
     // Set this to true if SMTP host requires authentication to send email
     $mail->SMTPAuth = true;
     
-    // Provide username and password
-    $mail->Username = $mailid;
-    $mail->Password = $mailid_login_password;  // Use the correct password
+    // // Provide username and password
+    // $mail->Username = $mailid;
+    // $mail->Password = $mailid_login_password;  // Use the correct password
     // // Provide username and password
     $mail->Username = 'otpverifier.2023@gmail.com';
     $mail->Password = 'cymp mmut sqzu vzim';  // Use the correct password
