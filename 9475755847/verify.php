@@ -46,6 +46,7 @@ if (isset($_POST['edit'])) {
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,6 +106,10 @@ if (isset($_POST['edit'])) {
             background-color: black;
             width: 0%;
         }
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <body>
@@ -116,13 +121,16 @@ if (isset($_POST['edit'])) {
                 <button type="submit" name="email_code" class="btn btn-primary">Verify</button>
             </div>
         </form>
-        <button type="button" onclick="resendEmail();" id="resendButton" class="btn btn-primary">
-            Resend OTP
-            <div class="progress-bar" id="progressBar"></div>
-        </button>
-        <form method="post">
-            <button type="submit" name="edit" class="btn btn-primary">Edit Contact Information</button>
-        </form>
+        
+        <div class="btn-container">
+            <button type="button" onclick="resendEmail();" id="resendButton" class="btn btn-primary">
+                Resend OTP
+                <div class="progress-bar" id="progressBar"></div>
+            </button>
+            <form method="post">
+                <button type="submit" name="edit" class="btn btn-primary">Edit Contact Information</button>
+            </form>
+        </div>
     </div>
 
     <!-- Modal for "OTP Sent" -->
@@ -210,3 +218,4 @@ if (isset($_POST['edit'])) {
     </script>
 </body>
 </html>
+
