@@ -1,3 +1,11 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
     /* * {
             margin: 0;
@@ -295,7 +303,7 @@
             <!-- Navbar Links -->
             <ul class="navbar-links">
                 <li>
-                    <a href="routine">Primary Routine</a>
+                    <a href="routine">Routine</a>
                     <!-- Popup Menu for Dashboard
                     <div class="popup-menu">
                         <a href="dashboard-overview.php">Overview</a>
@@ -311,7 +319,7 @@
                     </div> -->
                 </li>
                 <li>
-                    <a href="settings.php">Settings &#8595;</a>
+                    <a href="settings.php">Settings</a>
                     <!-- Popup Menu for Settings -->
                     <div class="popup-menu">
                         <a href="settings-general.php">General</a>
@@ -319,16 +327,14 @@
                     </div>
                 </li>
                 <li>
-                    <a href="contact.php">Contact &#8595;</a>
+                    <a href="contact.php">Contact</a>
                     <!-- Popup Menu for Contact -->
                     <div class="popup-menu">
                         <a href="contact-support.php">Support</a>
                         <a href="contact-feedback.php">Feedback</a>
                     </div>
                 </li>
-                <li>
-                    <a href="contact.php">Contact</a>
-                </li>
+            
             </ul>
 
 

@@ -1,20 +1,19 @@
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: #333;
+    }
 
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-        }
+    .logo-img {
+        width: 60%;
+        height: auto;
+    }
 
-        .logo-img {
-            width: 60%;
-            height: auto;
-        }
+    .navbar {
+        padding-top: 20px;
+    }
 
-        .navbar {
-            padding-top: 20px;
-        }
-
-        /* 
+    /* 
         .search-input {
             width: 100%;
             padding: 6px 12px;
@@ -42,76 +41,76 @@
             border-radius: 50%;
         } */
 
-        .dropdown-menu a:hover,
-        .navbar-nav .nav-link:hover {
-            background-color: #f1f1f1;
+    .dropdown-menu a:hover,
+    .navbar-nav .nav-link:hover {
+        background-color: #f1f1f1;
+    }
+
+    .nav-link {
+        color: black;
+    }
+
+    .nav-link:hover {
+        background-color: #faf9f9;
+        border-radius: 5px;
+    }
+
+    .profile-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #c33535;
+    }
+
+    /* Move profile icon to the left */
+    .dropdown.ms-lg-3 {
+        margin-left: 10px;
+        /* Decrease this value to move icon more to the left */
+    }
+
+    .dropdown-menu {
+        left: -120px;
+        right: auto;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    /* Center navbar items for desktop */
+    @media (min-width: 992px) {
+        .navbar-nav {
+            justify-content: center;
+            width: 100%;
         }
 
-        .nav-link {
-            color: black;
+        /* Center the navbar items and profile icon */
+        .navbar-nav .nav-item {
+            margin-left: 20px;
+            margin-right: 20px;
         }
 
-        .nav-link:hover {
-            background-color: #faf9f9;
-            border-radius: 5px;
+        .navbar-nav .nav-item.dropdown {
+            margin-right: 20px;
+            /* Make dropdowns more compact */
         }
 
-        .profile-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #c33535;
+        .navbar-brand {
+            margin-right: auto;
         }
 
-        /* Move profile icon to the left */
-        .dropdown.ms-lg-3 {
-            margin-left: 10px;
-            /* Decrease this value to move icon more to the left */
+        .logo-img {
+            margin-left: 40%;
+
         }
+    }
 
-        .dropdown-menu {
-            left: -120px;
-            right: auto;
-            max-width: 100vw;
-            overflow-x: hidden;
+    /* Optional: For mobile responsiveness */
+    @media (max-width: 768px) {
+        .search-bar {
+            width: 100%;
         }
-
-        /* Center navbar items for desktop */
-        @media (min-width: 992px) {
-            .navbar-nav {
-                justify-content: center;
-                width: 100%;
-            }
-
-            /* Center the navbar items and profile icon */
-            .navbar-nav .nav-item {
-                margin-left: 20px;
-                margin-right: 20px;
-            }
-
-            .navbar-nav .nav-item.dropdown {
-                margin-right: 20px;
-                /* Make dropdowns more compact */
-            }
-
-            .navbar-brand {
-                margin-right: auto;
-            }
-
-            .logo-img {
-                margin-left: 40%;
-
-            }
-        }
-
-        /* Optional: For mobile responsiveness */
-        @media (max-width: 768px) {
-            .search-bar {
-                width: 100%;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
