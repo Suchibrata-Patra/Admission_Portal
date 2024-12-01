@@ -51,6 +51,7 @@ if ($user['numberVerify'] == 0) {
     <div class="row">
       <div class="col-xs-12">
         <div class="card text-center">
+          <?php include('../card_header.php') ?>
           <div class="card-body">
             <div class="row">
               <div class="col-md-6 form-group">
