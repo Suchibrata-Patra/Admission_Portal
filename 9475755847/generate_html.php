@@ -164,7 +164,7 @@ $encryptedTimestamp = bin2hex($timestamp);
     </style>
     <!-- <link rel="preload" href="http://trip-admin.000webhostapp.com/Asset/image.png" as="image"> -->
     <!-- <link rel="preload" href="https://i.imgur.com/GlWjPHh.png" as="image"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJv3t6v+XdA2Rkff3fDqCvFJdyQh6UwL9j69zBBTCEaESyTkFO18ER6p9mgh" crossorigin="anonymous">
+
 
 
 </head>
