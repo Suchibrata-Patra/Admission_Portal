@@ -57,7 +57,6 @@ $encryptedTimestamp = bin2hex($timestamp);
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application Receipt</title>
     <style>
         body {
