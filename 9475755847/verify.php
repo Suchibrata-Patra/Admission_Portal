@@ -62,10 +62,6 @@ if (isset($_POST['edit'])) {
             color: #484848;
             padding: 20px;
         }
-        #resendButton{
-            width:72.969px;
-            height:21px;
-        }
         .container {
             max-width: 500px;
             margin: 0 auto;
@@ -81,37 +77,30 @@ if (isset($_POST['edit'])) {
             margin-bottom: 20px;
         }
         .btn {
-            border: none;
-            padding: 10px 20px;
-            font-size: 14px;
-            border-radius: 25px;
-            text-transform: uppercase;
-            transition: background-color 0.3s ease;
-        }
-        .btn-primary {
-            background-color: #FF5A5F;
-            color: white;
-        }
-        .btn-primary:hover {
-            background-color: #ed4c51;
-        }
-        .btn-primary:disabled {
-            background-color: #ccc;
-        }
-        .form-control {
-            border-radius: 25px;
-            border: 1px solid #ccc;
-            padding: 15px;
-            font-size: 14px;
-        }
-        .input-group {
-            margin-bottom: 20px;
-        }
-        .btn-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
+    width: 48%; /* Set both buttons to take up 48% of the container width */
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+.btn-primary {
+    background-color: #FF5A5F;
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #ed4c51;
+}
+.btn-primary:disabled {
+    background-color: #ccc;
+}
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
         .progress-bar {
             position: absolute;
             bottom: 0;
