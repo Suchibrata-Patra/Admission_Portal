@@ -179,7 +179,7 @@ $encryptedTimestamp = bin2hex($timestamp);
         // Loop through each allowed extension
         foreach ($allowedExtensions as $extension) {
             // Construct the file path with the current extension
-            $photoPath = "https://admission.theapplication.in/9475755847/uploads/" . htmlspecialchars($user['reg_no']) . "_passportsizephoto.{$extension}";
+            $photoPath = "https://admission.theapplication.in/947575584s7/uploads/" . htmlspecialchars($user['reg_no']) . "_passportsizephoto.{$extension}";
 
             // Use get_headers to check if the file exists remotely
             $headers = @get_headers($photoPath);
