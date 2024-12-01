@@ -169,7 +169,7 @@ $encryptedTimestamp = bin2hex($timestamp);
 </head>
 
 <body>
-<div class="container">
+   <div class="container">
     <div class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
 
         <!-- School Logo (centered) -->
@@ -209,7 +209,14 @@ $encryptedTimestamp = bin2hex($timestamp);
         </div>
     </div>
 
-   
+    <!-- School Information Section -->
+    <h1 style="text-align: center; margin-top: 20px;">
+        <?php echo $school_info['Institution_Name']; ?>
+    </h1>
+    <p style="text-align: center;">UDISE Code - <?php echo $udise_code; ?></p>
+    <p style="text-align: center;"><?php echo $school_info['Institution_Address']; ?></p>
+    <p style="text-align: center;">Contact Mobile - <?php echo $school_info['HOI_Mobile_No']; ?></p>
+    <p style="text-align: center;">Whatsapp - <?php echo $school_info['HOI_Whatsapp_No']; ?></p>
 </div>
 
             <div>
