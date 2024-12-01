@@ -39,7 +39,6 @@ if ($user['numberVerify'] == 0) {
 
 <body>
   <!--PageLoader-->
-<?php require ('../Secure_Pageloader.php') ?>
 <!--PageLoader-->
   <div class="jumbotron jumbotron-fluid jumbotron-custom">
     <div class="container">
