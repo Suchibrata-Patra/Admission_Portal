@@ -158,34 +158,28 @@ if (isset($_POST['edit'])) {
     </script>
 
     <script>
-         // Function to trigger email resend
+        // Function to trigger email resend
         function resendEmail() {
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'email.php', true);
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        var response = JSON.parse(xhr.responseText);
-                        if (response.status === 'success') {
-                            var otpModal = new bootstrap.Modal(document.getElementById('otpSentModal'));
-                            otpModal.show();
-                            document.getElementById("resendButton").innerText = "OTP Sent";
-                        } else {
-                            alert(response.message || "Failed to send OTP. Please try again.");
-                        }
-                    } else {
-                        alert("An error occurred. Please try again.");
-                    }
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'email.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.status === 'success') {
+                    document.getElementById("resendButton").innerText = "Sent!";
+                } else {
+                    alert(response.message || "Failed to send OTP. Please try again.");
                 }
-            };
-            xhr.send();
+            } else {
+                alert("An error occurred. Please try again.");
+            }
         }
+    };
+    xhr.send();
+}
 
-        // Trigger OTP send on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            resendEmail();
-        });
     </script>
 </body>
 </html>
