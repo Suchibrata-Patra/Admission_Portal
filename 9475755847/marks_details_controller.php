@@ -1,4 +1,3 @@
-<?php include('_DIR_/../../exception_handler.php') ?>
 <?php 
 require 'session.php';
 require 'super_admin.php';
