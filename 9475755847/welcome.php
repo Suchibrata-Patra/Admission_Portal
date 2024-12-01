@@ -29,8 +29,7 @@
 //   if( && $is_Admission_live==0){
 //      header('Location:closed.php');
 //   }
-// }
-?>
+// }?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
