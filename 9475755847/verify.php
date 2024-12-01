@@ -138,7 +138,7 @@ if (isset($_POST['edit'])) {
                 </div>
             </form>
 
-            <!-- Send OTP button -->
+            <!-- Modified button with onclick event to trigger email resend -->
             <button type="button" onclick="resendEmail();" id="resendButton" class="btn btn-primary">Send OTP</button>
 
             <!-- Your existing button for editing contact information -->
@@ -151,22 +151,24 @@ if (isset($_POST['edit'])) {
     </div>
 
     <!-- Modal for OTP Sent Success -->
-    <div class="modal" tabindex="-1" id="otpModal">
+    <div class="modal fade" id="otpModal" tabindex="-1" aria-labelledby="otpModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">OTP Sent</h5>
+                    <h5 class="modal-title" id="otpModalLabel">OTP Sent</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Your OTP has been sent successfully to your email.</p>
+                    OTP has been sent to your email address. Please check your inbox.
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         // Redirect based on PHP variable
@@ -174,7 +176,7 @@ if (isset($_POST['edit'])) {
             window.location.href = "welcome.php";
         }
 
-        // Function to trigger email resend and show modal on success
+        // Function to trigger email resend
         function resendEmail() {
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'email.php', true);
@@ -184,11 +186,10 @@ if (isset($_POST['edit'])) {
                     if (xhr.status === 200) {
                         var response = JSON.parse(xhr.responseText);
                         if (response.status === 'success') {
-                            // Change button text to 'Sent!'
                             document.getElementById("resendButton").innerText = "Sent!";
-                            // Show the modal
-                            var otpModal = new bootstrap.Modal(document.getElementById('otpModal'));
-                            otpModal.show();
+                            // Trigger the modal popup to show success
+                            var myModal = new bootstrap.Modal(document.getElementById('otpModal'));
+                            myModal.show();
                         } else {
                             alert(response.message || "Failed to send OTP. Please try again.");
                         }
@@ -202,11 +203,9 @@ if (isset($_POST['edit'])) {
 
         // Trigger resendEmail function when the page is loaded for the first time
         window.onload = function() {
-            // Optionally, you can automatically send OTP on load or remove this
-            // resendEmail(); 
+            resendEmail();
         };
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
