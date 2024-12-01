@@ -8,10 +8,10 @@ $table_name = $udise_code . '_Student_Details';
 echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
 echo 'Table name: ' . $table_name . '<br>';
 
-if ($user['issubmitted'] == 1) {
-    header('location: payment_details.php');
-    exit(); // Add exit to stop further execution
-} 
+// if ($user['issubmitted'] == 1) {
+//     header('location: payment_details.php');
+//     exit(); // Add exit to stop further execution
+// } 
 
 $query = "SELECT * FROM $table_name WHERE email=?";
 $stmt = mysqli_prepare($db, $query);
