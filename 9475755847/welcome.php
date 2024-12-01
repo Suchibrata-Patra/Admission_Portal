@@ -48,7 +48,6 @@ require 'super_admin.php';
 </head>
 <body>
   <!--PageLoader-->
-  <?php require ('../Secure_Pageloader.php') ?>
   <!--Process Header-->
   <?php require ('../Student_Process_header.php') ?>
   <div class="container">
