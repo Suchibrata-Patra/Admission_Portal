@@ -36,7 +36,7 @@ try {
     // $mail->Password = $mailid_login_password;  // Use the correct password
     // // Provide username and password
     $mail->Username = 'otpverifier.2023@gmail.com';
-    $mail->Password = 'cymp mmut sqzu vzim';  // Use the correct password
+    $mail->Password = 'cfbu phba ywgh ufkf';  // Use the correct password
     
     // If SMTP requires TLS encryption then set it
     $mail->SMTPSecure = 'ssl';
