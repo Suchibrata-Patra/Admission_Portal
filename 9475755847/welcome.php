@@ -1,4 +1,37 @@
+<?php include('_DIR_/../../exception_handler.php') ?>
+<?php require ('../favicon.php') ?>
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
+require 'session.php';
+require 'super_admin.php';
+// require 'Date_Decider.php';
+$table_name = $udise_code . '_Student_Details';
+echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+echo 'Table name: ' . $table_name . '<br>';
+$query = "SELECT * FROM $table_name WHERE email='$email'";
+$results = mysqli_query($db, $query);
+$user = mysqli_fetch_assoc($results);
+
+if ($user['numberVerify'] == 0) {
+    header('Location: verify.php');
+    exit;
+} 
+// if ($user['issubmitted'] == 1) {
+//     header('Location:Application_Status.php');
+//     exit;
+// }
+// if ($is_Application_live == 0) {
+//     header('Location: closed.php');
+//     exit;
+}
+// if($user['is_Admission_Allowed']==1){
+//   if( && $is_Admission_live==0){
+//      header('Location:closed.php');
+//   }
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

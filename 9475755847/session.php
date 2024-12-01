@@ -55,7 +55,7 @@ if ($_SESSION['IPaddress'] != $_SERVER['REMOTE_ADDR'] || $_SESSION['userAgent'] 
     exit();
 }
 
-$table_name = $udise_code . '_student_details';
+$table_name = $udise_code . '_Student_Details';
 
 // Fetch user details from the database using a safer approach
 $email = $_SESSION['email']; // Assuming email is already sanitized when saved in session
