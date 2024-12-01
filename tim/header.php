@@ -230,48 +230,48 @@
 
     /* Mobile view adjustments */
     @media (max-width: 768px) {
-        .navbar-container {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .navbar-links {
-            display: block;
-            margin-top: 16px;
-        }
-
-        .navbar-links li {
-            margin-bottom: 12px;
-        }
-
-        .navbar-user {
-            flex-direction: column;
-            align-items: flex-start;
-            margin-top: 16px;
-        }
-
-        .dropdown-content {
-            display: none;
-            /* Hide by default */
-            position: absolute;
-            top: 100%;
-            /* Align below the profile image */
-            right: 0;
-            background-color: #ffffff;
-            color: #333;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 180px;
-            z-index: 100;
-        }
-
-
-        .search-bar {
-            width: 80%;
-            margin-top: 10px;
-            display:none;
-        }
+    .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
     }
+
+    .navbar-links {
+        display: block;
+        margin-top: 16px;
+    }
+
+    .navbar-links li {
+        margin-bottom: 12px;
+    }
+
+    .navbar-user {
+        margin-left: auto; /* Push to the far right */
+        margin-top: 0; /* Align to the top */
+        position: absolute;
+        top: 10px; /* Adjust to your preferred distance from the top */
+        right: 10px; /* Adjust to your preferred distance from the right */
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #ffffff;
+        color: #333;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 180px;
+        z-index: 100;
+    }
+
+    .search-bar {
+        width: 80%;
+        margin-top: 10px;
+        display: none;
+    }
+}
+
 </style>
 
 <header>
