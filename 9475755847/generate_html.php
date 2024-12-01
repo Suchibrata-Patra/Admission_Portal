@@ -169,66 +169,56 @@ $encryptedTimestamp = bin2hex($timestamp);
 </head>
 
 <body>
-    <div class="container">
-        <div class="header">
+<div class="container">
+    <div class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
 
+        <!-- School Logo (centered) -->
+        <div style="flex: 1; display: flex; justify-content: center;">
             <?php
-        $allowedExtensions = ['png', 'jpg', 'jpeg'];
-        foreach ($allowedExtensions as $extension) {
-            $photoPath = "https://admission.theapplication.in/" . $udise_code . "/Assets/images/School_logo.{$extension}";
+            $allowedExtensions = ['png', 'jpg', 'jpeg'];
+            foreach ($allowedExtensions as $extension) {
+                $photoPath = "https://admission.theapplication.in/" . $udise_code . "/Assets/images/School_logo.{$extension}";
 
-            $headers = @get_headers($photoPath);
-            if ($headers && strpos($headers[0], '200') !== false) {
-                echo "<img src='{$photoPath}' alt='' style='width:20%;height:auto;padding-left:2%;'>";
-                break; 
+                $headers = @get_headers($photoPath);
+                if ($headers && strpos($headers[0], '200') !== false) {
+                    echo "<img src='{$photoPath}' alt='School Logo' style='width: 20%; height: auto; padding-left: 2%;'>";
+                    break; 
+                }
             }
-        }
-        ?>
+            ?>
+        </div>
 
-            <h1 style="margin-left: 5%; margin-right: 5%;">
-                <?php echo $school_info['Institution_Name']?>
-            </h1>
-            <p>UDISE Code -
-                <?php echo $udise_code ?>
-            </p>
-            <p>
-                <?php echo $school_info['Institution_Address'] ?>
-            </p>
-            <p>Contact Mobile -
-                <?php echo $school_info['HOI_Mobile_No'] ?>
-            </p>
-            <p>Whatsapp -
-                <?php echo $school_info['HOI_Whatsapp_No'] ?>
-            </p>
-            <!--This is the Profile Image-->
+        <!-- Profile Image (right aligned) -->
+        <div class="photo" style="flex-shrink: 0; margin-left: 20px;">
+            <?php
+            if (isset($user['reg_no']) && !empty($user['reg_no'])) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+                foreach ($allowedExtensions as $extension) {
+                    $photoPath = "https://admission.theapplication.in/9475755847/uploads/" . htmlspecialchars($user['reg_no']) . "_passportsizephoto.{$extension}";
 
-
-            <div class="photo">
-                <?php
-    // Check if $user['reg_no'] is set
-    if (isset($user['reg_no']) && !empty($user['reg_no'])) {
-        // Define the possible file extensions
-        $allowedExtensions = ['png', 'jpg', 'jpeg'];
-
-        // Loop through each allowed extension
-        foreach ($allowedExtensions as $extension) {
-            // Construct the file path with the current extension
-            $photoPath = "https://admission.theapplication.in/9475755847/uploads/" . htmlspecialchars($user['reg_no']) . "_passportsizephoto.{$extension}";
-
-            // Use get_headers to check if the file exists remotely
-            $headers = @get_headers($photoPath);
-            if ($headers && strpos($headers[0], '200') !== false) {
-                // File exists, display the image
-                echo "<img src='{$photoPath}' alt='' style='border: 0.7px solid rgb(211, 211, 211);'>";
-                break; // Exit the loop once the image is found
+                    $headers = @get_headers($photoPath);
+                    if ($headers && strpos($headers[0], '200') !== false) {
+                        echo "<img src='{$photoPath}' alt='Passport Photo' style='border: 0.7px solid rgb(211, 211, 211); width: 80px; height: 80px;'>";
+                        break;
+                    }
+                }
+            } else {
+                echo "<p>No photo available.</p>";
             }
-        }
-    } else {
-        // Handle the case where $user['reg_no'] is not set or invalid
-        echo "<p>No photo available.</p>";
-    }
-    ?>
-            </div>
+            ?>
+        </div>
+    </div>
+
+    <!-- School Information Section -->
+    <h1 style="text-align: center; margin-top: 20px;">
+        <?php echo $school_info['Institution_Name']; ?>
+    </h1>
+    <p style="text-align: center;">UDISE Code - <?php echo $udise_code; ?></p>
+    <p style="text-align: center;"><?php echo $school_info['Institution_Address']; ?></p>
+    <p style="text-align: center;">Contact Mobile - <?php echo $school_info['HOI_Mobile_No']; ?></p>
+    <p style="text-align: center;">Whatsapp - <?php echo $school_info['HOI_Whatsapp_No']; ?></p>
+</div>
+
             <div>
 
                 <div class="section">
