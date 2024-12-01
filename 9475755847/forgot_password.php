@@ -70,7 +70,7 @@ function sendEmail($to, $subject, $message)
 
     // Provide username and password
     $mail->Username = 'otpverifier.2023@gmail.com';
-    $mail->Password = 'iigd kldu ttwv wsug';  // Use the correct password
+    $mail->Password = 'ovkc rxxy auno vfpi';  // Use the correct password
 
     // Enable TLS encryption
     $mail->SMTPSecure = 'tls';
