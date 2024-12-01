@@ -106,7 +106,7 @@ $conn->close();
         }
 
         .teacher-box.border-modern {
-            border: 2px solid rgb(205, 116, 0);
+            border: 2px solid rgb(235, 75, 136);
             background-color: #fefefe;
         }
         .teacher-class-counter{

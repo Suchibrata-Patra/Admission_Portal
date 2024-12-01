@@ -1,11 +1,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
     /* * {
             margin: 0;
@@ -70,11 +70,12 @@
     .navbar-links {
         list-style: none;
         display: flex;
-        gap:auto;
+        gap: auto;
         justify-content: center;
         position: relative;
         font-weight: 400;
         font-size: 14px;
+        margin-bottom: 0px;
     }
 
     .navbar-links li {
@@ -226,7 +227,8 @@
         font-size: 20px;
         font-weight: 500;
         color: #ffffff;
-        background-color: rgb(235, 75, 136);
+        /* background-color: rgb(235, 75, 136); */
+        background-color: #ff0427;
         padding: 10px;
         border-radius: 50px;
     }
@@ -234,6 +236,17 @@
     /* Hover effect for profile image */
     .dropdown:hover .dropdown-content {
         display: block;
+    }
+
+    .wallet-icon {
+        width: 25px;
+        /* Set the width of the icon */
+        height: auto;
+        /* Maintain aspect ratio */
+        margin-left: 8px;
+        /* Space between the text and icon */
+        vertical-align: middle;
+        /* Align the icon with the text */
     }
 
     /* Mobile view adjustments */
@@ -292,7 +305,7 @@
 
             <!-- Search Bar -->
             <div class="search-bar">
-                <input type="text" class="search-input" placeholder="What are you looking for ?"
+                <input type="text" class="search-input" placeholder=" What are you looking for ?"
                     style="font-weight:300;color: #000000;">
                 <span class="material-icons search-icon">search</span>
             </div>
@@ -319,7 +332,7 @@
                     </div> -->
                 </li>
                 <li>
-                    <a href="settings.php">Settings</a>
+                    <a href="#">Subscription</a>
                     <!-- Popup Menu for Settings -->
                     <div class="popup-menu">
                         <a href="settings-general.php">General</a>
@@ -327,18 +340,24 @@
                     </div>
                 </li>
                 <li>
-                    <a href="contact.php">Contact</a>
+                    <a href="contact.php">Support</a>
                     <!-- Popup Menu for Contact -->
                     <div class="popup-menu">
                         <a href="contact-support.php">Support</a>
                         <a href="contact-feedback.php">Feedback</a>
                     </div>
                 </li>
-            
+
+                <li>
+                    <a href="#"><img src="./assets/Wallet_icon.png" alt="Wallet Icon" class="wallet-icon"></a>
+                    <!-- Popup Menu for Contact -->
+                    <div class="popup-menu">
+                        <a href="#">Rs. 30.43</a>
+                        <a href="contact-feedback.php">Recharge <img src="./assets/plus_button.svg" alt="Wallet Icon"
+                                class="wallet-icon" style="background-color: black;border-radius: 50px;"></a>
+                    </div>
+                </li>
             </ul>
-
-
-
             <div class="navbar-user">
                 <div class="dropdown">
                     <div class="dropdown-btn">

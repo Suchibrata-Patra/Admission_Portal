@@ -20,6 +20,7 @@
 
 <body>
     <?php include('dummy.php') ?>
+    <?php include('index_page_manager.php') ?>
     
 </body>
 </html>

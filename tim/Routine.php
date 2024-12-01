@@ -104,16 +104,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insert Class Schedule</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timora</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -123,6 +117,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <style>
+        body{
+            background-color: #f0f0f2;
+        }
         /* Remove the default dropdown arrow */
         .class-section-dropdown {
             appearance: none;
@@ -131,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             /* Removes the default arrow for Safari */
             -moz-appearance: none;
             /* Removes the default arrow for Firefox */
-            background-color: #f8f9fa;
+            background-color: #fafafc;
             /* Light background */
             border: 1px solid #ffffff;
             /* Border color */
@@ -185,6 +182,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             border: 2px solid black;
             font-weight: 300;
             font-size: 15px;
+            background-color: #fafafc;
         }
 
         /* Hide the dropdown arrow */
@@ -211,9 +209,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 </head>
 
-<body class="bg-light">
+<body>
     <div style="position:sticky;">
-        <?php include('header.php') ?>
+        <?php include('dummy.php') ?>
 
     </div>
 
