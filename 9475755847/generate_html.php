@@ -179,7 +179,7 @@ $encryptedTimestamp = bin2hex($timestamp);
 
             $headers = @get_headers($photoPath);
             if ($headers && strpos($headers[0], '200') !== false) {
-                echo "<img src='{$photoPath}' alt='' style='width:90%;height:auto;padding-left:2%;'>";
+                echo "<img src='{$photoPath}' alt='' style='width:20%;height:auto;padding-left:2%;'>";
                 break; 
             }
         }
