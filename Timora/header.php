@@ -6,7 +6,7 @@
         } */
     body {
         font-family: 'Poppins';
-        background-color: #f4f7fc;
+        /* background-color: #f4f7fc; */
         color: #333;
     }
 
@@ -62,7 +62,7 @@
     .navbar-links {
         list-style: none;
         display: flex;
-        gap: 25px;
+        gap:auto;
         justify-content: center;
         position: relative;
         font-weight: 400;
@@ -277,7 +277,7 @@
     <nav class="navbar">
         <div class="navbar-container">
             <!-- Logo and Brand Name -->
-            <a href="index.php" class="logo">
+            <a href="index" class="logo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/The_application.in_navbara_icon.png/220px-The_application.in_navbara_icon.png"
                     alt="Logo" class="logo-img">
             </a>
@@ -295,7 +295,7 @@
             <!-- Navbar Links -->
             <ul class="navbar-links">
                 <li>
-                    <a href="routine.php">Routine</a>
+                    <a href="routine">Primary Routine</a>
                     <!-- Popup Menu for Dashboard
                     <div class="popup-menu">
                         <a href="dashboard-overview.php">Overview</a>
@@ -303,15 +303,15 @@
                     </div> -->
                 </li>
                 <li>
-                    <a href="profile.php">Profile</a>
+                    <a href="select.php">Generate</a>
                     <!-- Popup Menu for Profile -->
-                    <div class="popup-menu">
+                    <!-- <div class="popup-menu">
                         <a href="profile-details.php">View Profile</a>
                         <a href="profile-edit.php">Edit Profile</a>
-                    </div>
+                    </div> -->
                 </li>
                 <li>
-                    <a href="settings.php">Settings</a>
+                    <a href="settings.php">Settings &#8595;</a>
                     <!-- Popup Menu for Settings -->
                     <div class="popup-menu">
                         <a href="settings-general.php">General</a>
@@ -319,12 +319,15 @@
                     </div>
                 </li>
                 <li>
-                    <a href="contact.php">Contact</a>
+                    <a href="contact.php">Contact &#8595;</a>
                     <!-- Popup Menu for Contact -->
                     <div class="popup-menu">
                         <a href="contact-support.php">Support</a>
                         <a href="contact-feedback.php">Feedback</a>
                     </div>
+                </li>
+                <li>
+                    <a href="contact.php">Contact</a>
                 </li>
             </ul>
 
