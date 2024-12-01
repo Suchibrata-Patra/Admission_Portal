@@ -163,15 +163,15 @@ $encryptedTimestamp = bin2hex($timestamp);
             font-weight: 400;
         }
     </style>
-    <link rel="preload" href="http://trip-admin.000webhostapp.com/Asset/image.png" as="image">
-    <link rel="preload" href="https://i.imgur.com/GlWjPHh.png" as="image">
+    <!-- <link rel="preload" href="http://trip-admin.000webhostapp.com/Asset/image.png" as="image"> -->
+    <!-- <link rel="preload" href="https://i.imgur.com/GlWjPHh.png" as="image"> -->
 
 </head>
 
 <body>
     <div class="container">
         <div class="header">
-            <img src="http://trip-admin.000webhostapp.com/Asset/image.png" alt="Logo"
+            <!-- <img src="http://trip-admin.000webhostapp.com/Asset/image.png" alt="Logo" -->
                 style="width:90px;height: auto;padding-left: 2%;">
             <h1 style="margin-left: 5%; margin-right: 5%;">
                 <?php echo $school_info['Institution_Name']?>
