@@ -1,9 +1,11 @@
-
+<?php include('_DIR_/../../exception_handler.php') ?>
+<?php require ('../favicon.php') ?>
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require 'session.php';
+require 'database.php';
 require 'super_admin.php';
 // require 'Date_Decider.php';
 $table_name = $udise_code . '_Student_Details';
