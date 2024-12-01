@@ -223,7 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <!-- Class Dropdown for each period -->
                                 <select class="form-select class-section-dropdown"
                                     data-teacher-id="<?= $teacher['Teacher_ID'] ?>" data-period="<?= $period ?>">
-                                    <option value="" disabled selected>Select Class</option>
+                                    <option value="" disabled selected></option>
                                     <!-- Predefined list of classes -->
                                     <?php 
                                             $classes = ['5A', '5B', '6A', '6B', '7A', '7B', '8A', '8B', '9A', '9C', '10A', '10B', '11 ARTS', '11 SCIENCE', '12 ARTS', '12 SCIENCE'];

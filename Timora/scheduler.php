@@ -1,30 +1,74 @@
 <?php
-// Check if the request is a POST request
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get the raw POST data
-    $inputData = file_get_contents("php://input");
+$host = "localhost";
+$dbname = "Timora";
+$username = "root";
+$password = "root";
 
-    // Decode the JSON data
-    $absentTeachersData = json_decode($inputData, true);
+// Create connection
+$conn = new mysqli($host, $username, $password, $dbname);
 
-    if (json_last_error() === JSON_ERROR_NONE) {
-        // Now $absentTeachersData contains the absent teachers and their periods
-        // Example of processing the data:
-        foreach ($absentTeachersData as $teacherName => $periods) {
-            // Here you can perform whatever logic you need to manipulate the provisional routine
-            // For example, saving the absent teacher data to the database or updating a schedule
-
-            echo "Teacher: $teacherName, Absent Periods: " . implode(", ", $periods) . "\n";
-        }
-
-        // You can send a response back to the frontend if needed
-        echo json_encode(['status' => 'success', 'message' => 'Data processed successfully']);
-    } else {
-        // Handle invalid JSON data
-        echo json_encode(['status' => 'error', 'message' => 'Invalid JSON data']);
-    }
-} else {
-    // Handle non-POST requests
-    echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+
+// Fetch teachers and their period off
+$teachersQuery = "SELECT * FROM teacher_profile";
+$teachersResult = $conn->query($teachersQuery);
+
+// Fetch available classes and time slots
+$classesQuery = "SELECT Weekday, Class, Class_Time FROM class_schedule WHERE Teacher_ID IS NULL";
+$classesResult = $conn->query($classesQuery);
+
+if ($teachersResult->num_rows > 0 && $classesResult->num_rows > 0) {
+    $routine = [];
+
+    // Generate routine
+    while ($classRow = $classesResult->fetch_assoc()) {
+        $weekday = $classRow['Weekday'];
+        $class = $classRow['Class'];
+        $time = $classRow['Class_Time'];
+
+        // Find an available teacher
+        $teachersResult->data_seek(0); // Reset pointer
+        while ($teacherRow = $teachersResult->fetch_assoc()) {
+            $teacherId = $teacherRow['Teacher_ID'];
+            $teacherName = $teacherRow['Name'];
+            $periodOff = explode(',', $teacherRow['Period_Off']); // Assuming comma-separated periods
+
+            if (!in_array($time, $periodOff)) {
+                // Assign teacher
+                $routine[] = [
+                    'Weekday' => $weekday,
+                    'Class' => $class,
+                    'Time' => $time,
+                    'Teacher' => $teacherName,
+                ];
+
+                // Update database
+                $updateQuery = "UPDATE class_schedule SET Teacher_ID = $teacherId WHERE Weekday = '$weekday' AND Class = '$class' AND Class_Time = '$time'";
+                $conn->query($updateQuery);
+                break;
+            }
+        }
+    }
+
+    // Display the routine
+    echo "<h1>Provisional Routine</h1>";
+    echo "<table border='1' style='width: 100%; text-align: center;'>";
+    echo "<tr><th>Weekday</th><th>Class</th><th>Time</th><th>Teacher</th></tr>";
+    foreach ($routine as $entry) {
+        echo "<tr>";
+        echo "<td>{$entry['Weekday']}</td>";
+        echo "<td>{$entry['Class']}</td>";
+        echo "<td>{$entry['Time']}</td>";
+        echo "<td>{$entry['Teacher']}</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+} else {
+    echo "No data available to generate routine.";
+}
+
+$conn->close();
 ?>
