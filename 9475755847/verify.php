@@ -1,8 +1,15 @@
+<?php include('_DIR_/../../exception_handler.php') ?>
 <?php include('../favicon.php') ?>
 <?php
 require 'session.php';
 require 'super_admin.php';
 
+// Check if the user is not logged in
+if (!isset($_SESSION['email'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+    exit(); // It's important to call exit() after header redirection
+}
 // Database table name based on UDISE code
 $table_name = $udise_code . '_Student_Details';
 
