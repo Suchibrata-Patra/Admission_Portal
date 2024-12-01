@@ -170,7 +170,7 @@ $encryptedTimestamp = bin2hex($timestamp);
 
              
             <div class="photo">
-    <?php
+            <?php
     // Check if $user['reg_no'] is set
     if (isset($user['reg_no']) && !empty($user['reg_no'])) {
         // Define the possible file extensions
@@ -191,9 +191,9 @@ $encryptedTimestamp = bin2hex($timestamp);
     } else {
         // Handle the case where $user['reg_no'] is not set or invalid
         echo "<p>No photo available.</p>";
-        echo $photoPath;
     }
-    ?>
+?>
+
 </div>
 <!-- <div class="photo">
     <img src="https://admission.theapplication.in/9475755847/uploads/123456789_passportsizephoto.jpeg" alt="">
