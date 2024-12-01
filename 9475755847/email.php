@@ -5,8 +5,6 @@ require 'session.php';
 require 'super_admin.php';
 require_once __DIR__ . '/../Assets/Mail_Login_Credentials.php';
 
-echo $mailid;
-echo $mailid_login_password;
 
 $table_name = $udise_code . '_Student_Details';
 echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
@@ -37,8 +35,8 @@ try {
     $mail->Username = $mailid;
     $mail->Password = $mailid_login_password;  // Use the correct password
     // // Provide username and password
-    // $mail->Username = 'otpverifier.2023@gmail.com';
-    // $mail->Password = 'cymp mmut sqzu vzim';  // Use the correct password
+    $mail->Username = 'otpverifier.2023@gmail.com';
+    $mail->Password = 'cymp mmut sqzu vzim';  // Use the correct password
     
     // If SMTP requires TLS encryption then set it
     $mail->SMTPSecure = 'ssl';
