@@ -228,92 +228,73 @@
         display: block;
     }
 
-    /* Mobile view adjustments */
-    @media (max-width: 768px) {
-    .navbar-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+   /* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 10px;
+}
 
+.hamburger span {
+    background-color: #333;
+    height: 3px;
+    width: 25px;
+    margin: 3px 0;
+    border-radius: 3px;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
     .navbar-links {
-        display: block;
-        margin-top: 16px;
-    }
-
-    .navbar-links li {
-        margin-bottom: 12px;
-    }
-
-    .navbar-user {
-        margin-left: auto; /* Push to the far right */
-        margin-top: 0; /* Align to the top */
-        position: absolute;
-        top: 10px; /* Adjust to your preferred distance from the top */
-        right: 10px; /* Adjust to your preferred distance from the right */
-    }
-
-    .dropdown-content {
         display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
+        flex-direction: column;
+        width: 100%;
         background-color: #ffffff;
-        color: #333;
-        border-radius: 5px;
+        position: absolute;
+        top: 60px; /* Adjust based on the navbar height */
+        left: 0;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 180px;
-        z-index: 100;
+        z-index: 1000;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
     }
 
     .search-bar {
-        width: 80%;
-        margin-top: 10px;
-        display: none;
+        display: none; /* Hide search bar for smaller screens */
     }
 }
 
-</style>
 
+</style>
 <header>
     <nav class="navbar">
         <div class="navbar-container">
-            <!-- Logo and Brand Name -->
+            <!-- Logo -->
             <a href="index" class="logo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/The_application.in_navbara_icon.png/220px-The_application.in_navbara_icon.png"
                     alt="Logo" class="logo-img">
             </a>
 
-            <!-- Search Bar -->
-            <div class="search-bar">
-                <input type="text" class="search-input" placeholder="What are you looking for ?"
-                    style="font-weight:300;color: #000000;">
-                <span class="material-icons search-icon">search</span>
+            <!-- Hamburger Menu -->
+            <div class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
 
-
-
-
             <!-- Navbar Links -->
-            <ul class="navbar-links">
-                <li>
-                    <a href="routine">Primary Routine</a>
-                    <!-- Popup Menu for Dashboard
-                    <div class="popup-menu">
-                        <a href="dashboard-overview.php">Overview</a>
-                        <a href="dashboard-reports.php">Reports</a>
-                    </div> -->
-                </li>
-                <li>
-                    <a href="select.php">Generate</a>
-                    <!-- Popup Menu for Profile -->
-                    <!-- <div class="popup-menu">
-                        <a href="profile-details.php">View Profile</a>
-                        <a href="profile-edit.php">Edit Profile</a>
-                    </div> -->
-                </li>
+            <ul class="navbar-links" id="nav-links">
+                <li><a href="routine">Primary Routine</a></li>
+                <li><a href="select.php">Generate</a></li>
                 <li>
                     <a href="settings.php">Settings &#8595;</a>
-                    <!-- Popup Menu for Settings -->
                     <div class="popup-menu">
                         <a href="settings-general.php">General</a>
                         <a href="settings-security.php">Security</a>
@@ -321,19 +302,14 @@
                 </li>
                 <li>
                     <a href="contact.php">Contact &#8595;</a>
-                    <!-- Popup Menu for Contact -->
                     <div class="popup-menu">
                         <a href="contact-support.php">Support</a>
                         <a href="contact-feedback.php">Feedback</a>
                     </div>
                 </li>
-                <li>
-                    <a href="contact.php">Contact</a>
-                </li>
             </ul>
 
-
-
+            <!-- Profile Icon -->
             <div class="navbar-user">
                 <div class="dropdown">
                     <div class="dropdown-btn">
@@ -347,7 +323,13 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </nav>
 </header>
+<script>
+    document.getElementById('hamburger-menu').addEventListener('click', function () {
+    const navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('active');
+});
+
+</script>
