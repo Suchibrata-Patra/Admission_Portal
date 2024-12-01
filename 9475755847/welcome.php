@@ -3,6 +3,7 @@
 require 'session.php';
 require 'super_admin.php';
 // require 'Date_Decider.php';
+
 $table_name = $udise_code . '_Student_Details';
 echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
 echo 'Table name: ' . $table_name . '<br>';
@@ -50,7 +51,6 @@ if ($user['numberVerify'] == 0) {
     <div class="row">
       <div class="col-xs-12">
         <div class="card text-center">
-          <?php include('../card_header.php') ?>
           <div class="card-body">
             <div class="row">
               <div class="col-md-6 form-group">
