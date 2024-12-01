@@ -170,7 +170,6 @@ $encryptedTimestamp = bin2hex($timestamp);
 
              
             <div class="photo">
-            <div class="photo">
     <?php
     // Check if $user['reg_no'] is set
     if (isset($user['reg_no']) && !empty($user['reg_no'])) {
@@ -180,7 +179,7 @@ $encryptedTimestamp = bin2hex($timestamp);
         // Loop through each allowed extension
         foreach ($allowedExtensions as $extension) {
             // Construct the file path with the current extension
-            $photoPath = "https://admission.theapplication.in/9475755847/uploadss/" . htmlspecialchars($user['reg_no']) . "_passportsizephoto.{$extension}";
+            $photoPath = "https://admission.theapplication.in/9475755847/uploads/" . htmlspecialchars($user['reg_no']) . "_passportsizephoto.{$extension}";
 
             // Use get_headers to check if the file exists remotely
             $headers = @get_headers($photoPath);
@@ -197,15 +196,6 @@ $encryptedTimestamp = bin2hex($timestamp);
     ?>
 </div>
 
-
-
-
-</div>
-<div class="photo">
-    <img src="https://admission.theapplication.in/9475755847/uploads/123456789_passportsizephoto.jpeg" alt="">
-</div>
-
-        </div>
         <div class="section">
             <h2>Application Receipt</h2>
             <table class="info-table">
