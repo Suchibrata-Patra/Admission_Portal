@@ -141,69 +141,73 @@ if (isset($_POST['edit'])) {
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Show the OTP Sent popup on page load
-        window.onload = function () {
-            var otpModal = new bootstrap.Modal(document.getElementById('otpSentModal'));
-            otpModal.show();
-            sendOTP();
+    // Ensure the OTP is sent after the page loads and the DOM is fully loaded
+    document.addEventListener("DOMContentLoaded", function () {
+        // Show the OTP Sent popup
+        var otpModal = new bootstrap.Modal(document.getElementById('otpSentModal'));
+        otpModal.show();
+        
+        // Send OTP after page load
+        sendOTP();
+    });
+
+    function sendOTP() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'email.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status !== 200) {
+                    alert("Failed to send OTP. Please try again.");
+                }
+            }
         };
+        xhr.send();
+    }
 
-        function sendOTP() {
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'email.php', true);
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status !== 200) {
-                        alert("Failed to send OTP. Please try again.");
-                    }
-                }
-            };
-            xhr.send();
-        }
+    // Resend OTP functionality with progress bar
+    function resendEmail() {
+        var resendButton = document.getElementById("resendButton");
+        var progressBar = document.getElementById("progressBar");
+        
+        resendButton.disabled = true; // Disable the button
+        resendButton.innerText = "Sending...";
+        progressBar.style.width = '0%';  // Reset progress bar
 
-        // Resend OTP functionality with progress bar
-        function resendEmail() {
-            var resendButton = document.getElementById("resendButton");
-            var progressBar = document.getElementById("progressBar");
-            
-            resendButton.disabled = true; // Disable the button
-            resendButton.innerText = "Sending...";
-            progressBar.style.width = '0%';  // Reset progress bar
+        // Start progress bar animation
+        var progress = 0;
+        var progressInterval = setInterval(function() {
+            progress += 1;
+            progressBar.style.width = progress + '%';
+            if (progress >= 100) {
+                clearInterval(progressInterval);
+            }
+        }, 100); // Increase progress every 100ms
 
-            // Start progress bar animation
-            var progress = 0;
-            var progressInterval = setInterval(function() {
-                progress += 1;
-                progressBar.style.width = progress + '%';
-                if (progress >= 100) {
-                    clearInterval(progressInterval);
-                }
-            }, 100); // Increase progress every 100ms
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'email.php', true);
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        resendButton.innerText = "Sent!";
-                        setTimeout(() => {
-                            resendButton.disabled = false; // Re-enable the button after 10 seconds
-                            resendButton.innerText = "Resend OTP";
-                        }, 10000);
-                    } else {
-                        alert("Failed to resend OTP. Please try again.");
-                        resendButton.disabled = false; // Re-enable immediately on error
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'email.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    resendButton.innerText = "Sent!";
+                    setTimeout(() => {
+                        resendButton.disabled = false; // Re-enable the button after 10 seconds
                         resendButton.innerText = "Resend OTP";
-                    }
+                    }, 10000);
+                } else {
+                    alert("Failed to resend OTP. Please try again.");
+                    resendButton.disabled = false; // Re-enable immediately on error
+                    resendButton.innerText = "Resend OTP";
                 }
-            };
-            xhr.send();
-        }
-    </script>
+            }
+        };
+        xhr.send();
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
 
