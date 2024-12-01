@@ -1,3 +1,4 @@
+<?php include('../favicon.php') ?>
 <?php
 require 'session.php';
 require 'super_admin.php';
@@ -51,47 +52,51 @@ if (isset($_POST['edit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Verification</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Verification</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #f7f7f7; /* Apple-style soft gray background */
-            font-family: 'Roboto', sans-serif;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            background-color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            color: #484848;
         }
         .container {
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            padding: 40px 50px;
-            max-width: 420px;
-            width: 100%;
+            max-width: 500px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         h2 {
-            font-weight: 500;
-            font-size: 28px;
-            color: #333;
-            margin-bottom: 20px;
+            color: black;
+            font-weight: 600;
             text-align: center;
         }
-        .btn-primary {
-            background-color: #007aff; /* Apple Blue */
+        .btn {
+            border: none;
+            padding: 8px;
+            margin-top: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            position: relative;
         }
-        .btn-primary:hover {
-            background-color: #0051a8;
-            transform: scale(1.05); /* Slight zoom effect */
+        .btn-primary {
+            background-color: #FF5A5F;
+            color: white;
+            padding-bottom: 10px; /* Adjust padding for progress bar visibility */
         }
         .btn-primary:disabled {
-            background-color: #eaeaea;
-            color:black;
-            cursor: not-allowed;
+            background-color: #ccc;
+        }
+        .btn-primary:hover:enabled {
+            background-color: #ed4c51;
+        }
+        .form-control {
+            border-radius: 4px;
+            border: 1px solid #ced4da;
+            height: 50px;
         }
         .progress-bar {
             position: absolute;
@@ -107,23 +112,21 @@ if (isset($_POST['edit'])) {
     <div class="container">
         <h2>Email Verification</h2>
         <form method="post">
-            <div class="mb-3">
-                <input type="text" name="code" class="form-control" placeholder="Enter the code sent to your email" required>
+            <div class="input-group mb-3">
+                <input type="text" name="code" class="form-control" placeholder="Enter a code sent to your email" required>
+                <button type="submit" name="email_code" class="btn btn-primary">Verify</button>
             </div>
-            <button type="submit" name="email_code" class="btn btn-primary w-100">Verify</button>
         </form>
-        
-        <div class="d-flex justify-content-between mt-3">
-            <button type="button" onclick="resendEmail();" id="resendButton" class="btn btn-primary">
-                Resend OTP
-            </button>
-            <form method="post">
-                <button type="submit" name="edit" class="btn btn-secondary">Edit Info</button>
-            </form>
-        </div>
+        <button type="button" onclick="resendEmail();" id="resendButton" class="btn btn-primary">
+            Resend OTP
+            <div class="progress-bar" id="progressBar"></div>
+        </button>
+        <form method="post">
+            <button type="submit" name="edit" class="btn btn-primary">Edit Contact Information</button>
+        </form>
     </div>
 
-    <!-- Modal for OTP Sent -->
+    <!-- Modal for "OTP Sent" -->
     <div class="modal fade" id="otpSentModal" tabindex="-1" aria-labelledby="otpSentModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -141,73 +144,70 @@ if (isset($_POST['edit'])) {
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-    // Ensure the OTP is sent after the page loads and the DOM is fully loaded
-    document.addEventListener("DOMContentLoaded", function () {
-        // Show the OTP Sent popup
-        var otpModal = new bootstrap.Modal(document.getElementById('otpSentModal'));
-        otpModal.show();
-        
-        // Send OTP after page load
-        sendOTP();
-    });
+        // Show the OTP Sent popup on page load
+        window.onload = function () {
+            var otpModal = new bootstrap.Modal(document.getElementById('otpSentModal'));
+            otpModal.show();
 
-    function sendOTP() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'email.php', true);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status !== 200) {
-                    alert("Failed to send OTP. Please try again.");
-                }
-            }
+            // Send OTP when the page loads
+            sendOTP();
         };
-        xhr.send();
-    }
 
-    // Resend OTP functionality with progress bar
-    function resendEmail() {
-        var resendButton = document.getElementById("resendButton");
-        var progressBar = document.getElementById("progressBar");
-        
-        resendButton.disabled = true; // Disable the button
-        resendButton.innerText = "Sending...";
-        progressBar.style.width = '0%';  // Reset progress bar
+        function sendOTP() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'email.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status !== 200) {
+                        alert("Failed to send OTP. Please try again.");
+                    }
+                }
+            };
+            xhr.send();
+        }
 
-        // Start progress bar animation
-        var progress = 0;
-        var progressInterval = setInterval(function() {
-            progress += 1;
-            progressBar.style.width = progress + '%';
-            if (progress >= 100) {
-                clearInterval(progressInterval);
-            }
-        }, 100); // Increase progress every 100ms
+        // Resend OTP functionality with progress bar
+        function resendEmail() {
+            var resendButton = document.getElementById("resendButton");
+            var progressBar = document.getElementById("progressBar");
+            
+            resendButton.disabled = true; // Disable the button
+            resendButton.innerText = "Sending...";
+            progressBar.style.width = '0%';  // Reset progress bar
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'email.php', true);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    resendButton.innerText = "Sent!";
-                    setTimeout(() => {
-                        resendButton.disabled = false; // Re-enable the button after 10 seconds
+            // Start progress bar animation
+            var progress = 0;
+            var progressInterval = setInterval(function() {
+                progress += 1;
+                progressBar.style.width = progress + '%';
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                }
+            }, 100); // Increase progress every 100ms
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'email.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        resendButton.innerText = "Sent!";
+                        setTimeout(() => {
+                            resendButton.disabled = false; // Re-enable the button after 10 seconds
+                            resendButton.innerText = "Resend OTP";
+                        }, 10000);
+                    } else {
+                        alert("Failed to resend OTP. Please try again.");
+                        resendButton.disabled = false; // Re-enable immediately on error
                         resendButton.innerText = "Resend OTP";
-                    }, 10000);
-                } else {
-                    alert("Failed to resend OTP. Please try again.");
-                    resendButton.disabled = false; // Re-enable immediately on error
-                    resendButton.innerText = "Resend OTP";
+                    }
                 }
-            }
-        };
-        xhr.send();
-    }
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
-
+            };
+            xhr.send();
+        }
+    </script>
 </body>
 </html>
-
