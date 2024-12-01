@@ -167,9 +167,26 @@ $encryptedTimestamp = bin2hex($timestamp);
                 <?php echo $school_info['HOI_Whatsapp_No'] ?>
             </p>
             <!--This is the Profile Image-->
+
+             
             <div class="photo">
-                <img src="http://trip-admin.000webhostapp.com/Asset/image.png"
-                    style="border: 0.7px solid rgb(211, 211, 211);">
+            <?php
+// Define the possible file extensions
+$allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+// Loop through each allowed extension
+foreach ($allowedExtensions as $extension) {
+    // Construct the file path with the current extension
+    $photoPath = "uploads/{$registration_no}_passportsizephoto.{$extension}";
+
+    // Check if the file exists
+    if (file_exists($photoPath)) {
+        // Display the image with the detected file format
+        echo "<img src='{$photoPath}' class='img-fluid' alt='Passport Size Photo' style='border: 0.7px solid rgb(211, 211, 211);'>";
+        break; // Exit the loop once the image is found
+    }
+}
+?>
             </div>
         </div>
         <div class="section">
