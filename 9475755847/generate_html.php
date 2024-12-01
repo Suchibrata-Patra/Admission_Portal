@@ -1,7 +1,7 @@
 <?php include('../favicon.php') ?>
 <?php
 require 'super_admin.php';
-include_once('session.php');
+// include_once('session.php');
 
 // Secure the session by regenerating the session ID
 session_regenerate_id(true);
