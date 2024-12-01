@@ -1,3 +1,5 @@
+<?php include('_DIR_/../../exception_handler.php') ?>
+<?php require ('../favicon.php') ?>
 <?php
 // ini_set('display_errors', 1);
 // error_reporting(E_ALL);
@@ -29,7 +31,36 @@
 //   if( && $is_Admission_live==0){
 //      header('Location:closed.php');
 //   }
-// }?>
+// }
+?>
+<?php include('_DIR_/../../exception_handler.php') ?>
+<?php include('../favicon.php') ?>
+<?php 
+require 'session.php';
+require 'super_admin.php';
+
+$table_name = $udise_code . '_Student_Details';
+echo 'This is for School with UDISE CODE - ' . $udise_code . '<br>';
+echo 'Table name: ' . $table_name . '<br>';
+
+if ($user['issubmitted'] == 1) {
+    header('location: payment_details.php');
+    exit(); // Add exit to stop further execution
+} 
+
+$query = "SELECT * FROM $table_name WHERE email=?";
+$stmt = mysqli_prepare($db, $query);
+mysqli_stmt_bind_param($stmt, "s", $email);
+mysqli_stmt_execute($stmt);
+$results = mysqli_stmt_get_result($stmt);
+
+$user = mysqli_fetch_assoc($results);
+echo '  Session Registration ID - '.$user['reg_no'];
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
