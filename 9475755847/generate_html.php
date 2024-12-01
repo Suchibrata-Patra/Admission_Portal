@@ -60,62 +60,6 @@ $encryptedTimestamp = bin2hex($timestamp);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application Receipt</title>
     <style>
-        /* Basic layout styles */
-.custom-container {
-    width: 80%;
-    margin: 0 auto;
-    padding-top: 20px;
-}
-
-/* Row styles */
-.custom-row {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-/* Column styles */
-.custom-logo, .custom-school-name, .custom-passport-photo {
-    flex: 1;
-    padding: 0 15px;
-    text-align: center;
-}
-
-/* Logo image styles */
-.custom-logo img {
-    width: 100%;
-    height: auto;
-    max-width: 150px; /* Limit max size for the logo */
-}
-
-/* School name styles */
-.custom-school-name h1 {
-    margin-top: 10px;
-}
-
-/* Passport photo styles */
-.custom-passport-photo img {
-    width: 100%;
-    height: auto;
-    max-width: 150px;
-    margin-top: 20px;
-}
-
-/* Specific styling for each section */
-.custom-school-name {
-    max-width: 600px;
-}
-
-.custom-passport-photo {
-    max-width: 150px;
-    margin-top: 20px;
-}
-
-.custom-school-info {
-    text-align: center;
-    margin-top: 30px;
-}
-
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -226,10 +170,10 @@ $encryptedTimestamp = bin2hex($timestamp);
 </head>
 
 <body>
-<div class="custom-container">
-    <div class="custom-row">
+<div class="container">
+    <div class="row justify-content-center">
         <!-- First Grid: School Logo -->
-        <div class="custom-logo">
+        <div class="col-12 col-md-4 text-center">
             <?php
             $allowedExtensions = ['png', 'jpg', 'jpeg'];
             foreach ($allowedExtensions as $extension) {
@@ -237,7 +181,7 @@ $encryptedTimestamp = bin2hex($timestamp);
 
                 $headers = @get_headers($photoPath);
                 if ($headers && strpos($headers[0], '200') !== false) {
-                    echo "<img src='{$photoPath}' alt='School Logo'>";
+                    echo "<img src='{$photoPath}' alt='School Logo' style='width: 100%; height: auto; padding-left: 2%;'>";
                     break; 
                 }
             }
@@ -245,7 +189,7 @@ $encryptedTimestamp = bin2hex($timestamp);
         </div>
 
         <!-- Second Grid: School Name -->
-        <div class="custom-school-name">
+        <div class="col-12 col-md-4 text-center">
             <h1>
                 <?php echo $school_info['Institution_Name']; ?>
             </h1>
@@ -253,9 +197,9 @@ $encryptedTimestamp = bin2hex($timestamp);
         </div>
     </div>
 
-    <div class="custom-row">
+    <div class="row justify-content-center">
         <!-- Third Grid: Passport Sized Photo -->
-        <div class="custom-passport-photo">
+        <div class="col-12 col-md-4 text-center" style="margin-top: 20px;">
             <?php
             if (isset($user['reg_no']) && !empty($user['reg_no'])) {
                 $allowedExtensions = ['png', 'jpg', 'jpeg'];
@@ -264,7 +208,7 @@ $encryptedTimestamp = bin2hex($timestamp);
 
                     $headers = @get_headers($photoPath);
                     if ($headers && strpos($headers[0], '200') !== false) {
-                        echo "<img src='{$photoPath}' alt='Passport Photo'>";
+                        echo "<img src='{$photoPath}' alt='Passport Photo' style='border: 0.7px solid rgb(211, 211, 211); width: 100px; height: 100px;'>";
                         break;
                     }
                 }
@@ -275,7 +219,8 @@ $encryptedTimestamp = bin2hex($timestamp);
         </div>
     </div>
 
-    <div class="custom-school-info">
+    <!-- School Information Below -->
+    <div class="text-center" style="margin-top: 20px;">
         <p><?php echo $school_info['Institution_Address']; ?></p>
         <p>Contact Mobile - <?php echo $school_info['HOI_Mobile_No']; ?></p>
         <p>Whatsapp - <?php echo $school_info['HOI_Whatsapp_No']; ?></p>
