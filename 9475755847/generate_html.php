@@ -184,7 +184,7 @@ $encryptedTimestamp = bin2hex($timestamp);
             if (file_exists($photoPath)) {
                 echo $photoPath;
                 // Display the image with the detected file format
-                echo "<img src='$photoPath' alt='' style='border: 0.7px solid rgb(211, 211, 211);'>";
+                echo "<img src='{$photoPath}' alt='' style='border: 0.7px solid rgb(211, 211, 211);'>";
                 break; // Exit the loop once the image is found
             }
         }
@@ -193,6 +193,9 @@ $encryptedTimestamp = bin2hex($timestamp);
         echo "<p>No photo available.</p>";
     }
     ?>
+</div>
+<div class="photo">
+    <img src="https://admission.theapplication.in/9475755847/uploads/123456789_passportsizephoto.jpeg" alt="">
 </div>
 
         </div>
