@@ -80,10 +80,12 @@ if (isset($_POST['edit'])) {
             margin-top: 10px;
             font-size: 14px;
             border-radius: 5px;
+            position: relative;
         }
         .btn-primary {
             background-color: #FF5A5F;
             color: white;
+            padding-bottom: 10px; /* Adjust padding for progress bar visibility */
         }
         .btn-primary:disabled {
             background-color: #ccc;
@@ -96,6 +98,14 @@ if (isset($_POST['edit'])) {
             border: 1px solid #ced4da;
             height: 50px;
         }
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            background-color: black;
+            width: 0%;
+        }
     </style>
 </head>
 <body>
@@ -107,7 +117,10 @@ if (isset($_POST['edit'])) {
                 <button type="submit" name="email_code" class="btn btn-primary">Verify</button>
             </div>
         </form>
-        <button type="button" onclick="resendEmail();" id="resendButton" class="btn btn-primary">Resend OTP</button>
+        <button type="button" onclick="resendEmail();" id="resendButton" class="btn btn-primary">
+            Resend OTP
+            <div class="progress-bar" id="progressBar"></div>
+        </button>
         <form method="post">
             <button type="submit" name="edit" class="btn btn-primary">Edit Contact Information</button>
         </form>
@@ -156,11 +169,24 @@ if (isset($_POST['edit'])) {
             xhr.send();
         }
 
-        // Resend OTP functionality
+        // Resend OTP functionality with progress bar
         function resendEmail() {
             var resendButton = document.getElementById("resendButton");
+            var progressBar = document.getElementById("progressBar");
+            
             resendButton.disabled = true; // Disable the button
             resendButton.innerText = "Sending...";
+            progressBar.style.width = '0%';  // Reset progress bar
+
+            // Start progress bar animation
+            var progress = 0;
+            var progressInterval = setInterval(function() {
+                progress += 1;
+                progressBar.style.width = progress + '%';
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                }
+            }, 100); // Increase progress every 100ms
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'email.php', true);
@@ -170,9 +196,9 @@ if (isset($_POST['edit'])) {
                     if (xhr.status === 200) {
                         resendButton.innerText = "Sent!";
                         setTimeout(() => {
-                            resendButton.disabled = false; // Re-enable the button after 30 seconds
+                            resendButton.disabled = false; // Re-enable the button after 10 seconds
                             resendButton.innerText = "Resend OTP";
-                        }, 30000);
+                        }, 10000);
                     } else {
                         alert("Failed to resend OTP. Please try again.");
                         resendButton.disabled = false; // Re-enable immediately on error
