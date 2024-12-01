@@ -4,8 +4,8 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-require 'session.php';
-require 'super_admin.php';
+// require 'session.php';
+// require 'super_admin.php';
 // require 'Date_Decider.php';
 
 // $table_name = $udise_code . '_Student_Details';
