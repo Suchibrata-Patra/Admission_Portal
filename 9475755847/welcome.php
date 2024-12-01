@@ -14,10 +14,10 @@ $query = "SELECT * FROM $table_name WHERE email='$email'";
 $results = mysqli_query($db, $query);
 $user = mysqli_fetch_assoc($results);
 
-if ($user['numberVerify'] == 0) {
-    header('Location: verify.php');
-    exit;
-} 
+// if ($user['numberVerify'] == 0) {
+//     header('Location: verify.php');
+//     exit;
+// } 
 // if ($user['issubmitted'] == 1) {
 //     header('Location:Application_Status.php');
 //     exit;
