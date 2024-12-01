@@ -95,7 +95,7 @@ if (isset($_POST['edit'])) {
             outline: none;
         }
         .btn {
-            padding: 14px 20px;
+            padding: 5px 10px;
             font-size: 16px;
             border-radius: 12px;
             color: white;
