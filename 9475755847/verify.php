@@ -56,8 +56,8 @@ if (isset($_POST['edit'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <script>
-  window.history.forward();
-</script>
+        window.history.forward();
+    </script>
    <style>
         body {
             background-color: #fff;
@@ -113,9 +113,8 @@ if (isset($_POST['edit'])) {
             color: #95a5a6;
         }
         .btn:hover {
-    background-color:#ed4c51;
-}
-
+            background-color:#ed4c51;
+        }
     </style>
 </head>
 <body>
@@ -150,36 +149,39 @@ if (isset($_POST['edit'])) {
         </div>
         <p class="footer">Need help? Contact support</p>
     </div>
+
     <script>
         // Redirect based on PHP variable
         if (<?php echo $redirectToWelcome ? 'true' : 'false'; ?>) {
             window.location.href = "welcome.php";
         }
-    </script>
 
-    <script>
         // Function to trigger email resend
         function resendEmail() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'email.php', true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                var response = JSON.parse(xhr.responseText);
-                if (response.status === 'success') {
-                    document.getElementById("resendButton").innerText = "Sent!";
-                } else {
-                    alert(response.message || "Failed to send OTP. Please try again.");
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'email.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        if (response.status === 'success') {
+                            document.getElementById("resendButton").innerText = "Sent!";
+                        } else {
+                            alert(response.message || "Failed to send OTP. Please try again.");
+                        }
+                    } else {
+                        alert("An error occurred. Please try again.");
+                    }
                 }
-            } else {
-                alert("An error occurred. Please try again.");
-            }
+            };
+            xhr.send();
         }
-    };
-    xhr.send();
-}
 
+        // Trigger resendEmail function when the page is loaded for the first time
+        window.onload = function() {
+            resendEmail();
+        };
     </script>
 </body>
 </html>
