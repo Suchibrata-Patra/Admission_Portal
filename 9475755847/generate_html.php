@@ -195,7 +195,9 @@ $encryptedTimestamp = bin2hex($timestamp);
     }
     ?>
 </div>
-
+<div class="photo">
+    <img src="https://admission.theapplication.in/9475755847/uploads/123456789_passportsizephoto.jpeg" alt="">
+</div>
         </div>
         <div class="section">
             <h2>Application Receipt</h2>
