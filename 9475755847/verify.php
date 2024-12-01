@@ -52,51 +52,61 @@ if (isset($_POST['edit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verification</title>
+    <title>Email Verification</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #fff;
+            background-color: #f4f4f4;
             font-family: 'Montserrat', sans-serif;
             color: #484848;
+            padding: 20px;
         }
         .container {
             max-width: 500px;
-            margin: 50px auto;
+            margin: 0 auto;
             background: #ffffff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         h2 {
-            color: black;
+            color: #333;
             font-weight: 600;
             text-align: center;
+            margin-bottom: 20px;
         }
         .btn {
             border: none;
-            padding: 8px;
-            margin-top: 10px;
+            padding: 10px 20px;
             font-size: 14px;
-            border-radius: 5px;
-            position: relative;
+            border-radius: 25px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
         }
         .btn-primary {
             background-color: #FF5A5F;
             color: white;
-            padding-bottom: 10px; /* Adjust padding for progress bar visibility */
+        }
+        .btn-primary:hover {
+            background-color: #ed4c51;
         }
         .btn-primary:disabled {
             background-color: #ccc;
         }
-        .btn-primary:hover:enabled {
-            background-color: #ed4c51;
-        }
         .form-control {
-            border-radius: 4px;
-            border: 1px solid #ced4da;
-            height: 50px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            font-size: 14px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
         }
         .progress-bar {
             position: absolute;
@@ -106,9 +116,8 @@ if (isset($_POST['edit'])) {
             background-color: black;
             width: 0%;
         }
-        .btn-container {
-            display: flex;
-            justify-content: space-between;
+        .modal-dialog {
+            max-width: 400px;
         }
     </style>
 </head>
@@ -116,8 +125,8 @@ if (isset($_POST['edit'])) {
     <div class="container">
         <h2>Email Verification</h2>
         <form method="post">
-            <div class="input-group mb-3">
-                <input type="text" name="code" class="form-control" placeholder="Enter a code sent to your email" required>
+            <div class="input-group">
+                <input type="text" name="code" class="form-control" placeholder="Enter code sent to your email" required>
                 <button type="submit" name="email_code" class="btn btn-primary">Verify</button>
             </div>
         </form>
@@ -128,7 +137,7 @@ if (isset($_POST['edit'])) {
                 <div class="progress-bar" id="progressBar"></div>
             </button>
             <form method="post">
-                <button type="submit" name="edit" class="btn btn-primary">Edit Contact Information</button>
+                <button type="submit" name="edit" class="btn btn-primary">Edit Info</button>
             </form>
         </div>
     </div>
@@ -157,8 +166,6 @@ if (isset($_POST['edit'])) {
         window.onload = function () {
             var otpModal = new bootstrap.Modal(document.getElementById('otpSentModal'));
             otpModal.show();
-
-            // Send OTP when the page loads
             sendOTP();
         };
 
@@ -218,4 +225,5 @@ if (isset($_POST['edit'])) {
     </script>
 </body>
 </html>
+
 
