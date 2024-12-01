@@ -179,7 +179,7 @@ $encryptedTimestamp = bin2hex($timestamp);
         // Loop through each allowed extension
         foreach ($allowedExtensions as $extension) {
             // Construct the file path with the current extension
-            $photoPath = "./uploads/" . htmlspecialchars($user['reg_no']) . "_passportsizephoto.{$extension}";
+            $photoPath = "/uploads/" . htmlspecialchars($user['reg_no']) . "_passportsizephoto.{$extension}";
 
             // Check if the file exists
             if (file_exists($photoPath)) {
