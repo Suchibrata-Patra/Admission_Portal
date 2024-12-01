@@ -53,11 +53,11 @@ if (isset($_POST['edit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Verification</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #FF5A5F, #FF6B81);
-            font-family: 'Poppins', sans-serif;
+            background-color: #f7f7f7; /* Apple-style soft gray background */
+            font-family: 'Roboto', sans-serif;
             color: #333;
             margin: 0;
             padding: 0;
@@ -67,57 +67,59 @@ if (isset($_POST['edit'])) {
             min-height: 100vh;
         }
         .container {
-            background: #fff;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 40px 50px;
+            max-width: 420px;
             width: 100%;
         }
         h2 {
-            font-weight: 600;
-            font-size: 24px;
-            color: #444;
+            font-weight: 500;
+            font-size: 28px;
+            color: #333;
             margin-bottom: 20px;
             text-align: center;
         }
         .form-control {
-            padding: 15px;
-            font-size: 14px;
-            border-radius: 30px;
-            border: 1px solid #ccc;
+            padding: 16px 20px;
+            font-size: 16px;
+            border-radius: 12px;
+            border: 1px solid #d1d1d6;
             width: 100%;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
+            margin-bottom: 24px;
+            transition: border-color 0.3s ease;
         }
         .form-control:focus {
-            border-color: #FF5A5F;
+            border-color: #007aff; /* Apple Blue */
             outline: none;
         }
         .btn {
-            padding: 12px 20px;
-            font-size: 14px;
-            border-radius: 30px;
-            color: #fff;
+            padding: 14px 20px;
+            font-size: 16px;
+            border-radius: 12px;
+            color: white;
             border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
-            width: 48%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
         }
         .btn-primary {
-            background: linear-gradient(135deg, #FF5A5F, #FF6B81);
+            background-color: #007aff; /* Apple Blue */
         }
         .btn-primary:hover {
-            background: linear-gradient(135deg, #FF6B81, #FF5A5F);
+            background-color: #0051a8;
+            transform: scale(1.05); /* Slight zoom effect */
         }
         .btn-primary:disabled {
-            background: #ccc;
+            background-color: #c7c7cc;
             cursor: not-allowed;
         }
         .btn-container {
             display: flex;
             justify-content: space-between;
-            margin-top: 30px;
+            margin-top: 20px;
         }
         .progress-bar {
             position: absolute;
@@ -127,19 +129,20 @@ if (isset($_POST['edit'])) {
             background-color: black;
             width: 0%;
         }
+        /* Modal styles for OTP Sent confirmation */
         .modal-dialog {
-            max-width: 400px;
+            max-width: 420px;
         }
         .modal-header {
-            background: #FF5A5F;
-            color: #fff;
+            background-color: #007aff; /* Apple Blue */
+            color: white;
             border-radius: 12px 12px 0 0;
         }
         .modal-footer {
             border-top: 1px solid #ddd;
         }
         .modal-title {
-            font-weight: 600;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -147,7 +150,7 @@ if (isset($_POST['edit'])) {
     <div class="container">
         <h2>Email Verification</h2>
         <form method="post">
-            <input type="text" name="code" class="form-control" placeholder="Enter code sent to your email" required>
+            <input type="text" name="code" class="form-control" placeholder="Enter the code sent to your email" required>
             <button type="submit" name="email_code" class="btn btn-primary">Verify</button>
         </form>
         
@@ -161,7 +164,7 @@ if (isset($_POST['edit'])) {
         </div>
     </div>
 
-    <!-- Modal for "OTP Sent" -->
+    <!-- Modal for OTP Sent -->
     <div class="modal fade" id="otpSentModal" tabindex="-1" aria-labelledby="otpSentModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
