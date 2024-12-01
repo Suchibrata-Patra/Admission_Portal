@@ -78,11 +78,12 @@ if (isset($_POST['edit'])) {
         }
         .btn {
             border: none;
-            padding: 10px 20px;
-            font-size: 14px;
+            padding: 8px 16px;
+            font-size: 12px;
             border-radius: 25px;
             text-transform: uppercase;
             transition: background-color 0.3s ease;
+            width: 48%; /* Ensure buttons are the same size */
         }
         .btn-primary {
             background-color: #FF5A5F;
@@ -107,9 +108,6 @@ if (isset($_POST['edit'])) {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
-        }
-        .btn-container .btn {
-            width: 48%; /* Adjust the button width to make them the same size */
         }
         .progress-bar {
             position: absolute;
