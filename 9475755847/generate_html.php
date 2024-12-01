@@ -165,15 +165,16 @@ $encryptedTimestamp = bin2hex($timestamp);
     </style>
     <!-- <link rel="preload" href="http://trip-admin.000webhostapp.com/Asset/image.png" as="image"> -->
     <!-- <link rel="preload" href="https://i.imgur.com/GlWjPHh.png" as="image"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJv3t6v+XdA2Rkff3fDqCvFJdyQh6UwL9j69zBBTCEaESyTkFO18ER6p9mgh" crossorigin="anonymous">
+
 
 </head>
 
 <body>
-   <div class="container">
-    <div class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
-
-        <!-- School Logo (centered) -->
-        <div style="flex: 1; display: flex; justify-content: center;">
+<div class="container">
+    <div class="row justify-content-center">
+        <!-- First Grid: School Logo -->
+        <div class="col-12 col-md-4 text-center">
             <?php
             $allowedExtensions = ['png', 'jpg', 'jpeg'];
             foreach ($allowedExtensions as $extension) {
@@ -181,15 +182,25 @@ $encryptedTimestamp = bin2hex($timestamp);
 
                 $headers = @get_headers($photoPath);
                 if ($headers && strpos($headers[0], '200') !== false) {
-                    echo "<img src='{$photoPath}' alt='School Logo' style='width: 20%; height: auto; padding-left: 2%;'>";
+                    echo "<img src='{$photoPath}' alt='School Logo' style='width: 100%; height: auto; padding-left: 2%;'>";
                     break; 
                 }
             }
             ?>
         </div>
 
-        <!-- Profile Image (right aligned) -->
-        <div class="photo" style="flex-shrink: 0; margin-left: 20px;">
+        <!-- Second Grid: School Name -->
+        <div class="col-12 col-md-4 text-center">
+            <h1>
+                <?php echo $school_info['Institution_Name']; ?>
+            </h1>
+            <p>UDISE Code - <?php echo $udise_code; ?></p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <!-- Third Grid: Passport Sized Photo -->
+        <div class="col-12 col-md-4 text-center" style="margin-top: 20px;">
             <?php
             if (isset($user['reg_no']) && !empty($user['reg_no'])) {
                 $allowedExtensions = ['png', 'jpg', 'jpeg'];
@@ -198,7 +209,7 @@ $encryptedTimestamp = bin2hex($timestamp);
 
                     $headers = @get_headers($photoPath);
                     if ($headers && strpos($headers[0], '200') !== false) {
-                        echo "<img src='{$photoPath}' alt='Passport Photo' style='border: 0.7px solid rgb(211, 211, 211); width: 80px; height: 80px;'>";
+                        echo "<img src='{$photoPath}' alt='Passport Photo' style='border: 0.7px solid rgb(211, 211, 211); width: 100px; height: 100px;'>";
                         break;
                     }
                 }
@@ -209,14 +220,12 @@ $encryptedTimestamp = bin2hex($timestamp);
         </div>
     </div>
 
-    <!-- School Information Section -->
-    <h1 style="text-align: center; margin-top: 20px;">
-        <?php echo $school_info['Institution_Name']; ?>
-    </h1>
-    <p style="text-align: center;">UDISE Code - <?php echo $udise_code; ?></p>
-    <p style="text-align: center;"><?php echo $school_info['Institution_Address']; ?></p>
-    <p style="text-align: center;">Contact Mobile - <?php echo $school_info['HOI_Mobile_No']; ?></p>
-    <p style="text-align: center;">Whatsapp - <?php echo $school_info['HOI_Whatsapp_No']; ?></p>
+    <!-- School Information Below -->
+    <div class="text-center" style="margin-top: 20px;">
+        <p><?php echo $school_info['Institution_Address']; ?></p>
+        <p>Contact Mobile - <?php echo $school_info['HOI_Mobile_No']; ?></p>
+        <p>Whatsapp - <?php echo $school_info['HOI_Whatsapp_No']; ?></p>
+    </div>
 </div>
 
             <div>
