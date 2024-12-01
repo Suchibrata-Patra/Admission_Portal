@@ -168,33 +168,7 @@ $encryptedTimestamp = bin2hex($timestamp);
             </p>
             <!--This is the Profile Image-->
 
-             
-            <div class="photo">
-    <?php
-    // Check if $user['reg_no'] is set
-    if (isset($user['reg_no']) && !empty($user['reg_no'])) {
-        // Define the possible file extensions
-        $allowedExtensions = ['png', 'jpg', 'jpeg'];
-
-        // Loop through each allowed extension
-        foreach ($allowedExtensions as $extension) {
-            // Construct the file path with the current extension
-            $photoPath = "/uploads/" . htmlspecialchars($user['reg_no']) . "_passportsizephoto.{$extension}";
-
-            // Check if the file exists
-            if (file_exists($photoPath)) {
-                echo $photoPath;
-                // Display the image with the detected file format
-                echo "<img src='{$photoPath}' alt='' style='border: 0.7px solid rgb(211, 211, 211);'>";
-                break; // Exit the loop once the image is found
-            }
-        }
-    } else {
-        // Handle the case where $user['reg_no'] is not set or invalid
-        echo "<p>No photo available.</p>";
-    }
-    ?>
-</div>
+           
 
         </div>
         <div class="section">
