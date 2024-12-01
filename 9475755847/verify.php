@@ -89,7 +89,8 @@ if (isset($_POST['edit'])) {
             transform: scale(1.05); /* Slight zoom effect */
         }
         .btn-primary:disabled {
-            background-color: #c7c7cc;
+            background-color: #eaeaea;
+            color:black;
             cursor: not-allowed;
         }
         .progress-bar {
