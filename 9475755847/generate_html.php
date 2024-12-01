@@ -191,9 +191,7 @@ $encryptedTimestamp = bin2hex($timestamp);
             <p>UDISE Code -
                 <?php echo $udise_code ?>
             </p>
-            <p>
-                <?php echo $school_info['Institution_Address'] ?>
-            </p>
+
             <p>Contact Mobile -
                 <?php echo $school_info['HOI_Mobile_No'] ?>
             </p>
