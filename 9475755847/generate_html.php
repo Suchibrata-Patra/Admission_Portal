@@ -1,7 +1,7 @@
 <?php include('../favicon.php') ?>
 <?php
 require 'super_admin.php';
-// include_once('session.php');
+include_once('session.php');
 
 // Secure the session by regenerating the session ID
 session_regenerate_id(true);
@@ -208,7 +208,7 @@ $encryptedTimestamp = bin2hex($timestamp);
 
                     $headers = @get_headers($photoPath);
                     if ($headers && strpos($headers[0], '200') !== false) {
-                        echo "<img src='{$photoPath}' alt='Passport Photo' style='border: 0.7px solid rgb(211, 211, 211); width: 10%; height: 10%;'>";
+                        echo "<img src='{$photoPath}' alt='Passport Photo' style='border: 0.7px solid rgb(211, 211, 211); width: 10%; height: ;'>";
                         break;
                     }
                 }
