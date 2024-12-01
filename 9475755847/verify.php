@@ -56,7 +56,7 @@ if (isset($_POST['edit'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         body {
-            background-color: #f7f7f7; /* Soft gray background */
+            background-color: #f7f7f7; /* Apple-style soft gray background */
             font-family: 'Roboto', sans-serif;
             color: #333;
             margin: 0;
@@ -70,40 +70,16 @@ if (isset($_POST['edit'])) {
             background-color: white;
             border-radius: 20px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            max-width: 400px;
+            padding: 40px 50px;
+            max-width: 420px;
             width: 100%;
-            text-align: center;
         }
         h2 {
             font-weight: 500;
             font-size: 28px;
             color: #333;
-            margin-bottom: 30px;
-        }
-        .form-control {
-            padding: 16px 20px;
-            font-size: 16px;
-            border-radius: 2px;
-            border: 1px solid #d1d1d6;
-            width: 100%;
-            margin-bottom: 24px;
-            transition: border-color 0.3s ease;
-        }
-        .form-control:focus {
-            border-color: #007aff; /* Apple Blue */
-            outline: none;
-        }
-        .btn {
-            padding: 5px 10px;
-            font-size: 16px;
-            border-radius: 2px;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            width: 100%;
-            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
         }
         .btn-primary {
             background-color: #007aff; /* Apple Blue */
@@ -116,28 +92,13 @@ if (isset($_POST['edit'])) {
             background-color: #c7c7cc;
             cursor: not-allowed;
         }
-        .btn-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        .btn-container button {
-            flex: 1;
-            margin: 0 10px;
-        }
-        .modal-dialog {
-            max-width: 400px;
-        }
-        .modal-header {
-            background-color: #007aff; /* Apple Blue */
-            color: white;
-            border-radius: 12px 12px 0 0;
-        }
-        .modal-footer {
-            border-top: 1px solid #ddd;
-        }
-        .modal-title {
-            font-weight: 500;
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            background-color: black;
+            width: 0%;
         }
     </style>
 </head>
@@ -145,16 +106,18 @@ if (isset($_POST['edit'])) {
     <div class="container">
         <h2>Email Verification</h2>
         <form method="post">
-            <input type="text" name="code" class="form-control" placeholder="Enter the code sent to your email" required>
-            <button type="submit" name="email_code" class="btn btn-primary">Verify</button>
+            <div class="mb-3">
+                <input type="text" name="code" class="form-control" placeholder="Enter the code sent to your email" required>
+            </div>
+            <button type="submit" name="email_code" class="btn btn-primary w-100">Verify</button>
         </form>
         
-        <div class="btn-container">
+        <div class="d-flex justify-content-between mt-3">
             <button type="button" onclick="resendEmail();" id="resendButton" class="btn btn-primary">
                 Resend OTP
             </button>
             <form method="post">
-                <button type="submit" name="edit" class="btn btn-primary">Edit Info</button>
+                <button type="submit" name="edit" class="btn btn-secondary">Edit Info</button>
             </form>
         </div>
     </div>
@@ -203,8 +166,21 @@ if (isset($_POST['edit'])) {
         // Resend OTP functionality with progress bar
         function resendEmail() {
             var resendButton = document.getElementById("resendButton");
+            var progressBar = document.getElementById("progressBar");
+            
             resendButton.disabled = true; // Disable the button
             resendButton.innerText = "Sending...";
+            progressBar.style.width = '0%';  // Reset progress bar
+
+            // Start progress bar animation
+            var progress = 0;
+            var progressInterval = setInterval(function() {
+                progress += 1;
+                progressBar.style.width = progress + '%';
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                }
+            }, 100); // Increase progress every 100ms
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'email.php', true);
@@ -229,3 +205,4 @@ if (isset($_POST['edit'])) {
     </script>
 </body>
 </html>
+
