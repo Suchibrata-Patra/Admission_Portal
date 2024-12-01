@@ -53,61 +53,71 @@ if (isset($_POST['edit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Verification</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #f4f4f4;
-            font-family: 'Montserrat', sans-serif;
-            color: #484848;
-            padding: 20px;
+            background: linear-gradient(135deg, #FF5A5F, #FF6B81);
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
         .container {
-            max-width: 500px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 30px;
+            background: #fff;
+            padding: 40px 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
         }
         h2 {
-            color: #333;
             font-weight: 600;
-            text-align: center;
+            font-size: 24px;
+            color: #444;
             margin-bottom: 20px;
-        }
-        .btn {
-            border: none;
-            padding: 8px 16px;
-            font-size: 12px;
-            border-radius: 25px;
-            text-transform: uppercase;
-            transition: background-color 0.3s ease;
-            width: 48%; /* Ensure buttons are the same size */
-        }
-        .btn-primary {
-            background-color: #FF5A5F;
-            color: white;
-        }
-        .btn-primary:hover {
-            background-color: #ed4c51;
-        }
-        .btn-primary:disabled {
-            background-color: #ccc;
+            text-align: center;
         }
         .form-control {
-            border-radius: 25px;
-            border: 1px solid #ccc;
             padding: 15px;
             font-size: 14px;
-        }
-        .input-group {
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            width: 100%;
             margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .form-control:focus {
+            border-color: #FF5A5F;
+            outline: none;
+        }
+        .btn {
+            padding: 12px 20px;
+            font-size: 14px;
+            border-radius: 30px;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 48%;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #FF5A5F, #FF6B81);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #FF6B81, #FF5A5F);
+        }
+        .btn-primary:disabled {
+            background: #ccc;
+            cursor: not-allowed;
         }
         .btn-container {
             display: flex;
             justify-content: space-between;
-            margin-top: 20px;
+            margin-top: 30px;
         }
         .progress-bar {
             position: absolute;
@@ -120,16 +130,25 @@ if (isset($_POST['edit'])) {
         .modal-dialog {
             max-width: 400px;
         }
+        .modal-header {
+            background: #FF5A5F;
+            color: #fff;
+            border-radius: 12px 12px 0 0;
+        }
+        .modal-footer {
+            border-top: 1px solid #ddd;
+        }
+        .modal-title {
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Email Verification</h2>
         <form method="post">
-            <div class="input-group">
-                <input type="text" name="code" class="form-control" placeholder="Enter code sent to your email" required>
-                <button type="submit" name="email_code" class="btn btn-primary">Verify</button>
-            </div>
+            <input type="text" name="code" class="form-control" placeholder="Enter code sent to your email" required>
+            <button type="submit" name="email_code" class="btn btn-primary">Verify</button>
         </form>
         
         <div class="btn-container">
