@@ -1,4 +1,3 @@
-<?php include('../favicon.php') ?>
 <?php
 require 'session.php';
 require 'super_admin.php';
@@ -57,7 +56,7 @@ if (isset($_POST['edit'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         body {
-            background-color: #f7f7f7; /* Apple-style soft gray background */
+            background-color: #f7f7f7; /* Soft gray background */
             font-family: 'Roboto', sans-serif;
             color: #333;
             margin: 0;
@@ -71,16 +70,16 @@ if (isset($_POST['edit'])) {
             background-color: white;
             border-radius: 20px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            padding: 40px 50px;
-            max-width: 420px;
+            padding: 40px;
+            max-width: 400px;
             width: 100%;
+            text-align: center;
         }
         h2 {
             font-weight: 500;
             font-size: 28px;
             color: #333;
-            margin-bottom: 20px;
-            text-align: center;
+            margin-bottom: 30px;
         }
         .form-control {
             padding: 16px 20px;
@@ -122,17 +121,12 @@ if (isset($_POST['edit'])) {
             justify-content: space-between;
             margin-top: 20px;
         }
-        .progress-bar {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 2px;
-            background-color: black;
-            width: 0%;
+        .btn-container button {
+            flex: 1;
+            margin: 0 10px;
         }
-        /* Modal styles for OTP Sent confirmation */
         .modal-dialog {
-            max-width: 420px;
+            max-width: 400px;
         }
         .modal-header {
             background-color: #007aff; /* Apple Blue */
@@ -209,21 +203,8 @@ if (isset($_POST['edit'])) {
         // Resend OTP functionality with progress bar
         function resendEmail() {
             var resendButton = document.getElementById("resendButton");
-            var progressBar = document.getElementById("progressBar");
-            
             resendButton.disabled = true; // Disable the button
             resendButton.innerText = "Sending...";
-            progressBar.style.width = '0%';  // Reset progress bar
-
-            // Start progress bar animation
-            var progress = 0;
-            var progressInterval = setInterval(function() {
-                progress += 1;
-                progressBar.style.width = progress + '%';
-                if (progress >= 100) {
-                    clearInterval(progressInterval);
-                }
-            }, 100); // Increase progress every 100ms
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'email.php', true);
@@ -246,6 +227,5 @@ if (isset($_POST['edit'])) {
             xhr.send();
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
