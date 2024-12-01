@@ -1,21 +1,21 @@
 <?php
     // $servername = "localhost"; 
-    // $username = "u955994755_suchi_2003"; 
+    // $useridname = "u955994755_suchi_2003"; 
     // $password = "(Such#Brata@2003)"; 
     // $database = "u955994755_USER"; 
     // // Create a connection 
-    // $db = mysqli_connect($servername, $username, $password, $database);
+    // $db = mysqli_connect($servername, $useridname, $password, $database);
 
     // echo "Server Connected Succesfully.";
 ?>
 
 <?php
     // $servername = "localhost"; 
-    // $username = "root"; 
+    // $useridname = "root"; 
     // $password = "root"; 
     // $database = "user"; 
     // // Create a connection 
-    // $db = mysqli_connect($servername, $username, $password, $database);
+    // $db = mysqli_connect($servername, $useridname, $password, $database);
     // echo "Server Connected Succesfully.";
 ?>
 
@@ -43,11 +43,11 @@ function loadEnv($file) {
 
 loadEnv(dirname(__DIR__) . '/.env');
 $host = getenv('DB_HOST');
-$user = getenv('DB_USER');
+$userid = getenv('DB_USER');
 $password = getenv("DB_PASSWORD");
 $dbname = getenv('DB_NAME');
 
-if (empty($host) || empty($user) || empty($password) || empty($dbname)) {
+if (empty($host) || empty($userid) || empty($password) || empty($dbname)) {
     error_log("Missing or incorrect environment variables.", 0);
     die("An error occurred while configuring the database connection.");
 }
@@ -63,7 +63,7 @@ if (!preg_match('/^[a-zA-Z0-9_]+$/', $dbname)) {
 }
 mysqli_report(MYSQLI_REPORT_STRICT);
 try {
-    $db = new mysqli($host, $user, $password, $dbname);
+    $db = new mysqli($host, $userid, $password, $dbname);
     
     // Check the connection
     if ($db->connect_error) {
