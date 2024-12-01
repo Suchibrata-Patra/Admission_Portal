@@ -181,7 +181,7 @@ $encryptedTimestamp = bin2hex($timestamp);
 
                 $headers = @get_headers($photoPath);
                 if ($headers && strpos($headers[0], '200') !== false) {
-                    echo "<img src='{$photoPath}' alt='School Logo' style='width: 100%; height: auto; padding-left: 2%;'>";
+                    echo "<img src='{$photoPath}' alt='School Logo' style='width: 10%; height: auto; padding-left: 2%;'>";
                     break; 
                 }
             }
@@ -208,7 +208,7 @@ $encryptedTimestamp = bin2hex($timestamp);
 
                     $headers = @get_headers($photoPath);
                     if ($headers && strpos($headers[0], '200') !== false) {
-                        echo "<img src='{$photoPath}' alt='Passport Photo' style='border: 0.7px solid rgb(211, 211, 211); width: 100px; height: 100px;'>";
+                        echo "<img src='{$photoPath}' alt='Passport Photo' style='border: 0.7px solid rgb(211, 211, 211); width: 10%; height: 10%;'>";
                         break;
                     }
                 }
