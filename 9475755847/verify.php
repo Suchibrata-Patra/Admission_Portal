@@ -62,6 +62,10 @@ if (isset($_POST['edit'])) {
             color: #484848;
             padding: 20px;
         }
+        #resendButton{
+            width:72.969px;
+            height:21px;
+        }
         .container {
             max-width: 500px;
             margin: 0 auto;
