@@ -1,31 +1,53 @@
 <?php include('../favicon.php') ?>
 <?php
 require 'super_admin.php';
-include_once ('session.php');
+include_once('session.php');
+
+// Secure the session by regenerating the session ID
+session_regenerate_id(true);
+
+// Sanitize email input (if needed)
+$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+// Prepare the table name and avoid SQL injection (replace with safe, predefined values or use prepared statements)
 $table_name = $udise_code . '_Student_Details';
 $school_table = $udise_code . '_HOI_Login_Credentials';
 
+// Use prepared statements to prevent SQL injection
+$query = "SELECT * FROM $table_name WHERE email=?";
+if ($stmt = mysqli_prepare($db, $query)) {
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $user = mysqli_fetch_assoc($result);
+    mysqli_stmt_close($stmt);
+} else {
+    die("Query preparation failed.");
+}
 
-// Fetch user details from the database
-$query = "SELECT * FROM $table_name WHERE email='$email'";
-$results = mysqli_query($db, $query);
-$user = mysqli_fetch_assoc($results);
+if ($user) {
+    $registration_no = $user['reg_no'];
+    // Calculate total marks safely
+    $total_marks = ($user['bengali_full_marks'] + $user['english_full_marks'] + $user['mathematics_full_marks'] + $user['physical_science_full_marks'] + $user['life_science_full_marks'] + $user['history_full_marks'] + $user['geography_full_marks']);
+}
 
- 
-$registration_no = $user['reg_no'];
-// Calculate total and obtained marks
-$total_marks = ($user['bengali_full_marks'] + $user['english_full_marks'] + $user['mathematics_full_marks'] + $user['physical_science_full_marks'] + $user['life_science_full_marks'] + $user['history_full_marks'] + $user['geography_full_marks']);
-// $obtained_marks = ($user['bengali_marks'] + $user['english_marks'] + $user['mathematics_marks'] + $user['physical_science_marks'] + $user['life_science_marks'] + $user['history_marks'] + $user['geography_marks']);
-
-$school_query = "SELECT `HOI_Mobile_No`,`HOI_Mobile_No`, `HOI_Whatsapp_No`, `Institution_Name`, `HOI_Name`, `Institution_Address`, `Formfillup_Start_Date`, `Formfillup_Last_Date`, `First_merit_list_date`, `Admission_Beginning_for_First_List`, `Admission_Closes_For_First_List`, `Second_List` from $school_table;";
-$info = mysqli_query($db, $school_query);
-$school_info = mysqli_fetch_assoc($info);
+// Prepare the school information query
+$school_query = "SELECT `HOI_Mobile_No`, `HOI_Whatsapp_No`, `Institution_Name`, `HOI_Name`, `Institution_Address`, `Formfillup_Start_Date`, `Formfillup_Last_Date`, `First_merit_list_date`, `Admission_Beginning_for_First_List`, `Admission_Closes_For_First_List`, `Second_List` FROM $school_table";
+if ($stmt = mysqli_prepare($db, $school_query)) {
+    mysqli_stmt_execute($stmt);
+    $info = mysqli_stmt_get_result($stmt);
+    $school_info = mysqli_fetch_assoc($info);
+    mysqli_stmt_close($stmt);
+} else {
+    die("Query preparation failed.");
+}
 
 function formatDate($date) {
     $datetime = new DateTime($date);
     return $datetime->format('l, jS F Y'); // 'l' gives the full textual representation of the day of the week
 }
 ?>
+
 <?php
 $timestamp = $user['Registration_Time_Stamp']; // '2024-06-09 12:34:56'
 $encryptedTimestamp = bin2hex($timestamp);
