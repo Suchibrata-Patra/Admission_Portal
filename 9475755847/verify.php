@@ -46,7 +46,6 @@ if (isset($_POST['edit'])) {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,31 +79,18 @@ if (isset($_POST['edit'])) {
             margin-top: 10px;
             font-size: 14px;
             border-radius: 5px;
-            position: relative;
         }
         .btn-primary {
             background-color: #FF5A5F;
             color: white;
-            padding-bottom: 10px; /* Adjust padding for progress bar visibility */
         }
-        .btn-primary:disabled {
-            background-color: #ccc;
-        }
-        .btn-primary:hover:enabled {
+        .btn-primary:hover {
             background-color: #ed4c51;
         }
         .form-control {
             border-radius: 4px;
             border: 1px solid #ced4da;
             height: 50px;
-        }
-        .progress-bar {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 2px;
-            background-color: black;
-            width: 0%;
         }
     </style>
 </head>
@@ -117,25 +103,19 @@ if (isset($_POST['edit'])) {
                 <button type="submit" name="email_code" class="btn btn-primary">Verify</button>
             </div>
         </form>
-        <button type="button" onclick="resendEmail();" id="resendButton" class="btn btn-primary">
-            Resend OTP
-            <div class="progress-bar" id="progressBar"></div>
-        </button>
-        <form method="post">
-            <button type="submit" name="edit" class="btn btn-primary">Edit Contact Information</button>
-        </form>
+        <button type="button" id="resendButton" class="btn btn-primary" onclick="resendEmail();">Resend OTP</button>
     </div>
 
-    <!-- Modal for "OTP Sent" -->
+    <!-- Modal for OTP Notification -->
     <div class="modal fade" id="otpSentModal" tabindex="-1" aria-labelledby="otpSentModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="otpSentModalLabel">Success</h5>
+                    <h5 class="modal-title" id="otpSentModalLabel">Notification</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    OTP has been sent successfully!
+                    OTP has been sent to your email!
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
@@ -146,68 +126,39 @@ if (isset($_POST['edit'])) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Show the OTP Sent popup on page load
-        window.onload = function () {
-            var otpModal = new bootstrap.Modal(document.getElementById('otpSentModal'));
-            otpModal.show();
-
-            // Send OTP when the page loads
-            sendOTP();
-        };
-
-        function sendOTP() {
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'email.php', true);
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status !== 200) {
-                        alert("Failed to send OTP. Please try again.");
-                    }
-                }
-            };
-            xhr.send();
-        }
-
-        // Resend OTP functionality with progress bar
+        // Function to trigger email resend
         function resendEmail() {
-            var resendButton = document.getElementById("resendButton");
-            var progressBar = document.getElementById("progressBar");
-            
-            resendButton.disabled = true; // Disable the button
-            resendButton.innerText = "Sending...";
-            progressBar.style.width = '0%';  // Reset progress bar
-
-            // Start progress bar animation
-            var progress = 0;
-            var progressInterval = setInterval(function() {
-                progress += 1;
-                progressBar.style.width = progress + '%';
-                if (progress >= 100) {
-                    clearInterval(progressInterval);
-                }
-            }, 100); // Increase progress every 100ms
-
+            const resendButton = document.getElementById("resendButton");
+            resendButton.disabled = true; // Disable the button immediately
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'email.php', true);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        resendButton.innerText = "Sent!";
-                        setTimeout(() => {
-                            resendButton.disabled = false; // Re-enable the button after 10 seconds
-                            resendButton.innerText = "Resend OTP";
-                        }, 10000);
+                        var response = JSON.parse(xhr.responseText);
+                        if (response.status === 'success') {
+                            alert("OTP has been resent successfully!");
+                        } else {
+                            alert(response.message || "Failed to send OTP. Please try again.");
+                        }
                     } else {
-                        alert("Failed to resend OTP. Please try again.");
-                        resendButton.disabled = false; // Re-enable immediately on error
-                        resendButton.innerText = "Resend OTP";
+                        alert("An error occurred. Please try again.");
                     }
+                    resendButton.disabled = false; // Re-enable the button after response
                 }
             };
             xhr.send();
         }
+
+        // Show modal when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            var otpModal = new bootstrap.Modal(document.getElementById('otpSentModal'));
+            otpModal.show();
+
+            // Automatically send OTP when modal is shown
+            resendEmail();
+        });
     </script>
 </body>
 </html>
