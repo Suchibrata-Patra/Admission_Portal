@@ -175,7 +175,7 @@ $encryptedTimestamp = bin2hex($timestamp);
         <?php
         $allowedExtensions = ['png', 'jpg', 'jpeg'];
         foreach ($allowedExtensions as $extension) {
-            $photoPath = "https://admission.theapplication.in/" . htmlspecialchars($udise_code]) . "/Assets/images/School_logo.{$extension}";
+            $photoPath = "https://admission.theapplication.in/" . $udise_code . "/Assets/images/School_logo.{$extension}";
 
             $headers = @get_headers($photoPath);
             if ($headers && strpos($headers[0], '200') !== false) {
