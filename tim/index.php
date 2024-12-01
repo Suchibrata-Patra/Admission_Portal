@@ -20,7 +20,6 @@
 
 <body>
     <?php include('dummy.php') ?>
-    <?php include('header.php') ?>
     
 </body>
 </html>
