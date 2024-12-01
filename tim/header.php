@@ -1,335 +1,210 @@
-<style>
-    /* * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+
+        .logo-img {
+            width: 60%;
+            height: auto;
+        }
+
+        .navbar {
+            padding-top: 20px;
+        }
+
+        /* 
+        .search-input {
+            width: 100%;
+            padding: 6px 12px;
+            font-size: 14px;
+            border-radius: 50px;
+            border: 2.5px solid #fff;
+            background-color: rgb(242, 242, 247);
+        }
+
+        .search-input:focus {
+            border: 2.5px solid #f6dcf5;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+            background-color: rgb(235, 75, 136);
+            padding: 8px;
+            border-radius: 50%;
         } */
-    body {
-        font-family: 'Poppins';
-        /* background-color: #f4f7fc; */
-        color: #333;
-    }
 
-    /* Navbar styles */
-    .navbar {
-        background-color: #ffffff;
-        padding: 8px 32px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        /* Ensure it sticks to the top */
-        z-index: 1000;
-        /* Ensures the navbar stays on top of other content */
-        width: 100%;
-        /* Ensure it spans the full width */
-        /* Optional: box shadow to create a floating effect */
-    }
+        .dropdown-menu a:hover,
+        .navbar-nav .nav-link:hover {
+            background-color: #f1f1f1;
+        }
 
+        .nav-link {
+            color: black;
+        }
 
-    .navbar-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
+        .nav-link:hover {
+            background-color: #faf9f9;
+            border-radius: 5px;
+        }
 
-    .logo {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-    }
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #c33535;
+        }
 
-    .logo-img {
-        width: 70%;
-        height: auto;
-        margin-right: 12px;
-        padding-left: 10%;
-        padding-top: 5%;
-        padding-bottom: 5%;
-    }
+        /* Move profile icon to the left */
+        .dropdown.ms-lg-3 {
+            margin-left: 10px;
+            /* Decrease this value to move icon more to the left */
+        }
 
-    .logo-text {
-        font-size: 15px;
-        font-weight: 300;
-        color: #333;
-        line-height: 15px;
-    }
+        .dropdown-menu {
+            left: -120px;
+            right: auto;
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
 
-    /* Navbar links */
-    .navbar-links {
-        list-style: none;
-        display: flex;
-        gap:auto;
-        justify-content: center;
-        position: relative;
-        font-weight: 400;
-        font-size: 14px;
-    }
+        /* Center navbar items for desktop */
+        @media (min-width: 992px) {
+            .navbar-nav {
+                justify-content: center;
+                width: 100%;
+            }
 
-    .navbar-links li {
-        font-size: 16px;
-        position: relative;
-    }
+            /* Center the navbar items and profile icon */
+            .navbar-nav .nav-item {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
 
-    .navbar-links a {
-        text-decoration: none;
-        color: #000000;
-        padding: 10px 18px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
+            .navbar-nav .nav-item.dropdown {
+                margin-right: 20px;
+                /* Make dropdowns more compact */
+            }
 
-    .navbar-links a:hover {
-        background-color: #f0f0f0;
-        color: #000000;
-    }
+            .navbar-brand {
+                margin-right: auto;
+            }
 
-    /* Popup menu styles */
-    .popup-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: #ffffff;
-        color: #333;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 180px;
-        z-index: 100;
-    }
+            .logo-img {
+                margin-left: 40%;
 
-    .popup-menu a {
-        padding: 12px 18px;
-        display: block;
-        text-decoration: none;
-        color: #333;
-        transition: background-color 0.3s ease;
-    }
+            }
+        }
 
-    .popup-menu a:hover {
-        background-color: #f1f1f1;
-    }
+        /* Optional: For mobile responsiveness */
+        @media (max-width: 768px) {
+            .search-bar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
 
-    .navbar-links li:hover .popup-menu {
-        display: block;
-    }
+<body>
 
-    /* Profile and Dropdown */
-    .navbar-user {
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
-
-    .user-profile {
-        padding-right: 20px;
-    }
-
-    .profile-img {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 1px solid #ddd;
-    }
-
-    .dropdown {
-        position: relative;
-    }
-
-    .dropdown-btn {
-        background: none;
-        border: none;
-        font-size: 18px;
-        cursor: pointer;
-        padding: 5px 7px;
-        border-radius: 50%;
-        transition: background-color 0.3s ease;
-    }
-
-    .dropdown-btn:hover {
-        background-color: #f0f0f0;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background-color: #ffffff;
-        color: #333;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 180px;
-        z-index: 100;
-    }
-
-    .dropdown-content a {
-        padding: 12px 18px;
-        display: block;
-        text-decoration: none;
-        color: #333;
-        transition: background-color 0.3s ease;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #f1f1f1;
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    /* Search Bar styles */
-    .search-bar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        width: 400px;
-    }
-
-    .search-input {
-        width: 100%;
-        padding: 8px 15px;
-        font-size: 14px;
-        border-radius: 50px;
-        border: 2.5px solid rgb(255, 255, 255);
-        outline: none;
-        transition: border-color 0.3s;
-        line-height: 37px;
-        background-color: rgb(242, 242, 247);
-    }
-
-    .search-input:focus {
-        border: 2.5px solid rgb(246, 220, 245);
-        background-color: rgb(255, 255, 255);
-
-    }
-
-    .search-icon {
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 20px;
-        font-weight: 500;
-        color: #ffffff;
-        background-color: rgb(235, 75, 136);
-        padding: 10px;
-        border-radius: 50px;
-    }
-
-    /* Hover effect for profile image */
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-   /* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.hamburger span {
-    background-color: #333;
-    height: 3px;
-    width: 25px;
-    margin: 3px 0;
-    border-radius: 3px;
-}
-
-/* Mobile View Adjustments */
-@media (max-width: 768px) {
-    .navbar-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #ffffff;
-        position: absolute;
-        top: 60px; /* Adjust based on the navbar height */
-        left: 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-    }
-
-    .navbar-links.active {
-        display: flex;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .search-bar {
-        display: none; /* Hide search bar for smaller screens */
-    }
-}
-
-
-</style>
-<header>
-    <nav class="navbar">
-        <div class="navbar-container">
-            <!-- Logo -->
-            <a href="index" class="logo">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container-fluid">
+            <!-- Logo and Brand Name -->
+            <a class="navbar-brand d-flex align-items-center" href="index">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/The_application.in_navbara_icon.png/220px-The_application.in_navbara_icon.png"
                     alt="Logo" class="logo-img">
             </a>
 
-            <!-- Hamburger Menu -->
-            <div class="hamburger" id="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <!-- Toggler for mobile view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <!-- Navbar Links -->
-            <ul class="navbar-links" id="nav-links">
-                <li><a href="routine">Primary Routine</a></li>
-                <li><a href="select.php">Generate</a></li>
-                <li>
-                    <a href="settings.php">Settings &#8595;</a>
-                    <div class="popup-menu">
-                        <a href="settings-general.php">General</a>
-                        <a href="settings-security.php">Security</a>
-                    </div>
-                </li>
-                <li>
-                    <a href="contact.php">Contact &#8595;</a>
-                    <div class="popup-menu">
-                        <a href="contact-support.php">Support</a>
-                        <a href="contact-feedback.php">Feedback</a>
-                    </div>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto"> <!-- Center navbar items -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="routine">Primary Routine</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="select.php">Generate</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Settings &#8595;
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
+                            <li><a class="dropdown-item" href="settings-general.php">General</a></li>
+                            <li><a class="dropdown-item" href="settings-security.php">Security</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="contactDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Contact &#8595;
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="contactDropdown">
+                            <li><a class="dropdown-item" href="contact-support.php">Support</a></li>
+                            <li><a class="dropdown-item" href="contact-feedback.php">Feedback</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.php">Contact</a>
+                    </li>
+                    <li>
+                        <div class="dropdown ms-lg-3">
+                            <button class="btn dropdown-toggle" type="button" id="profileDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://media.licdn.com/dms/image/v2/D5603AQFzPaXXEzjdCQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722660851705?e=2147483647&v=beta&t=C8bcnhwSyRShM_OBBYJXd0OKsXkqnid1y97kp6OkBGI"
+                                    alt="Profile" class="profile-img">
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                                <li><a class="dropdown-item" href="#">View Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </div>
+                    </li>
 
-            <!-- Profile Icon -->
-            <div class="navbar-user">
-                <div class="dropdown">
-                    <div class="dropdown-btn">
+                </ul>
+
+                <!-- Profile and Dropdown
+                <div class="dropdown ms-lg-3">
+                    <button class="btn dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         <img src="https://media.licdn.com/dms/image/v2/D5603AQFzPaXXEzjdCQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722660851705?e=2147483647&v=beta&t=C8bcnhwSyRShM_OBBYJXd0OKsXkqnid1y97kp6OkBGI"
                             alt="Profile" class="profile-img">
-                    </div>
-                    <div class="dropdown-content">
-                        <a href="#">View Profile</a>
-                        <a href="#">Settings</a>
-                        <a href="#">Logout</a>
-                    </div>
-                </div>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="#">View Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                </div> -->
             </div>
         </div>
     </nav>
-</header>
-<script>
-    document.getElementById('hamburger-menu').addEventListener('click', function () {
-    const navLinks = document.getElementById('nav-links');
-    navLinks.classList.toggle('active');
-});
 
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,5 +1,4 @@
 <?php require('header.php') ?>
-<?php require('dummy.php') ?>
 
 <?php
 $host = "localhost";
