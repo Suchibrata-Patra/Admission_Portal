@@ -172,18 +172,7 @@ $encryptedTimestamp = bin2hex($timestamp);
     <div class="container">
         <div class="header">
 
-        <?php
-        $allowedExtensions = ['png', 'jpg', 'jpeg'];
-        foreach ($allowedExtensions as $extension) {
-            $photoPath = "https://admission.theapplication.in/" . htmlspecialchars($udise_code]) . "/Assets/School_logo.{$extension}";
-
-            $headers = @get_headers($photoPath);
-            if ($headers && strpos($headers[0], '200') !== false) {
-                echo "<img src='{$photoPath}' alt='' style='width:90px;height: auto;padding-left: 2%;'>";
-                break; 
-            }
-        }
-    ?>
+        
 
             <h1 style="margin-left: 5%; margin-right: 5%;">
                 <?php echo $school_info['Institution_Name']?>
