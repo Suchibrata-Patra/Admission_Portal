@@ -84,7 +84,7 @@ if (isset($_POST['edit'])) {
         .form-control {
             padding: 16px 20px;
             font-size: 16px;
-            border-radius: 12px;
+            border-radius: 2px;
             border: 1px solid #d1d1d6;
             width: 100%;
             margin-bottom: 24px;
@@ -97,7 +97,7 @@ if (isset($_POST['edit'])) {
         .btn {
             padding: 5px 10px;
             font-size: 16px;
-            border-radius: 12px;
+            border-radius: 2px;
             color: white;
             border: none;
             cursor: pointer;
