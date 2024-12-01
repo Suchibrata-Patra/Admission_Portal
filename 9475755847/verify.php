@@ -106,7 +106,7 @@ if (isset($_POST['edit'])) {
 <body>
     <div class="container">
         <h2>Email Verification</h2>
-        <form method="post" action="verify.php">
+        <form method="post">
             <div class="mb-3">
                 <input type="text" name="code" class="form-control" placeholder="Enter the code sent to your email" required>
             </div>
