@@ -1,3 +1,5 @@
+<?php include('_DIR_/../../exception_handler.php') ?>
+<?php require ('../favicon.php') ?>
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -47,7 +49,6 @@ error_reporting(E_ALL);
 <body>
   <!--PageLoader-->
   <!--Process Header-->
-  <?php require ('../Student_Process_header.php') ?>
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
