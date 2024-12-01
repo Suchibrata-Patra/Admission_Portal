@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 require 'session.php';
 require 'super_admin.php';
-require '../Assets/Mail_Login_Credentials.php';
+require '/../Assets/Mail_Login_Credentials.php';
 
 echo $mailid;
 echo $mailid_login_password;
