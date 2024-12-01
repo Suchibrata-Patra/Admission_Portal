@@ -134,7 +134,6 @@ if (isset($_POST['edit'])) {
         <div class="btn-container">
             <button type="button" onclick="resendEmail();" id="resendButton" class="btn btn-primary">
                 Resend OTP
-                <div class="progress-bar" id="progressBar"></div>
             </button>
             <form method="post">
                 <button type="submit" name="edit" class="btn btn-primary">Edit Info</button>
