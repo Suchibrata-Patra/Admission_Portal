@@ -183,6 +183,7 @@ $encryptedTimestamp = bin2hex($timestamp);
 
             // Check if the file exists
             if (file_exists($photoPath)) {
+                echo $photoPath;
                 // Display the image with the detected file format
                 echo "<img src='{$photoPath}' class='img-fluid' alt='Passport Size Photo' style='border: 0.7px solid rgb(211, 211, 211);'>";
                 break; // Exit the loop once the image is found
