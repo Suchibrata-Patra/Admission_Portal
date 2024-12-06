@@ -45,24 +45,15 @@
 
   <!-- Structured Data for Rich Results -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "TheApplication - Centralized Admission Portal",
-      "url": "https://www.example.com",
-      "description": "Simplify student admissions with TheApplication's centralized portal. Find application deadlines, required documents, and more in one place.",
-      "image": "https://www.example.com/Assets/images/Hero_Section_Background_Image.webp",
-      "author": {
-        "@type": "Organization",
-        "name": "TheApplication Team"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.example.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TheApplicationg",
+  "url": "admission.theapplication.in",
+  "logo": "https://en.wikipedia.org/wiki/West_Bengal_Centralised_Admission_Portal#/media/File:The_application.in_navbara_icon.png",
+  "alternateName": "TheApplication"
+}
+</script>
 </head>
 
 <body id="top">
