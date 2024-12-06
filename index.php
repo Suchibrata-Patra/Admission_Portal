@@ -5,24 +5,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/Assets/images/favicon.png" type="image/svg+xml">
-  <title>TheApplication - Centralised Admission Portal</title>
+  <title>TheApplication - Centralized Admission Portal</title>
 
-  <!-- SEO Meta Description -->
+  <!-- SEO Meta Tags -->
   <meta name="description"
-    content="TheApplication is a centralized admission portal that simplifies the application process for students applying to various educational institutions. Access important information, application deadlines, and required documentation all in one place.">
+    content="Simplify student admissions with TheApplication's centralized portal. Find application deadlines, required documents, and more in one place.">
+  <meta name="keywords" content="centralized admission portal, student admissions, online application, education platform">
+  <meta name="author" content="TheApplication Team">
 
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="TheApplication - Centralized Admission Portal">
+  <meta property="og:description"
+    content="Simplify student admissions with TheApplication's centralized portal. Find application deadlines, required documents, and more in one place.">
+  <meta property="og:image" content="/Assets/images/Hero_Section_Background_Image.webp">
+  <meta property="og:url" content="https://www.example.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TheApplication - Centralized Admission Portal">
+  <meta name="twitter:description"
+    content="Simplify student admissions with TheApplication's centralized portal. Find application deadlines, required documents, and more in one place.">
+  <meta name="twitter:image" content="/Assets/images/Hero_Section_Background_Image.webp">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap"
     rel="stylesheet">
 
+  <!-- Preload -->
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/Assets/images/Hero_Section_Background_Image.webp" as="image" type="image/webp">
 
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="/Assets/css/style_listing_page.css">
+
+  <!-- Structured Data for Rich Results -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "TheApplication - Centralized Admission Portal",
+      "url": "https://www.example.com",
+      "description": "Simplify student admissions with TheApplication's centralized portal. Find application deadlines, required documents, and more in one place.",
+      "image": "https://www.example.com/Assets/images/Hero_Section_Background_Image.webp",
+      "author": {
+        "@type": "Organization",
+        "name": "TheApplication Team"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.example.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
 </head>
 
 <body id="top">
