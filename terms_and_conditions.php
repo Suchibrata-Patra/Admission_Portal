@@ -311,25 +311,7 @@
                 <br><br>
             </div>
 
-            <section class="cta" id="contact">
-                <div class="container">
-
-                    <div class="cta-content">
-                        <p class="section-subtitle">Connect With Us</p>
-
-                        <h3 class="h2 section-title">Any Issues Needs to be resolved Soon ?</h3>
-
-                        <p class="section-text">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam eius obcaecati nulla
-                            suscipit temporibus
-                            a mollitia deserunt eum rem iste!
-                        </p>
-                    </div>
-
-                    <button class="btn btn-secondary">Contact Us !</button>
-
-                </div>
-            </section>
+            
 
         </article>
     </main>
