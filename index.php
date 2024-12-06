@@ -45,24 +45,25 @@
 
   <!-- Structured Data for Rich Results -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "TheApplication - Centralized Admission Portal",
-      "url": "https://admission.theapplication.in"
-      "description": "Simplify student admissions with TheApplication's centralized portal. Find application deadlines, required documents, and more in one place.",
-      "image": "https://www.example.com/Assets/images/Hero_Section_Background_Image.webp",
-      "author": {
-        "@type": "Organization",
-        "name": "TheApplication Team"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.example.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "TheApplication - Centralized Admission Portal",
+  "url": "https://admission.theapplication.in",
+  "description": "Simplify student admissions with TheApplication's centralized portal. Find application deadlines, required documents, and more in one place.",
+  "image": "https://www.example.com/Assets/images/Hero_Section_Background_Image.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "TheApplication Team"
+  },
+  "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://admission.theapplication.in/search?q={search_term_string}&filter=specific",
+  "query-input": "required name=search_term_string"
+}
+}
+</script>
+
 </head>
 
 <body id="top">
