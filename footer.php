@@ -108,7 +108,7 @@
             <a href="privacy_policy.php" class="footer-bottom-link">Privacy Policy</a>
           </li> -->
         <li>
-          <a href="sitemap.xml" class="footer-bottom-link">Sitemap</a>
+          <a href="https://admission.theapplication.in/generate_sitemap.php" class="footer-bottom-link">Sitemap</a>
         </li>
         <li>
           <a href="terms_and_conditions" class="footer-bottom-link">T&C</a>
