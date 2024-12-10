@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if (isset($_GET['confirm_booking_id'])) {
     $invoice_id = $_GET['confirm_booking_id'];
     $conn->query("UPDATE invoice_data SET booking_status = 'Confirmed' WHERE id = $invoice_id");
-    header("Location: index.php");
+    header("Location: invoice.php");
 }
 
 // Handle Delete Booking
@@ -50,7 +50,7 @@ if (isset($_GET['delete_booking_id'])) {
     $invoice_id = $_GET['delete_booking_id'];
     $conn->query("UPDATE invoice_data SET booking_status = 'Declined' WHERE id = $invoice_id");
     // $conn->query("DELETE FROM invoice_data WHERE id = $invoice_id");
-    header("Location: index.php");
+    header("Location: invoice.php");
 }
 
 // Fetch all records from the database
@@ -270,9 +270,9 @@ if (isset($_GET['download_invoice_id'])) {
                 &#x2022;&#x2022;&#x2022;
             </button>
             <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-                <li><a class='dropdown-item' href='index.php?confirm_booking_id=" . $row['id'] . "'>Confirm</a></li>
-                <li><a class='dropdown-item' href='index.php?delete_booking_id=" . $row['id'] . "'>Delete</a></li>
-                <li><a class='dropdown-item' href='index.php?download_invoice_id=" . $row['id'] . "'><span class='material-symbols-outlined'>download</span>Download Invoice</a></li>
+                <li><a class='dropdown-item' href='invoice.php?confirm_booking_id=" . $row['id'] . "'>Confirm</a></li>
+                <li><a class='dropdown-item' href='invoice.php?delete_booking_id=" . $row['id'] . "'>Delete</a></li>
+                <li><a class='dropdown-item' href='invoice.php?download_invoice_id=" . $row['id'] . "'><span class='material-symbols-outlined'>download</span>Download Invoice</a></li>
             </ul>
         </div>
     </td>";

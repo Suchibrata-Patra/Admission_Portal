@@ -3147,5 +3147,500 @@
         "request_uri": "\/9475755847\/HOI_signin\/",
         "remote_addr": "::1",
         "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Error",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "error_code": 2,
+        "timestamp": "2024-12-10 15:47:32",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php(103): errorHandler(2, 'Undefined varia...', '\/Applications\/M...', 103)\n#1 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php(51): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                "line": 103,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "Undefined variable $user",
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                    103
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php",
+                "line": 51,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-12-10 15:47:32",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Error",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "error_code": 2,
+        "timestamp": "2024-12-10 15:47:39",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php(103): errorHandler(2, 'Undefined varia...', '\/Applications\/M...', 103)\n#1 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php(51): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                "line": 103,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "Undefined variable $user",
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                    103
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php",
+                "line": 51,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-12-10 15:47:39",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Error",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "error_code": 2,
+        "timestamp": "2024-12-10 15:47:40",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php(103): errorHandler(2, 'Undefined varia...', '\/Applications\/M...', 103)\n#1 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php(51): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                "line": 103,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "Undefined variable $user",
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                    103
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php",
+                "line": 51,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-12-10 15:47:40",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Error",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "error_code": 2,
+        "timestamp": "2024-12-10 15:47:43",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php(103): errorHandler(2, 'Undefined varia...', '\/Applications\/M...', 103)\n#1 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php(51): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                "line": 103,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "Undefined variable $user",
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                    103
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php",
+                "line": 51,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-12-10 15:47:43",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Error",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "error_code": 2,
+        "timestamp": "2024-12-10 15:47:43",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php(103): errorHandler(2, 'Undefined varia...', '\/Applications\/M...', 103)\n#1 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php(51): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                "line": 103,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "Undefined variable $user",
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                    103
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php",
+                "line": 51,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-12-10 15:47:43",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Error",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "error_code": 2,
+        "timestamp": "2024-12-10 15:47:46",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php(103): errorHandler(2, 'Undefined varia...', '\/Applications\/M...', 103)\n#1 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php(51): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                "line": 103,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "Undefined variable $user",
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                    103
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php",
+                "line": 51,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-12-10 15:47:46",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Error",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "error_code": 2,
+        "timestamp": "2024-12-10 15:47:46",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php(103): errorHandler(2, 'Undefined varia...', '\/Applications\/M...', 103)\n#1 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php(51): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                "line": 103,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "Undefined variable $user",
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                    103
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php",
+                "line": 51,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-12-10 15:47:46",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Error",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "error_code": 2,
+        "timestamp": "2024-12-10 15:47:54",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php(103): errorHandler(2, 'Undefined varia...', '\/Applications\/M...', 103)\n#1 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php(51): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                "line": 103,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "Undefined variable $user",
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                    103
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php",
+                "line": 51,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-12-10 15:47:54",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Error",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "error_code": 2,
+        "timestamp": "2024-12-10 15:47:55",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php(103): errorHandler(2, 'Undefined varia...', '\/Applications\/M...', 103)\n#1 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php(51): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                "line": 103,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "Undefined variable $user",
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                    103
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php",
+                "line": 51,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-12-10 15:47:55",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Error",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "error_code": 2,
+        "timestamp": "2024-12-10 15:47:55",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php(103): errorHandler(2, 'Undefined varia...', '\/Applications\/M...', 103)\n#1 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php(51): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                "line": 103,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "Undefined variable $user",
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                    103
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php",
+                "line": 51,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-12-10 15:47:55",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Error",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "error_code": 2,
+        "timestamp": "2024-12-10 15:47:55",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
+    },
+    {
+        "type": "Exception",
+        "message": "Undefined variable $user",
+        "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+        "line": 103,
+        "trace": "#0 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php(103): errorHandler(2, 'Undefined varia...', '\/Applications\/M...', 103)\n#1 \/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php(51): include('\/Applications\/M...')\n#2 {main}",
+        "trace_details": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                "line": 103,
+                "function": "errorHandler",
+                "args": [
+                    2,
+                    "Undefined variable $user",
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php",
+                    103
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_SIgnin\/index.php",
+                "line": 51,
+                "args": [
+                    "\/Applications\/MAMP\/htdocs\/holidayseva\/HOI_signin\/HOI_Notification_Icon.php"
+                ],
+                "function": "include"
+            }
+        ],
+        "timestamp": "2024-12-10 15:47:55",
+        "request_method": "GET",
+        "request_uri": "\/holidayseva\/HOI_SIgnin\/",
+        "remote_addr": "::1",
+        "user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/131.0.0.0 Safari\/537.36"
     }
 ]
