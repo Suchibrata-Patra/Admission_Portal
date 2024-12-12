@@ -2,152 +2,158 @@
 <?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://localhost:8888/9475755847/index.php</loc>
-        <lastmod>2024-10-23</lastmod>
+        <loc>https://admission.theapplication.in/233/index.php</loc>
+        <lastmod>2024-11-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/404errorpages.php</loc>
+        <loc>https://admission.theapplication.in/9475755847/index.php</loc>
+        <lastmod>2024-11-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://admission.theapplication.in/404errorpages.php</loc>
         <lastmod>2024-11-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/About_Us.php</loc>
-        <lastmod>2024-11-09</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/Available_Institutions.php</loc>
+        <loc>https://admission.theapplication.in/Available_Institutions.php</loc>
         <lastmod>2024-11-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/Complete_List.php</loc>
-        <lastmod>2024-11-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/Digital-Fingerprint-Decoder.php</loc>
-        <lastmod>2024-11-10</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/Secure_Pageloader.php</loc>
-        <lastmod>2024-11-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/Student_Process_header.php</loc>
-        <lastmod>2024-10-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/card_header.php</loc>
-        <lastmod>2024-10-23</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/database.php</loc>
-        <lastmod>2024-11-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/exception_handler.php</loc>
+        <loc>https://admission.theapplication.in/Complete_List.php</loc>
         <lastmod>2024-11-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/favicon.php</loc>
-        <lastmod>2024-11-22</lastmod>
+        <loc>https://admission.theapplication.in/Digital-Fingerprint-Decoder.php</loc>
+        <lastmod>2024-11-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/footer.php</loc>
-        <lastmod>2024-11-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/generate_sitemap.php</loc>
+        <loc>https://admission.theapplication.in/Secure_Pageloader.php</loc>
         <lastmod>2024-11-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/header.php</loc>
-        <lastmod>2024-10-23</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/index.php</loc>
-        <lastmod>2024-11-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/linter.php</loc>
-        <lastmod>2024-10-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/load_env.php</loc>
+        <loc>https://admission.theapplication.in/Student_Process_header.php</loc>
         <lastmod>2024-10-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/log.php</loc>
-        <lastmod>2024-10-19</lastmod>
+        <loc>https://admission.theapplication.in/about_us.php</loc>
+        <lastmod>2024-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/note.php</loc>
-        <lastmod>2024-10-19</lastmod>
+        <loc>https://admission.theapplication.in/card_header.php</loc>
+        <lastmod>2024-10-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/password_guidelines.php</loc>
-        <lastmod>2024-10-23</lastmod>
+        <loc>https://admission.theapplication.in/database.php</loc>
+        <lastmod>2024-11-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/privacy_policy.php</loc>
-        <lastmod>2024-11-24</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>http://localhost:8888/sorry.php</loc>
+        <loc>https://admission.theapplication.in/exception_handler.php</loc>
         <lastmod>2024-11-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/terms_and_conditions.php</loc>
-        <lastmod>2024-10-27</lastmod>
+        <loc>https://admission.theapplication.in/favicon.php</loc>
+        <lastmod>2024-11-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>http://localhost:8888/version_Control.php</loc>
-        <lastmod>2024-10-19</lastmod>
+        <loc>https://admission.theapplication.in/footer.php</loc>
+        <lastmod>2024-12-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://admission.theapplication.in/generate_sitemap.php</loc>
+        <lastmod>2024-11-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://admission.theapplication.in/header.php</loc>
+        <lastmod>2024-10-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://admission.theapplication.in/index.php</loc>
+        <lastmod>2024-12-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://admission.theapplication.in/linter.php</loc>
+        <lastmod>2024-10-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://admission.theapplication.in/load_env.php</loc>
+        <lastmod>2024-10-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://admission.theapplication.in/log.php</loc>
+        <lastmod>2024-10-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://admission.theapplication.in/note.php</loc>
+        <lastmod>2024-10-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://admission.theapplication.in/password_guidelines.php</loc>
+        <lastmod>2024-10-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://admission.theapplication.in/privacy_policy.php</loc>
+        <lastmod>2024-11-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://admission.theapplication.in/sorry.php</loc>
+        <lastmod>2024-11-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://admission.theapplication.in/terms_and_conditions.php</loc>
+        <lastmod>2024-12-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://admission.theapplication.in/version_Control.php</loc>
+        <lastmod>2024-10-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>

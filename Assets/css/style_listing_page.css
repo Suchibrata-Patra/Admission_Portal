@@ -133,7 +133,7 @@ body {
 
 .btn {
   color: var(--white);
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   font-size: var(--fs-5);
   border-radius: 100px;
   padding: var(--padding, 8px 18px);
@@ -164,7 +164,7 @@ body {
 .h3 {
   font-weight: var(--fw-800);
   font-family: var(--ff-roboto);
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 
 .h1 {
@@ -189,7 +189,7 @@ body {
 .section-subtitle {
   color: var(--bright-navy-blue);
   font-size: var(--fs-5);
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   font-family: var(--ff-roboto);
   margin-bottom: 8px;
 }
@@ -410,7 +410,8 @@ body {
 
 .hero {
   /* background-image: url("../images/hero-banner.jpg"); */
-  background-image: url("/Assets/images/Hero_Section_Background_Image.webp");
+  /* background-image: url("/Assets/images/Hero_Section_Background_Image.webp"); */
+  background-image: url("https://images.unsplash.com/photo-1639322537504-6427a16b0a28?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   /* background-image: url(hero.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
@@ -475,7 +476,7 @@ body {
 
 .tour-search-form .input-field::-webkit-datetime-edit {
   color: var(--spanish-gray);
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 
 .tour-search-form .input-wrapper {
@@ -552,7 +553,7 @@ body {
 .popular-card .card-subtitle {
   color: var(--blue-ncs);
   font-size: var(--fs-6);
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   margin-bottom: 8px;
 }
 
@@ -1359,7 +1360,7 @@ address {
     color: var(--white);
     --fs-4: 16px;
     font-weight: unset;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     padding: 20px 15px;
   }
 

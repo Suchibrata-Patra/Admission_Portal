@@ -5,7 +5,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/Assets/images/favicon.png" type="image/svg+xml">
-  <title>TheApplication - Centralised Admission Portal</title>
+  <title>The Application </title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://admission.theapplication.in/Assets/images/favicon.png">
+    <title>The Application</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "The Application",
+      "alternateName": "The Application - Admission Portal",
+      "url": "https://admission.theapplication.in/",
+      "description": "The Application Admission Portal helps users explore and apply for courses with ease. Search for available options instantly.",
+      "inLanguage": "en",
+      "creator": {
+        "@type": "Organization",
+        "name": "The Application",
+        "url": "https://www.theapplication.in/",
+        "logo": "https://admission.theapplication.in/Assets/images/favicon.png",
+        "sameAs": [
+          "https://x.com/thapplication",
+          "https://www.linkedin.com/company/theapplicationofficial/"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "The Application",
+        "url": "https://www.theapplication.in/",
+        "logo": "https://admission.theapplication.in/Assets/images/favicon.png"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://admission.theapplication.in/Complete_List.php?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "datePublished": "2024-12-12",
+      "dateModified": "2024-12-12",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Students, Parents, and Educators"
+      },
+      "keywords": ["Admissions", "Online Applications", "Course Search", "Education Portal"]
+    }
+    </script>
+</head>
 
   <!-- SEO Meta Description -->
   <meta name="description"
@@ -42,17 +87,18 @@
       <section class="hero" id="home">
         <div class="container">
 
-          <h2 class="h1 hero-title">Apply @ New Schools</h2>
+        <h1 class="h1 hero-title" style="font-weight: 500;">Enrollment Simplified</h1>
+<h2 class="h1 hero-title" style="font-size:2rem; text-transform: none;font-weight: 300;">Like Never Before!</h2>
+<!-- 
+<p class="hero-text">
+  Say goodbye to complicated processes: Effortlessly manage applications by creating unique accounts for each institution and seamlessly apply to every school, one at a time. </p> -->
 
-          <p class="hero-text">
-            Ensure smooth application processing: Create separate accounts for each institution, then proceed to apply
-            to each school individually. </p>
           <form action="/Complete_List.php" method="GET" style="padding-top: 8%;padding-bottom:8%;">
             <input type="text" name="search" id="search"
               style="padding: 16px;font-size: 18px; border-radius: 30px; border: 2px solid #ffffff;background-color: #ffffff; width: calc(100% - 160px); max-width: 600px; display: inline-block; box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.1);"
-              placeholder="Search Schools . . .">
-            <button type="submit"
-              style="margin-left:-9%; padding: 18px 34px; font-size: 18px;width:10%; border-top-right-radius: 30px;border-bottom-right-radius: 30px; background-color: #ff385c; color: #fff; display: inline-block; cursor: pointer; transition: background-color 0.3s ease;">Q</button>
+              placeholder="Search Schools">
+            <!-- <button type="submit"
+              style="padding:20px 7px ;font-size: 18px;width:10%;border-radius: 50px; background-color: #dfdfdf; color: #000000; display: inline-block; cursor: pointer; transition: background-color 0.3s ease;">Go</button> -->
           </form>
           <div class="btn-group">
             <button class="btn btn-primary">How to Apply ?</button>

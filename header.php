@@ -22,6 +22,7 @@
         <a href="#" class="logo">
           <img src="https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo-500x281.png" alt="Haggle logo"
             style="width: auto;height:2.5em;">
+            
         </a>
 
         <div class="header-btn-group">
