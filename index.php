@@ -12,44 +12,16 @@
     <link rel="icon" href="https://admission.theapplication.in/Assets/images/favicon.png">
     <title>The Application</title>
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "The Application",
-      "alternateName": "The Application - Admission Portal",
-      "url": "https://admission.theapplication.in/",
-      "description": "The Application Admission Portal helps users explore and apply for courses with ease. Search for available options instantly.",
-      "inLanguage": "en",
-      "creator": {
-        "@type": "Organization",
-        "name": "The Application",
-        "url": "https://www.theapplication.in/",
-        "logo": "https://admission.theapplication.in/Assets/images/favicon.png",
-        "sameAs": [
-          "https://x.com/thapplication",
-          "https://www.linkedin.com/company/theapplicationofficial/"
-        ]
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "The Application",
-        "url": "https://www.theapplication.in/",
-        "logo": "https://admission.theapplication.in/Assets/images/favicon.png"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://admission.theapplication.in/Complete_List.php?search={search_term_string}",
-        "query-input": "required name=search_term_string"
-      },
-      "datePublished": "2024-12-12",
-      "dateModified": "2024-12-12",
-      "audience": {
-        "@type": "Audience",
-        "audienceType": "Students, Parents, and Educators"
-      },
-      "keywords": ["Admissions", "Online Applications", "Course Search", "Education Portal"]
-    }
-    </script>
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "The Application",
+  "alternateName": "TheApplication",
+  "url": "https://www.theapplication.in",
+  "logo": "",
+  "sameAs": "https://www.linkedin.com/company/theapplicationofficial/"
+}
+</script>
 </head>
 
   <!-- SEO Meta Description -->
