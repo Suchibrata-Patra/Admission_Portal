@@ -5,20 +5,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/Assets/images/favicon.png" type="image/svg+xml">
-  <title>The Application </title>
+  <title>TheApplication </title>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://admission.theapplication.in/Assets/images/favicon.png">
-    <title>The Application</title>
+    <title>TheApplication</title>
+
+      <!-- Open Graph Metadata -->
+      <meta property="og:title" content="TheApplication">
+    <meta property="og:description" content="TheApplication offers a complete enrollment solution to simplify admissions, manage processes, and enhance productivity for educational institutions and businesses.">
+    <meta property="og:image" content="https://admission.theapplication.in/assets/images/favicon.png">
+    <meta property="og:url" content="https://admission.theapplication.in">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TheApplication">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Optional: Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TheApplication">
+    <meta name="twitter:description" content="Simplify admissions and enrollment with The Application's efficient and streamlined solutions for educational institutions and businesses.">
+    <meta name="twitter:image" content="https://admission.theapplication.in/assets/images/favicon.png">
+
+
+
+
+
+
+
 
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "The Application",
+  "name": "TheApplication",
   "alternateName": "TheApplication",
-  "url": "https://www.theapplication.in",
+  "url": "https://www.admission.theapplication.in",
   "logo": "",
   "sameAs": "https://www.linkedin.com/company/theapplicationofficial/"
 }
@@ -61,7 +83,8 @@
       <section class="hero" id="home">
         <div class="container">
 
-        <h1 class="h1 hero-title" style="font-weight: 500;">Enrollment Simplified</h1>
+        <h1 class="h1 hero-title" style="font-weight: 500;font-size:1rem;">The Application</h1>
+        <h2 class="h1 hero-title" style="font-weight: 500;">Enrollment Simplified</h2>
 <h2 class="h1 hero-title" style="font-size:2rem; text-transform: none;font-weight: 300;">Like Never Before!</h2>
 <!-- 
 <p class="hero-text">
