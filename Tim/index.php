@@ -19,6 +19,8 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <body>
-  hi    
+    <?php include('dummy.php') ?>
+    <?php include('index_page_manager.php') ?>
+    
 </body>
 </html>
