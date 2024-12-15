@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://admission.theapplication.in/Assets/images/favicon.png">
     <title>The Application</title>
+
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -22,6 +23,7 @@
   "sameAs": "https://www.linkedin.com/company/theapplicationofficial/"
 }
 </script>
+
 </head>
 
   <!-- SEO Meta Description -->

@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Applications/MAMP/htdocs/Timora",
-      "program": "/Applications/MAMP/htdocs/Timora/build/Debug/outDebug"
+      "cwd": "/Applications/MAMP/htdocs/tim",
+      "program": "/Applications/MAMP/htdocs/tim/build/Debug/outDebug"
     }
   ]
 }

@@ -1,0 +1,242 @@
+
+.DS_Store
+index.php
+tim/.htaccess
+tim/.vscode/c_cpp_properties.json
+tim/.vscode/launch.json
+tim/.vscode/settings.json
+tim/assets/image.png
+tim/assets/plus_button.svg
+tim/assets/purchase_with_purpose.png
+tim/assets/rupee_sign.svg
+tim/assets/save_button.png
+tim/assets/Wallet_icon.png
+tim/dummy.php
+tim/header.php
+tim/index.php
+tim/index_page_manager.php
+tim/Routine.php
+tim/scheduler.php
+tim/Select.php
+tim/sql/final.sql
+tim/test.html
+Timora Old/add_routine.html
+Timora Old/Asset/CSS/animation.css
+Timora Old/Asset/CSS/popup.css
+Timora Old/Asset/CSS/style.css
+Timora Old/Asset/JS/date_detector.js
+Timora Old/Asset/JS/fetcher.js
+Timora Old/Asset/JS/scheduler.js
+Timora Old/clock.gif
+Timora Old/default.php
+Timora Old/dhbsspv.json
+Timora Old/error_report.html
+Timora Old/favicon.png
+Timora Old/final.json
+Timora Old/google3e02aedf03ff3efd.html
+Timora Old/google8807542adc50ca5c.html
+Timora Old/index.html
+Timora Old/input.html
+Timora Old/node_modules/.package-lock.json
+Timora Old/node_modules/@vercel/speed-insights/.eslintrc.cjs
+Timora Old/node_modules/@vercel/speed-insights/dist/astro/component.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/astro/index.astro
+Timora Old/node_modules/@vercel/speed-insights/dist/index.d.mts
+Timora Old/node_modules/@vercel/speed-insights/dist/index.d.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/index.js
+Timora Old/node_modules/@vercel/speed-insights/dist/index.js.map
+Timora Old/node_modules/@vercel/speed-insights/dist/index.mjs
+Timora Old/node_modules/@vercel/speed-insights/dist/index.mjs.map
+Timora Old/node_modules/@vercel/speed-insights/dist/next/index.d.mts
+Timora Old/node_modules/@vercel/speed-insights/dist/next/index.d.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/next/index.js
+Timora Old/node_modules/@vercel/speed-insights/dist/next/index.js.map
+Timora Old/node_modules/@vercel/speed-insights/dist/next/index.mjs
+Timora Old/node_modules/@vercel/speed-insights/dist/next/index.mjs.map
+Timora Old/node_modules/@vercel/speed-insights/dist/nuxt/index.d.mts
+Timora Old/node_modules/@vercel/speed-insights/dist/nuxt/index.d.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/nuxt/index.js
+Timora Old/node_modules/@vercel/speed-insights/dist/nuxt/index.js.map
+Timora Old/node_modules/@vercel/speed-insights/dist/nuxt/index.mjs
+Timora Old/node_modules/@vercel/speed-insights/dist/nuxt/index.mjs.map
+Timora Old/node_modules/@vercel/speed-insights/dist/react/index.d.mts
+Timora Old/node_modules/@vercel/speed-insights/dist/react/index.d.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/react/index.js
+Timora Old/node_modules/@vercel/speed-insights/dist/react/index.js.map
+Timora Old/node_modules/@vercel/speed-insights/dist/react/index.mjs
+Timora Old/node_modules/@vercel/speed-insights/dist/react/index.mjs.map
+Timora Old/node_modules/@vercel/speed-insights/dist/remix/index.d.mts
+Timora Old/node_modules/@vercel/speed-insights/dist/remix/index.d.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/remix/index.js
+Timora Old/node_modules/@vercel/speed-insights/dist/remix/index.js.map
+Timora Old/node_modules/@vercel/speed-insights/dist/remix/index.mjs
+Timora Old/node_modules/@vercel/speed-insights/dist/remix/index.mjs.map
+Timora Old/node_modules/@vercel/speed-insights/dist/sveltekit/index.d.mts
+Timora Old/node_modules/@vercel/speed-insights/dist/sveltekit/index.d.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/sveltekit/index.js
+Timora Old/node_modules/@vercel/speed-insights/dist/sveltekit/index.js.map
+Timora Old/node_modules/@vercel/speed-insights/dist/sveltekit/index.mjs
+Timora Old/node_modules/@vercel/speed-insights/dist/sveltekit/index.mjs.map
+Timora Old/node_modules/@vercel/speed-insights/dist/vue/index.d.mts
+Timora Old/node_modules/@vercel/speed-insights/dist/vue/index.d.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/vue/index.js
+Timora Old/node_modules/@vercel/speed-insights/dist/vue/index.js.map
+Timora Old/node_modules/@vercel/speed-insights/dist/vue/index.mjs
+Timora Old/node_modules/@vercel/speed-insights/dist/vue/index.mjs.map
+Timora Old/node_modules/@vercel/speed-insights/jest.config.js
+Timora Old/node_modules/@vercel/speed-insights/jest.setup.ts
+Timora Old/node_modules/@vercel/speed-insights/LICENSE
+Timora Old/node_modules/@vercel/speed-insights/package.json
+Timora Old/node_modules/@vercel/speed-insights/README.md
+Timora Old/node_modules/@vercel/speed-insights/scripts/postinstall.mjs
+Timora Old/node_modules/@vercel/speed-insights/tsconfig.json
+Timora Old/node_modules/@vercel/speed-insights/tsup.config.js
+Timora Old/package-lock.json
+Timora Old/package.json
+Timora Old/README.md
+Timora Old/rkm.json
+Timora Old/schedule.json
+Timora Old/schedule.txt
+Timora Old/scheduler.html
+Timora Old/script.R
+Timora Old/second.json
+Timora Old/sitemap.xml
+Timora Old/timora.png
+TImora/.htaccess
+Timora/.vscode/launch.json
+Timora/.vscode/settings.json
+TImora/assets/image.png
+TImora/assets/plus_button.svg
+TImora/assets/purchase_with_purpose.png
+TImora/assets/rupee_sign.svg
+TImora/assets/save_button.png
+TImora/assets/Wallet_icon.png
+TImora/dummy.php
+TImora/header.php
+TImora/index.php
+TImora/index_page_manager.php
+TImora/Routine.php
+TImora/scheduler.php
+TImora/Select.php
+TImora/sql/final.sql
+TImora/test.html
+.DS_Store
+index.php
+tim/.htaccess
+tim/.vscode/c_cpp_properties.json
+tim/.vscode/launch.json
+tim/.vscode/settings.json
+tim/assets/image.png
+tim/assets/plus_button.svg
+tim/assets/purchase_with_purpose.png
+tim/assets/rupee_sign.svg
+tim/assets/save_button.png
+tim/assets/Wallet_icon.png
+tim/dummy.php
+tim/header.php
+tim/index.php
+tim/index_page_manager.php
+tim/Routine.php
+tim/scheduler.php
+tim/Select.php
+tim/sql/final.sql
+tim/test.html
+Timora Old/add_routine.html
+Timora Old/Asset/CSS/animation.css
+Timora Old/Asset/CSS/popup.css
+Timora Old/Asset/CSS/style.css
+Timora Old/Asset/JS/date_detector.js
+Timora Old/Asset/JS/fetcher.js
+Timora Old/Asset/JS/scheduler.js
+Timora Old/clock.gif
+Timora Old/default.php
+Timora Old/dhbsspv.json
+Timora Old/error_report.html
+Timora Old/favicon.png
+Timora Old/final.json
+Timora Old/google3e02aedf03ff3efd.html
+Timora Old/google8807542adc50ca5c.html
+Timora Old/index.html
+Timora Old/input.html
+Timora Old/node_modules/.package-lock.json
+Timora Old/node_modules/@vercel/speed-insights/.eslintrc.cjs
+Timora Old/node_modules/@vercel/speed-insights/dist/astro/component.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/astro/index.astro
+Timora Old/node_modules/@vercel/speed-insights/dist/index.d.mts
+Timora Old/node_modules/@vercel/speed-insights/dist/index.d.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/index.js
+Timora Old/node_modules/@vercel/speed-insights/dist/index.js.map
+Timora Old/node_modules/@vercel/speed-insights/dist/index.mjs
+Timora Old/node_modules/@vercel/speed-insights/dist/index.mjs.map
+Timora Old/node_modules/@vercel/speed-insights/dist/next/index.d.mts
+Timora Old/node_modules/@vercel/speed-insights/dist/next/index.d.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/next/index.js
+Timora Old/node_modules/@vercel/speed-insights/dist/next/index.js.map
+Timora Old/node_modules/@vercel/speed-insights/dist/next/index.mjs
+Timora Old/node_modules/@vercel/speed-insights/dist/next/index.mjs.map
+Timora Old/node_modules/@vercel/speed-insights/dist/nuxt/index.d.mts
+Timora Old/node_modules/@vercel/speed-insights/dist/nuxt/index.d.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/nuxt/index.js
+Timora Old/node_modules/@vercel/speed-insights/dist/nuxt/index.js.map
+Timora Old/node_modules/@vercel/speed-insights/dist/nuxt/index.mjs
+Timora Old/node_modules/@vercel/speed-insights/dist/nuxt/index.mjs.map
+Timora Old/node_modules/@vercel/speed-insights/dist/react/index.d.mts
+Timora Old/node_modules/@vercel/speed-insights/dist/react/index.d.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/react/index.js
+Timora Old/node_modules/@vercel/speed-insights/dist/react/index.js.map
+Timora Old/node_modules/@vercel/speed-insights/dist/react/index.mjs
+Timora Old/node_modules/@vercel/speed-insights/dist/react/index.mjs.map
+Timora Old/node_modules/@vercel/speed-insights/dist/remix/index.d.mts
+Timora Old/node_modules/@vercel/speed-insights/dist/remix/index.d.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/remix/index.js
+Timora Old/node_modules/@vercel/speed-insights/dist/remix/index.js.map
+Timora Old/node_modules/@vercel/speed-insights/dist/remix/index.mjs
+Timora Old/node_modules/@vercel/speed-insights/dist/remix/index.mjs.map
+Timora Old/node_modules/@vercel/speed-insights/dist/sveltekit/index.d.mts
+Timora Old/node_modules/@vercel/speed-insights/dist/sveltekit/index.d.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/sveltekit/index.js
+Timora Old/node_modules/@vercel/speed-insights/dist/sveltekit/index.js.map
+Timora Old/node_modules/@vercel/speed-insights/dist/sveltekit/index.mjs
+Timora Old/node_modules/@vercel/speed-insights/dist/sveltekit/index.mjs.map
+Timora Old/node_modules/@vercel/speed-insights/dist/vue/index.d.mts
+Timora Old/node_modules/@vercel/speed-insights/dist/vue/index.d.ts
+Timora Old/node_modules/@vercel/speed-insights/dist/vue/index.js
+Timora Old/node_modules/@vercel/speed-insights/dist/vue/index.js.map
+Timora Old/node_modules/@vercel/speed-insights/dist/vue/index.mjs
+Timora Old/node_modules/@vercel/speed-insights/dist/vue/index.mjs.map
+Timora Old/node_modules/@vercel/speed-insights/jest.config.js
+Timora Old/node_modules/@vercel/speed-insights/jest.setup.ts
+Timora Old/node_modules/@vercel/speed-insights/LICENSE
+Timora Old/node_modules/@vercel/speed-insights/package.json
+Timora Old/node_modules/@vercel/speed-insights/README.md
+Timora Old/node_modules/@vercel/speed-insights/scripts/postinstall.mjs
+Timora Old/node_modules/@vercel/speed-insights/tsconfig.json
+Timora Old/node_modules/@vercel/speed-insights/tsup.config.js
+Timora Old/package-lock.json
+Timora Old/package.json
+Timora Old/README.md
+Timora Old/rkm.json
+Timora Old/schedule.json
+Timora Old/schedule.txt
+Timora Old/scheduler.html
+Timora Old/script.R
+Timora Old/second.json
+Timora Old/sitemap.xml
+Timora Old/timora.png
+TImora/.htaccess
+Timora/.vscode/launch.json
+Timora/.vscode/settings.json
+TImora/assets/image.png
+TImora/assets/plus_button.svg
+TImora/assets/purchase_with_purpose.png
+TImora/assets/rupee_sign.svg
+TImora/assets/save_button.png
+TImora/assets/Wallet_icon.png
+TImora/dummy.php
+TImora/header.php
+TImora/index_page_manager.php
+TImora/Routine.php
+TImora/scheduler.php
+TImora/Select.php
+TImora/sql/final.sql
+TImora/test.html
